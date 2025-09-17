@@ -23,7 +23,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Halil İbrahim Öz',
     role: 'Takım Kaptanı',
     year: '2024-',
-    image: 'img/Halil.jpg',
+    image: 'img/takim/Halil.png',
     isCaptain: true,
     type: 'member'
   },
@@ -32,7 +32,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Muhammet Miraç Aktemur',
     role: 'Mekanik ve Takım Kaptanı',
     year: '2024-',
-    image: 'img/Miraç.jpg',
+    image: 'img/takim/Mirac.png',
     isCaptain: true,
     type: 'member'
   },
@@ -41,7 +41,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Alperen Dağ',
     role: 'Yazılım ve Elektrik',
     year: '2025-',
-    image: 'img/Alperen.jpg',
+    image: 'img/takim/Alperen.png',
     isCaptain: false,
     type: 'member'
   },
@@ -50,7 +50,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Emirhan Akın',
     role: 'Mekanik ve Güvenlik Kaptanı',
     year: '2024-',
-    image: 'img/emirhan.jpeg',
+    image: 'img/takim/Emirhan.png',
     isCaptain: true,
     type: 'member'
   },
@@ -59,7 +59,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Hüseyin Kalaycı',
     role: 'Mekanik',
     year: '2024-',
-    image: 'img/huseyin.jpg',
+    image: 'img/takim/Huseyin.png',
     isCaptain: false,
     type: 'member'
   },
@@ -68,7 +68,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Mustafa Muhiddin Yazı',
     role: 'Eş PR Kaptanı',
     year: '2024-',
-    image: 'img/Mustafa.jpg',
+    image: 'img/takim/Mustafa.png',
     isCaptain: true,
     type: 'member'
   },
@@ -77,7 +77,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Toprak Talha Soylu',
     role: 'Yazılım ve Elektrik Kaptanı',
     year: '2024-',
-    image: 'img/toprak.jpg',
+    image: 'img/takim/Toprak2.png',
     isCaptain: true,
     type: 'member'
   },
@@ -86,7 +86,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Tuana Akdemir',
     role: 'Mekanik ve Elektrik',
     year: '2024-',
-    image: 'img/Tuana.jpg',
+    image: 'img/takim/Tuana.png',
     isCaptain: false,
     type: 'member'
   },
@@ -95,7 +95,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Elif Gülsüm Şenol',
     role: 'Güvenlik Kaptanı ve Mekanik',
     year: '2024-',
-    image: 'img/Elif.jpg',
+    image: 'img/takim/Elif.png',
     isCaptain: true,
     type: 'member'
   },
@@ -104,7 +104,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Nurettin Nural',
     role: 'Elektrik Kaptanı ve Yazılım',
     year: '2024-',
-    image: 'img/nurettin.jpg',
+    image: 'img/takim/Nurettin.png',
     isCaptain: true,
     type: 'member'
   }
