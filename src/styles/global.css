@@ -197,3 +197,30 @@ body.menu-open {
     transition: none !important;
   }
 }
+
+/* Team member image cropping - focus on face/chest area */
+.team-member-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member-image img {
+  object-position: center top;
+  transform: translateY(-10%);
+}
+
+/* For very tall images, crop more aggressively */
+.team-member-image img.tall-crop {
+  transform: translateY(-20%);
+}
+
+/* Mobile responsive cropping */
+@media (max-width: 768px) {
+  .team-member-image img {
+    transform: translateY(-5%);
+  }
+
+  .team-member-image img.tall-crop {
+    transform: translateY(-15%);
+  }
+}

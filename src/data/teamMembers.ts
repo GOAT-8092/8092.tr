@@ -104,7 +104,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Nurettin Nural',
     role: 'Elektrik Kaptanı ve Yazılım',
     year: '2024-',
-    image: 'img/takim/Nurettin.png',
+    image: 'img/takim/Nurettin2.png',
     isCaptain: true,
     type: 'member'
   }
