@@ -1,11 +1,41 @@
 ---
+import { Image } from 'astro:assets';
 import { currentTeamMembers, teamMentors } from '../data/teamMembers';
 
-// Combine all team members (captains and regular members) but keep badge info
-const allCurrentMembers = currentTeamMembers;
+// Import all images from assets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 
-// Combine all mentors (lead and regular mentors) but keep badge info
-const allMentors = teamMentors;
+// Helper function to get image module
+async function getImageSrc(imagePath: string) {
+  // Extract filename from path
+  const filename = imagePath.split('/').pop();
+
+  // Try to find matching image in assets
+  for (const path in images) {
+    if (path.toLowerCase().includes(filename?.toLowerCase().replace('.png', '').replace('.jpg', '').replace('.jpeg', '') || '')) {
+      const mod = await images[path]();
+      return mod.default;
+    }
+  }
+
+  // Fallback to original path
+  return imagePath;
+}
+
+// Process team members with optimized images
+const membersWithImages = await Promise.all(
+  currentTeamMembers.map(async (member) => ({
+    ...member,
+    optimizedImage: await getImageSrc(member.image)
+  }))
+);
+
+const mentorsWithImages = await Promise.all(
+  teamMentors.map(async (mentor) => ({
+    ...mentor,
+    optimizedImage: await getImageSrc(mentor.image)
+  }))
+);
 ---
 
 <section id="takim" class="py-20 bg-gray-100 scroll-mt-24">
@@ -16,7 +46,7 @@ const allMentors = teamMentors;
     <div class="mb-12">
       <h3 class="text-2xl font-semibold text-gray-700 text-center mb-8">Takım Üyeleri</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {allCurrentMembers.map((member) => (
+        {membersWithImages.map((member) => (
           <div class="glass-card overflow-hidden relative">
             {member.isCaptain && (
               <div class="absolute top-2 right-2 z-10">
@@ -24,14 +54,27 @@ const allMentors = teamMentors;
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-              <img
-                src={member.image}
-                alt={member.name}
-                width={300}
-                height={256}
-                loading="lazy"
-                class="w-full h-full object-cover"
-              />
+              {typeof member.optimizedImage === 'string' ? (
+                <img
+                  src={member.optimizedImage}
+                  alt={member.name}
+                  width={300}
+                  height={256}
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={member.optimizedImage}
+                  alt={member.name}
+                  width={300}
+                  height={256}
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                  format="webp"
+                  quality={80}
+                />
+              )}
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{member.name}</h3>
@@ -48,7 +91,7 @@ const allMentors = teamMentors;
       <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Mentorlarımız</h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {allMentors.map((mentor) => (
+        {mentorsWithImages.map((mentor) => (
           <div class="glass-card overflow-hidden relative">
             {mentor.isLeadMentor && (
               <div class="absolute top-2 right-2 z-10">
@@ -56,13 +99,15 @@ const allMentors = teamMentors;
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-              <img
-                src={mentor.image}
+              <Image
+                src={mentor.optimizedImage}
                 alt={mentor.name}
                 width={300}
                 height={256}
                 loading="lazy"
                 class="w-full h-full object-cover"
+                format="webp"
+                quality={80}
               />
             </div>
             <div class="p-6">
