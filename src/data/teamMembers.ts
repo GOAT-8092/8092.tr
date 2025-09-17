@@ -23,7 +23,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Halil İbrahim Öz',
     role: 'Takım Kaptanı',
     year: '2024-',
-    image: '/img/takim/Halil.png',
+    image: '/img/Halil.jpg',
     isCaptain: true,
     type: 'member'
   },
@@ -32,7 +32,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Muhammet Miraç Aktemur',
     role: 'Mekanik ve Takım Kaptanı',
     year: '2024-',
-    image: '/img/takim/Mirac.png',
+    image: '/img/Miraç.jpg',
     isCaptain: true,
     type: 'member'
   },
@@ -41,7 +41,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Alperen Dağ',
     role: 'Yazılım ve Elektrik',
     year: '2025-',
-    image: '/img/takim/Alperen.png',
+    image: '/img/Alperen.jpg',
     isCaptain: false,
     type: 'member'
   },
@@ -50,17 +50,8 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Emirhan Akın',
     role: 'Mekanik ve Güvenlik Kaptanı',
     year: '2024-',
-    image: '/img/takim/Emirhan.png',
+    image: '/img/Emirhan.jpg',
     isCaptain: true,
-    type: 'member'
-  },
-  {
-    id: 'huseyin-kalayci',
-    name: 'Hüseyin Kalaycı',
-    role: 'Mekanik',
-    year: '2024-',
-    image: '/img/takim/Huseyin.png',
-    isCaptain: false,
     type: 'member'
   },
   {
@@ -68,16 +59,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Mustafa Muhiddin Yazı',
     role: 'Eş PR Kaptanı',
     year: '2024-',
-    image: '/img/takim/Mustafa.png',
-    isCaptain: true,
-    type: 'member'
-  },
-  {
-    id: 'toprak-talha-soylu',
-    name: 'Toprak Talha Soylu',
-    role: 'Yazılım ve Elektrik Kaptanı',
-    year: '2024-',
-    image: '/img/takim/Toprak2.png',
+    image: '/img/Mustafa.jpg',
     isCaptain: true,
     type: 'member'
   },
@@ -86,7 +68,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Tuana Akdemir',
     role: 'Mekanik ve Elektrik',
     year: '2024-',
-    image: '/img/takim/Tuana.png',
+    image: '/img/Tuana.jpg',
     isCaptain: false,
     type: 'member'
   },
@@ -95,7 +77,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Elif Gülsüm Şenol',
     role: 'Güvenlik Kaptanı ve Mekanik',
     year: '2024-',
-    image: '/img/takim/Elif.png',
+    image: '/img/Elif.jpg',
     isCaptain: true,
     type: 'member'
   },
@@ -104,7 +86,7 @@ export const currentTeamMembers: TeamMember[] = [
     name: 'Nurettin Nural',
     role: 'Elektrik Kaptanı ve Yazılım',
     year: '2024-',
-    image: '/img/takim/Nurettin2.png',
+    image: '/img/nurettin.jpg',
     isCaptain: true,
     type: 'member'
   }
@@ -118,7 +100,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Hakan Köse',
     role: 'Baş Mentor',
     year: '2019-',
-    image: '/img/hakan.png',
+    image: '/img/Hakan Hoca.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: true
@@ -128,7 +110,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Ecem Çolak',
     role: 'Mentor',
     year: '2019-',
-    image: '/img/ecem.png',
+    image: '/img/colak.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
@@ -148,7 +130,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Ömer Faruk Günal',
     role: 'Mentor',
     year: '2019-',
-    image: '/img/omer.png',
+    image: '/img/omer.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
@@ -158,7 +140,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Ali Erkan Saruhan',
     role: 'Mentor',
     year: '2019-',
-    image: '/img/alierkansaruhan2.jpeg',
+    image: '/img/saruhan.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
@@ -179,7 +161,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Muhittin Özdemir',
     role: 'Mentor',
     year: '2022-',
-    image: '/img/muhittin.png',
+    image: '/img/muhittin.JPG',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
@@ -190,7 +172,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Kağan Bahadır Durgut',
     role: 'Mentor',
     year: '2024-',
-    image: '/img/kagan.png',
+    image: '/img/kagan.JPG',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
@@ -200,7 +182,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Hasret Okumuş',
     role: 'Mentor',
     year: '2024-',
-    image: '/img/hasret.png',
+    image: '/img/omer.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
