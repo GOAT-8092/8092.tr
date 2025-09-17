@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-This is the Astro-powered website for FRC Team 8092 "Greatest Of All Times" from Tekirdağ, Turkey. Successfully converted from static HTML to modern Astro framework. Team 8092 is the first and only FRC team in Tekirdağ province.
+This is the Astro-powered website for FRC Team 8092 "Greatest of All Times" from Tekirdağ, Turkey. Successfully converted from static HTML to modern Astro framework. Team 8092 is the first and only FRC team in Tekirdağ province.
 
 ## Architecture
 - **Framework**: Astro v5.13.7 with TypeScript
