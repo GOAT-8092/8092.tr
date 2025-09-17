@@ -138,3 +138,16 @@ html {
 body {
   font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
 }
+
+/* Fix for capital I rendering in Atkinson Hyperlegible font */
+.font-fix-i {
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Specific fix for FIRST badge text */
+.first-badge {
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
