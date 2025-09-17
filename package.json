@@ -12,7 +12,8 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/atkinson-hyperlegible": "^5.2.7",
     "@fontsource/inter": "^5.2.7",
-    "astro": "^5.13.7"
+    "astro": "^5.13.7",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
