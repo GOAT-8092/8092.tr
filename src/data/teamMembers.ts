@@ -262,13 +262,13 @@ export const teamHistory = {
   },
   2020: {
     season: 'Infinite Recharge',
-    status: 'İlk resmi müsabaka',
+    status: 'İlk resmi yarışma',
     achievements: ['🏆 Rookie All Star Ödülü', 'Bosphorus Regional 27. sıra', '4–4 maç derecesi']
   },
   2021: {
     season: 'Infinite Recharge at Home',
     status: 'Online yarışmalar',
-    achievements: ['Germanium Group 11. sıra', 'Veliköy OSB MTAL öğrencileri katıldı', 'Junior G.O.A.T. alt takımı kuruldu']
+    achievements: ['Germanium Group 11. sıra', 'Veliköy OSB MTAL öğrencileri katıldı', 'G.O.A.T. Jr. alt takımı kuruldu']
   },
   2022: {
     season: 'Rapid React',

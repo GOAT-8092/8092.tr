@@ -51,16 +51,16 @@
     padding-bottom: 4rem;
   }
 
-  /* Transparent Purple Navigation */
+  /* AstroWind Style Navigation */
   .glass-nav {
-    background: rgba(81, 47, 117, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 0;
-    box-shadow: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    will-change: transform;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
   }
 
   .glass-nav::before {
@@ -76,28 +76,20 @@
   }
 
   .glass-nav-item {
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
+    color: rgb(31, 41, 55);
+    font-weight: 500;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
+    border-radius: 6px;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-    text-shadow: none;
+    transition: all 0.15s ease;
+    text-decoration: none;
   }
 
   .glass-nav-item:hover {
-    color: rgba(255, 255, 255, 1);
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px) saturate(150%);
-    -webkit-backdrop-filter: blur(10px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: none;
-    transform: translateY(-1px);
-    text-shadow: none;
+    color: rgb(1, 97, 239);
+    background: rgba(1, 97, 239, 0.05);
   }
 
   .glass-nav-item::before {
