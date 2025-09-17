@@ -1,0 +1,60 @@
+---
+import { currentTeamMembers, teamMentors } from '../data/teamMembers';
+
+// Combine all team members (captains and regular members) but keep badge info
+const allCurrentMembers = currentTeamMembers;
+
+// Combine all mentors (lead and regular mentors) but keep badge info
+const allMentors = teamMentors;
+---
+
+<section id="takim" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Takım Üyelerimiz</h2>
+
+    <!-- Current Team Members (Captains + Regular Members) -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold text-gray-700 text-center mb-8">Takım Üyeleri</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {allCurrentMembers.map((member) => (
+          <div class="glass-card overflow-hidden relative">
+            {member.isCaptain && (
+              <div class="absolute top-2 right-2 z-10">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">Kaptan</span>
+              </div>
+            )}
+            <img src={member.image} alt={member.name} class="w-full h-64 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800">{member.name}</h3>
+              <p class="text-gray-600">{member.role}</p>
+              <p class="text-gray-500 text-sm">{member.year}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Team Mentors Section (Lead + Regular Mentors) -->
+    <div class="mt-16 pt-16 border-t border-gray-300">
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Mentorlarımız</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {allMentors.map((mentor) => (
+          <div class="glass-card overflow-hidden relative">
+            {mentor.isLeadMentor && (
+              <div class="absolute top-2 right-2 z-10">
+                <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">Baş Mentor</span>
+              </div>
+            )}
+            <img src={mentor.image} alt={mentor.name} class="w-full h-64 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800">{mentor.name}</h3>
+              <p class="text-gray-600">{mentor.role}</p>
+              <p class="text-gray-500 text-sm">{mentor.year}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

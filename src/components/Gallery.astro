@@ -1,0 +1,365 @@
+---
+// Gallery.astro - Galeri (Gallery) section component
+---
+
+<section id="galeri" class="pt-32 pb-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Galeri</h2>
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Gallery Filter -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="gallery-filter active glass-nav-item bg-primary/80 text-white" data-filter="*">
+          Tümü
+        </button>
+        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".robots">
+          Robotlar
+        </button>
+        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".team">
+          Takım
+        </button>
+        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".competitions">
+          Yarışmalar
+        </button>
+        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".outreach">
+          Toplum Hizmeti
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+        <!-- Robot Images -->
+        <div class="gallery-item robots">
+          <a href="https://picsum.photos/800/600?random=1" data-fancybox="gallery" data-caption="2025 FRC Robot - REEFSCAPE">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=1" alt="2025 FRC Robot" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">2025 Robot</h4>
+                  <p class="text-sm">REEFSCAPE</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item robots">
+          <a href="https://picsum.photos/800/600?random=2" data-fancybox="gallery" data-caption="2025 Robot Detay Görünümü">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=2" alt="Robot Detay" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Robot Detay</h4>
+                  <p class="text-sm">Mekanizma</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item robots">
+          <a href="https://picsum.photos/800/600?random=3" data-fancybox="gallery" data-caption="2024 FRC Robot - Crescendo">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=3" alt="2024 FRC Robot" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">2024 Robot</h4>
+                  <p class="text-sm">Crescendo</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Team Images -->
+        <div class="gallery-item team">
+          <a href="https://picsum.photos/800/600?random=4" data-fancybox="gallery" data-caption="G.O.A.T. 8092 Takım Fotoğrafı 2025">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=4" alt="Takım Fotoğrafı 2025" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Takım 2025</h4>
+                  <p class="text-sm">G.O.A.T. 8092</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item team">
+          <a href="https://picsum.photos/800/600?random=5" data-fancybox="gallery" data-caption="Takım Çalışma Anları">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=5" alt="Takım Çalışması" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Workshop</h4>
+                  <p class="text-sm">Takım Çalışması</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item team">
+          <a href="https://picsum.photos/800/600?random=6" data-fancybox="gallery" data-caption="Mentorlar ve Takım">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=6" alt="Mentorlar ve Takım" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Mentorlar</h4>
+                  <p class="text-sm">Deneyim Paylaşımı</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Competition Images -->
+        <div class="gallery-item competitions">
+          <a href="https://picsum.photos/800/600?random=7" data-fancybox="gallery" data-caption="Bosphorus Regional 2025">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=7" alt="Bosphorus Regional 2025" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Bosphorus Regional</h4>
+                  <p class="text-sm">2025</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item competitions">
+          <a href="https://picsum.photos/800/600?random=8" data-fancybox="gallery" data-caption="Yarışma Anları">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=8" alt="Yarışma Anları" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Yarışma</h4>
+                  <p class="text-sm">Aksiyonda</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item competitions">
+          <a href="https://picsum.photos/800/600?random=9" data-fancybox="gallery" data-caption="Rookie All Star Ödülü - 2020">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=9" alt="Rookie All Star Ödülü" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Rookie All Star</h4>
+                  <p class="text-sm">2020 Ödülü</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Outreach Images -->
+        <div class="gallery-item outreach">
+          <a href="https://picsum.photos/800/600?random=10" data-fancybox="gallery" data-caption="STEM Workshop - Öğrenci Eğitimi">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=10" alt="STEM Workshop" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">STEM Workshop</h4>
+                  <p class="text-sm">Eğitim</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item outreach">
+          <a href="https://picsum.photos/800/600?random=11" data-fancybox="gallery" data-caption="Junior G.O.A.T. Eğitimi">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=11" alt="Junior G.O.A.T. Eğitimi" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Junior G.O.A.T.</h4>
+                  <p class="text-sm">Mentorluk</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item outreach">
+          <a href="https://picsum.photos/800/600?random=12" data-fancybox="gallery" data-caption="Toplum Etkinliği">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=12" alt="Toplum Etkinliği" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Toplum Etkinliği</h4>
+                  <p class="text-sm">Farkındalık</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Additional Images -->
+        <div class="gallery-item team">
+          <a href="https://picsum.photos/800/600?random=13" data-fancybox="gallery" data-caption="Takım Geliştirme Etkinliği">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=13" alt="Takım Geliştirme" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Takım Geliştirme</h4>
+                  <p class="text-sm">Etkinlik</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item robots">
+          <a href="https://picsum.photos/800/600?random=14" data-fancybox="gallery" data-caption="Robot CAD Tasarımı">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=14" alt="CAD Tasarım" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">CAD Tasarım</h4>
+                  <p class="text-sm">3D Modelleme</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item competitions">
+          <a href="https://picsum.photos/800/600?random=15" data-fancybox="gallery" data-caption="Pit Alanımız">
+            <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <img src="https://picsum.photos/400/300?random=15" alt="Pit Alanı" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 text-white">
+                  <h4 class="font-bold">Pit Alanı</h4>
+                  <p class="text-sm">Hazırlık</p>
+                </div>
+                <div class="absolute top-4 right-4 text-white">
+                  <i class="fas fa-expand-alt"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Gallery Stats -->
+      <div class="mt-16 bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <h3 class="text-3xl font-bold mb-2">6+</h3>
+            <p class="text-lg">Yıl Deneyim</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold mb-2">5+</h3>
+            <p class="text-lg">Robot Tasarımı</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold mb-2">100+</h3>
+            <p class="text-lg">Fotoğraf</p>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold mb-2">1000+</h3>
+            <p class="text-lg">Anı</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Gallery filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.gallery-filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-primary', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+
+        // Add active class to clicked button
+        this.classList.add('active', 'bg-primary', 'text-white');
+        this.classList.remove('bg-gray-200', 'text-gray-700');
+
+        // Get filter value
+        const filterValue = this.getAttribute('data-filter');
+
+        // Show/hide gallery items
+        galleryItems.forEach(item => {
+          if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Initialize gallery items with transition
+    galleryItems.forEach(item => {
+      item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    });
+  });
+</script>

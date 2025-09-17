@@ -1,0 +1,84 @@
+---
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
+import '@fontsource/atkinson-hyperlegible/400-italic.css';
+import '@fontsource/atkinson-hyperlegible/700-italic.css';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest Of All Times' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/goat_logo_-_beyaz.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
+  </head>
+  <body id="anasayfa" class="bg-gray-50">
+    <slot />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <script is:inline>
+      // Initialize Fancybox
+      if (typeof Fancybox !== 'undefined') {
+        Fancybox.bind('[data-fancybox="gallery"]', {
+          // Custom options if needed
+        });
+      }
+
+      // Smooth scrolling function
+      function scrollWindowTo(id) {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80; // Navbar height
+          const elementPosition = element.offsetTop - offset;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      // Page down function
+      function pagedown() {
+        const element = document.getElementById('hakkimizda');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.querySelector('[data-toggle="collapse"]');
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function () {
+            const menu = document.getElementById('navbarSupportedContent');
+            if (menu) {
+              menu.classList.toggle('hidden');
+            }
+          });
+        }
+      });
+
+      // Make functions globally available
+      window.scrollWindowTo = scrollWindowTo;
+      window.pagedown = pagedown;
+    </script>
+  </body>
+</html>
