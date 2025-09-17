@@ -1,5 +1,6 @@
 ---
 import { currentTeamMembers, teamMentors } from '../data/teamMembers';
+import { Image } from '@astrojs/image';
 
 // Combine all team members (captains and regular members) but keep badge info
 const allCurrentMembers = currentTeamMembers;
@@ -23,7 +24,15 @@ const allMentors = teamMentors;
                 <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">Kaptan</span>
               </div>
             )}
-            <img src={member.image} alt={member.name} width="300" height="256" loading="lazy" decoding="async" class="w-full h-64 object-cover" />
+            <Image
+                  src={member.image}
+                  alt={member.name}
+                  width="300"
+                  height="256"
+                  format="webp"
+                  loading="lazy"
+                  class="w-full h-64 object-cover"
+                />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{member.name}</h3>
               <p class="text-gray-600">{member.role}</p>
@@ -46,7 +55,15 @@ const allMentors = teamMentors;
                 <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">Baş Mentor</span>
               </div>
             )}
-            <img src={mentor.image} alt={mentor.name} width="300" height="256" loading="lazy" decoding="async" class="w-full h-64 object-cover" />
+            <Image
+                  src={mentor.image}
+                  alt={mentor.name}
+                  width="300"
+                  height="256"
+                  format="webp"
+                  loading="lazy"
+                  class="w-full h-64 object-cover"
+                />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{mentor.name}</h3>
               <p class="text-gray-600">{mentor.role}</p>

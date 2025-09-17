@@ -1,0 +1,16 @@
+{
+  "images": {
+    "domains": [
+      "localhost"
+    ],
+    "formats": ["image/webp", "image/avif"],
+    "minimumCacheTTL": 31536000,
+    "dangerouslyAllowSVG": true,
+    "contentSecurityPolicy": "default-src 'self'; script-src 'none'; sandbox;"
+  },
+  "functions": {
+    "app/**/*.astro": {
+      "maxDuration": 30
+    }
+  }
+}
