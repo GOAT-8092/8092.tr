@@ -12,8 +12,8 @@
         </div>
       </div>
 
-      <button class="lg:hidden glass-nav-item p-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-        <i class="fas fa-bars text-gray-700"></i>
+      <button class="lg:hidden glass-nav-item p-2" type="button" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars text-gray-700" id="mobile-menu-icon"></i>
       </button>
 
       <div class="hidden lg:flex items-center space-x-6" id="navbarSupportedContent">
@@ -31,5 +31,49 @@
           onclick="scrollWindowTo('iletisim')">İletişim</a>
       </div>
     </div>
+
+    <!-- Mobile menu dropdown -->
+    <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">Anasayfa</a>
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">Hakkımızda</a>
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('takim'); closeMobileMenu()">Takım</a>
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">Projelerimiz</a>
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('galeri'); closeMobileMenu()">Galeri</a>
+        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('iletisim'); closeMobileMenu()">İletişim</a>
+      </div>
+    </div>
   </div>
 </nav>
+
+<script>
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('mobile-menu-icon');
+
+  if (mobileMenu.classList.contains('hidden')) {
+    mobileMenu.classList.remove('hidden');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-times');
+  } else {
+    mobileMenu.classList.add('hidden');
+    menuIcon.classList.remove('fa-times');
+    menuIcon.classList.add('fa-bars');
+  }
+}
+
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('mobile-menu-icon');
+
+  mobileMenu.classList.add('hidden');
+  menuIcon.classList.remove('fa-times');
+  menuIcon.classList.add('fa-bars');
+}
+</script>
