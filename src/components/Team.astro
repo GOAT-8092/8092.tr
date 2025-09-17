@@ -1,5 +1,6 @@
 ---
 import { currentTeamMembers, teamMentors } from '../data/teamMembers';
+import { Image } from 'astro:assets';
 
 // Combine all team members (captains and regular members) but keep badge info
 const allCurrentMembers = currentTeamMembers;
@@ -24,13 +25,12 @@ const allMentors = teamMentors;
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
-                  width="300"
-                  height="256"
+                  width={300}
+                  height={256}
                   loading="lazy"
-                  decoding="async"
                   class="w-full h-full object-cover"
                 />
               </div>
@@ -57,13 +57,12 @@ const allMentors = teamMentors;
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-                <img
+                <Image
                   src={mentor.image}
                   alt={mentor.name}
-                  width="300"
-                  height="256"
+                  width={300}
+                  height={256}
                   loading="lazy"
-                  decoding="async"
                   class="w-full h-full object-cover"
                 />
               </div>
