@@ -12,22 +12,22 @@
         </div>
       </div>
 
-      <button class="lg:hidden glass-nav-item p-2" type="button" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars text-gray-700" id="mobile-menu-icon"></i>
+      <button class="lg:hidden glass-nav-item p-2" type="button" onclick="toggleMobileMenu()" aria-label="Menüyü aç/kapat">
+        <i class="fas fa-bars text-gray-700" id="mobile-menu-icon" aria-hidden="true"></i>
       </button>
 
       <div class="hidden lg:flex items-center space-x-6" id="navbarSupportedContent">
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#anasayfa" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('anasayfa')">Anasayfa</a>
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#hakkimizda" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('hakkimizda')">Hakkımızda</a>
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#takim" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('takim')">Takım</a>
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#projelerimiz" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('projelerimiz')">Projelerimiz</a>
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#galeri" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('galeri')">Galeri</a>
-        <a class="glass-nav-item cursor-pointer"
+        <a href="#iletisim" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('iletisim')">İletişim</a>
       </div>
     </div>
@@ -35,17 +35,17 @@
     <!-- Mobile menu dropdown -->
     <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#anasayfa" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">Anasayfa</a>
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#hakkimizda" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">Hakkımızda</a>
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#takim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('takim'); closeMobileMenu()">Takım</a>
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#projelerimiz" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">Projelerimiz</a>
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#galeri" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('galeri'); closeMobileMenu()">Galeri</a>
-        <a class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+        <a href="#iletisim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('iletisim'); closeMobileMenu()">İletişim</a>
       </div>
     </div>

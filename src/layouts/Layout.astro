@@ -21,13 +21,56 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="FRC, FIRST Robotics Competition, GOAT 8092, Tekirdağ, robotik, STEM, öğrenci takımı, 8092" />
+    <meta name="author" content="FRC Takımı G.O.A.T. 8092" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://8092.tr/" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://8092.tr/og-cover.jpg" />
+    <meta property="og:url" content="https://8092.tr/" />
+    <meta property="og:site_name" content="G.O.A.T. 8092" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://8092.tr/og-cover.jpg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "G.O.A.T. 8092",
+      "alternateName": "GOAT 8092",
+      "url": "https://8092.tr/",
+      "logo": "https://8092.tr/img/goat_logo.png",
+      "foundingDate": "2019-06",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Çerkezköy",
+        "addressRegion": "Tekirdağ",
+        "addressCountry": "TR"
+      },
+      "email": "mailto:goat8092@gmail.com",
+      "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
+      "sameAs": [
+        "https://instagram.com/goat8092",
+        "https://twitter.com/goat8092"
+      ]
+    }
+    </script>
     <link rel="icon" href="/goat_logo_-_beyaz.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&subset=latin,latin-ext&display=swap" rel="stylesheet">
-  </head>
+      </head>
   <body id="anasayfa" class="bg-gray-50">
     <slot />
 
