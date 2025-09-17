@@ -26,12 +26,13 @@ jobs:
     - name: Build project
       run: npm run build
 
+    - name: Install Vercel CLI
+      run: npm install -g vercel@latest
+
     - name: Deploy to Vercel
-      uses: vercel/action@v1
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        working-directory: .
+      run: |
+        vercel deploy --prod \
+          --token ${{ secrets.VERCEL_TOKEN }} \
+          --name "8092.tr"
       env:
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
