@@ -55,11 +55,29 @@ export const currentTeamMembers: TeamMember[] = [
     type: 'member'
   },
   {
+    id: 'huseyin-kalayci',
+    name: 'Hüseyin Kalaycı',
+    role: 'Mekanik',
+    year: '2024-',
+    image: 'Huseyin.png',
+    isCaptain: false,
+    type: 'member'
+  },
+  {
     id: 'mustafa-muhiddin-yazi',
     name: 'Mustafa Muhiddin Yazı',
     role: 'Eş PR Kaptanı',
     year: '2024-',
     image: 'Mustafa.png',
+    isCaptain: true,
+    type: 'member'
+  },
+  {
+    id: 'toprak-talha-soylu',
+    name: 'Toprak Talha Soylu',
+    role: 'Yazılım ve Elektrik Kaptanı',
+    year: '2024-',
+    image: 'Toprak2.png',
     isCaptain: true,
     type: 'member'
   },
