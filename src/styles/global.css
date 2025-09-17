@@ -133,10 +133,19 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  scrollbar-gutter: stable;
+}
+
+/* Preserve scrollbar width to prevent layout shift */
+body.menu-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Fix for capital I rendering in Atkinson Hyperlegible font */
@@ -150,4 +159,41 @@ body {
   font-family: system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: 0.05em;
+}
+
+/* Enhanced accessibility and color contrast improvements */
+.glass-nav-item {
+  color: rgb(17, 24, 39) !important;
+  font-weight: 600 !important;
+}
+
+.glass-nav-item:hover {
+  color: rgb(31, 41, 55) !important;
+  background: rgba(31, 41, 55, 0.08) !important;
+}
+
+.glass-nav-item:focus-visible {
+  outline: 2px solid rgb(99, 102, 241) !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  .glass-nav-item {
+    color: rgb(0, 0, 0) !important;
+    border: 1px solid rgb(0, 0, 0) !important;
+  }
+
+  .glass-nav-item:hover {
+    background: rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .glass-nav-item,
+  .first-badge,
+  img {
+    transition: none !important;
+  }
 }

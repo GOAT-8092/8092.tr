@@ -5,14 +5,22 @@
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center py-2">
       <div class="flex items-center space-x-3">
-        <img src="/img/goat_logo_-_beyaz2.png" alt="GOAT Logo" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110"
+        <img src="/logo-black.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110 dark:hidden"
+          onclick="scrollWindowTo('anasayfa')">
+        <img src="/logo-white.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110 hidden dark:block"
           onclick="scrollWindowTo('anasayfa')">
         <div class="text-lg font-bold text-gray-800" id="logo-text">
           G.O.A.T. #8092
         </div>
       </div>
 
-      <button class="lg:hidden glass-nav-item p-2" type="button" onclick="toggleMobileMenu()" aria-label="Menüyü aç/kapat">
+      <button id="mobile-menu-button"
+        class="lg:hidden glass-nav-item p-2"
+        type="button"
+        aria-label="Menüyü aç/kapat"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        onclick="toggleMobileMenu()">
         <i class="fas fa-bars text-gray-700" id="mobile-menu-icon" aria-hidden="true"></i>
       </button>
 
@@ -52,28 +60,3 @@
   </div>
 </nav>
 
-<script>
-function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('mobile-menu-icon');
-
-  if (mobileMenu.classList.contains('hidden')) {
-    mobileMenu.classList.remove('hidden');
-    menuIcon.classList.remove('fa-bars');
-    menuIcon.classList.add('fa-times');
-  } else {
-    mobileMenu.classList.add('hidden');
-    menuIcon.classList.remove('fa-times');
-    menuIcon.classList.add('fa-bars');
-  }
-}
-
-function closeMobileMenu() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('mobile-menu-icon');
-
-  mobileMenu.classList.add('hidden');
-  menuIcon.classList.remove('fa-times');
-  menuIcon.classList.add('fa-bars');
-}
-</script>

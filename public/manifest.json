@@ -1,0 +1,27 @@
+{
+  "name": "G.O.A.T. 8092 - FRC Team",
+  "short_name": "GOAT 8092",
+  "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#512f75",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo-black.svg",
+      "sizes": "200x354",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-white.svg",
+      "sizes": "200x354",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "technology", "robotics"],
+  "lang": "tr",
+  "scope": "/"
+}

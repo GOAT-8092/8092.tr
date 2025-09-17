@@ -51,7 +51,7 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
       "name": "G.O.A.T. 8092",
       "alternateName": "GOAT 8092",
       "url": "https://8092.tr/",
-      "logo": "https://8092.tr/img/goat_logo.png",
+      "logo": "https://8092.tr/logo-black.svg",
       "foundingDate": "2019-06",
       "address": {
         "@type": "PostalAddress",
@@ -67,15 +67,42 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
       ]
     }
     </script>
-    <link rel="icon" href="/goat_logo_-_beyaz.ico" type="image/x-icon">
+    <!-- Preload critical resources for better Core Web Vitals -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" as="style" />
+    <link rel="preload" href="/logo-black.svg" as="image" />
+    <link rel="preload" href="/logo-white.svg" as="image" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Connect preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://code.jquery.com" />
+
+    <link rel="icon" href="/logo-black.svg" type="image/svg+xml">
+    <link rel="icon" href="/logo-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#512f75">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GOAT 8092">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
       </head>
   <body id="anasayfa" class="bg-gray-50">
     <slot />
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer></script>
 
     <script is:inline>
       // Initialize Fancybox
@@ -106,22 +133,83 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
         }
       }
 
-      // Mobile menu toggle
-      document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.querySelector('[data-toggle="collapse"]');
-        if (toggleBtn) {
-          toggleBtn.addEventListener('click', function () {
-            const menu = document.getElementById('navbarSupportedContent');
-            if (menu) {
-              menu.classList.toggle('hidden');
-            }
-          });
+      // Mobile menu functions
+      function toggleMobileMenu() {
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('mobile-menu-icon');
+
+        if (!menu) return;
+
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+          btn?.setAttribute('aria-expanded', 'true');
+          icon?.classList.remove('fa-bars');
+          icon?.classList.add('fa-times');
+          document.body.classList.add('menu-open');
+        } else {
+          menu.classList.add('hidden');
+          btn?.setAttribute('aria-expanded', 'false');
+          icon?.classList.remove('fa-times');
+          icon?.classList.add('fa-bars');
+          document.body.classList.remove('menu-open');
         }
+      }
+
+      function closeMobileMenu() {
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('mobile-menu-icon');
+
+        if (!menu) return;
+        menu.classList.add('hidden');
+        btn?.setAttribute('aria-expanded', 'false');
+        icon?.classList.remove('fa-times');
+        icon?.classList.add('fa-bars');
+        document.body.classList.remove('menu-open');
+      }
+
+      // Mobile menu event listeners
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        // Dışarı tıklayınca kapat
+        document.addEventListener('click', (e) => {
+          if (!menu || menu.classList.contains('hidden')) return;
+          if (menu.contains(e.target) || btn.contains(e.target)) return;
+          closeMobileMenu();
+        });
+
+        // ESC ile kapat
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeMobileMenu();
+        });
+
+        // Ekran >= lg olunca otomatik kapat
+        const mq = window.matchMedia('(min-width: 1024px)');
+        mq.addEventListener?.('change', (ev) => { if (ev.matches) closeMobileMenu(); });
       });
 
+      
       // Make functions globally available
       window.scrollWindowTo = scrollWindowTo;
       window.pagedown = pagedown;
+      window.toggleMobileMenu = toggleMobileMenu;
+      window.closeMobileMenu = closeMobileMenu;
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('Service Worker registered successfully:', registration);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
     </script>
   </body>
 </html>
