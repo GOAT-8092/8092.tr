@@ -244,22 +244,22 @@
 <script>
   // Contact form handling with FormSpree
   document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement;
 
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         // Show loading state
-        const submitButton = this.querySelector('button[type="submit"]');
+        const submitButton = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
         const originalText = submitButton.innerHTML;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Gönderiliyor...';
         submitButton.disabled = true;
 
         // Get form data and submit to FormSpree
-        const formData = new FormData(this);
+        const formData = new FormData(contactForm);
 
-        fetch(this.action, {
+        fetch(contactForm.action, {
           method: 'POST',
           body: formData,
           headers: {
@@ -273,7 +273,7 @@
             throw new Error('Form submission failed');
           }
         })
-        .then(data => {
+        .then(() => {
           // Show success message
           const successMessage = document.createElement('div');
           successMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4';
@@ -289,7 +289,7 @@
             successMessage.remove();
           }, 10000);
         })
-        .catch(error => {
+        .catch(() => {
           // Show error message
           const errorMessage = document.createElement('div');
           errorMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4';
