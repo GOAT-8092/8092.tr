@@ -131,7 +131,7 @@ const galleryItems = [
     const galleryItems = document.querySelectorAll('.gallery-item');
 
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(this: HTMLElement) {
         // Remove active class from all buttons
         filterButtons.forEach(btn => {
           btn.classList.remove('active', 'bg-primary', 'text-white');
@@ -147,17 +147,18 @@ const galleryItems = [
 
         // Show/hide gallery items
         galleryItems.forEach(item => {
+          const htmlItem = item as HTMLElement;
           if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
-            item.style.display = 'block';
+            htmlItem.style.display = 'block';
             setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'scale(1)';
+              htmlItem.style.opacity = '1';
+              htmlItem.style.transform = 'scale(1)';
             }, 10);
           } else {
-            item.style.opacity = '0';
-            item.style.transform = 'scale(0.8)';
+            htmlItem.style.opacity = '0';
+            htmlItem.style.transform = 'scale(0.8)';
             setTimeout(() => {
-              item.style.display = 'none';
+              htmlItem.style.display = 'none';
             }, 300);
           }
         });
@@ -166,7 +167,7 @@ const galleryItems = [
 
     // Initialize gallery items with transition
     galleryItems.forEach(item => {
-      item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      (item as HTMLElement).style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
   });
 </script>
