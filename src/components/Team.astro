@@ -96,16 +96,27 @@ const mentorsWithImages = await Promise.all(
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-              <Image
-                src={mentor.optimizedImage}
-                alt={mentor.name}
-                width={300}
-                height={256}
-                loading="lazy"
-                class="w-full h-full object-cover"
-                format="webp"
-                quality={80}
-              />
+                {typeof mentor.optimizedImage === 'string' ? (
+                  <img
+                    src={mentor.optimizedImage}
+                    alt={mentor.name}
+                    width={300}
+                    height={256}
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={mentor.optimizedImage}
+                    alt={mentor.name}
+                    width={300}
+                    height={256}
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                    format="webp"
+                    quality={80}
+                  />
+                )}
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{mentor.name}</h3>

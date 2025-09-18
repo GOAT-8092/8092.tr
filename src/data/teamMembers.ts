@@ -37,21 +37,21 @@ export const currentTeamMembers: TeamMember[] = [
     type: 'member'
   },
   {
-    id: 'alperen-dag',
-    name: 'Alperen Dağ',
-    role: 'Yazılım ve Elektrik',
-    year: '2025-',
-    image: 'Alperen.png',
-    isCaptain: false,
-    type: 'member'
-  },
-  {
     id: 'emirhan-akin',
     name: 'Emirhan Akın',
     role: 'Mekanik ve Güvenlik Kaptanı',
     year: '2024-',
     image: 'Emirhan.png',
     isCaptain: true,
+    type: 'member'
+  },
+  {
+    id: 'alperen-dag',
+    name: 'Alperen Dağ',
+    role: 'Yazılım ve Elektrik',
+    year: '2025-',
+    image: 'Alperen.png',
+    isCaptain: false,
     type: 'member'
   },
   {
@@ -64,29 +64,11 @@ export const currentTeamMembers: TeamMember[] = [
     type: 'member'
   },
   {
-    id: 'mustafa-muhiddin-yazi',
-    name: 'Mustafa Muhiddin Yazı',
-    role: 'Eş PR Kaptanı',
-    year: '2024-',
-    image: 'Mustafa.png',
-    isCaptain: true,
-    type: 'member'
-  },
-  {
     id: 'toprak-talha-soylu',
     name: 'Toprak Talha Soylu',
     role: 'Yazılım ve Elektrik Kaptanı',
     year: '2024-',
     image: 'Toprak2.png',
-    isCaptain: true,
-    type: 'member'
-  },
-  {
-    id: 'tuana-akdemir',
-    name: 'Tuana Akdemir',
-    role: 'Mekanik ve Elektrik',
-    year: '2024-',
-    image: 'Tuana.png',
     isCaptain: false,
     type: 'member'
   },
@@ -96,7 +78,7 @@ export const currentTeamMembers: TeamMember[] = [
     role: 'Güvenlik Kaptanı ve Mekanik',
     year: '2024-',
     image: 'Elif.png',
-    isCaptain: true,
+    isCaptain: false,
     type: 'member'
   },
   {
@@ -105,7 +87,7 @@ export const currentTeamMembers: TeamMember[] = [
     role: 'Elektrik Kaptanı ve Yazılım',
     year: '2024-',
     image: 'Nurettin2.png',
-    isCaptain: true,
+    isCaptain: false,
     type: 'member'
   }
 ];
@@ -173,16 +155,6 @@ export const teamMentors: TeamMember[] = [
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: true
-  },
-  {
-    id: 'muhittin-ozdemir',
-    name: 'Muhittin Özdemir',
-    role: 'Mentor',
-    year: '2022-',
-    image: 'muhittin.JPG',
-    isCaptain: false,
-    type: 'mentor',
-    isLeadMentor: false
   },
   // 2024 Mentors
   {
