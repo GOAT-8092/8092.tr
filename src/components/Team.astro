@@ -45,9 +45,20 @@ const mentorsWithImages = await Promise.all(
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {membersWithImages.map((member) => (
           <div class="glass-card overflow-hidden relative">
+            {member.roles?.length > 0 && (
+              <div class="absolute top-2 z-10 flex flex-col gap-2 items-start" style="left:0.5rem;">
+                {member.roles.map((role) => (
+                  <span
+                    class="bg-primary text-white text-sm px-2 py-1 rounded-lg"
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
+            )}
             {member.isCaptain && (
               <div class="absolute top-2 right-2 z-10">
-                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">Kaptan</span>
+                <span class="bg-primary text-white text-sm px-2 py-1 rounded-lg">Kaptan</span>
               </div>
             )}
             <div class="w-full h-64 team-member-image">
@@ -75,8 +86,13 @@ const mentorsWithImages = await Promise.all(
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{member.name}</h3>
-              <p class="text-gray-600">{member.role}</p>
-              <p class="text-gray-500 text-sm">{member.year}</p>
+              <p class="text-gray-600">
+                {[...(member.isCaptain ? ['Kaptan'] : []), ...member.roles].join(', ')}
+              </p>
+              <div class="flex flex-row items-center justify-between mt-2">
+                <p class="text-gray-500 text-sm mb-0">{member.year}</p>
+                {/* If you want to add member social icons, add here like mentors */}
+              </div>
             </div>
           </div>
         ))}
@@ -92,7 +108,7 @@ const mentorsWithImages = await Promise.all(
           <div class="glass-card overflow-hidden relative">
             {mentor.isLeadMentor && (
               <div class="absolute top-2 right-2 z-10">
-                <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">Baş Mentor</span>
+                <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-lg">Baş Mentor</span>
               </div>
             )}
             <div class="w-full h-64 team-member-image">
@@ -120,8 +136,39 @@ const mentorsWithImages = await Promise.all(
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{mentor.name}</h3>
-              <p class="text-gray-600">{mentor.role}</p>
-              <p class="text-gray-500 text-sm">{mentor.year}</p>
+              <p class="text-gray-600">{mentor.roles.join(', ')}</p>
+              <div class="flex flex-row items-center justify-between mt-2">
+                <p class="text-gray-500 text-sm mb-0">{mentor.year}</p>
+                {mentor.socialMedias && (
+                  <div class="flex flex-row gap-2 items-center">
+                    {mentor.socialMedias.instagram && (
+                      <a href={mentor.socialMedias.instagram} target="_blank" rel="noopener" aria-label="Instagram" class="glass-nav-item bg-white text-gray-700 p-2 rounded-full border-0 hover:bg-pink-100 transition-colors flex items-center justify-center">
+                        <i class="fab fa-instagram text-xl align-middle"></i>
+                      </a>
+                    )}
+                    {mentor.socialMedias.linkedin && (
+                      <a href={mentor.socialMedias.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="glass-nav-item bg-white text-gray-700 p-2 rounded-full border-0 hover:bg-blue-100 transition-colors flex items-center justify-center">
+                        <i class="fab fa-linkedin text-xl align-middle"></i>
+                      </a>
+                    )}
+                    {mentor.socialMedias.twitter && (
+                      <a href={mentor.socialMedias.twitter} target="_blank" rel="noopener" aria-label="Twitter" class="glass-nav-item bg-white text-gray-700 p-2 rounded-full border-0 hover:bg-blue-100 transition-colors flex items-center justify-center">
+                        <i class="fab fa-twitter text-xl align-middle"></i>
+                      </a>
+                    )}
+                    {mentor.socialMedias.facebook && (
+                      <a href={mentor.socialMedias.facebook} target="_blank" rel="noopener" aria-label="Facebook" class="glass-nav-item bg-white text-gray-700 p-2 rounded-full border-0 hover:bg-blue-100 transition-colors flex items-center justify-center">
+                        <i class="fab fa-facebook text-xl align-middle"></i>
+                      </a>
+                    )}
+                    {mentor.socialMedias.website && (
+                      <a href={mentor.socialMedias.website} target="_blank" rel="noopener" aria-label="Website" class="glass-nav-item bg-white text-gray-700 p-2 rounded-full border-0 hover:bg-gray-200 transition-colors flex items-center justify-center">
+                        <i class="fas fa-globe text-xl align-middle"></i>
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ))}
