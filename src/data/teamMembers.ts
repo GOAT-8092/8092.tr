@@ -172,7 +172,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Hasret Okumuş',
     role: 'Mentor',
     year: '2024-',
-    image: '/img/hasret.jpg',
+    image: 'hasret.png',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false
