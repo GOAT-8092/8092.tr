@@ -387,78 +387,90 @@ const accessibilityScriptStrings = {
   }
 </style>
 
-<script>
+<script is:inline>
   const accessibilityStrings = ${JSON.stringify(accessibilityScriptStrings)};
 
   class AccessibilityManager {
-    private panel: HTMLElement | null = null;
-    private toggle: HTMLElement | null = null;
-    private readingGuide: HTMLElement | null = null;
-    private isOpen = false;
-    private strings = accessibilityStrings;
-    private settings = {
-      fontSize: 'normal',
-      contrast: 'normal',
-      motion: 'normal',
-      readingGuide: false,
-      focusOutline: false
-    };
+    constructor(strings) {
+      this.panel = null;
+      this.toggle = null;
+      this.readingGuide = null;
+      this.isOpen = false;
+      this.strings = strings;
+      this.settings = {
+        fontSize: 'normal',
+        contrast: 'normal',
+        motion: 'normal',
+        readingGuide: false,
+        focusOutline: false,
+      };
 
-    constructor() {
       this.init();
     }
 
-    private init() {
+    init() {
       this.panel = document.getElementById('a11y-panel');
       this.toggle = document.getElementById('a11y-toggle');
       this.readingGuide = document.getElementById('reading-guide');
 
-      if (!this.panel || !this.toggle) return;
+      if (!this.panel || !this.toggle) {
+        return;
+      }
 
-      // Load saved settings
       this.loadSettings();
       this.applySettings();
 
-      // Set up event listeners
       this.toggle.addEventListener('click', () => this.togglePanel());
-      document.getElementById('a11y-close')?.addEventListener('click', () => this.closePanel());
+      const closeButton = document.getElementById('a11y-close');
+      if (closeButton) {
+        closeButton.addEventListener('click', () => this.closePanel());
+      }
 
-      // Control buttons
-      this.panel.addEventListener('click', (e) => {
-        const button = (e.target as HTMLElement).closest('[data-action]');
-        if (button) {
-          const action = button.getAttribute('data-action');
-          const value = button.getAttribute('data-value');
-          this.handleAction(action!, value);
+      this.panel.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+
+        const button = target.closest('[data-action]');
+        if (!button) {
+          return;
+        }
+
+        const action = button.getAttribute('data-action');
+        const value = button.getAttribute('data-value');
+        if (action) {
+          this.handleAction(action, value);
         }
       });
 
-      // Close on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.isOpen) {
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && this.isOpen) {
           this.closePanel();
         }
       });
 
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (this.isOpen && !this.panel?.contains(e.target as Node) && !this.toggle?.contains(e.target as Node)) {
+      document.addEventListener('click', (event) => {
+        if (!this.isOpen || !this.panel || !this.toggle) {
+          return;
+        }
+
+        const target = event.target;
+        if (target instanceof Node && !this.panel.contains(target) && !this.toggle.contains(target)) {
           this.closePanel();
         }
       });
 
-      // Reading guide mouse tracking
-      document.addEventListener('mousemove', (e) => {
+      document.addEventListener('mousemove', (event) => {
         if (this.settings.readingGuide && this.readingGuide) {
-          this.readingGuide.style.top = e.clientY + 'px';
+          this.readingGuide.style.top = `${event.clientY}px`;
         }
       });
 
-      // Announce accessibility tools to screen readers
       this.announceAccessibility();
     }
 
-    private togglePanel() {
+    togglePanel() {
       if (this.isOpen) {
         this.closePanel();
       } else {
@@ -466,44 +478,51 @@ const accessibilityScriptStrings = {
       }
     }
 
-    private openPanel() {
-      if (!this.panel || !this.toggle) return;
+    openPanel() {
+      if (!this.panel || !this.toggle) {
+        return;
+      }
 
       this.panel.classList.remove('hidden');
       setTimeout(() => {
-        this.panel?.classList.add('show');
+        if (this.panel) {
+          this.panel.classList.add('show');
+        }
       }, 10);
 
       this.toggle.setAttribute('aria-expanded', 'true');
       this.isOpen = true;
 
-      // Focus first interactive element
-      const firstButton = this.panel.querySelector('button, a') as HTMLElement;
-      firstButton?.focus();
+      const firstButton = this.panel.querySelector('button, a');
+      if (firstButton instanceof HTMLElement) {
+        firstButton.focus();
+      }
     }
 
-    private closePanel() {
-      if (!this.panel || !this.toggle) return;
+    closePanel() {
+      if (!this.panel || !this.toggle) {
+        return;
+      }
 
       this.panel.classList.remove('show');
       setTimeout(() => {
-        this.panel?.classList.add('hidden');
+        if (this.panel) {
+          this.panel.classList.add('hidden');
+        }
       }, 300);
 
       this.toggle.setAttribute('aria-expanded', 'false');
       this.isOpen = false;
-
-      // Return focus to toggle button
       this.toggle.focus();
     }
 
-    private handleAction(action: string, value?: string | null) {
+    handleAction(action, value) {
       switch (action) {
         case 'font-size':
-          this.adjustFontSize(value!);
+          this.adjustFontSize(value);
           break;
         case 'contrast':
-          this.adjustContrast(value!);
+          this.adjustContrast(value);
           break;
         case 'reading-guide':
           this.toggleReadingGuide();
@@ -520,52 +539,51 @@ const accessibilityScriptStrings = {
         case 'reset-all':
           this.resetAll();
           break;
+        default:
+          break;
       }
 
       this.saveSettings();
       this.updateButtonStates();
     }
 
-    private adjustFontSize(action: string) {
+    adjustFontSize(action) {
       document.body.classList.remove('font-large', 'font-xl');
 
-      switch (action) {
-        case 'increase':
-          if (this.settings.fontSize === 'normal') {
-            this.settings.fontSize = 'large';
-            document.body.classList.add('font-large');
-          } else if (this.settings.fontSize === 'large') {
-            this.settings.fontSize = 'xl';
-            document.body.classList.add('font-xl');
-          }
-          break;
-        case 'decrease':
-          if (this.settings.fontSize === 'xl') {
-            this.settings.fontSize = 'large';
-            document.body.classList.add('font-large');
-          } else if (this.settings.fontSize === 'large') {
-            this.settings.fontSize = 'normal';
-          }
-          break;
-        case 'reset':
+      if (action === 'increase') {
+        if (this.settings.fontSize === 'normal') {
+          this.settings.fontSize = 'large';
+          document.body.classList.add('font-large');
+        } else if (this.settings.fontSize === 'large') {
+          this.settings.fontSize = 'xl';
+          document.body.classList.add('font-xl');
+        }
+      } else if (action === 'decrease') {
+        if (this.settings.fontSize === 'xl') {
+          this.settings.fontSize = 'large';
+          document.body.classList.add('font-large');
+        } else if (this.settings.fontSize === 'large') {
           this.settings.fontSize = 'normal';
-          break;
+        }
+      } else if (action === 'reset') {
+        this.settings.fontSize = 'normal';
       }
 
       this.announceFontSize();
     }
 
-    private adjustContrast(value: string) {
-      document.body.classList.toggle('high-contrast', value === 'high');
-      this.settings.contrast = value;
-      const message =
-        value === 'high'
-          ? this.strings.announcements?.contrast_high
-          : this.strings.announcements?.contrast_normal;
-      this.announceChange(message ?? '');
+    adjustContrast(value) {
+      const isHigh = value === 'high';
+      document.body.classList.toggle('high-contrast', isHigh);
+      this.settings.contrast = value || 'normal';
+
+      const message = isHigh
+        ? this.strings.announcements?.contrast_high
+        : this.strings.announcements?.contrast_normal;
+      this.announceChange(message || '');
     }
 
-    private toggleReadingGuide() {
+    toggleReadingGuide() {
       this.settings.readingGuide = !this.settings.readingGuide;
 
       if (this.readingGuide) {
@@ -576,45 +594,45 @@ const accessibilityScriptStrings = {
       const message = this.settings.readingGuide
         ? this.strings.announcements?.reading_on
         : this.strings.announcements?.reading_off;
-      this.announceChange(message ?? '');
+      this.announceChange(message || '');
     }
 
-    private toggleFocusOutline() {
+    toggleFocusOutline() {
       this.settings.focusOutline = !this.settings.focusOutline;
       document.body.classList.toggle('enhanced-focus', this.settings.focusOutline);
+
       const message = this.settings.focusOutline
         ? this.strings.announcements?.focus_on
         : this.strings.announcements?.focus_off;
-      this.announceChange(message ?? '');
+      this.announceChange(message || '');
     }
 
-    private reduceMotion() {
+    reduceMotion() {
       this.settings.motion = 'reduced';
       document.body.classList.add('reduce-motion');
-      this.announceChange(this.strings.announcements?.motion_reduced ?? '');
+      this.announceChange(this.strings.announcements?.motion_reduced || '');
     }
 
-    private resetMotion() {
+    resetMotion() {
       this.settings.motion = 'normal';
       document.body.classList.remove('reduce-motion');
-      this.announceChange(this.strings.announcements?.motion_normal ?? '');
+      this.announceChange(this.strings.announcements?.motion_normal || '');
     }
 
-    private resetAll() {
+    resetAll() {
       this.settings = {
         fontSize: 'normal',
         contrast: 'normal',
         motion: 'normal',
         readingGuide: false,
-        focusOutline: false
+        focusOutline: false,
       };
 
       this.applySettings();
-      this.announceChange(this.strings.announcements?.reset_all ?? '');
+      this.announceChange(this.strings.announcements?.reset_all || '');
     }
 
-    private applySettings() {
-      // Apply font size
+    applySettings() {
       document.body.classList.remove('font-large', 'font-xl');
       if (this.settings.fontSize === 'large') {
         document.body.classList.add('font-large');
@@ -622,16 +640,10 @@ const accessibilityScriptStrings = {
         document.body.classList.add('font-xl');
       }
 
-      // Apply contrast
       document.body.classList.toggle('high-contrast', this.settings.contrast === 'high');
-
-      // Apply motion
       document.body.classList.toggle('reduce-motion', this.settings.motion === 'reduced');
-
-      // Apply focus outline
       document.body.classList.toggle('enhanced-focus', this.settings.focusOutline);
 
-      // Apply reading guide
       if (this.readingGuide) {
         this.readingGuide.classList.toggle('hidden', !this.settings.readingGuide);
       }
@@ -639,48 +651,59 @@ const accessibilityScriptStrings = {
       this.updateButtonStates();
     }
 
-    private updateButtonStates() {
-      const buttons = this.panel?.querySelectorAll('[data-action]');
-      buttons?.forEach(button => {
+    updateButtonStates() {
+      if (!this.panel) {
+        return;
+      }
+
+      const buttons = this.panel.querySelectorAll('[data-action]');
+      buttons.forEach((button) => {
         button.classList.remove('active');
       });
 
-      // Mark active buttons
       if (this.settings.contrast === 'high') {
-        this.panel?.querySelector('[data-action="contrast"][data-value="high"]')?.classList.add('active');
+        const btn = this.panel.querySelector('[data-action="contrast"][data-value="high"]');
+        btn?.classList.add('active');
       }
       if (this.settings.readingGuide) {
-        this.panel?.querySelector('[data-action="reading-guide"]')?.classList.add('active');
+        const btn = this.panel.querySelector('[data-action="reading-guide"]');
+        btn?.classList.add('active');
       }
       if (this.settings.focusOutline) {
-        this.panel?.querySelector('[data-action="focus-outline"]')?.classList.add('active');
+        const btn = this.panel.querySelector('[data-action="focus-outline"]');
+        btn?.classList.add('active');
       }
       if (this.settings.motion === 'reduced') {
-        this.panel?.querySelector('[data-action="reduce-motion"]')?.classList.add('active');
+        const btn = this.panel.querySelector('[data-action="reduce-motion"]');
+        btn?.classList.add('active');
       }
     }
 
-    private saveSettings() {
+    saveSettings() {
       try {
         localStorage.setItem('accessibility-settings', JSON.stringify(this.settings));
-      } catch (e) {
-        console.warn('Could not save accessibility settings');
+      } catch (error) {
+        console.warn('Could not save accessibility settings', error);
       }
     }
 
-    private loadSettings() {
+    loadSettings() {
       try {
         const saved = localStorage.getItem('accessibility-settings');
         if (saved) {
-          this.settings = { ...this.settings, ...JSON.parse(saved) };
+          const parsed = JSON.parse(saved);
+          this.settings = { ...this.settings, ...parsed };
         }
-      } catch (e) {
-        console.warn('Could not load accessibility settings');
+      } catch (error) {
+        console.warn('Could not load accessibility settings', error);
       }
     }
 
-    private announceChange(message: string) {
-      if (!message) return;
+    announceChange(message) {
+      if (!message) {
+        return;
+      }
+
       const announcement = document.createElement('div');
       announcement.setAttribute('aria-live', 'polite');
       announcement.setAttribute('aria-atomic', 'true');
@@ -690,55 +713,62 @@ const accessibilityScriptStrings = {
       document.body.appendChild(announcement);
 
       setTimeout(() => {
-        document.body.removeChild(announcement);
+        announcement.remove();
       }, 1000);
     }
 
-    private announceAccessibility() {
+    announceAccessibility() {
       setTimeout(() => {
-        this.announceChange(this.strings.announcements?.intro ?? '');
+        this.announceChange(this.strings.announcements?.intro || '');
       }, 2000);
     }
 
-    private announceFontSize() {
+    announceFontSize() {
       const template = this.strings.announcements?.font_size;
-      const stateKey = this.settings.fontSize as keyof typeof this.strings.font_states;
-      const stateLabel = this.strings.font_states?.[stateKey] ?? stateKey;
+      const stateKey = this.settings.fontSize;
+      const stateLabel = this.strings.font_states?.[stateKey] || stateKey;
       this.announceChange(this.formatAnnouncement(template, { state: stateLabel }));
     }
 
-    private formatAnnouncement(template?: string, params: Record<string, string> = {}) {
-      if (!template) return '';
-      return template.replace(/\{\{(.*?)\}\}/g, (_, key) => params[key.trim()] ?? '');
+    formatAnnouncement(template, params = {}) {
+      if (!template) {
+        return '';
+      }
+
+      return template.replace(/\{\{(.*?)\}\}/g, (_, key) => {
+        const lookup = key.trim();
+        return Object.prototype.hasOwnProperty.call(params, lookup) ? params[lookup] : '';
+      });
     }
   }
 
-  // Initialize accessibility manager when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
-    new AccessibilityManager();
+    new AccessibilityManager(accessibilityStrings);
   });
 
-  // Add keyboard navigation for main content
-  document.addEventListener('keydown', (e) => {
-    // Alt + 1: Main content
-    if (e.altKey && e.key === '1') {
-      e.preventDefault();
+  document.addEventListener('keydown', (event) => {
+    if (event.altKey && event.key === '1') {
+      event.preventDefault();
       const main = document.querySelector('main') || document.querySelector('#anasayfa');
-      (main as HTMLElement)?.focus();
+      if (main instanceof HTMLElement) {
+        main.focus();
+      }
     }
 
-    // Alt + 2: Navigation
-    if (e.altKey && e.key === '2') {
-      e.preventDefault();
+    if (event.altKey && event.key === '2') {
+      event.preventDefault();
       const nav = document.querySelector('nav') || document.querySelector('.navigation');
-      (nav as HTMLElement)?.focus();
+      if (nav instanceof HTMLElement) {
+        nav.focus();
+      }
     }
 
-    // Alt + 3: Search (if available)
-    if (e.altKey && e.key === '3') {
-      e.preventDefault();
+    if (event.altKey && event.key === '3') {
+      event.preventDefault();
       const search = document.querySelector('[type="search"]') || document.querySelector('#search');
-      (search as HTMLElement)?.focus();
+      if (search instanceof HTMLElement) {
+        search.focus();
+      }
     }
   });
 </script>

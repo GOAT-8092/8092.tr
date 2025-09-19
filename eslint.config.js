@@ -44,24 +44,7 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
-  {
-    files: ['**/*.astro'],
-    languageOptions: {
-      parser: astro.parser,
-      parserOptions: {
-        parser: typescriptParser,
-        extraFileExtensions: ['.astro'],
-      },
-    },
-    plugins: {
-      astro,
-    },
-    rules: {
-      ...astro.configs.recommended.rules,
-      'astro/no-conflict-set-directives': 'error',
-      'astro/no-unused-define-vars-in-style': 'error',
-    },
-  },
+  ...astro.configs.recommended,
   {
     ignores: ['dist/', 'node_modules/', '.astro/', 'public/', 'scripts/optimize-images.js'],
   },

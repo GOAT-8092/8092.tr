@@ -1,0 +1,386 @@
+---
+// PWA Install Prompt Component
+---
+
+<div id="pwa-install-banner" class="pwa-install-banner hidden">
+  <div class="pwa-content">
+    <div class="pwa-icon">
+      <img src="/logo-black.svg" alt="GOAT 8092" class="w-8 h-8">
+    </div>
+    <div class="pwa-text">
+      <h3 class="pwa-title">GOAT 8092 Uygulamasını Yükle</h3>
+      <p class="pwa-description">Hızlı erişim için ana ekranınıza ekleyin</p>
+    </div>
+    <div class="pwa-actions">
+      <button id="pwa-install-button" class="pwa-install-btn">
+        <i class="fas fa-download mr-2"></i>
+        Yükle
+      </button>
+      <button id="pwa-dismiss-button" class="pwa-dismiss-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pwa-install-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #512f75, #673a8e);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .pwa-install-banner.show {
+    transform: translateY(0);
+  }
+
+  .pwa-content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .pwa-icon {
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .pwa-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pwa-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+  }
+
+  .pwa-description {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .pwa-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .pwa-install-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .pwa-install-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .pwa-dismiss-btn {
+    background: none;
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
+
+  .pwa-dismiss-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .pwa-install-banner {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+    }
+
+    .pwa-content {
+      padding: 12px;
+    }
+
+    .pwa-title {
+      font-size: 13px;
+    }
+
+    .pwa-description {
+      font-size: 11px;
+    }
+
+    .pwa-install-btn {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .pwa-install-banner {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .pwa-install-banner {
+      background: #000;
+      border: 2px solid #fff;
+    }
+
+    .pwa-install-btn {
+      background: #fff;
+      color: #000;
+      border: 2px solid #fff;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .pwa-install-banner {
+      transition: none;
+    }
+
+    .pwa-install-btn,
+    .pwa-dismiss-btn {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  interface BeforeInstallPromptEvent extends Event {
+    prompt(): Promise<void>;
+    userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+  }
+
+  class PWAInstaller {
+    private deferredPrompt: BeforeInstallPromptEvent | null = null;
+    private banner: HTMLElement | null = null;
+    private installButton: HTMLElement | null = null;
+    private dismissButton: HTMLElement | null = null;
+    private installCount = 0;
+    private maxInstallPrompts = 3;
+    private dismissedUntil = 0;
+
+    constructor() {
+      this.init();
+    }
+
+    private init() {
+      this.banner = document.getElementById('pwa-install-banner');
+      this.installButton = document.getElementById('pwa-install-button');
+      this.dismissButton = document.getElementById('pwa-dismiss-button');
+
+      if (!this.banner || !this.installButton || !this.dismissButton) {
+        return;
+      }
+
+      // Load saved state
+      this.loadState();
+
+      // Listen for the beforeinstallprompt event
+      window.addEventListener('beforeinstallprompt', (e: Event) => {
+        const installEvent = e as BeforeInstallPromptEvent;
+        e.preventDefault();
+        this.deferredPrompt = installEvent;
+        this.showInstallPrompt();
+      });
+
+      // Listen for app installed event
+      window.addEventListener('appinstalled', () => {
+        console.log('🎉 PWA installed successfully!');
+        this.hideInstallPrompt();
+        this.deferredPrompt = null;
+
+        // Send analytics event if available
+        if ('gtag' in window) {
+          (window as any).gtag('event', 'pwa_install', {
+            event_category: 'pwa',
+            event_label: 'installed'
+          });
+        }
+      });
+
+      // Set up button handlers
+      this.installButton.addEventListener('click', () => this.install());
+      this.dismissButton.addEventListener('click', () => this.dismiss());
+
+      // Check if already installed
+      if (this.isStandalone()) {
+        this.hideInstallPrompt();
+      }
+
+      // Show prompt on page interaction after delay
+      this.schedulePrompt();
+    }
+
+    private isStandalone(): boolean {
+      return (
+        window.matchMedia('(display-mode: standalone)').matches ||
+        (window.navigator as any).standalone === true ||
+        document.referrer.includes('android-app://')
+      );
+    }
+
+    private showInstallPrompt() {
+      if (!this.banner || this.isStandalone()) return;
+
+      // Check if dismissed recently
+      if (Date.now() < this.dismissedUntil) return;
+
+      // Check install count limit
+      if (this.installCount >= this.maxInstallPrompts) return;
+
+      this.banner.classList.remove('hidden');
+      setTimeout(() => {
+        this.banner?.classList.add('show');
+      }, 100);
+
+      this.installCount++;
+      this.saveState();
+
+      // Auto-hide after 30 seconds
+      setTimeout(() => {
+        if (this.banner?.classList.contains('show')) {
+          this.hideInstallPrompt();
+        }
+      }, 30000);
+    }
+
+    private hideInstallPrompt() {
+      if (!this.banner) return;
+
+      this.banner.classList.remove('show');
+      setTimeout(() => {
+        this.banner?.classList.add('hidden');
+      }, 300);
+    }
+
+    private async install() {
+      if (!this.deferredPrompt) return;
+
+      this.deferredPrompt.prompt();
+
+      const choiceResult = await this.deferredPrompt.userChoice;
+
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+        this.dismissedUntil = Date.now() + (24 * 60 * 60 * 1000); // 24 hours
+        this.saveState();
+      }
+
+      this.deferredPrompt = null;
+      this.hideInstallPrompt();
+    }
+
+    private dismiss() {
+      this.dismissedUntil = Date.now() + (7 * 24 * 60 * 60 * 1000); // 7 days
+      this.saveState();
+      this.hideInstallPrompt();
+    }
+
+    private schedulePrompt() {
+      // Show prompt after user interaction and delay
+      let interacted = false;
+
+      const showAfterInteraction = () => {
+        if (interacted || !this.deferredPrompt) return;
+
+        interacted = true;
+        setTimeout(() => {
+          this.showInstallPrompt();
+        }, 5000); // Show after 5 seconds of interaction
+      };
+
+      // Wait for user interaction
+      ['click', 'scroll', 'keydown'].forEach(event => {
+        document.addEventListener(event, showAfterInteraction, { once: true });
+      });
+    }
+
+    private saveState() {
+      try {
+        const state = {
+          installCount: this.installCount,
+          dismissedUntil: this.dismissedUntil
+        };
+        localStorage.setItem('pwa-installer-state', JSON.stringify(state));
+      } catch (e) {
+        console.warn('Could not save PWA installer state');
+      }
+    }
+
+    private loadState() {
+      try {
+        const saved = localStorage.getItem('pwa-installer-state');
+        if (saved) {
+          const state = JSON.parse(saved);
+          this.installCount = state.installCount || 0;
+          this.dismissedUntil = state.dismissedUntil || 0;
+        }
+      } catch (e) {
+        console.warn('Could not load PWA installer state');
+      }
+    }
+  }
+
+  // Initialize PWA installer when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new PWAInstaller();
+  });
+
+  // Add iOS-specific install instructions
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    setTimeout(() => {
+      const isInstalled = window.navigator.standalone;
+      if (!isInstalled) {
+        console.log('iOS device detected - PWA can be installed via Safari share menu');
+      }
+    }, 3000);
+  }
+</script>

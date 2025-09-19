@@ -1,0 +1,201 @@
+---
+// Performance monitoring component for Core Web Vitals and other metrics
+---
+
+<script>
+  // Performance monitoring script
+  const perfData = {
+    pageLoadTime: 0,
+    domContentLoadedTime: 0,
+    firstContentfulPaint: 0,
+    largestContentfulPaint: 0,
+    firstInputDelay: 0,
+    cumulativeLayoutShift: 0,
+  };
+
+  // Monitor page load performance
+  function measurePageLoad() {
+    if ('performance' in window && 'getEntriesByType' in performance) {
+      const navEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+
+      if (navEntries.length > 0) {
+        const nav = navEntries[0];
+        perfData.pageLoadTime = nav.loadEventEnd - nav.loadEventStart;
+        perfData.domContentLoadedTime = nav.domContentLoadedEventEnd - nav.domContentLoadedEventStart;
+      }
+    }
+  }
+
+  // Monitor Core Web Vitals
+  function observeWebVitals() {
+    // First Contentful Paint (FCP)
+    if ('PerformanceObserver' in window) {
+      try {
+        const fcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const fcpEntry = entries.find((entry) => entry.name === 'first-contentful-paint');
+
+          if (fcpEntry) {
+            perfData.firstContentfulPaint = fcpEntry.startTime;
+            console.log(`FCP: ${fcpEntry.startTime.toFixed(2)}ms`);
+          }
+        });
+
+        fcpObserver.observe({ entryTypes: ['paint'] });
+      } catch (e) {
+        console.warn('FCP monitoring not supported');
+      }
+
+      // Largest Contentful Paint (LCP)
+      try {
+        const lcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+
+          if (lastEntry) {
+            perfData.largestContentfulPaint = lastEntry.startTime;
+            console.log(`LCP: ${lastEntry.startTime.toFixed(2)}ms`);
+          }
+        });
+
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (e) {
+        console.warn('LCP monitoring not supported');
+      }
+
+      // Cumulative Layout Shift (CLS)
+      try {
+        let clsValue = 0;
+        const clsObserver = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (!(entry as any).hadRecentInput) {
+              clsValue += (entry as any).value;
+            }
+          }
+          perfData.cumulativeLayoutShift = clsValue;
+          console.log(`CLS: ${clsValue.toFixed(4)}`);
+        });
+
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      } catch (e) {
+        console.warn('CLS monitoring not supported');
+      }
+
+      // First Input Delay (FID)
+      try {
+        const fidObserver = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            perfData.firstInputDelay = (entry as any).processingStart - entry.startTime;
+            console.log(`FID: ${perfData.firstInputDelay.toFixed(2)}ms`);
+            fidObserver.disconnect();
+          }
+        });
+
+        fidObserver.observe({ entryTypes: ['first-input'] });
+      } catch (e) {
+        console.warn('FID monitoring not supported');
+      }
+    }
+  }
+
+  // Monitor resource loading performance
+  function monitorResources() {
+    if ('PerformanceObserver' in window) {
+      try {
+        const resourceObserver = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            const resource = entry as PerformanceResourceTiming;
+
+            // Log slow resources (> 1000ms)
+            if (resource.duration > 1000) {
+              console.warn(`Slow resource: ${resource.name} (${resource.duration.toFixed(2)}ms)`);
+            }
+
+            // Monitor image loading
+            if (resource.name.includes('.jpg') || resource.name.includes('.png') || resource.name.includes('.webp')) {
+              console.log(`Image loaded: ${resource.name.split('/').pop()} (${resource.duration.toFixed(2)}ms)`);
+            }
+          }
+        });
+
+        resourceObserver.observe({ entryTypes: ['resource'] });
+      } catch (e) {
+        console.warn('Resource monitoring not supported');
+      }
+    }
+  }
+
+  // Send performance data (if analytics are implemented)
+  function sendPerformanceData() {
+    // This would send data to analytics service
+    // For now, we'll just log to console in development
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      console.group('🚀 Performance Metrics');
+      console.log('Page Load Time:', perfData.pageLoadTime + 'ms');
+      console.log('DOM Content Loaded:', perfData.domContentLoadedTime + 'ms');
+      console.log('First Contentful Paint:', perfData.firstContentfulPaint + 'ms');
+      console.log('Largest Contentful Paint:', perfData.largestContentfulPaint + 'ms');
+      console.log('First Input Delay:', perfData.firstInputDelay + 'ms');
+      console.log('Cumulative Layout Shift:', perfData.cumulativeLayoutShift);
+      console.groupEnd();
+
+      // Performance score based on Core Web Vitals
+      const getScore = () => {
+        let score = 100;
+
+        // LCP scoring (good: <2.5s, needs improvement: 2.5s-4s, poor: >4s)
+        if (perfData.largestContentfulPaint > 4000) score -= 30;
+        else if (perfData.largestContentfulPaint > 2500) score -= 15;
+
+        // FID scoring (good: <100ms, needs improvement: 100ms-300ms, poor: >300ms)
+        if (perfData.firstInputDelay > 300) score -= 25;
+        else if (perfData.firstInputDelay > 100) score -= 10;
+
+        // CLS scoring (good: <0.1, needs improvement: 0.1-0.25, poor: >0.25)
+        if (perfData.cumulativeLayoutShift > 0.25) score -= 25;
+        else if (perfData.cumulativeLayoutShift > 0.1) score -= 10;
+
+        return Math.max(0, score);
+      };
+
+      console.log(`📊 Overall Performance Score: ${getScore()}/100`);
+    }
+  }
+
+  // Monitor memory usage (if available)
+  function monitorMemory() {
+    if ('memory' in performance) {
+      const memory = (performance as any).memory;
+      console.log(`Memory: Used ${(memory.usedJSHeapSize / 1048576).toFixed(2)}MB / Limit ${(memory.jsHeapSizeLimit / 1048576).toFixed(2)}MB`);
+    }
+  }
+
+  // Initialize monitoring when page is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    observeWebVitals();
+    monitorResources();
+  });
+
+  // Send data when page is about to unload
+  window.addEventListener('beforeunload', () => {
+    measurePageLoad();
+    sendPerformanceData();
+    monitorMemory();
+  });
+
+  // Also send data after page is fully loaded
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      measurePageLoad();
+      sendPerformanceData();
+      monitorMemory();
+    }, 100);
+  });
+
+  // Monitor visibility changes (for accurate metrics)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      sendPerformanceData();
+    }
+  });
+</script>

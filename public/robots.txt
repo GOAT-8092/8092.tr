@@ -1,0 +1,53 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /
+Allow: /#anasayfa
+Allow: /#hakkimizda
+Allow: /#takim
+Allow: /#projelerimiz
+Allow: /#galeri
+Allow: /#iletisim
+
+# Sitemaps
+Sitemap: https://8092.tr/sitemap-index.xml
+Sitemap: https://8092.tr/sitemap-0.xml
+
+# Host
+Host: https://8092.tr
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block sensitive areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

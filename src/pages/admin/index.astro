@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CMSDashboard from '../../components/CMSDashboard.astro';
+import { getCurrentTeam } from '../../lib/cms-utils';
+
+const currentTeam = await getCurrentTeam();
+---
+
+<Layout title="İçerik Yönetim Paneli - FRC Team 8092">
+  <main class="min-h-screen bg-gray-50">
+    <!-- Admin Header -->
+    <header class="bg-purple-800 text-white py-6 shadow-lg">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-3xl font-bold">Yönetim Paneli</h1>
+            <p class="text-purple-200 mt-1">FRC Team 8092 "Greatest of All Times"</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-sm">Hoş geldin, {currentTeam[0]?.data.name || 'Admin'}</span>
+            <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+      <div class="container mx-auto px-4">
+        <div class="flex space-x-8">
+          <a href="/admin" class="text-purple-600 border-b-2 border-purple-600 py-4 px-1 text-sm font-medium">
+            Panel
+          </a>
+          <a href="/admin/team" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Takım Yönetimi
+          </a>
+          <a href="/admin/projects" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Proje Yönetimi
+          </a>
+          <a href="/admin/blog" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Blog Yönetimi
+          </a>
+          <a href="/admin/events" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Etkinlik Yönetimi
+          </a>
+          <a href="/admin/media" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Medya Yönetimi
+          </a>
+          <a href="/admin/settings" class="text-gray-500 hover:text-gray-700 border-b-2 border-transparent py-4 px-1 text-sm font-medium">
+            Ayarlar
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <CMSDashboard />
+    </div>
+  </main>
+
+  <script>
+    // Add admin-specific functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for authentication (simple client-side check)
+      const isAuthenticated = localStorage.getItem('isAdminAuthenticated');
+      if (!isAuthenticated) {
+        // In a real app, redirect to login page
+        console.log('Redirecting to login...');
+      }
+
+      // Add keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + K for search
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          const searchInput = document.getElementById('cms-search-input');
+          if (searchInput) {
+            searchInput.focus();
+            (searchInput as HTMLInputElement).select();
+          }
+        }
+      });
+    });
+  </script>
+</Layout>

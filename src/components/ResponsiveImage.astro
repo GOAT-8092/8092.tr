@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string | ImageMetadata;
+  alt: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
+  format?: 'webp' | 'avif' | 'auto';
+  quality?: number;
+  densities?: number[];
+  widths?: number[];
+  fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height = 600,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  class: className = '',
+  loading = 'lazy',
+  priority = false,
+  format = 'auto',
+  quality = 80,
+  densities = [1, 2],
+  widths = [400, 800, 1200, 1600],
+  fit = 'cover',
+} = Astro.props;
+
+// Generate responsive image sizes based on widths
+const responsiveWidths = widths.map(w => Math.min(w, width));
+
+// Determine if this is a static import or string path
+const isStaticImport = typeof src === 'object' && src !== null;
+---
+
+{isStaticImport ? (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    widths={responsiveWidths}
+    sizes={sizes}
+    class={`responsive-image ${className}`}
+    loading={priority ? 'eager' : loading}
+    format={format === 'auto' ? ['webp', 'avif'] : format}
+    quality={quality}
+    fit={fit}
+  />
+) : (
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    class={`responsive-image ${className}`}
+    loading={priority ? 'eager' : loading}
+    style={`aspect-ratio: ${width}/${height}; object-fit: ${fit};`}
+    sizes={sizes}
+  />
+)}
+
+<style>
+  .responsive-image {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .responsive-image[loading="lazy"] {
+    opacity: 0;
+  }
+
+  .responsive-image[loading="lazy"].loaded {
+    opacity: 1;
+  }
+
+  /* Prevent layout shift */
+  .responsive-image {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Improved loading states */
+  .responsive-image:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* High DPI displays */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .responsive-image {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .responsive-image {
+      break-inside: avoid;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+</style>
+
+<script>
+  // Progressive image loading
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.responsive-image[loading="lazy"]');
+
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+
+            // Add loaded class when image loads
+            const onLoad = () => {
+              img.classList.add('loaded');
+              img.removeEventListener('load', onLoad);
+            };
+
+            // Handle load event
+            if (img.complete) {
+              img.classList.add('loaded');
+            } else {
+              img.addEventListener('load', onLoad);
+            }
+
+            imageObserver.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+      });
+
+      images.forEach((img) => imageObserver.observe(img));
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      images.forEach((img) => {
+        const htmlImg = img as HTMLImageElement;
+        htmlImg.classList.add('loaded');
+      });
+    }
+  });
+
+  // Error handling for failed image loads
+  document.addEventListener('error', (e) => {
+    const img = e.target as HTMLImageElement;
+    if (img && img.tagName === 'IMG' && img.classList.contains('responsive-image')) {
+      // Set a fallback image or hide the broken image
+      img.style.display = 'none';
+
+      // Optionally, try to load a fallback image
+      const fallbackSrc = '/logo-black.svg';
+      if (img.src !== fallbackSrc) {
+        img.src = fallbackSrc;
+        img.style.display = 'block';
+      }
+    }
+  }, true);
+</script>

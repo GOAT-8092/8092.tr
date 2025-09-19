@@ -32,24 +32,27 @@ export default defineConfig({
   },
   compressHTML: true,
   vite: {
+    plugins: process.env.ANALYZE
+      ? [
+          (await import('rollup-plugin-visualizer')).visualizer({
+            filename: 'dist/stats.html',
+            open: true,
+            gzipSize: true,
+            brotliSize: true,
+          }),
+        ]
+      : [],
     build: {
       rollupOptions: {
         output: {
           manualChunks: {
             vendor: ['@fontsource/atkinson-hyperlegible', '@fontsource/inter'],
+            react: ['react', 'react-dom'],
+            animation: ['gsap'],
+            utils: ['clsx', 'tailwind-merge'],
           },
         },
       },
-      plugins: process.env.ANALYZE
-        ? [
-            (await import('rollup-plugin-visualizer')).visualizer({
-              filename: 'dist/stats.html',
-              open: true,
-              gzipSize: true,
-              brotliSize: true,
-            }),
-          ]
-        : [],
       reportCompressedSize: true,
       chunkSizeWarningLimit: 500,
     },

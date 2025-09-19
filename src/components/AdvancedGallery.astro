@@ -1,0 +1,1028 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+
+// Import gallery images (you would replace this with your actual images)
+import resim4 from '../assets/img/resim4.jpg';
+import resim4_1 from '../assets/img/resim4.1.jpg';
+import resim5_1 from '../assets/img/resim5.1.jpg';
+import resim6 from '../assets/img/resim6.jpg';
+import resim6_1 from '../assets/img/resim6.1.jpg';
+import resim7 from '../assets/img/resim7.jpg';
+import resim7_1 from '../assets/img/resim7.1.jpg';
+import resim8 from '../assets/img/resim8.jpg';
+import resim8_1 from '../assets/img/resim8.1.jpg';
+import resim9 from '../assets/img/resim9.jpg';
+import resim10 from '../assets/img/resim10.jpg';
+import resim10_1 from '../assets/img/resim10.1.jpg';
+import resim13 from '../assets/img/resim13.jpg';
+import resim13_1 from '../assets/img/resim13.1.jpg';
+import resim14 from '../assets/img/resim14.jpg';
+import resim14_1 from '../assets/img/resim14.1.jpg';
+import resim15 from '../assets/img/resim15.jpg';
+import resim15_1 from '../assets/img/resim15.1.jpg';
+import resim16 from '../assets/img/resim16.jpg';
+import resim16_1 from '../assets/img/resim16.1.jpg';
+
+// Gallery items with enhanced metadata
+const galleryItems = [
+  {
+    id: 1,
+    src: resim4,
+    full: resim4_1,
+    category: 'robots',
+    title: '2025 Robot',
+    subtitle: 'REEFSCAPE',
+    date: '2025-02-01',
+    tags: ['robot', '2025', 'reefscape', 'yeni'],
+    description: '2025 sezonunda kullanılan robotumuzun genel görünümü'
+  },
+  {
+    id: 2,
+    src: resim5_1,
+    full: resim5_1,
+    category: 'robots',
+    title: 'Robot Detay',
+    subtitle: 'Mekanizma',
+    date: '2025-01-15',
+    tags: ['robot', 'mekanizma', 'detay'],
+    description: 'Robotumuzun mekanik yapısının detaylı görünümü'
+  },
+  {
+    id: 3,
+    src: resim6,
+    full: resim6_1,
+    category: 'robots',
+    title: '2024 Robot',
+    subtitle: 'Crescendo',
+    date: '2024-03-01',
+    tags: ['robot', '2024', 'crescendo'],
+    description: '2024 Crescendo sezonunda yarışan robotumuz'
+  },
+  {
+    id: 4,
+    src: resim7,
+    full: resim7_1,
+    category: 'team',
+    title: 'Takım 2025',
+    subtitle: 'G.O.A.T. 8092',
+    date: '2025-01-01',
+    tags: ['takım', '2025', 'üyeler'],
+    description: '2025 sezon takım üyelerimizin toplu fotoğrafı'
+  },
+  {
+    id: 5,
+    src: resim8,
+    full: resim8_1,
+    category: 'team',
+    title: 'Workshop',
+    subtitle: 'Takım Çalışması',
+    date: '2024-12-15',
+    tags: ['çalışma', 'workshop', 'eğitim'],
+    description: 'Takımımızın workshop çalışması sırasından bir kare'
+  },
+  {
+    id: 6,
+    src: resim9,
+    full: resim9,
+    category: 'team',
+    title: 'Mentorlar',
+    subtitle: 'Deneyim Paylaşımı',
+    date: '2024-11-20',
+    tags: ['mentor', 'eğitim', 'deneyim'],
+    description: 'Mentorlarımızla birlikte eğitim anları'
+  },
+  {
+    id: 7,
+    src: resim10,
+    full: resim10_1,
+    category: 'competitions',
+    title: 'Bosphorus Regional',
+    subtitle: '2025',
+    date: '2025-03-15',
+    tags: ['yarışma', 'bosphorus', '2025'],
+    description: '2025 Bosphorus Regional yarışmasından kareler'
+  },
+  {
+    id: 8,
+    src: resim13,
+    full: resim13_1,
+    category: 'competitions',
+    title: 'Yarışma',
+    subtitle: 'Aksiyonda',
+    date: '2024-03-20',
+    tags: ['yarışma', 'aksiyon', 'sahada'],
+    description: 'Yarışma sahası aksiyon anları'
+  },
+  {
+    id: 9,
+    src: resim14,
+    full: resim14_1,
+    category: 'competitions',
+    title: 'Rookie All Star',
+    subtitle: '2020 Ödülü',
+    date: '2020-03-01',
+    tags: ['ödül', 'rookie', 'başarı'],
+    description: '2020 yılında aldığımız Rookie All Star ödülü'
+  },
+  {
+    id: 10,
+    src: resim15,
+    full: resim15_1,
+    category: 'outreach',
+    title: 'STEM Workshop',
+    subtitle: 'Eğitim',
+    date: '2024-10-10',
+    tags: ['stem', 'eğitim', 'toplum'],
+    description: 'Toplum için düzenlediğimiz STEM eğitimi'
+  },
+  {
+    id: 11,
+    src: resim16,
+    full: resim16_1,
+    category: 'outreach',
+    title: 'G.O.A.T. Jr.',
+    subtitle: 'Mentorluk',
+    date: '2024-09-01',
+    tags: ['mentorluk', 'genç', 'eğitim'],
+    description: 'Genç kardeşlerimize mentorluk faaliyetleri'
+  },
+];
+
+// Categories for filtering
+const categories = [
+  { id: 'all', name: 'Tümü', icon: 'fas fa-th' },
+  { id: 'robots', name: 'Robotlar', icon: 'fas fa-robot' },
+  { id: 'team', name: 'Takım', icon: 'fas fa-users' },
+  { id: 'competitions', name: 'Yarışmalar', icon: 'fas fa-trophy' },
+  { id: 'outreach', name: 'Toplum Etkinlikleri', icon: 'fas fa-hands-helping' },
+];
+
+const itemsPerPage = 9;
+---
+
+<section id="galeri" class="pt-32 pb-20 scroll-mt-24">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Gelişmiş Galeri</h2>
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Gallery Controls -->
+      <div class="gallery-controls mb-8">
+        <!-- Search Bar -->
+        <div class="search-container mb-6">
+          <div class="relative">
+            <input
+              type="search"
+              id="gallery-search"
+              placeholder="Fotoğrafları ara... (başlık, etiket, açıklama)"
+              class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              aria-label="Galeri araması"
+            >
+            <i class="fas fa-search absolute left-4 top-4 text-gray-400" aria-hidden="true"></i>
+            <button
+              id="search-clear"
+              class="absolute right-3 top-3 p-1 text-gray-400 hover:text-gray-600 hidden"
+              aria-label="Aramayı temizle"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-buttons mb-6" role="group" aria-label="Kategori filtreleri">
+          {categories.map((category) => (
+            <button
+              class={`filter-btn ${category.id === 'all' ? 'active' : ''}`}
+              data-filter={category.id}
+              aria-pressed={category.id === 'all' ? 'true' : 'false'}
+            >
+              <i class={category.icon} aria-hidden="true"></i>
+              {category.name}
+            </button>
+          ))}
+        </div>
+
+        <!-- Sort Options -->
+        <div class="sort-controls mb-6">
+          <label for="gallery-sort" class="sr-only">Sıralama seçenekleri</label>
+          <select id="gallery-sort" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+            <option value="date-desc">En Yeni</option>
+            <option value="date-asc">En Eski</option>
+            <option value="title-asc">Başlığa Göre (A-Z)</option>
+            <option value="title-desc">Başlığa Göre (Z-A)</option>
+            <option value="category">Kategoriye Göre</option>
+          </select>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle mb-6" role="group" aria-label="Görünüm seçenekleri">
+          <button
+            id="grid-view"
+            class="view-btn active"
+            data-view="grid"
+            aria-pressed="true"
+            title="Izgara görünümü"
+          >
+            <i class="fas fa-th" aria-hidden="true"></i>
+          </button>
+          <button
+            id="list-view"
+            class="view-btn"
+            data-view="list"
+            aria-pressed="false"
+            title="Liste görünümü"
+          >
+            <i class="fas fa-list" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info mb-6">
+          <span id="results-count" class="text-sm text-gray-600" aria-live="polite">
+            {galleryItems.length} fotoğraf gösteriliyor
+          </span>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-container" class="gallery-grid" role="region" aria-label="Fotoğraf galerisi">
+        {galleryItems.map((item, index) => (
+          <div
+            class="gallery-item"
+            data-category={item.category}
+            data-date={item.date}
+            data-title={item.title.toLowerCase()}
+            data-tags={item.tags.join(' ')}
+            data-description={item.description.toLowerCase()}
+            data-index={index}
+          >
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <ResponsiveImage
+                src={item.src}
+                alt={`${item.title} - ${item.subtitle}`}
+                width={400}
+                height={300}
+                class="gallery-image w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+
+              <!-- Overlay -->
+              <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <h3 class="font-semibold text-lg mb-1">{item.title}</h3>
+                  <p class="text-sm opacity-90 mb-2">{item.subtitle}</p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs opacity-75">
+                      <i class="fas fa-calendar mr-1" aria-hidden="true"></i>
+                      {new Date(item.date).toLocaleDateString('tr-TR')}
+                    </span>
+                    <button
+                      class="gallery-view-btn px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs hover:bg-white/30 transition-colors"
+                      data-fancybox="gallery"
+                      data-src={item.full}
+                      data-caption={`${item.title} - ${item.description}`}
+                      aria-label={`${item.title} fotoğrafını büyüt`}
+                    >
+                      <i class="fas fa-expand mr-1" aria-hidden="true"></i>
+                      Büyüt
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category Badge -->
+              <div class="absolute top-2 left-2">
+                <span class="category-badge px-2 py-1 bg-primary/80 text-white text-xs rounded-full backdrop-blur-sm">
+                  {categories.find(cat => cat.id === item.category)?.name}
+                </span>
+              </div>
+            </div>
+
+            <!-- List View Content (hidden by default) -->
+            <div class="list-content hidden">
+              <div class="p-4">
+                <h3 class="font-semibold text-lg mb-2">{item.title}</h3>
+                <p class="text-gray-600 mb-3">{item.description}</p>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  {item.tags.map(tag => (
+                    <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+                <div class="flex items-center justify-between text-sm text-gray-500">
+                  <span>
+                    <i class="fas fa-calendar mr-1" aria-hidden="true"></i>
+                    {new Date(item.date).toLocaleDateString('tr-TR')}
+                  </span>
+                  <button
+                    class="text-primary hover:text-secondary transition-colors"
+                    data-fancybox="gallery"
+                    data-src={item.full}
+                    data-caption={`${item.title} - ${item.description}`}
+                    aria-label={`${item.title} fotoğrafını görüntüle`}
+                  >
+                    <i class="fas fa-eye mr-1" aria-hidden="true"></i>
+                    Görüntüle
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="pagination mt-8 flex justify-center" role="navigation" aria-label="Galeri sayfalama">
+        <!-- Pagination buttons will be generated by JavaScript -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-8">
+        <button
+          id="load-more"
+          class="load-more-btn px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 hidden"
+        >
+          <i class="fas fa-plus mr-2" aria-hidden="true"></i>
+          Daha Fazla Yükle
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Gallery Controls */
+  .gallery-controls {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .filter-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+  }
+
+  .filter-btn.active {
+    background: #512f75;
+    color: white;
+    border-color: #512f75;
+  }
+
+  .sort-controls select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 32px;
+  }
+
+  .view-toggle {
+    display: flex;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .view-btn {
+    padding: 8px 12px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .view-btn:hover {
+    background: #f3f4f6;
+  }
+
+  .view-btn.active {
+    background: #512f75;
+    color: white;
+  }
+
+  /* Gallery Layout */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .gallery-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+  }
+
+  .gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+  }
+
+  .gallery-item.list-view {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .gallery-item.list-view .gallery-image {
+    width: 200px;
+    height: 150px;
+    flex-shrink: 0;
+  }
+
+  .gallery-item.list-view .list-content {
+    display: block;
+    flex: 1;
+  }
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #374151;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pagination button:hover:not(:disabled) {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+  }
+
+  .pagination button.active {
+    background: #512f75;
+    color: white;
+    border-color: #512f75;
+  }
+
+  .pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Loading State */
+  .gallery-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #512f75;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-controls {
+      padding: 16px;
+    }
+
+    .filter-buttons {
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .gallery-item.list-view {
+      flex-direction: column;
+    }
+
+    .gallery-item.list-view .gallery-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .pagination {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .gallery-controls {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    .filter-btn {
+      background: #374151;
+      color: #f9fafb;
+      border-color: #4b5563;
+    }
+
+    .filter-btn:hover {
+      background: #4b5563;
+    }
+
+    .view-btn {
+      background: #374151;
+      color: #f9fafb;
+    }
+
+    .view-btn:hover {
+      background: #4b5563;
+    }
+
+    .gallery-item.list-view {
+      background: #1f2937;
+    }
+
+    .pagination button {
+      background: #374151;
+      color: #f9fafb;
+      border-color: #4b5563;
+    }
+
+    .pagination button:hover:not(:disabled) {
+      background: #4b5563;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .filter-btn,
+    .view-btn,
+    .pagination button {
+      border-width: 2px;
+    }
+
+    .filter-btn.active,
+    .view-btn.active,
+    .pagination button.active {
+      border-color: white;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-item,
+    .filter-btn,
+    .view-btn,
+    .pagination button {
+      transition: none;
+    }
+
+    .spinner {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  class AdvancedGallery {
+    private container: HTMLElement | null = null;
+    private items: HTMLElement[] = [];
+    private filteredItems: HTMLElement[] = [];
+    private currentPage = 1;
+    private itemsPerPage = 9;
+    private currentFilter = 'all';
+    private currentSort = 'date-desc';
+    private currentView = 'grid';
+    private searchTerm = '';
+
+    constructor() {
+      this.init();
+    }
+
+    private init() {
+      this.container = document.getElementById('gallery-container');
+      if (!this.container) return;
+
+      this.items = Array.from(this.container.querySelectorAll('.gallery-item')) as HTMLElement[];
+      this.filteredItems = [...this.items];
+
+      this.setupEventListeners();
+      this.updateDisplay();
+      this.updatePagination();
+    }
+
+    private setupEventListeners() {
+      // Filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          const filter = target.getAttribute('data-filter') || 'all';
+          this.setFilter(filter);
+        });
+      });
+
+      // Search
+      const searchInput = document.getElementById('gallery-search') as HTMLInputElement;
+      const searchClear = document.getElementById('search-clear');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const target = e.target as HTMLInputElement;
+          this.setSearch(target.value);
+
+          if (searchClear) {
+            searchClear.classList.toggle('hidden', !target.value);
+          }
+        });
+      }
+
+      if (searchClear) {
+        searchClear.addEventListener('click', () => {
+          if (searchInput) {
+            searchInput.value = '';
+            this.setSearch('');
+            searchClear.classList.add('hidden');
+          }
+        });
+      }
+
+      // Sort
+      const sortSelect = document.getElementById('gallery-sort') as HTMLSelectElement;
+      if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+          const target = e.target as HTMLSelectElement;
+          this.setSort(target.value);
+        });
+      }
+
+      // View toggle
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          const view = target.getAttribute('data-view') || 'grid';
+          this.setView(view);
+        });
+      });
+
+      // Load more
+      const loadMoreBtn = document.getElementById('load-more');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+          this.loadMore();
+        });
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.target === searchInput) return;
+
+        switch (e.key) {
+          case 'ArrowLeft':
+            if (e.ctrlKey || e.metaKey) {
+              e.preventDefault();
+              this.previousPage();
+            }
+            break;
+          case 'ArrowRight':
+            if (e.ctrlKey || e.metaKey) {
+              e.preventDefault();
+              this.nextPage();
+            }
+            break;
+          case '/':
+            e.preventDefault();
+            searchInput?.focus();
+            break;
+        }
+      });
+    }
+
+    private setFilter(filter: string) {
+      this.currentFilter = filter;
+      this.currentPage = 1;
+
+      // Update button states
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-filter') === filter;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive.toString());
+      });
+
+      this.filterAndSort();
+      this.updateDisplay();
+      this.updatePagination();
+      this.announceResults();
+    }
+
+    private setSearch(term: string) {
+      this.searchTerm = term.toLowerCase();
+      this.currentPage = 1;
+      this.filterAndSort();
+      this.updateDisplay();
+      this.updatePagination();
+      this.announceResults();
+    }
+
+    private setSort(sort: string) {
+      this.currentSort = sort;
+      this.filterAndSort();
+      this.updateDisplay();
+      this.announceResults();
+    }
+
+    private setView(view: string) {
+      this.currentView = view;
+
+      // Update button states
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-view') === view;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive.toString());
+      });
+
+      // Update container class
+      if (this.container) {
+        this.container.className = view === 'list' ? 'gallery-list' : 'gallery-grid';
+      }
+
+      // Update item classes
+      this.items.forEach(item => {
+        item.classList.toggle('list-view', view === 'list');
+      });
+
+      this.updateDisplay();
+    }
+
+    private filterAndSort() {
+      // Filter items
+      this.filteredItems = this.items.filter(item => {
+        // Category filter
+        if (this.currentFilter !== 'all') {
+          const itemCategory = item.getAttribute('data-category');
+          if (itemCategory !== this.currentFilter) return false;
+        }
+
+        // Search filter
+        if (this.searchTerm) {
+          const title = item.getAttribute('data-title') || '';
+          const tags = item.getAttribute('data-tags') || '';
+          const description = item.getAttribute('data-description') || '';
+
+          const searchText = `${title} ${tags} ${description}`.toLowerCase();
+          if (!searchText.includes(this.searchTerm)) return false;
+        }
+
+        return true;
+      });
+
+      // Sort items
+      this.filteredItems.sort((a, b) => {
+        switch (this.currentSort) {
+          case 'date-desc':
+            return new Date(b.getAttribute('data-date') || '').getTime() -
+                   new Date(a.getAttribute('data-date') || '').getTime();
+          case 'date-asc':
+            return new Date(a.getAttribute('data-date') || '').getTime() -
+                   new Date(b.getAttribute('data-date') || '').getTime();
+          case 'title-asc':
+            return (a.getAttribute('data-title') || '').localeCompare(
+                   b.getAttribute('data-title') || '', 'tr');
+          case 'title-desc':
+            return (b.getAttribute('data-title') || '').localeCompare(
+                   a.getAttribute('data-title') || '', 'tr');
+          case 'category':
+            return (a.getAttribute('data-category') || '').localeCompare(
+                   b.getAttribute('data-category') || '', 'tr');
+          default:
+            return 0;
+        }
+      });
+    }
+
+    private updateDisplay() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+
+      // Hide all items
+      this.items.forEach(item => {
+        item.classList.add('hidden');
+      });
+
+      // Show current page items
+      this.filteredItems.slice(startIndex, endIndex).forEach(item => {
+        item.classList.remove('hidden');
+      });
+
+      // Update results count
+      const resultsCount = document.getElementById('results-count');
+      if (resultsCount) {
+        const total = this.filteredItems.length;
+        const showing = Math.min(endIndex, total);
+        resultsCount.textContent = `${total} fotoğraftan ${showing} tanesi gösteriliyor`;
+      }
+
+      // Update load more button
+      const loadMoreBtn = document.getElementById('load-more');
+      if (loadMoreBtn) {
+        loadMoreBtn.classList.toggle('hidden', endIndex >= this.filteredItems.length);
+      }
+    }
+
+    private updatePagination() {
+      const pagination = document.getElementById('pagination');
+      if (!pagination) return;
+
+      const totalPages = Math.ceil(this.filteredItems.length / this.itemsPerPage);
+
+      if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+      }
+
+      let paginationHTML = '';
+
+      // Previous button
+      paginationHTML += `
+        <button ${this.currentPage === 1 ? 'disabled' : ''} data-page="${this.currentPage - 1}">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+          <span class="sr-only">Önceki sayfa</span>
+        </button>
+      `;
+
+      // Page numbers
+      const maxVisible = 5;
+      let startPage = Math.max(1, this.currentPage - Math.floor(maxVisible / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+      if (endPage - startPage < maxVisible - 1) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
+      }
+
+      if (startPage > 1) {
+        paginationHTML += `<button data-page="1">1</button>`;
+        if (startPage > 2) {
+          paginationHTML += `<span class="pagination-ellipsis">...</span>`;
+        }
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        paginationHTML += `
+          <button data-page="${i}" ${i === this.currentPage ? 'class="active"' : ''}>
+            ${i}
+          </button>
+        `;
+      }
+
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          paginationHTML += `<span class="pagination-ellipsis">...</span>`;
+        }
+        paginationHTML += `<button data-page="${totalPages}">${totalPages}</button>`;
+      }
+
+      // Next button
+      paginationHTML += `
+        <button ${this.currentPage === totalPages ? 'disabled' : ''} data-page="${this.currentPage + 1}">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <span class="sr-only">Sonraki sayfa</span>
+        </button>
+      `;
+
+      pagination.innerHTML = paginationHTML;
+
+      // Add event listeners
+      pagination.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          const page = parseInt(target.getAttribute('data-page') || '1');
+          this.goToPage(page);
+        });
+      });
+    }
+
+    private goToPage(page: number) {
+      this.currentPage = page;
+      this.updateDisplay();
+      this.updatePagination();
+
+      // Scroll to gallery
+      const gallery = document.getElementById('galeri');
+      if (gallery) {
+        gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    private previousPage() {
+      if (this.currentPage > 1) {
+        this.goToPage(this.currentPage - 1);
+      }
+    }
+
+    private nextPage() {
+      const totalPages = Math.ceil(this.filteredItems.length / this.itemsPerPage);
+      if (this.currentPage < totalPages) {
+        this.goToPage(this.currentPage + 1);
+      }
+    }
+
+    private loadMore() {
+      this.itemsPerPage += 9;
+      this.updateDisplay();
+      this.updatePagination();
+    }
+
+    private announceResults() {
+      const resultsCount = document.getElementById('results-count');
+      if (resultsCount) {
+        // Create live region announcement
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.setAttribute('aria-atomic', 'true');
+        announcement.className = 'sr-only';
+        announcement.textContent = resultsCount.textContent || '';
+
+        document.body.appendChild(announcement);
+
+        setTimeout(() => {
+          document.body.removeChild(announcement);
+        }, 1000);
+      }
+    }
+  }
+
+  // Initialize gallery when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new AdvancedGallery();
+  });
+
+  // Add screen reader only class
+  const style = document.createElement('style');
+  style.textContent = `
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .pagination-ellipsis {
+      padding: 8px 4px;
+      color: #6b7280;
+    }
+  `;
+  document.head.appendChild(style);
+</script>

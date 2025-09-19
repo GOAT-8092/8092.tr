@@ -211,7 +211,8 @@ body.menu-open {
 }
 
 .team-member-image img {
-  object-position: center center;
+  object-fit: cover;
+  object-position: center top;
   transform: none;
 }
 

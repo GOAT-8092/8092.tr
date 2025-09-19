@@ -1,11 +1,10 @@
 ---
 // About.astro - Hakkımızda (About) section component
-import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
 import { translations } from '../lib/translations';
 
 const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
-const translationsObj = getTranslations(currentLang);
 ---
 
 <section id="hakkimizda" class="pt-32 pb-20 scroll-mt-24">
@@ -114,32 +113,69 @@ const translationsObj = getTranslations(currentLang);
           </div>
         </div>
 
-        <!-- Destekçilerimiz -->
+        <!-- Sponsorlarımız ve Destekçilerimiz -->
         <div>
           <h3 class="text-2xl font-bold text-gray-800 mb-4">{t('about.supporters_title')}</h3>
           <div class="bg-white rounded-lg shadow-md p-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-              <img src="img/bsh.logo.png" alt="BSH Logo" class="w-full">
+              <!-- Primary Sponsors with Logos -->
               <div class="text-center">
-                <p class="font-semibold">Kodluyoruz Derneği</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <img src="/sponsors/logo/BSH.png" alt="B/S/H/ Türkiye Logo" class="h-10 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">B/S/H/ Türkiye</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Çetin Group</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <img src="/sponsors/logo/Kodluyoruz.png" alt="Kodluyoruz Logo" class="h-10 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Kodluyoruz Derneği</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Saray Alüminyum</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <img src="/sponsors/logo/CetinGroup.png" alt="Çetin Group Logo" class="h-10 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Çetin Group</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Yılmaz Kalıp</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <img src="/sponsors/logo/SarayAluminyum.png" alt="Saray Alüminyum Logo" class="h-10 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Saray Alüminyum</p>
+              </div>
+
+              <!-- Additional Supporters -->
+              <div class="text-center">
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <div class="text-primary text-lg">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Yılmaz Kalıp</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Halit Narin MTAL</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <div class="text-primary text-lg">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Halit Narin MTAL</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Veliköy OSB MTAL</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <div class="text-primary text-lg">
+                    <i class="fas fa-industry"></i>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Veliköy OSB MTAL</p>
               </div>
               <div class="text-center">
-                <p class="font-semibold">Çemobsan</p>
+                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
+                  <div class="text-primary text-lg">
+                    <i class="fas fa-building"></i>
+                  </div>
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Çemobsan</p>
               </div>
             </div>
           </div>

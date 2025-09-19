@@ -45,7 +45,7 @@ export const translations: Translations = {
       visionText:
         "Türkiye'de robotik kültürünü yaygınlaştırarak uluslararası alanda başarılı, yenilikçi gençler yetiştirmek.",
       values: 'Değerlerimiz',
-      valuesList: ['İş Birliği', 'Yenilikçilik', 'Sorumluluk', 'Mükemmeliyetçilik', 'Dayanışma'],
+      valuesList: 'İş Birliği, Yenilikçilik, Sorumluluk, Mükemmeliyetçilik, Dayanışma',
       intro:
         "Takım G.O.A.T. (Greatest of All Times) #8092, Haziran 2019'da Tekirdağ'ın Çerkezköy ilçesindeki Halit Narin Mesleki ve Teknik Anadolu Lisesi'nde BSH Türkiye ve Kodluyoruz Derneği'nin desteğiyle kuruldu. Bu kuruluş ile G.O.A.T. 8092, Tekirdağ ilinde kurulan ilk ve tek FIRST Robotics Competition takımı olmuştur.",
       season_2019_title: '2019 Sezonu - Kuruluş Yılı',
@@ -85,7 +85,7 @@ export const translations: Translations = {
       stats_awards_label: 'Resmi Ödül',
       stats_awards_note: '(Rookie All Star 2020)',
       stats_record_label: 'Toplam Galibiyet-Mağlubiyet',
-      supporters_title: 'Destekçilerimiz',
+      supporters_title: 'Sponsorlarımız ve Destekçilerimiz',
     },
 
     // Team Section
@@ -148,42 +148,42 @@ export const translations: Translations = {
           title: 'FRC Robot 2025 - REEFSCAPE',
           description:
             '2025 sezonu için geliştirilen robotumuz. REEFSCAPE oyunu için tasarlanmış özel mekanizmalar ve otonom fonksiyonlar içerir.',
-          tags: ['Mekanik', 'Yazılım', 'Elektrik'],
+          tags: 'Mekanik, Yazılım, Elektrik',
           meta: '2025 Sezonu',
         },
         outreach: {
           title: 'STEM Eğitim Programları',
           description:
             'Bölgemizdeki öğrencilere STEM eğitimi sunmak için düzenlediğimiz çeşitli workshop ve eğitim programları.',
-          tags: ['Eğitim', 'Toplum Hizmeti'],
+          tags: 'Eğitim, Toplum Hizmeti',
           meta: 'Sürekli',
         },
         junior: {
           title: 'G.O.A.T. Jr.',
           description:
             'Ortaokul öğrencileri için oluşturduğumuz alt takım. Genç yeteneklerin robotik ve STEM alanlarında gelişimini destekliyoruz.',
-          tags: ['Mentorluk', 'Eğitim'],
+          tags: 'Mentorluk, Eğitim',
           meta: "2021'den beri",
         },
         robot2024: {
           title: 'FRC Robot 2024 - Crescendo',
           description:
             '2024 sezonu Crescendo oyunu için tasarlanan robotumuz. Müzik temalı oyun için özel shooter ve intake mekanizmaları.',
-          tags: ['Mekanik', 'Yazılım', 'Elektrik'],
+          tags: 'Mekanik, Yazılım, Elektrik',
           meta: '2024 Sezonu',
         },
         website: {
           title: 'Web Sitesi Geliştirme',
           description:
             'Takımımızın resmi web sitesi. Modern teknolojilerle geliştirilmiş, responsive ve kullanıcı dostu bir tasarım sunar.',
-          tags: ['Web', 'Yazılım'],
+          tags: 'Web, Yazılım',
           meta: '2024',
         },
         sponsorship: {
           title: 'Sponsorluk & Halkla İlişkiler',
           description:
             'Takımımızın sürdürülebilirliği için sponsorluk anlaşmaları ve toplumsal farkındalık projeleri yürütüyoruz.',
-          tags: ['PR', 'İş Geliştirme'],
+          tags: 'PR, İş Geliştirme',
           meta: 'Sürekli',
         },
       },
@@ -280,11 +280,7 @@ export const translations: Translations = {
       phone: 'Telefon',
       email_link: 'E-posta gönder',
       address_title: 'Adres',
-      address_lines: [
-        'Veliköy OSB Mesleki ve Teknik Anadolu Lisesi',
-        'Çerkezköy, Tekirdağ',
-        'Türkiye',
-      ],
+      address_lines: 'Veliköy OSB Mesleki ve Teknik Anadolu Lisesi, Çerkezköy, Tekirdağ, Türkiye',
       view_map: 'Haritada görüntüle',
       social_title: 'Sosyal Medya',
       quick_links_title: 'Hızlı Erişim',
@@ -305,7 +301,7 @@ export const translations: Translations = {
       followUs: 'Bizi Takip Edin',
       allRightsReserved: 'Tüm hakları saklıdır.',
       first: 'For Inspiration and Recognition of Science and Technology',
-      team: 'Team 8092',
+      team_name: 'Team 8092',
       motto: 'Greatest of All Times',
       team_description:
         "Greatest of All Times - Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
@@ -496,7 +492,7 @@ export const translations: Translations = {
       visionText:
         'To spread robotics culture in Turkey and nurture successful, innovative youth on an international level.',
       values: 'Our Values',
-      valuesList: ['Collaboration', 'Innovation', 'Responsibility', 'Excellence', 'Solidarity'],
+      valuesList: 'Collaboration, Innovation, Responsibility, Excellence, Solidarity',
       intro:
         'Team G.O.A.T. (Greatest of All Times) #8092 was founded in June 2019 at Halit Narin Vocational and Technical Anatolian High School in Çerkezköy, Tekirdağ with support from BSH Turkey and the Kodluyoruz Foundation. From day one G.O.A.T. 8092 became the first and only FIRST Robotics Competition team established in the Tekirdağ province.',
       season_2019_title: '2019 Season – Founding Year',
@@ -536,7 +532,7 @@ export const translations: Translations = {
       stats_awards_label: 'Official Awards',
       stats_awards_note: '(Rookie All Star 2020)',
       stats_record_label: 'Overall Win–Loss Record',
-      supporters_title: 'Our Supporters',
+      supporters_title: 'Our Sponsors and Supporters',
     },
 
     // Team Section
@@ -599,42 +595,42 @@ export const translations: Translations = {
           title: 'FRC Robot 2025 - REEFSCAPE',
           description:
             'Our robot developed for the 2025 season with custom mechanisms and autonomous features tailored to the REEFSCAPE game.',
-          tags: ['Mechanical', 'Software', 'Electrical'],
+          tags: 'Mechanical, Software, Electrical',
           meta: '2025 Season',
         },
         outreach: {
           title: 'STEM Education Programmes',
           description:
             'Workshops and training sessions we organise to deliver STEM education to students in our region.',
-          tags: ['Education', 'Community Service'],
+          tags: 'Education, Community Service',
           meta: 'Ongoing',
         },
         junior: {
           title: 'G.O.A.T. Jr.',
           description:
             'Our junior squad for middle-school students, helping young talents grow in robotics and STEM.',
-          tags: ['Mentorship', 'Education'],
+          tags: 'Mentorship, Education',
           meta: 'Since 2021',
         },
         robot2024: {
           title: 'FRC Robot 2024 - CRESCENDO',
           description:
             'Our robot engineered for the Crescendo season with music-themed shooter and intake mechanisms.',
-          tags: ['Mechanical', 'Software', 'Electrical'],
+          tags: 'Mechanical, Software, Electrical',
           meta: '2024 Season',
         },
         website: {
           title: 'Website Development',
           description:
             'The official team website, built with modern technologies and a responsive, user-friendly design.',
-          tags: ['Web', 'Software'],
+          tags: 'Web, Software',
           meta: '2024',
         },
         sponsorship: {
           title: 'Sponsorship & Public Relations',
           description:
             'We nurture sustainability through sponsorship agreements and community awareness projects.',
-          tags: ['PR', 'Business Development'],
+          tags: 'PR, Business Development',
           meta: 'Ongoing',
         },
       },
@@ -730,11 +726,8 @@ export const translations: Translations = {
       phone: 'Phone',
       email_link: 'Send Email',
       address_title: 'Address',
-      address_lines: [
-        'Veliköy OSB Vocational and Technical Anatolian High School',
-        'Çerkezköy, Tekirdağ',
-        'Turkey',
-      ],
+      address_lines:
+        'Veliköy OSB Vocational and Technical Anatolian High School, Çerkezköy, Tekirdağ, Turkey',
       view_map: 'View on map',
       social_title: 'Social Media',
       quick_links_title: 'Quick Access',
@@ -755,7 +748,7 @@ export const translations: Translations = {
       followUs: 'Follow Us',
       allRightsReserved: 'All rights reserved.',
       first: 'For Inspiration and Recognition of Science and Technology',
-      team: 'Team 8092',
+      team_name: 'Team 8092',
       motto: 'Greatest of All Times',
       team_description:
         'Greatest of All Times - The first and only FRC team in Tekirdağ. Building the future with FIRST values since 2019.',
