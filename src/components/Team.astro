@@ -1,22 +1,37 @@
 ---
 import { Image } from 'astro:assets';
 import { currentTeamMembers, teamMentors } from '../data/teamMembers';
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
 
-// Import all images from src/images/team
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/team/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+
+const getRoleLabel = (id: string, fallback: string) => {
+  const key = `team.roles.${id}`;
+  const translated = t(key);
+  return translated === key ? fallback : translated;
+};
+
+// Import all images from public/img/team
+const images = import.meta.glob<{ default: ImageMetadata }>('/public/img/team/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 
 // Helper function to get image module
 async function getImageSrc(imagePath: string) {
-  // The imagePath is now just the filename
-  const imageSrc = images[`/src/images/team/${imagePath}`];
+  if (!imagePath) return null;
+
+  // Check if it's a full path or just filename
+  const filename = imagePath.includes('/') ? imagePath.split('/').pop() : imagePath;
+  const imageSrc = images[`/public/img/team/${filename}`];
 
   if (imageSrc) {
     const mod = await imageSrc();
     return mod.default;
   }
 
-  // Fallback to original path for public images
-  return `/img/${imagePath}`;
+  // Fallback to original path
+  return imagePath.startsWith('/') ? imagePath : `/img/${imagePath}`;
 }
 
 // Process team members with optimized images
@@ -37,17 +52,17 @@ const mentorsWithImages = await Promise.all(
 
 <section id="takim" class="py-20 bg-gray-100 scroll-mt-24">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Takım Üyelerimiz</h2>
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">{t('team.title')}</h2>
 
     <!-- Current Team Members (Captains + Regular Members) -->
     <div class="mb-12">
-      <h3 class="text-2xl font-semibold text-gray-700 text-center mb-8">Takım Üyeleri</h3>
+      <h3 class="text-2xl font-semibold text-gray-700 text-center mb-8">{t('team.members')}</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {membersWithImages.map((member) => (
           <div class="glass-card overflow-hidden relative">
             {member.isCaptain && (
               <div class="absolute top-2 right-2 z-10">
-                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">Kaptan</span>
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">{t('team.badges.captain')}</span>
               </div>
             )}
             <div class="w-full h-64 team-member-image">
@@ -58,7 +73,7 @@ const mentorsWithImages = await Promise.all(
                   width={300}
                   height={256}
                   loading="lazy"
-                  class="w-full h-full object-cover object-center"
+                  class="w-full h-full object-contain object-center"
                 />
               ) : (
                 <Image
@@ -67,7 +82,7 @@ const mentorsWithImages = await Promise.all(
                   width={300}
                   height={256}
                   loading="lazy"
-                  class="w-full h-full object-cover object-center"
+                  class="w-full h-full object-contain object-center"
                   format="webp"
                   quality={80}
                 />
@@ -75,7 +90,7 @@ const mentorsWithImages = await Promise.all(
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{member.name}</h3>
-              <p class="text-gray-600">{member.role}</p>
+              <p class="text-gray-600">{getRoleLabel(member.id, member.role)}</p>
               <p class="text-gray-500 text-sm">{member.year}</p>
             </div>
           </div>
@@ -85,14 +100,14 @@ const mentorsWithImages = await Promise.all(
 
     <!-- Team Mentors Section (Lead + Regular Mentors) -->
     <div class="mt-16 pt-16 border-t border-gray-300">
-      <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Mentorlarımız</h3>
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">{t('team.mentors')}</h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {mentorsWithImages.map((mentor) => (
           <div class="glass-card overflow-hidden relative">
             {mentor.isLeadMentor && (
               <div class="absolute top-2 right-2 z-10">
-                <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">Baş Mentor</span>
+                <span class="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">{t('team.badges.leadMentor')}</span>
               </div>
             )}
             <div class="w-full h-64 team-member-image">
@@ -103,7 +118,7 @@ const mentorsWithImages = await Promise.all(
                     width={300}
                     height={256}
                     loading="lazy"
-                    class="w-full h-full object-cover object-center"
+                    class="w-full h-full object-contain object-center"
                   />
                 ) : (
                   <Image
@@ -112,7 +127,7 @@ const mentorsWithImages = await Promise.all(
                     width={300}
                     height={256}
                     loading="lazy"
-                    class="w-full h-full object-cover object-center"
+                    class="w-full h-full object-contain object-center"
                     format="webp"
                     quality={80}
                   />
@@ -120,7 +135,7 @@ const mentorsWithImages = await Promise.all(
             </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800">{mentor.name}</h3>
-              <p class="text-gray-600">{mentor.role}</p>
+              <p class="text-gray-600">{getRoleLabel(mentor.id, mentor.role)}</p>
               <p class="text-gray-500 text-sm">{mentor.year}</p>
             </div>
           </div>

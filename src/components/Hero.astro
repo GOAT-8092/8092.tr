@@ -1,4 +1,10 @@
 ---
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
 ---
 
 <header>
@@ -16,25 +22,25 @@
             <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
               <i class="fas fa-robot text-white text-sm" aria-hidden="true"></i>
             </div>
-            <span class="text-sm text-white/80 tracking-wider uppercase first-badge">FIRST ROBOTICS COMPETITION</span>
+            <span class="text-sm text-white/80 tracking-wider uppercase first-badge">{t('hero.frc_badge')}</span>
           </div>
 
           <!-- Main Headline -->
           <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
-            <span class="block">Greatest of</span>
-            <span class="block text-yellow-300">All Times</span>
-            <span class="block text-white text-5xl sm:text-7xl md:text-8xl font-black mt-2">#8092</span>
+            <span class="block">{t('hero.heading_line1')}</span>
+            <span class="block text-yellow-300">{t('hero.heading_line2')}</span>
+            <span class="block text-white text-5xl sm:text-7xl md:text-8xl font-black mt-2">{t('hero.heading_tagline')}</span>
           </h1>
 
           <!-- Subtitle -->
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/90">
-            Tekirdağ'ın ilk ve tek FRC takımı olarak 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. Innovation, teamwork ve gracious professionalism ile robotik dünyasında iz bırakıyoruz.
+            {t('hero.subtitle_long')}
           </p>
 
           <!-- Achievement Badge -->
           <div class="mt-4 flex items-center justify-center">
             <div class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/30">
-              🏆 Rookie All Star Award 2020
+              🏆 {t('hero.achievement')}
             </div>
           </div>
 
@@ -46,7 +52,7 @@
               onclick="scrollWindowTo('hakkimizda')"
               class="rounded-md bg-yellow-400 text-purple-900 px-6 py-3 text-sm font-semibold shadow-sm hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-400 transition-colors inline-block"
             >
-              Hikayemizi Keşfedin
+              {t('hero.discover_button')}
             </a>
             <a
               href="#takim"
@@ -54,7 +60,7 @@
               onclick="scrollWindowTo('takim')"
               class="rounded-md bg-white/20 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-white/30 hover:bg-white/30 transition-colors inline-block"
             >
-              Takımımızı Tanıyın
+              {t('hero.meet_team_button')}
             </a>
           </div>
 
@@ -62,7 +68,7 @@
           <div class="mt-16">
             <button onclick="pagedown()" class="text-white/60 hover:text-white transition-colors">
               <div class="flex flex-col items-center space-y-2">
-                <span class="text-sm">Aşağı Kaydır</span>
+                <span class="text-sm">{t('hero.scroll_down')}</span>
                 <i class="fas fa-chevron-down text-lg animate-bounce"></i>
               </div>
             </button>

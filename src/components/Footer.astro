@@ -1,5 +1,14 @@
 ---
 // Footer.astro - Footer component with accessibility info and team details
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+const footerTranslations = translationsObj.footer ?? {};
+const firstValues = footerTranslations.first_values ?? {};
+const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamwork', 'fun'];
 ---
 
 <footer class="bg-gradient-to-r from-primary to-secondary text-white py-12">
@@ -19,39 +28,41 @@
             </div>
           </div>
           <p class="text-sm opacity-90 leading-relaxed">
-            Greatest of All Times - Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.
+            {t('footer.team_description')}
           </p>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">Hızlı Erişim</h4>
+          <h4 class="text-lg font-semibold mb-4">{t('footer.quick_links')}</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#anasayfa" onclick="scrollWindowTo('anasayfa')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">Anasayfa</a></li>
-            <li><a href="#hakkimizda" onclick="scrollWindowTo('hakkimizda')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">Hakkımızda</a></li>
-            <li><a href="#takim" onclick="scrollWindowTo('takim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">Takım</a></li>
-            <li><a href="#projelerimiz" onclick="scrollWindowTo('projelerimiz')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">Projelerimiz</a></li>
-            <li><a href="#galeri" onclick="scrollWindowTo('galeri')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">Galeri</a></li>
-            <li><a href="#iletisim" onclick="scrollWindowTo('iletisim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">İletişim</a></li>
+            <li><a href="#anasayfa" onclick="scrollWindowTo('anasayfa')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('footer.home')}</a></li>
+            <li><a href="#hakkimizda" onclick="scrollWindowTo('hakkimizda')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.about')}</a></li>
+            <li><a href="#takim" onclick="scrollWindowTo('takim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.team')}</a></li>
+            <li><a href="#projelerimiz" onclick="scrollWindowTo('projelerimiz')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.projects')}</a></li>
+            <li><a href="#galeri" onclick="scrollWindowTo('galeri')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.gallery')}</a></li>
+            <li><a href="#iletisim" onclick="scrollWindowTo('iletisim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.contact')}</a></li>
           </ul>
         </div>
 
         <!-- FIRST Values -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">FIRST Değerlerimiz</h4>
+          <h4 class="text-lg font-semibold mb-4">{footerTranslations.first_values_title ?? t('footer.first_values_title')}</h4>
           <ul class="space-y-1 text-sm opacity-90">
-            <li><strong>Discovery:</strong> Yeni beceriler keşfetmek</li>
-            <li><strong>Innovation:</strong> Yaratıcı problem çözme</li>
-            <li><strong>Impact:</strong> Dünyamızı iyileştirmek</li>
-            <li><strong>Inclusion:</strong> Farklılıkları kucaklamak</li>
-            <li><strong>Teamwork:</strong> Birlikte güçlü olmak</li>
-            <li><strong>Fun:</strong> Keyif alarak çalışmak</li>
+            {firstValueKeys
+              .map((key) => firstValues[key])
+              .filter(Boolean)
+              .map((value: any) => (
+                <li>
+                  <strong>{value?.term}:</strong> {value?.description}
+                </li>
+              ))}
           </ul>
         </div>
 
         <!-- Contact Info -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+          <h4 class="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
           <div class="space-y-2 text-sm opacity-90">
             <p>
               <i class="fas fa-envelope mr-2"></i>
@@ -59,7 +70,7 @@
             </p>
             <p>
               <i class="fas fa-map-marker-alt mr-2"></i>
-              Tekirdağ, Türkiye
+              {footerTranslations.location_text ?? 'Tekirdağ, Türkiye'}
             </p>
             <div class="flex space-x-4 mt-4">
               <a href="#" class="text-white hover:text-gray-300 transition-colors">
@@ -84,11 +95,9 @@
         <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
           <h4 class="text-lg font-semibold mb-3 flex items-center">
             <i class="fas fa-universal-access mr-2"></i>
-            Erişilebilirlik ve Kapsayıcılık
+            {footerTranslations.accessibility_title ?? ''}
           </h4>
-          <p class="text-sm opacity-90 leading-relaxed">
-            FIRST'ın "Inclusion" (Kapsayıcılık) değeri doğrultusunda, web sitemizde görme zorluğu yaşayan bireyler için özel olarak tasarlanmış <strong>Atkinson Hyperlegible</strong> fontunu kullanıyoruz. Bu font, disleksi ve düşük görme keskinliği olan kişiler için geliştirilmiş olup, tüm takım üyelerimizin ve ziyaretçilerimizin içeriğimize eşit erişim sağlamasını desteklemektedir.
-          </p>
+          <p class="text-sm opacity-90 leading-relaxed" set:html={footerTranslations.accessibility_description ?? ''}></p>
         </div>
       </div>
 
@@ -96,7 +105,7 @@
       <div class="border-t border-white/20 pt-6">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div class="text-sm opacity-90">
-            <p>&copy; 2025 Greatest of All Times #8092. Tüm hakları saklıdır.</p>
+            <p>{footerTranslations.copyright_notice ?? '© 2025 Greatest of All Times #8092.'}</p>
           </div>
           <div class="flex items-center space-x-4 text-sm opacity-90">
             <a href="https://www.fikretyukselfoundation.org/" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
@@ -105,7 +114,7 @@
             <a href="https://www.firstinspires.org" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
               <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-10">
             </a>
-            <span>Powered by</span>
+            <span>{footerTranslations.powered_by ?? 'Powered by'}</span>
             <a href="https://astro.build" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
               <i class="fas fa-rocket mr-1"></i>Astro
             </a>

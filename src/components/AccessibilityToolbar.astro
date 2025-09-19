@@ -1,0 +1,744 @@
+---
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+const accessibility = translationsObj.accessibility ?? {};
+const accessibilitySections = accessibility.sections ?? {};
+const accessibilityButtons = accessibility.buttons ?? {};
+const accessibilityAnnouncements = accessibility.announcements ?? {};
+const fontStates = accessibility.font_states ?? {};
+const accessibilityScriptStrings = {
+  announcements: accessibilityAnnouncements,
+  font_states: fontStates
+};
+---
+
+<div id="accessibility-toolbar" class="accessibility-toolbar" role="toolbar" aria-label={t('accessibility.toolbar_label')}>
+  <button
+    id="a11y-toggle"
+    class="a11y-toggle"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+    title={t('accessibility.toggle_title')}
+  >
+    <i class="fas fa-universal-access" aria-hidden="true"></i>
+    <span class="sr-only">{t('accessibility.toolbar_label')}</span>
+  </button>
+
+  <div id="a11y-panel" class="a11y-panel hidden" role="region" aria-labelledby="a11y-title">
+    <div class="a11y-header">
+      <h3 id="a11y-title" class="a11y-title">
+        <i class="fas fa-universal-access mr-2" aria-hidden="true"></i>
+        {t('accessibility.panel_title')}
+      </h3>
+      <button id="a11y-close" class="a11y-close" aria-label={t('accessibility.close_label')}>
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="a11y-content">
+      <!-- Font Size Controls -->
+      <div class="a11y-section">
+        <h4 class="a11y-section-title">{accessibilitySections.fontSize ?? ''}</h4>
+        <div class="a11y-controls" role="group" aria-labelledby="font-size-controls">
+          <button class="a11y-btn" data-action="font-size" data-value="decrease" aria-label={accessibilityButtons.font_decrease_label ?? ''}>
+            <i class="fas fa-minus" aria-hidden="true"></i> {accessibilityButtons.font_decrease ?? 'A-'}
+          </button>
+          <button class="a11y-btn" data-action="font-size" data-value="reset" aria-label={accessibilityButtons.font_reset_label ?? ''}>
+            <i class="fas fa-redo" aria-hidden="true"></i> {accessibilityButtons.font_reset ?? 'A'}
+          </button>
+          <button class="a11y-btn" data-action="font-size" data-value="increase" aria-label={accessibilityButtons.font_increase_label ?? ''}>
+            <i class="fas fa-plus" aria-hidden="true"></i> {accessibilityButtons.font_increase ?? 'A+'}
+          </button>
+        </div>
+      </div>
+
+      <!-- Contrast Controls -->
+      <div class="a11y-section">
+        <h4 class="a11y-section-title">{accessibilitySections.contrast ?? ''}</h4>
+        <div class="a11y-controls">
+          <button class="a11y-btn" data-action="contrast" data-value="high" aria-label={accessibilityButtons.high_contrast_label ?? ''}>
+            <i class="fas fa-adjust" aria-hidden="true"></i> {accessibilityButtons.high_contrast ?? ''}
+          </button>
+          <button class="a11y-btn" data-action="contrast" data-value="reset" aria-label={accessibilityButtons.normal_contrast_label ?? ''}>
+            <i class="fas fa-eye" aria-hidden="true"></i> {accessibilityButtons.normal_contrast ?? ''}
+          </button>
+        </div>
+      </div>
+
+      <!-- Reading Tools -->
+      <div class="a11y-section">
+        <h4 class="a11y-section-title">{accessibilitySections.reading ?? ''}</h4>
+        <div class="a11y-controls">
+          <button class="a11y-btn" data-action="reading-guide" aria-label={accessibilityButtons.reading_guide_label ?? ''}>
+            <i class="fas fa-grip-lines" aria-hidden="true"></i> {accessibilityButtons.reading_guide ?? ''}
+          </button>
+          <button class="a11y-btn" data-action="focus-outline" aria-label={accessibilityButtons.focus_outline_label ?? ''}>
+            <i class="fas fa-square" aria-hidden="true"></i> {accessibilityButtons.focus_outline ?? ''}
+          </button>
+        </div>
+      </div>
+
+      <!-- Motion Controls -->
+      <div class="a11y-section">
+        <h4 class="a11y-section-title">{accessibilitySections.motion ?? ''}</h4>
+        <div class="a11y-controls">
+          <button class="a11y-btn" data-action="reduce-motion" aria-label={accessibilityButtons.reduce_motion_label ?? ''}>
+            <i class="fas fa-pause" aria-hidden="true"></i> {accessibilityButtons.reduce_motion ?? ''}
+          </button>
+          <button class="a11y-btn" data-action="reset-motion" aria-label={accessibilityButtons.reset_motion_label ?? ''}>
+            <i class="fas fa-play" aria-hidden="true"></i> {accessibilityButtons.reset_motion ?? ''}
+          </button>
+        </div>
+      </div>
+
+      <!-- Skip Links -->
+      <div class="a11y-section">
+        <h4 class="a11y-section-title">{accessibilitySections.shortcuts ?? ''}</h4>
+        <div class="a11y-controls">
+          <a href="#takim" class="a11y-btn" role="button">
+            <i class="fas fa-users" aria-hidden="true"></i> {accessibilityButtons.shortcut_team ?? ''}
+          </a>
+          <a href="#galeri" class="a11y-btn" role="button">
+            <i class="fas fa-images" aria-hidden="true"></i> {accessibilityButtons.shortcut_gallery ?? ''}
+          </a>
+          <a href="#iletisim" class="a11y-btn" role="button">
+            <i class="fas fa-envelope" aria-hidden="true"></i> {accessibilityButtons.shortcut_contact ?? ''}
+          </a>
+        </div>
+      </div>
+
+      <!-- Reset All -->
+      <div class="a11y-section">
+        <button class="a11y-btn a11y-reset" data-action="reset-all" aria-label={accessibilityButtons.reset_all_label ?? ''}>
+          <i class="fas fa-undo" aria-hidden="true"></i> {accessibilityButtons.reset_all ?? ''}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reading Guide -->
+<div id="reading-guide" class="reading-guide hidden" aria-hidden="true"></div>
+
+<style>
+  .accessibility-toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  .a11y-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #512f75;
+    color: white;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .a11y-toggle:hover, .a11y-toggle:focus {
+    background: #673a8e;
+    transform: scale(1.1);
+    border-color: #7e46a8;
+  }
+
+  .a11y-panel {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transform: translateY(-10px) scale(0.95);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .a11y-panel.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .a11y-header {
+    background: linear-gradient(135deg, #512f75, #673a8e);
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .a11y-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .a11y-close {
+    background: none;
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+
+  .a11y-close:hover, .a11y-close:focus {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .a11y-content {
+    padding: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .a11y-section {
+    margin-bottom: 20px;
+  }
+
+  .a11y-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .a11y-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 8px 0;
+  }
+
+  .a11y-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .a11y-btn {
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .a11y-btn:hover, .a11y-btn:focus {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+  }
+
+  .a11y-btn.active {
+    background: #512f75;
+    color: white;
+    border-color: #512f75;
+  }
+
+  .a11y-reset {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fecaca;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .a11y-reset:hover, .a11y-reset:focus {
+    background: #fecaca;
+    border-color: #f87171;
+  }
+
+  .reading-guide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #512f75, #7e46a8);
+    z-index: 9998;
+    box-shadow: 0 0 10px rgba(81, 47, 117, 0.5);
+    pointer-events: none;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Accessibility states */
+  body.high-contrast {
+    filter: contrast(150%) brightness(1.2);
+  }
+
+  body.reduce-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body.font-large {
+    font-size: 125%;
+  }
+
+  body.font-xl {
+    font-size: 150%;
+  }
+
+  body.enhanced-focus *:focus {
+    outline: 3px solid #7e46a8 !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .accessibility-toolbar {
+      top: 16px;
+      right: 16px;
+    }
+
+    .a11y-panel {
+      width: 280px;
+      right: -140px;
+      left: auto;
+      transform: translateX(140px) translateY(-10px) scale(0.95);
+    }
+
+    .a11y-panel.show {
+      transform: translateX(140px) translateY(0) scale(1);
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .a11y-toggle {
+      border: 3px solid white;
+    }
+
+    .a11y-panel {
+      border: 2px solid black;
+    }
+
+    .a11y-btn {
+      border: 2px solid black;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .a11y-panel {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    .a11y-section-title {
+      color: #f9fafb;
+    }
+
+    .a11y-btn {
+      background: #374151;
+      color: #f9fafb;
+      border-color: #4b5563;
+    }
+
+    .a11y-btn:hover, .a11y-btn:focus {
+      background: #4b5563;
+    }
+  }
+</style>
+
+<script>
+  const accessibilityStrings = ${JSON.stringify(accessibilityScriptStrings)};
+
+  class AccessibilityManager {
+    private panel: HTMLElement | null = null;
+    private toggle: HTMLElement | null = null;
+    private readingGuide: HTMLElement | null = null;
+    private isOpen = false;
+    private strings = accessibilityStrings;
+    private settings = {
+      fontSize: 'normal',
+      contrast: 'normal',
+      motion: 'normal',
+      readingGuide: false,
+      focusOutline: false
+    };
+
+    constructor() {
+      this.init();
+    }
+
+    private init() {
+      this.panel = document.getElementById('a11y-panel');
+      this.toggle = document.getElementById('a11y-toggle');
+      this.readingGuide = document.getElementById('reading-guide');
+
+      if (!this.panel || !this.toggle) return;
+
+      // Load saved settings
+      this.loadSettings();
+      this.applySettings();
+
+      // Set up event listeners
+      this.toggle.addEventListener('click', () => this.togglePanel());
+      document.getElementById('a11y-close')?.addEventListener('click', () => this.closePanel());
+
+      // Control buttons
+      this.panel.addEventListener('click', (e) => {
+        const button = (e.target as HTMLElement).closest('[data-action]');
+        if (button) {
+          const action = button.getAttribute('data-action');
+          const value = button.getAttribute('data-value');
+          this.handleAction(action!, value);
+        }
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.closePanel();
+        }
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (this.isOpen && !this.panel?.contains(e.target as Node) && !this.toggle?.contains(e.target as Node)) {
+          this.closePanel();
+        }
+      });
+
+      // Reading guide mouse tracking
+      document.addEventListener('mousemove', (e) => {
+        if (this.settings.readingGuide && this.readingGuide) {
+          this.readingGuide.style.top = e.clientY + 'px';
+        }
+      });
+
+      // Announce accessibility tools to screen readers
+      this.announceAccessibility();
+    }
+
+    private togglePanel() {
+      if (this.isOpen) {
+        this.closePanel();
+      } else {
+        this.openPanel();
+      }
+    }
+
+    private openPanel() {
+      if (!this.panel || !this.toggle) return;
+
+      this.panel.classList.remove('hidden');
+      setTimeout(() => {
+        this.panel?.classList.add('show');
+      }, 10);
+
+      this.toggle.setAttribute('aria-expanded', 'true');
+      this.isOpen = true;
+
+      // Focus first interactive element
+      const firstButton = this.panel.querySelector('button, a') as HTMLElement;
+      firstButton?.focus();
+    }
+
+    private closePanel() {
+      if (!this.panel || !this.toggle) return;
+
+      this.panel.classList.remove('show');
+      setTimeout(() => {
+        this.panel?.classList.add('hidden');
+      }, 300);
+
+      this.toggle.setAttribute('aria-expanded', 'false');
+      this.isOpen = false;
+
+      // Return focus to toggle button
+      this.toggle.focus();
+    }
+
+    private handleAction(action: string, value?: string | null) {
+      switch (action) {
+        case 'font-size':
+          this.adjustFontSize(value!);
+          break;
+        case 'contrast':
+          this.adjustContrast(value!);
+          break;
+        case 'reading-guide':
+          this.toggleReadingGuide();
+          break;
+        case 'focus-outline':
+          this.toggleFocusOutline();
+          break;
+        case 'reduce-motion':
+          this.reduceMotion();
+          break;
+        case 'reset-motion':
+          this.resetMotion();
+          break;
+        case 'reset-all':
+          this.resetAll();
+          break;
+      }
+
+      this.saveSettings();
+      this.updateButtonStates();
+    }
+
+    private adjustFontSize(action: string) {
+      document.body.classList.remove('font-large', 'font-xl');
+
+      switch (action) {
+        case 'increase':
+          if (this.settings.fontSize === 'normal') {
+            this.settings.fontSize = 'large';
+            document.body.classList.add('font-large');
+          } else if (this.settings.fontSize === 'large') {
+            this.settings.fontSize = 'xl';
+            document.body.classList.add('font-xl');
+          }
+          break;
+        case 'decrease':
+          if (this.settings.fontSize === 'xl') {
+            this.settings.fontSize = 'large';
+            document.body.classList.add('font-large');
+          } else if (this.settings.fontSize === 'large') {
+            this.settings.fontSize = 'normal';
+          }
+          break;
+        case 'reset':
+          this.settings.fontSize = 'normal';
+          break;
+      }
+
+      this.announceFontSize();
+    }
+
+    private adjustContrast(value: string) {
+      document.body.classList.toggle('high-contrast', value === 'high');
+      this.settings.contrast = value;
+      const message =
+        value === 'high'
+          ? this.strings.announcements?.contrast_high
+          : this.strings.announcements?.contrast_normal;
+      this.announceChange(message ?? '');
+    }
+
+    private toggleReadingGuide() {
+      this.settings.readingGuide = !this.settings.readingGuide;
+
+      if (this.readingGuide) {
+        this.readingGuide.classList.toggle('hidden', !this.settings.readingGuide);
+        this.readingGuide.setAttribute('aria-hidden', (!this.settings.readingGuide).toString());
+      }
+
+      const message = this.settings.readingGuide
+        ? this.strings.announcements?.reading_on
+        : this.strings.announcements?.reading_off;
+      this.announceChange(message ?? '');
+    }
+
+    private toggleFocusOutline() {
+      this.settings.focusOutline = !this.settings.focusOutline;
+      document.body.classList.toggle('enhanced-focus', this.settings.focusOutline);
+      const message = this.settings.focusOutline
+        ? this.strings.announcements?.focus_on
+        : this.strings.announcements?.focus_off;
+      this.announceChange(message ?? '');
+    }
+
+    private reduceMotion() {
+      this.settings.motion = 'reduced';
+      document.body.classList.add('reduce-motion');
+      this.announceChange(this.strings.announcements?.motion_reduced ?? '');
+    }
+
+    private resetMotion() {
+      this.settings.motion = 'normal';
+      document.body.classList.remove('reduce-motion');
+      this.announceChange(this.strings.announcements?.motion_normal ?? '');
+    }
+
+    private resetAll() {
+      this.settings = {
+        fontSize: 'normal',
+        contrast: 'normal',
+        motion: 'normal',
+        readingGuide: false,
+        focusOutline: false
+      };
+
+      this.applySettings();
+      this.announceChange(this.strings.announcements?.reset_all ?? '');
+    }
+
+    private applySettings() {
+      // Apply font size
+      document.body.classList.remove('font-large', 'font-xl');
+      if (this.settings.fontSize === 'large') {
+        document.body.classList.add('font-large');
+      } else if (this.settings.fontSize === 'xl') {
+        document.body.classList.add('font-xl');
+      }
+
+      // Apply contrast
+      document.body.classList.toggle('high-contrast', this.settings.contrast === 'high');
+
+      // Apply motion
+      document.body.classList.toggle('reduce-motion', this.settings.motion === 'reduced');
+
+      // Apply focus outline
+      document.body.classList.toggle('enhanced-focus', this.settings.focusOutline);
+
+      // Apply reading guide
+      if (this.readingGuide) {
+        this.readingGuide.classList.toggle('hidden', !this.settings.readingGuide);
+      }
+
+      this.updateButtonStates();
+    }
+
+    private updateButtonStates() {
+      const buttons = this.panel?.querySelectorAll('[data-action]');
+      buttons?.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // Mark active buttons
+      if (this.settings.contrast === 'high') {
+        this.panel?.querySelector('[data-action="contrast"][data-value="high"]')?.classList.add('active');
+      }
+      if (this.settings.readingGuide) {
+        this.panel?.querySelector('[data-action="reading-guide"]')?.classList.add('active');
+      }
+      if (this.settings.focusOutline) {
+        this.panel?.querySelector('[data-action="focus-outline"]')?.classList.add('active');
+      }
+      if (this.settings.motion === 'reduced') {
+        this.panel?.querySelector('[data-action="reduce-motion"]')?.classList.add('active');
+      }
+    }
+
+    private saveSettings() {
+      try {
+        localStorage.setItem('accessibility-settings', JSON.stringify(this.settings));
+      } catch (e) {
+        console.warn('Could not save accessibility settings');
+      }
+    }
+
+    private loadSettings() {
+      try {
+        const saved = localStorage.getItem('accessibility-settings');
+        if (saved) {
+          this.settings = { ...this.settings, ...JSON.parse(saved) };
+        }
+      } catch (e) {
+        console.warn('Could not load accessibility settings');
+      }
+    }
+
+    private announceChange(message: string) {
+      if (!message) return;
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.setAttribute('aria-atomic', 'true');
+      announcement.className = 'sr-only';
+      announcement.textContent = message;
+
+      document.body.appendChild(announcement);
+
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
+    }
+
+    private announceAccessibility() {
+      setTimeout(() => {
+        this.announceChange(this.strings.announcements?.intro ?? '');
+      }, 2000);
+    }
+
+    private announceFontSize() {
+      const template = this.strings.announcements?.font_size;
+      const stateKey = this.settings.fontSize as keyof typeof this.strings.font_states;
+      const stateLabel = this.strings.font_states?.[stateKey] ?? stateKey;
+      this.announceChange(this.formatAnnouncement(template, { state: stateLabel }));
+    }
+
+    private formatAnnouncement(template?: string, params: Record<string, string> = {}) {
+      if (!template) return '';
+      return template.replace(/\{\{(.*?)\}\}/g, (_, key) => params[key.trim()] ?? '');
+    }
+  }
+
+  // Initialize accessibility manager when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new AccessibilityManager();
+  });
+
+  // Add keyboard navigation for main content
+  document.addEventListener('keydown', (e) => {
+    // Alt + 1: Main content
+    if (e.altKey && e.key === '1') {
+      e.preventDefault();
+      const main = document.querySelector('main') || document.querySelector('#anasayfa');
+      (main as HTMLElement)?.focus();
+    }
+
+    // Alt + 2: Navigation
+    if (e.altKey && e.key === '2') {
+      e.preventDefault();
+      const nav = document.querySelector('nav') || document.querySelector('.navigation');
+      (nav as HTMLElement)?.focus();
+    }
+
+    // Alt + 3: Search (if available)
+    if (e.altKey && e.key === '3') {
+      e.preventDefault();
+      const search = document.querySelector('[type="search"]') || document.querySelector('#search');
+      (search as HTMLElement)?.focus();
+    }
+  });
+</script>

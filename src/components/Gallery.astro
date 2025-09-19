@@ -1,5 +1,11 @@
 ---
 import { Image } from 'astro:assets';
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
 
 // Import gallery images
 import resim4 from '../assets/img/resim4.jpg';
@@ -24,52 +30,63 @@ import resim16 from '../assets/img/resim16.jpg';
 import resim16_1 from '../assets/img/resim16.1.jpg';
 
 // Gallery items with categories
-const galleryItems = [
-  { src: resim4, full: resim4_1, category: 'robots', title: '2025 Robot', subtitle: 'REEFSCAPE' },
-  { src: resim5_1, full: resim5_1, category: 'robots', title: 'Robot Detay', subtitle: 'Mekanizma' },
-  { src: resim6, full: resim6_1, category: 'robots', title: '2024 Robot', subtitle: 'Crescendo' },
-  { src: resim7, full: resim7_1, category: 'team', title: 'Takım 2025', subtitle: 'G.O.A.T. 8092' },
-  { src: resim8, full: resim8_1, category: 'team', title: 'Workshop', subtitle: 'Takım Çalışması' },
-  { src: resim9, full: resim9, category: 'team', title: 'Mentorlar', subtitle: 'Deneyim Paylaşımı' },
-  { src: resim10, full: resim10_1, category: 'competitions', title: 'Bosphorus Regional', subtitle: '2025' },
-  { src: resim13, full: resim13_1, category: 'competitions', title: 'Yarışma', subtitle: 'Aksiyonda' },
-  { src: resim14, full: resim14_1, category: 'competitions', title: 'Rookie All Star', subtitle: '2020 Ödülü' },
-  { src: resim15, full: resim15_1, category: 'outreach', title: 'STEM Workshop', subtitle: 'Eğitim' },
-  { src: resim16, full: resim16_1, category: 'outreach', title: 'G.O.A.T. Jr.', subtitle: 'Mentorluk' },
-  { src: resim4, full: resim4_1, category: 'outreach', title: 'Toplum Etkinliği', subtitle: 'Farkındalık' },
-  { src: resim6, full: resim6_1, category: 'team', title: 'Takım Geliştirme', subtitle: 'Etkinlik' },
-  { src: resim8, full: resim8_1, category: 'robots', title: 'CAD Tasarım', subtitle: '3D Modelleme' },
-  { src: resim10, full: resim10_1, category: 'competitions', title: 'Pit Alanı', subtitle: 'Hazırlık' },
+const galleryItemsConfig = [
+  { key: 'robot2025', src: resim4, full: resim4_1, category: 'robots' },
+  { key: 'robotDetail', src: resim5_1, full: resim5_1, category: 'robots' },
+  { key: 'robot2024', src: resim6, full: resim6_1, category: 'robots' },
+  { key: 'team2025', src: resim7, full: resim7_1, category: 'team' },
+  { key: 'workshop', src: resim8, full: resim8_1, category: 'team' },
+  { key: 'mentors', src: resim9, full: resim9, category: 'team' },
+  { key: 'bosphorus2025', src: resim10, full: resim10_1, category: 'competitions' },
+  { key: 'competitionAction', src: resim13, full: resim13_1, category: 'competitions' },
+  { key: 'rookieAward', src: resim14, full: resim14_1, category: 'competitions' },
+  { key: 'stemWorkshop', src: resim15, full: resim15_1, category: 'outreach' },
+  { key: 'goatJr', src: resim16, full: resim16_1, category: 'outreach' },
+  { key: 'communityEvent', src: resim4, full: resim4_1, category: 'outreach' },
+  { key: 'teamBuilding', src: resim6, full: resim6_1, category: 'team' },
+  { key: 'cadDesign', src: resim8, full: resim8_1, category: 'robots' },
+  { key: 'pitArea', src: resim10, full: resim10_1, category: 'competitions' }
 ];
+
+const galleryTranslations = (translationsObj.gallery?.items ?? {}) as Record<string, { title?: string; subtitle?: string }>;
+
+const galleryItemsData = galleryItemsConfig.map(item => {
+  const copy = galleryTranslations[item.key] ?? {};
+  return {
+    ...item,
+    title: copy.title ?? '',
+    subtitle: copy.subtitle ?? ''
+  };
+});
 ---
 
 <section id="galeri" class="pt-32 pb-20 scroll-mt-24">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Galeri</h2>
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">{t('gallery.title')}</h2>
     <div class="max-w-6xl mx-auto">
 
       <!-- Gallery Filter -->
       <div class="flex flex-wrap justify-center gap-4 mb-12">
         <button class="gallery-filter active glass-nav-item bg-primary/80 text-white" data-filter="*">
-          Tümü
+          {t('gallery.all')}
         </button>
         <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".robots">
-          Robotlar
+          {t('gallery.robots')}
         </button>
         <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".team">
-          Takım
+          {t('gallery.team')}
         </button>
         <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".competitions">
-          Yarışmalar
+          {t('gallery.competitions')}
         </button>
         <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".outreach">
-          Toplum Hizmeti
+          {t('gallery.outreach')}
         </button>
       </div>
 
       <!-- Gallery Grid -->
       <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {galleryItems.map((item) => (
+        {galleryItemsData.map((item) => (
           <div class={`gallery-item ${item.category}`}>
             <a href={item.full.src} data-fancybox="gallery" data-caption={`${item.title} - ${item.subtitle}`}>
               <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
@@ -103,19 +120,19 @@ const galleryItems = [
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div>
             <h3 class="text-3xl font-bold mb-2">6+</h3>
-            <p class="text-lg">Yıl Deneyim</p>
+            <p class="text-lg">{t('gallery.stats_years')}</p>
           </div>
           <div>
             <h3 class="text-3xl font-bold mb-2">5+</h3>
-            <p class="text-lg">Robot Tasarımı</p>
+            <p class="text-lg">{t('gallery.stats_robots')}</p>
           </div>
           <div>
             <h3 class="text-3xl font-bold mb-2">100+</h3>
-            <p class="text-lg">Fotoğraf</p>
+            <p class="text-lg">{t('gallery.photo')}</p>
           </div>
           <div>
             <h3 class="text-3xl font-bold mb-2">1000+</h3>
-            <p class="text-lg">Anı</p>
+            <p class="text-lg">{t('gallery.stats_memories')}</p>
           </div>
         </div>
       </div>

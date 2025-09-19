@@ -1,177 +1,101 @@
 ---
 // Projects.astro - Projelerimiz (Projects) section component
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+
+const projectCardsConfig = [
+  {
+    key: 'robot2025',
+    icon: 'fas fa-robot',
+    gradient: 'from-primary to-secondary',
+    tagClasses: ['bg-primary', 'bg-secondary', 'bg-accent']
+  },
+  {
+    key: 'outreach',
+    icon: 'fas fa-users',
+    gradient: 'from-secondary to-accent',
+    tagClasses: ['bg-primary', 'bg-secondary']
+  },
+  {
+    key: 'junior',
+    icon: 'fas fa-graduation-cap',
+    gradient: 'from-accent to-primary',
+    tagClasses: ['bg-primary', 'bg-secondary']
+  },
+  {
+    key: 'robot2024',
+    icon: 'fas fa-cog',
+    gradient: 'from-primary to-secondary',
+    tagClasses: ['bg-primary', 'bg-secondary', 'bg-accent']
+  },
+  {
+    key: 'website',
+    icon: 'fas fa-code',
+    gradient: 'from-secondary to-accent',
+    tagClasses: ['bg-primary', 'bg-secondary']
+  },
+  {
+    key: 'sponsorship',
+    icon: 'fas fa-handshake',
+    gradient: 'from-accent to-primary',
+    tagClasses: ['bg-primary', 'bg-secondary']
+  }
+] as const;
+
+const cardsTranslations = (translationsObj.projects?.cards ?? {}) as Record<string, any>;
+
+const projectCardData = projectCardsConfig.map(card => {
+  const content = cardsTranslations[card.key] ?? {};
+  const tags = Array.isArray(content.tags) ? content.tags : [];
+  return { ...card, content, tags };
+});
 ---
 
 <section id="projelerimiz" class="pt-32 pb-20 bg-gray-50 scroll-mt-24">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Projelerimiz</h2>
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">{t('projects.title')}</h2>
     <div class="max-w-6xl mx-auto">
 
       <!-- Project Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- Project 1 - FRC Robot 2025 -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-primary to-secondary">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-robot text-6xl text-white"></i>
+        {projectCardData.map((card) => (
+          <div class="glass-card overflow-hidden">
+            <div class={`relative h-48 bg-gradient-to-r ${card.gradient}`}>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class={`${card.icon} text-6xl text-white`}></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">{card.content.title}</h3>
+              <p class="text-gray-600 mb-4">{card.content.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {card.tags.map((tag: string, index: number) => (
+                  <span class={`${card.tagClasses[index] ?? 'bg-primary'} text-white px-3 py-1 rounded-full text-sm`}>{tag}</span>
+                ))}
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">{card.content.meta}</span>
+                <button class="text-primary hover:text-secondary transition-colors" aria-label={card.content.title}>
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">FRC Robot 2025 - REEFSCAPE</h3>
-            <p class="text-gray-600 mb-4">
-              2025 sezonu için geliştirilen robotumuz. REEFSCAPE oyunu için tasarlanmış özel mekanizmalar ve otonom fonksiyonlar içerir.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Mekanik</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Yazılım</span>
-              <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">Elektrik</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">2025 Sezonu</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 - Outreach Programs -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-secondary to-accent">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-users text-6xl text-white"></i>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">STEM Eğitim Programları</h3>
-            <p class="text-gray-600 mb-4">
-              Bölgemizdeki öğrencilere STEM eğitimi sunmak için düzenlediğimiz çeşitli workshop ve eğitim programları.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Eğitim</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Toplum Hizmeti</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">Sürekli</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 - Junior GOAT -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-accent to-primary">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-graduation-cap text-6xl text-white"></i>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">G.O.A.T. Jr.</h3>
-            <p class="text-gray-600 mb-4">
-              Ortaokul öğrencileri için oluşturduğumuz alt takım. Genç yeteneklerin robotik ve STEM alanlarında gelişimini destekliyoruz.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Mentorluk</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Eğitim</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">2021'den beri</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 - FRC Robot 2024 -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-primary to-secondary">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-cog text-6xl text-white"></i>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">FRC Robot 2024 - Crescendo</h3>
-            <p class="text-gray-600 mb-4">
-              2024 sezonu Crescendo oyunu için tasarlanan robotumuz. Müzik temalı oyun için özel shooter ve intake mekanizmaları.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Mekanik</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Yazılım</span>
-              <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">Elektrik</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">2024 Sezonu</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 - Website Development -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-secondary to-accent">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-code text-6xl text-white"></i>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">Web Sitesi Geliştirme</h3>
-            <p class="text-gray-600 mb-4">
-              Takımımızın resmi web sitesi. Modern teknolojiler kullanılarak geliştirilmiş, responsive ve kullanıcı dostu tasarım.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Web</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">Yazılım</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">2024</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 - Sponsorship & PR -->
-        <div class="glass-card overflow-hidden">
-          <div class="relative h-48 bg-gradient-to-r from-accent to-primary">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <i class="fas fa-handshake text-6xl text-white"></i>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-800 mb-3">Sponsorluk & Halkla İlişkiler</h3>
-            <p class="text-gray-600 mb-4">
-              Takımımızın sürdürülebilirliği için sponsorluk anlaşmaları ve toplumsal farkındalık projeleri.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">PR</span>
-              <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm">İş Geliştirme</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-500">Sürekli</span>
-              <button class="text-primary hover:text-secondary transition-colors">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
+        ))}
       </div>
 
       <!-- Call to Action -->
       <div class="text-center mt-16">
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">Projelerimize Katılmak İster misiniz?</h3>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">{t('projects.cta_title')}</h3>
         <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-          G.O.A.T. 8092 olarak sürekli yeni projeler geliştiriyor ve topluma değer katmaya çalışıyoruz. Siz de bu yolculuğumuzda yer almak istiyorsanız bizimle iletişime geçin.
+          {t('projects.cta_description')}
         </p>
         <button class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full hover:from-secondary hover:to-accent transition-all duration-300 transform hover:scale-105" onclick="scrollWindowTo('iletisim')">
-          İletişime Geç
+          {t('projects.cta_button')}
         </button>
       </div>
 
