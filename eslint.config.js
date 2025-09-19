@@ -24,6 +24,13 @@ export default [
         window: 'readonly',
         document: 'readonly',
         navigator: 'readonly',
+        fetch: 'readonly',
+        Response: 'readonly',
+        Headers: 'readonly',
+        URL: 'readonly',
+        caches: 'readonly',
+        CustomEvent: 'readonly',
+        MessageChannel: 'readonly',
       },
     },
     plugins: {

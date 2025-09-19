@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
 import { translations } from '../lib/translations';
 
@@ -8,26 +7,26 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
 const translationsObj = getTranslations(currentLang);
 
 // Import gallery images
-import resim4 from '../assets/img/resim4.jpg';
-import resim4_1 from '../assets/img/resim4.1.jpg';
-import resim5_1 from '../assets/img/resim5.1.jpg';
-import resim6 from '../assets/img/resim6.jpg';
-import resim6_1 from '../assets/img/resim6.1.jpg';
-import resim7 from '../assets/img/resim7.jpg';
-import resim7_1 from '../assets/img/resim7.1.jpg';
-import resim8 from '../assets/img/resim8.jpg';
-import resim8_1 from '../assets/img/resim8.1.jpg';
-import resim9 from '../assets/img/resim9.jpg';
-import resim10 from '../assets/img/resim10.jpg';
-import resim10_1 from '../assets/img/resim10.1.jpg';
-import resim13 from '../assets/img/resim13.jpg';
-import resim13_1 from '../assets/img/resim13.1.jpg';
-import resim14 from '../assets/img/resim14.jpg';
-import resim14_1 from '../assets/img/resim14.1.jpg';
-import resim15 from '../assets/img/resim15.jpg';
-import resim15_1 from '../assets/img/resim15.1.jpg';
-import resim16 from '../assets/img/resim16.jpg';
-import resim16_1 from '../assets/img/resim16.1.jpg';
+import resim4 from '../assets/gallery/resim4.jpg';
+import resim4_1 from '../assets/gallery/resim4.1.jpg';
+import resim5_1 from '../assets/gallery/resim5.1.jpg';
+import resim6 from '../assets/gallery/resim6.jpg';
+import resim6_1 from '../assets/gallery/resim6.1.jpg';
+import resim7 from '../assets/gallery/resim7.jpg';
+import resim7_1 from '../assets/gallery/resim7.1.jpg';
+import resim8 from '../assets/gallery/resim8.jpg';
+import resim8_1 from '../assets/gallery/resim8.1.jpg';
+import resim9 from '../assets/gallery/resim9.jpg';
+import resim10 from '../assets/gallery/resim10.jpg';
+import resim10_1 from '../assets/gallery/resim10.1.jpg';
+import resim13 from '../assets/gallery/resim13.jpg';
+import resim13_1 from '../assets/gallery/resim13.1.jpg';
+import resim14 from '../assets/gallery/resim14.jpg';
+import resim14_1 from '../assets/gallery/resim14.1.jpg';
+import resim15 from '../assets/gallery/resim15.jpg';
+import resim15_1 from '../assets/gallery/resim15.1.jpg';
+import resim16 from '../assets/gallery/resim16.jpg';
+import resim16_1 from '../assets/gallery/resim16.1.jpg';
 
 // Gallery items with categories
 const galleryItemsConfig = [
@@ -59,6 +58,11 @@ const galleryItemsData = galleryItemsConfig.map(item => {
   };
 });
 ---
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    Fancybox.bind('[data-fancybox="gallery"]', {});
+  });
+</script>
 
 <section id="galeri" class="pt-32 pb-20 scroll-mt-24">
   <div class="container mx-auto px-4">
@@ -67,19 +71,19 @@ const galleryItemsData = galleryItemsConfig.map(item => {
 
       <!-- Gallery Filter -->
       <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <button class="gallery-filter active glass-nav-item bg-primary/80 text-white" data-filter="*">
+        <button class="gallery-filter active bg-primary glass-nav-item text-white" data-filter="*">
           {t('gallery.all')}
         </button>
-        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".robots">
+        <button class="gallery-filter bg-gray-200 glass-nav-item text-gray-700" data-filter=".robots">
           {t('gallery.robots')}
         </button>
-        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".team">
+        <button class="gallery-filter bg-gray-200 glass-nav-item text-gray-700" data-filter=".team">
           {t('gallery.team')}
         </button>
-        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".competitions">
+        <button class="gallery-filter bg-gray-200 glass-nav-item text-gray-700" data-filter=".competitions">
           {t('gallery.competitions')}
         </button>
-        <button class="gallery-filter glass-nav-item text-gray-700" data-filter=".outreach">
+        <button class="gallery-filter bg-gray-200 glass-nav-item text-gray-700" data-filter=".outreach">
           {t('gallery.outreach')}
         </button>
       </div>
@@ -88,17 +92,15 @@ const galleryItemsData = galleryItemsConfig.map(item => {
       <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {galleryItemsData.map((item) => (
           <div class={`gallery-item ${item.category}`}>
-            <a href={item.full.src} data-fancybox="gallery" data-caption={`${item.title} - ${item.subtitle}`}>
+            <a href={item.full.src} data-fancybox="gallery" data-caption={`${item.title} - ${item.subtitle}`}> 
               <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-                <Image
-                  src={item.src}
+                <img
+                  src={item.src.src}
                   alt={`${item.title} - ${item.subtitle}`}
-                  width={400}
-                  height={300}
+                  width="400"
+                  height="300"
                   loading="lazy"
                   class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  format="webp"
-                  quality={80}
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div class="absolute bottom-4 left-4 text-white">
@@ -144,11 +146,11 @@ const galleryItemsData = galleryItemsConfig.map(item => {
 <script>
   // Gallery filter functionality
   document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.gallery-filter');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.gallery-filter');
+    const galleryItems = document.querySelectorAll<HTMLElement>('.gallery-item');
 
     filterButtons.forEach(button => {
-      button.addEventListener('click', function(this: HTMLElement) {
+      button.addEventListener('click', (event: Event) => {
         // Remove active class from all buttons
         filterButtons.forEach(btn => {
           btn.classList.remove('active', 'bg-primary', 'text-white');
@@ -156,26 +158,26 @@ const galleryItemsData = galleryItemsConfig.map(item => {
         });
 
         // Add active class to clicked button
-        this.classList.add('active', 'bg-primary', 'text-white');
-        this.classList.remove('bg-gray-200', 'text-gray-700');
+        const target = event.currentTarget as HTMLButtonElement;
+        target.classList.add('active', 'bg-primary', 'text-white');
+        target.classList.remove('bg-gray-200', 'text-gray-700');
 
         // Get filter value
-        const filterValue = this.getAttribute('data-filter');
+        const filterValue = target.getAttribute('data-filter');
 
         // Show/hide gallery items
         galleryItems.forEach(item => {
-          const htmlItem = item as HTMLElement;
-          if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
-            htmlItem.style.display = 'block';
+          if (filterValue === '*' || (filterValue && item.classList.contains(filterValue.substring(1)))) {
+            (item.style as CSSStyleDeclaration).display = 'block';
             setTimeout(() => {
-              htmlItem.style.opacity = '1';
-              htmlItem.style.transform = 'scale(1)';
+              (item.style as CSSStyleDeclaration).opacity = '1';
+              (item.style as CSSStyleDeclaration).transform = 'scale(1)';
             }, 10);
           } else {
-            htmlItem.style.opacity = '0';
-            htmlItem.style.transform = 'scale(0.8)';
+            (item.style as CSSStyleDeclaration).opacity = '0';
+            (item.style as CSSStyleDeclaration).transform = 'scale(0.8)';
             setTimeout(() => {
-              htmlItem.style.display = 'none';
+              (item.style as CSSStyleDeclaration).display = 'none';
             }, 300);
           }
         });
@@ -184,7 +186,7 @@ const galleryItemsData = galleryItemsConfig.map(item => {
 
     // Initialize gallery items with transition
     galleryItems.forEach(item => {
-      (item as HTMLElement).style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      (item.style as CSSStyleDeclaration).transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
   });
 </script>

@@ -1,27 +1,81 @@
 {
-  "name": "G.O.A.T. 8092 - FRC Team",
+  "name": "G.O.A.T. 8092 - Greatest of All Times FRC Team",
   "short_name": "GOAT 8092",
-  "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
-  "start_url": "/",
+  "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. STEM eğitimi ve robotik yarışmalarında öncü takım.",
+  "start_url": "/?utm_source=pwa",
+  "id": "/?utm_source=pwa",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#f9fafb",
   "theme_color": "#512f75",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["education", "technology", "robotics", "stem", "youth", "sports"],
+  "screenshots": [
+    {
+      "src": "/og-cover.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "FRC Team 8092 Website Homepage"
+    }
+  ],
   "icons": [
     {
       "src": "/logo-black.svg",
-      "sizes": "200x354",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-white.svg",
+      "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/logo-white.svg",
-      "sizes": "200x354",
+      "src": "/favicon.svg",
+      "sizes": "16x16 32x32 48x48",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "favicon"
     }
   ],
-  "categories": ["education", "technology", "robotics"],
-  "lang": "tr",
-  "scope": "/"
+  "shortcuts": [
+    {
+      "name": "Takım Üyeleri",
+      "short_name": "Takım",
+      "description": "Takım üyelerimizi görüntüle",
+      "url": "/#takim",
+      "icons": [{ "src": "/logo-black.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Galeri",
+      "short_name": "Galeri",
+      "description": "Fotoğraf galerimizi incele",
+      "url": "/#galeri",
+      "icons": [{ "src": "/logo-black.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "İletişim",
+      "short_name": "İletişim",
+      "description": "Bizimle iletişime geç",
+      "url": "/#iletisim",
+      "icons": [{ "src": "/logo-black.svg", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://8092.tr"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 }

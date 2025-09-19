@@ -4,38 +4,67 @@ import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource/atkinson-hyperlegible/400-italic.css';
 import '@fontsource/atkinson-hyperlegible/700-italic.css';
 import '../styles/global.css';
+import PerformanceMonitor from '../components/PerformanceMonitor.astro';
+import PWAInstall from '../components/PWAInstall.astro';
+import AccessibilityToolbar from '../components/AccessibilityToolbar.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { getCurrentLanguage, getTranslation, getTranslations, type Language, removeLangFromPath } from '../lib/i18n';
+import { translations } from '../lib/translations';
 
 export interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times' } = Astro.props;
+const { title, description = 'FRC Team 8092 - Greatest of All Times' } = Astro.props;
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+
+// SEO metadata configuration
+const seoMetadata = {
+  description: description || 'FRC Team 8092 - Greatest of All Times: Tekirdağ\'ın ilk ve tek FRC takımı. 2019\'dan beri FIRST değerleriyle geleceği inşa ediyoruz.',
+  keywords: 'FRC, FIRST Robotics Competition, STEM, Robotics, Turkey, Tekirdağ, GOAT 8092, Robotik, Takım',
+  ogLocale: currentLang === 'en' ? 'en_US' : 'tr_TR'
+};
+
+const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
 ---
 
 <!DOCTYPE html>
-<html lang="tr">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content={description} />
+    <meta name="description" content={description || seoMetadata.description} />
     <title>{title}</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="keywords" content="FRC, FIRST Robotics Competition, GOAT 8092, Tekirdağ, robotik, STEM, öğrenci takımı, 8092" />
-    <meta name="author" content="FRC Takımı G.O.A.T. 8092" />
+    <meta name="keywords" content={seoMetadata.keywords} />
+    <meta name="author" content="FRC Team 8092" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://8092.tr/" />
+    <meta name="language" content={currentLocale} />
+    <meta name="geo.region" content="TR-59" />
+    <meta name="geo.placename" content="Tekirdağ, Turkey" />
+    <meta name="geo.position" content="40.9782;27.5152" />
+    <meta name="ICBM" content="40.9782, 27.5152" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+
+    <!-- International SEO -->
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="alternate" hreflang="tr-TR" href={`https://8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
+    <link rel="alternate" hreflang="en-US" href={`https://8092.tr/en${removeLangFromPath(Astro.url.pathname)}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={description || seoMetadata.description} />
     <meta property="og:image" content="https://8092.tr/og-cover.jpg" />
-    <meta property="og:url" content="https://8092.tr/" />
-    <meta property="og:site_name" content="G.O.A.T. 8092" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:site_name" content="FRC Team 8092" />
+    <meta property="og:locale" content={seoMetadata.ogLocale} />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -47,24 +76,51 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["Organization", "SportsTeam", "EducationalOrganization"],
       "name": "G.O.A.T. 8092",
-      "alternateName": "GOAT 8092",
+      "alternateName": ["GOAT 8092", "Greatest of All Times 8092", "FRC Team 8092"],
       "url": "https://8092.tr/",
       "logo": "https://8092.tr/logo-black.svg",
+      "image": "https://8092.tr/og-cover.jpg",
       "foundingDate": "2019-06",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Veliköy OSB Mesleki ve Teknik Anadolu Lisesi",
         "addressLocality": "Çerkezköy",
         "addressRegion": "Tekirdağ",
-        "addressCountry": "TR"
+        "addressCountry": "TR",
+        "postalCode": "59500"
       },
-      "email": "mailto:goat8092@gmail.com",
-      "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "goat8092@gmail.com",
+        "contactType": "customer service",
+        "areaServed": "TR",
+        "availableLanguage": "Turkish"
+      },
+      "description": "Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. STEM eğitimi ve robotik yarışmalarında öncü takım.",
+      "keywords": "FRC, FIRST Robotics Competition, STEM, Robotics, Turkey, Tekirdağ",
+      "sport": "Robotics Competition",
+      "memberOf": {
+        "@type": "Organization",
+        "name": "FIRST",
+        "url": "https://www.firstinspires.org"
+      },
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Veliköy OSB Mesleki ve Teknik Anadolu Lisesi"
+      },
       "sameAs": [
-        "https://instagram.com/goat8092",
-        "https://twitter.com/goat8092"
-      ]
+        "https://www.instagram.com/goat8092/",
+        "https://x.com/goat8092",
+        "https://www.linkedin.com/company/greatest-of-all-times-8092/",
+        "https://www.youtube.com/@greatestofalltimes8092"
+      ],
+      "knowsAbout": ["Robotics", "STEM Education", "Engineering", "Programming", "Teamwork"],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Turkey"
+      }
     }
     </script>
     <!-- Preload critical resources for better Core Web Vitals -->
@@ -100,6 +156,15 @@ const { title, description = 'FRC Takımı G.O.A.T. 8092 - Greatest of All Times
       </head>
   <body id="anasayfa" class="bg-gray-50">
     <slot />
+
+    <!-- Performance Monitoring Component -->
+    <PerformanceMonitor />
+
+    <!-- PWA Install Prompt -->
+    <PWAInstall />
+
+    <!-- Accessibility Toolbar -->
+    <AccessibilityToolbar />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer></script>

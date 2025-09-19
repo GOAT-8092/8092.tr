@@ -1,10 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
+  site: 'https://8092.tr',
+  integrations: [
+    tailwind(),
+    react(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      entryLimit: 10000,
+    }),
+  ],
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
@@ -28,9 +40,24 @@ export default defineConfig({
           },
         },
       },
+      plugins: process.env.ANALYZE
+        ? [
+            (await import('rollup-plugin-visualizer')).visualizer({
+              filename: 'dist/stats.html',
+              open: true,
+              gzipSize: true,
+              brotliSize: true,
+            }),
+          ]
+        : [],
+      reportCompressedSize: true,
+      chunkSizeWarningLimit: 500,
     },
     optimizeDeps: {
       include: ['@fontsource/atkinson-hyperlegible', '@fontsource/inter'],
+    },
+    define: {
+      __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
     },
   },
 });

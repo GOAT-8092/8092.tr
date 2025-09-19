@@ -101,6 +101,15 @@ export const translations: Translations = {
         captain: 'Kaptan',
         leadMentor: 'Baş Mentor',
       },
+      role_labels: {
+        mekanik: 'Mekanik',
+        guvenlik_kaptani: 'Güvenlik Kaptanı',
+        guvenlik: 'Güvenlik',
+        yazilim: 'Yazılım',
+        elektrik: 'Elektrik',
+        bas_mentor: 'Baş Mentor',
+        mentor: 'Mentor',
+      },
       roles: {
         'halil-ibrahim-oz': 'Takım Kaptanı',
         'muhammet-mirac-aktemur': 'Mekanik ve Takım Kaptanı',
@@ -542,6 +551,15 @@ export const translations: Translations = {
       badges: {
         captain: 'Captain',
         leadMentor: 'Lead Mentor',
+      },
+      role_labels: {
+        mekanik: 'Mechanical',
+        guvenlik_kaptani: 'Safety Captain',
+        guvenlik: 'Safety',
+        yazilim: 'Software',
+        elektrik: 'Electrical',
+        bas_mentor: 'Lead Mentor',
+        mentor: 'Mentor',
       },
       roles: {
         'halil-ibrahim-oz': 'Team Captain',

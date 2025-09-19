@@ -1,18 +1,21 @@
 ---
-import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import Iridescence from './Iridescence';
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
 import { translations } from '../lib/translations';
 
 const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
-const translationsObj = getTranslations(currentLang);
 ---
 
 <header>
-  <div class="relative" style="background: linear-gradient(135deg, #512f75 0%, #673a8e 50%, #7e46a8 100%);">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 bg-white/10"></div>
-    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
-
+  <div class="relative min-h-screen" style="background: linear-gradient(135deg, #512f75 0%, #673a8e 50%, rgb(126, 70, 168) 100%);">
+    <Iridescence client:load style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+      color={[0.66, 0.5, 1]}
+      mouseReact={false}
+      speed={0.2}
+    />
+    
+    
     <!-- Main content -->
     <div class="relative">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20">
@@ -24,7 +27,7 @@ const translationsObj = getTranslations(currentLang);
             </div>
             <span class="text-sm text-white/80 tracking-wider uppercase first-badge">{t('hero.frc_badge')}</span>
           </div>
-
+          
           <!-- Main Headline -->
           <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
             <span class="block">{t('hero.heading_line1')}</span>

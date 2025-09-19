@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: 🚀 CI/CD - Build, Test & Deploy
 
 on:
   push:
@@ -6,34 +6,149 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  NODE_VERSION: '18'
+
 jobs:
-  deploy:
+  # Code Quality & Testing Job
+  quality:
+    name: 🔍 Code Quality & Testing
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
 
-    - name: Clean and install dependencies
-      run: |
-        rm -rf node_modules package-lock.json
-        npm install
+      - name: 🔧 Install dependencies
+        run: npm ci
 
-    - name: Build project
-      run: npm run build
+      - name: 🎨 Check code formatting
+        run: npm run format:check
 
-    - name: Install Vercel CLI
-      run: npm install -g vercel@latest
+      - name: 🔍 Run TypeScript checks
+        run: npm run type-check
 
-    - name: Deploy to Vercel
-      run: |
-        vercel deploy --prod --yes \
-          --token ${{ secrets.VERCEL_TOKEN }}
-      env:
-        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: 📊 Generate bundle analysis
+        run: npm run bundle-analyzer
+        env:
+          ANALYZE: true
+
+      - name: 📈 Upload bundle analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-analysis
+          path: dist/stats.html
+          retention-days: 30
+
+  # Build & Performance Job
+  build:
+    name: 🏗️ Build & Performance Check
+    runs-on: ubuntu-latest
+    needs: quality
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 🔧 Install dependencies
+        run: npm ci
+
+      - name: 🖼️ Optimize images
+        run: npm run optimize-images
+
+      - name: 🏗️ Build project
+        run: npm run build
+
+      - name: 📊 Check build size
+        run: |
+          echo "Build completed successfully!"
+          echo "Checking build size..."
+          du -sh dist/
+          echo "Checking assets..."
+          find dist/ -name "*.js" -exec ls -lh {} \; | head -10
+          find dist/ -name "*.css" -exec ls -lh {} \; | head -5
+
+      - name: 💾 Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+          retention-days: 7
+
+  # Deploy Job (only for main branch)
+  deploy:
+    name: 🚀 Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [quality, build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 💾 Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+
+      - name: 🔧 Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: 🚀 Deploy to Vercel
+        run: |
+          vercel deploy --prod --yes \
+            --token ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: 📝 Deployment Summary
+        run: |
+          echo "✅ Deployment completed successfully!"
+          echo "🌐 Website URL: https://8092.tr"
+          echo "📊 Check performance at: https://pagespeed.web.dev/"
+
+  # Security Audit Job
+  security:
+    name: 🛡️ Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 🔧 Install dependencies
+        run: npm ci
+
+      - name: 🛡️ Run security audit
+        run: npm audit --audit-level=high
+
+      - name: 🔍 Check for vulnerable dependencies
+        run: |
+          echo "Checking for known vulnerabilities..."
+          npm audit --json > audit-results.json || true
+          cat audit-results.json

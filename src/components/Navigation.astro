@@ -1,13 +1,18 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
 ---
 
 <nav class="fixed w-full z-50 glass-nav">
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center py-2">
       <div class="flex items-center space-x-3">
-        <img src="/logo-white.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110 dark:hidden"
-          onclick="scrollWindowTo('anasayfa')">
-        <img src="/logo-black.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110 hidden dark:block"
+        <img src="/logo-black.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110 dark:block"
           onclick="scrollWindowTo('anasayfa')">
         <div class="text-lg font-bold text-gray-800" id="logo-text">
           G.O.A.T. #8092
@@ -26,17 +31,20 @@
 
       <div class="hidden lg:flex items-center space-x-6" id="navbarSupportedContent">
         <a href="#anasayfa" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('anasayfa')">Anasayfa</a>
+          onclick="scrollWindowTo('anasayfa')">{t('nav.home')}</a>
         <a href="#hakkimizda" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('hakkimizda')">Hakkımızda</a>
+          onclick="scrollWindowTo('hakkimizda')">{t('nav.about')}</a>
         <a href="#takim" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('takim')">Takım</a>
+          onclick="scrollWindowTo('takim')">{t('nav.team')}</a>
         <a href="#projelerimiz" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz')">Projelerimiz</a>
+          onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a>
         <a href="#galeri" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('galeri')">Galeri</a>
+          onclick="scrollWindowTo('galeri')">{t('nav.gallery')}</a>
         <a href="#iletisim" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('iletisim')">İletişim</a>
+          onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a>
+        <div class="border-l border-gray-300 pl-6 ml-2">
+          <LanguageSwitcher currentLang={currentLang} />
+        </div>
       </div>
     </div>
 
@@ -44,17 +52,22 @@
     <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="#anasayfa" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">Anasayfa</a>
+          onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">{t('nav.home')}</a>
         <a href="#hakkimizda" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">Hakkımızda</a>
+          onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">{t('nav.about')}</a>
         <a href="#takim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('takim'); closeMobileMenu()">Takım</a>
+          onclick="scrollWindowTo('takim'); closeMobileMenu()">{t('nav.team')}</a>
         <a href="#projelerimiz" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">Projelerimiz</a>
+          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a>
         <a href="#galeri" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('galeri'); closeMobileMenu()">Galeri</a>
+          onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a>
         <a href="#iletisim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('iletisim'); closeMobileMenu()">İletişim</a>
+          onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a>
+        <div class="border-t border-gray-200 pt-2 mt-2">
+          <div class="px-3 py-2">
+            <LanguageSwitcher currentLang={currentLang} />
+          </div>
+        </div>
       </div>
     </div>
   </div>
