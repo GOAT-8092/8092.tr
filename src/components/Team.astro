@@ -50,8 +50,8 @@ const getMentorRoleLabels = (mentor: (typeof teamMentors)[number]) => {
   return labels;
 };
 
-// Import all images from public/img/team
-const images = import.meta.glob<{ default: ImageMetadata }>('/public/img/team/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
+// Import all images from public/img
+const images = import.meta.glob<{ default: ImageMetadata }>('/public/img/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 
 // Helper function to get image module
 async function getImageSrc(imagePath: string) {
@@ -59,15 +59,15 @@ async function getImageSrc(imagePath: string) {
 
   // Check if it's a full path or just filename
   const filename = imagePath.includes('/') ? imagePath.split('/').pop() : imagePath;
-  const imageSrc = images[`/public/img/team/${filename}`];
+  const imageSrc = images[`/public/img/${filename}`];
 
   if (imageSrc) {
     const mod = await imageSrc();
     return mod.default;
   }
 
-  // Fallback to original path
-  return imagePath.startsWith('/') ? imagePath : `/img/${imagePath}`;
+  // If no optimized image found, return null (will show placeholder)
+  return null;
 }
 
 // Process team members with optimized images
@@ -113,16 +113,7 @@ const mentorsWithImages = await Promise.all(
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-              {typeof member.optimizedImage === 'string' ? (
-                <img
-                  src={member.optimizedImage}
-                  alt={member.name}
-                  width={300}
-                  height={256}
-                  loading="lazy"
-                  class="w-full h-64 object-cover object-center"
-                />
-              ) : (
+              {member.optimizedImage ? (
                 <Image
                   src={member.optimizedImage}
                   alt={member.name}
@@ -133,6 +124,10 @@ const mentorsWithImages = await Promise.all(
                   format="webp"
                   quality={80}
                 />
+              ) : (
+                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                  <span class="text-gray-500 text-sm">No Image</span>
+                </div>
               )}
             </div>
             <div class="p-6">
@@ -160,16 +155,7 @@ const mentorsWithImages = await Promise.all(
               </div>
             )}
             <div class="w-full h-64 team-member-image">
-                {typeof mentor.optimizedImage === 'string' ? (
-                  <img
-                    src={mentor.optimizedImage}
-                    alt={mentor.name}
-                    width={300}
-                    height={256}
-                    loading="lazy"
-                    class="w-full h-64 object-cover object-center"
-                  />
-                ) : (
+                {mentor.optimizedImage ? (
                   <Image
                     src={mentor.optimizedImage}
                     alt={mentor.name}
@@ -180,6 +166,10 @@ const mentorsWithImages = await Promise.all(
                     format="webp"
                     quality={80}
                   />
+                ) : (
+                  <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">No Image</span>
+                  </div>
                 )}
             </div>
             <div class="p-6">

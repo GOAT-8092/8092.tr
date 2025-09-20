@@ -168,6 +168,11 @@ body.menu-open {
   color: white !important;
 }
 
+/* Override for Gallery filter buttons with gray background */
+.gallery-filter.bg-gray-200.glass-nav-item {
+  color: rgb(31, 41, 55) !important;
+}
+
 .glass-nav-item:hover {
   color: rgb(31, 41, 55) !important;
   background: rgba(31, 41, 55, 0.08) !important;
