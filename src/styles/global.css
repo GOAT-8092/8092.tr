@@ -78,8 +78,7 @@
   }
 
   .glass-nav-item {
-    /* color: rgb(31, 41, 55); */
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
     padding: 0.5rem 1rem;
@@ -90,8 +89,8 @@
   }
 
   .glass-nav-item:hover {
-    color: rgb(1, 97, 239);
-    background: rgba(1, 97, 239, 0.05);
+    color: rgb(31, 41, 55);
+    background: rgba(31, 41, 55, 0.08);
   }
 
   .glass-nav-item::before {
@@ -163,13 +162,10 @@ body.menu-open {
   letter-spacing: 0.05em;
 }
 
-/* Enhanced accessibility and color contrast improvements */
-.glass-nav-item {
-  /* color: rgb(17, 24, 39) !important; */
-  font-weight: 600 !important;
-}
-.gallery-filter.active {
-  color: #fff !important;
+/* Override for Gallery filter buttons with purple background */
+.gallery-filter.bg-primary.glass-nav-item,
+.gallery-filter.glass-nav-item.active {
+  color: white !important;
 }
 
 .glass-nav-item:hover {
@@ -185,12 +181,13 @@ body.menu-open {
 /* High contrast mode improvements */
 @media (prefers-contrast: high) {
   .glass-nav-item {
-    color: rgb(0, 0, 0) !important;
-    border: 1px solid rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid rgb(255, 255, 255) !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 
   .glass-nav-item:hover {
-    background: rgba(0, 0, 0, 0.15) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
   }
 }
 
