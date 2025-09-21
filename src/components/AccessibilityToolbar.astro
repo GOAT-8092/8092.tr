@@ -413,7 +413,7 @@ const accessibilityScriptStrings = {
 
   class AccessibilityManager {
     constructor(strings) {
-      console.log('AccessibilityManager: Constructor called');
+      // Debug log removed
       this.panel = null;
       this.toggle = null;
       this.readingGuide = null;
@@ -495,11 +495,11 @@ const accessibilityScriptStrings = {
       });
 
       this.announceAccessibility();
-      console.log('AccessibilityManager: Successfully initialized');
+      // Debug log removed
     }
 
     togglePanel() {
-      console.log('AccessibilityManager: togglePanel called, isOpen:', this.isOpen);
+      // Debug log removed
       if (this.isOpen) {
         this.closePanel();
       } else {
