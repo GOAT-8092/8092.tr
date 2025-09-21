@@ -51,13 +51,6 @@ const galleryItemsData = await Promise.all(
 // Filter out null items (images not found)
 const validGalleryItems = galleryItemsData.filter(item => item !== null);
 ---
-<script>
-  // @ts-ignore
-  document.addEventListener('DOMContentLoaded', function() {
-    // @ts-ignore
-    Fancybox.bind('[data-fancybox="gallery"]', {});
-  });
-</script>
 
 <section id="galeri" class="pt-32 pb-20 scroll-mt-24">
   <div class="container mx-auto px-4">
