@@ -334,14 +334,14 @@ const accessibilityButtons = accessibility.buttons ?? {};
     }
 
     .a11y-panel {
-      width: 280px;
-      right: -140px;
+      width: min(90vw, 320px);
+      right: 0;
       left: auto;
-      transform: translateX(140px) translateY(-10px) scale(0.95);
+      transform: translateY(-10px) scale(0.95);
     }
 
     .a11y-panel.show {
-      transform: translateX(140px) translateY(0) scale(1);
+      transform: translateY(0) scale(1);
     }
   }
 
