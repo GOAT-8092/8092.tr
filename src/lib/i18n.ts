@@ -53,17 +53,13 @@ export function getTranslations(lang: Language): Translation {
 
 // Astro integration for i18n
 export function createI18nMiddleware() {
-  return function middleware({ request }: { request: globalThis.Request }): {
-    request: globalThis.Request;
-    locals: { lang: Language };
-  } {
+  return function middleware({ request }: { request: globalThis.Request }): { lang: Language } {
     const url = new URL(request.url);
     const langMatch = url.pathname.match(/^\/([a-z]{2})\//);
     const lang = (langMatch?.[1] as Language) || DEFAULT_LANGUAGE;
 
     return {
-      request,
-      locals: { lang },
+      lang,
     };
   };
 }
