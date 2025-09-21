@@ -26,7 +26,7 @@ const seoMetadata = {
   ogLocale: currentLang === 'en' ? 'en_US' : 'tr_TR'
 };
 
-const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
+const currentLocale = currentLang === 'en' ? 'en_US' : 'tr_TR';
 ---
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
     <meta name="keywords" content={seoMetadata.keywords} />
     <meta name="author" content="FRC Team 8092" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content={currentLocale} />
+    <meta name="language" content={currentLang === 'en' ? 'en' : 'tr'} />
     <meta name="geo.region" content="TR-59" />
     <meta name="geo.placename" content="Tekirdağ, Turkey" />
     <meta name="geo.position" content="40.9782;27.5152" />
@@ -51,17 +51,19 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
     <meta name="distribution" content="global" />
 
     <!-- International SEO -->
-    <link rel="canonical" href={Astro.url.href} />
-    <link rel="alternate" hreflang="tr-TR" href={`https://8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
-    <link rel="alternate" hreflang="en-US" href={`https://8092.tr/en${removeLangFromPath(Astro.url.pathname)}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
+    <link rel="canonical" href={`https://www.8092.tr${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="tr-TR" href={`https://www.8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
+    <link rel="alternate" hreflang="en-US" href={`https://www.8092.tr/en${removeLangFromPath(Astro.url.pathname)}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://www.8092.tr${removeLangFromPath(Astro.url.pathname)}`} />
+    {/* Self-referential alternate link */}
+    <link rel="alternate" hreflang={currentLocale} href={`https://www.8092.tr${Astro.url.pathname}`} />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description || seoMetadata.description} />
-    <meta property="og:image" content="https://8092.tr/og-image.png" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content="https://www.8092.tr/og-image.png" />
+    <meta property="og:url" content={`https://www.8092.tr${Astro.url.pathname}`} />
     <meta property="og:site_name" content="FRC Team 8092" />
     <meta property="og:locale" content={seoMetadata.ogLocale} />
 
@@ -69,7 +71,7 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://8092.tr/og-image.png" />
+    <meta name="twitter:image" content="https://www.8092.tr/og-image.png" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" is:inline>
@@ -78,9 +80,9 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
       "@type": ["Organization", "SportsTeam", "EducationalOrganization"],
       "name": "G.O.A.T. 8092",
       "alternateName": ["GOAT 8092", "Greatest of All Times 8092", "FRC Team 8092"],
-      "url": "https://8092.tr/",
-      "logo": "https://8092.tr/logo-black.svg",
-      "image": "https://8092.tr/og-image.png",
+      "url": "https://www.8092.tr/",
+      "logo": "https://www.8092.tr/logo-black.svg",
+      "image": "https://www.8092.tr/og-image.png",
       "foundingDate": "2019-06",
       "address": {
         "@type": "PostalAddress",

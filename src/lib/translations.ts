@@ -60,7 +60,7 @@ export const translations: Translations = {
       season_2021_title: '2021 Sezonu – Infinite Recharge at Home',
       season_2021_description:
         '2021 sezonunda pandemi koşulları nedeniyle FRC etkinlikleri sahada yapılmadı; bunun yerine uzaktan katılımlı çevrimiçi meydan okumalar düzenlendi. G.O.A.T. 8092 bu sezonda Infinite Recharge at Home beceri mücadelesine ve Game Design Challenge yarışmasına katılım gösterdi. "Infinite Recharge At Home" kapsamında Germanium Group adlı grupta yer alan takım, bu grupta 11. sırada tamamladı.',
-      season_2021_note_title: 'Önemli Gelişme:',
+      season_2021_note_title: 'Önemli Gelişme (2021):',
       season_2021_note_text:
         "Eylül 2021'de Tekirdağ Veliköy OSB Mesleki ve Teknik Anadolu Lisesi'nden öğrenciler de G.O.A.T. ekibine dahil olmuş ve takım iki okulun ortak FRC takımı olarak yoluna devam etmiştir.",
       season_2022_title: '2022 Sezonu – Rapid React',
@@ -71,8 +71,8 @@ export const translations: Translations = {
         '27-29 Mart 2023\'te gerçekleştirilen Bosphorus Regional 2023 etkinliği, G.O.A.T. 8092\'nin bu sezondaki tek resmi yarışı oldu. Takım, "Charged Up" sezonunun bu İstanbul bölgesel turnuvasında 5 galibiyet ve 4 mağlubiyet ile 24. sırada yer aldı. Sıralama olarak üst ittifak seçimlerine girebilmesine rağmen, 2023 sezonunda G.O.A.T. 8092 herhangi bir playoff turuna yükselemedi. Yine de sezon boyunca edindiği tecrübeler ve sağladığı istikrar ile gelecekteki yıllara hazırlık yaptı.',
       season_2024_title: '2024 Sezonu – Crescendo',
       season_2024_description:
-        '2024 FRC sezonunda G.O.A.T. 8092 takımı resmi bir yarışmaya katılım göstermedi. Takım, bu dönemde kaynaklarını ve sponsor desteğini güçlendirmeye odaklandı. Nitekim 2024 yılı itibariyle Çetin Group, Saray Alüminyum ve Yılmaz Kalıp gibi yeni sponsorlar ekibe destek verenler arasına katıldı. Resmi yarışmalara ara verilen bu sezonda, ekip içi eğitimler, robotik çalışmalar ve topluluk etkileşimleri sürdürüldü.',
-      season_2024_note_title: 'Önemli Gelişme:',
+        '2024 FRC sezonunda G.O.A.T. 8092 takımı resmi bir yarışmaya katılım göstermedi. Takım, bu dönemde kaynaklarını ve sponsor desteğini güçlendirmeye odaklandı. Nitekim 2024 yılı itibarıyla Çetin Group, Saray Alüminyum ve Yılmaz Kalıp gibi yeni sponsorlar ekibe destek verenler arasına katıldı. Resmi yarışmalara ara verilen bu sezonda, ekip içi eğitimler, robotik çalışmalar ve topluluk etkileşimleri sürdürüldü.',
+      season_2024_note_title: 'Önemli Gelişme (2024):',
       season_2024_note_text:
         'Ayrıca lise takımı üyeleri, "G.O.A.T. Jr." adında bir alt takım oluşturarak ortaokul düzeyindeki öğrencilere mentorluk yapmaya başlamıştır.',
       season_2025_title: '2025 Sezonu – REEFSCAPE',
