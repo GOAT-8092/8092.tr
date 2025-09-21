@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
 import { translations } from '../lib/translations';
 import galleryData from '../data/gallery-data.json';
 
 const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
-const translationsObj = getTranslations(currentLang);
 
 // TypeScript declarations for global variables
 declare global {

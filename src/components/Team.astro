@@ -29,17 +29,6 @@ const translateRoleLabel = (role: string) => {
 
 const translateRoles = (roles?: string[]) => (roles ?? []).map(translateRoleLabel);
 
-const getMemberRoleLabels = (member: (typeof currentTeamMembers)[number]) => {
-  const labels = [...translateRoles(member.roles)];
-  if (member.isCaptain) {
-    labels.unshift(t('team.badges.captain'));
-  }
-  const mapped = getRoleLabel(member.id);
-  if (!labels.length && mapped) {
-    labels.push(mapped);
-  }
-  return labels;
-};
 
 const getMentorRoleLabels = (mentor: (typeof teamMentors)[number]) => {
   const labels = [...translateRoles(mentor.roles)];
