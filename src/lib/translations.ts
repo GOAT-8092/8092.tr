@@ -388,6 +388,9 @@ export const translations: Translations = {
       share: 'Paylaş',
       download: 'İndir',
       refresh: 'Yenile',
+      no_image: 'Resim Yok',
+      year: 'Yıl',
+      of: '/',
     },
 
     accessibility: {
@@ -835,6 +838,9 @@ export const translations: Translations = {
       share: 'Share',
       download: 'Download',
       refresh: 'Refresh',
+      no_image: 'No Image',
+      year: 'Year',
+      of: 'of',
     },
 
     accessibility: {
