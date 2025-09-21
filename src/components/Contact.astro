@@ -11,11 +11,6 @@ const addressLines = Array.isArray(contactTranslations.address_lines) ? contactT
 const quickLinks = contactTranslations.quick_links ?? {};
 const formTranslations = contactTranslations.form ?? {};
 const subjectOptions = formTranslations.subjectOptions ?? {};
-const formMessageStrings = {
-  sending: formTranslations.sendingButton ?? t('contact.form.sending'),
-  success: formTranslations.successAlert ?? t('contact.form.success'),
-  error: formTranslations.errorAlert ?? t('contact.form.error')
-};
 ---
 
 <section id="iletisim" class="pt-32 pb-20 bg-gray-50 scroll-mt-24">
@@ -268,7 +263,7 @@ const formMessageStrings = {
           Accept: 'application/json',
         },
       })
-        .then((response) => {
+        .then(async (response) => {
           if (!response.ok) {
             throw new Error('Form submission failed');
           }

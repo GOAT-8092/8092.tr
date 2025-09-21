@@ -8,12 +8,8 @@ const translationsObj = getTranslations(currentLang);
 const accessibility = translationsObj.accessibility ?? {};
 const accessibilitySections = accessibility.sections ?? {};
 const accessibilityButtons = accessibility.buttons ?? {};
-const accessibilityAnnouncements = accessibility.announcements ?? {};
-const fontStates = accessibility.font_states ?? {};
-const accessibilityScriptStrings = {
-  announcements: accessibilityAnnouncements,
-  font_states: fontStates
-};
+// Unused variables removed
+// accessibilityScriptStrings removed as unused
 ---
 
 <div id="accessibility-toolbar" class="accessibility-toolbar" role="toolbar" aria-label={t('accessibility.toolbar_label')}>

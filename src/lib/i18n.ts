@@ -1,7 +1,7 @@
-import type { SSRResult } from 'astro';
+// import type { SSRResult } from 'astro';
 
 export interface Translation {
-  [key: string]: string | Translation;
+  [key: string]: string | Translation | any;
 }
 
 export interface Translations {
@@ -69,8 +69,8 @@ export function createI18nMiddleware() {
 }
 
 // Helper function to get current language from Astro context
-export function getCurrentLanguage(Astro: Readonly<SSRResult>): Language {
-  return (Astro as any).locals?.lang || DEFAULT_LANGUAGE;
+export function getCurrentLanguage(Astro: any): Language {
+  return Astro.locals?.lang || DEFAULT_LANGUAGE;
 }
 
 // URL helpers

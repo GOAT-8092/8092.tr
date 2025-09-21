@@ -50,7 +50,7 @@ const isStaticImport = typeof src === 'object' && src !== null;
     sizes={sizes}
     class={`responsive-image ${className}`}
     loading={priority ? 'eager' : loading}
-    format={format === 'auto' ? ['webp', 'avif'] : format}
+    format={format === 'auto' ? 'webp' : format}
     quality={quality}
     fit={fit}
   />

@@ -39,7 +39,7 @@ function normalizeFilename(name) {
 // Get image info from filename
 function getImageInfo(filename) {
   const name = path.parse(filename).name;
-  const ext = path.parse(filename).ext.toLowerCase();
+  // ext variable removed as unused
 
   // Team member patterns
   if (

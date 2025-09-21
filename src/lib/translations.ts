@@ -280,7 +280,11 @@ export const translations: Translations = {
       phone: 'Telefon',
       email_link: 'E-posta gönder',
       address_title: 'Adres',
-      address_lines: 'Veliköy OSB Mesleki ve Teknik Anadolu Lisesi, Çerkezköy, Tekirdağ, Türkiye',
+      address_lines: [
+        'Veliköy Organize Sanayi Bölgesi Mesleki ve Teknik Anadolu Lisesi',
+        'Veliköy OSB Mah. 12. Cad. No: 6',
+        '59930 Çerkezköy/Tekirdağ/Türkiye',
+      ],
       view_map: 'Haritada görüntüle',
       social_title: 'Sosyal Medya',
       quick_links_title: 'Hızlı Erişim',
@@ -729,8 +733,11 @@ export const translations: Translations = {
       phone: 'Phone',
       email_link: 'Send Email',
       address_title: 'Address',
-      address_lines:
-        'Veliköy OSB Vocational and Technical Anatolian High School, Çerkezköy, Tekirdağ, Turkey',
+      address_lines: [
+        'Veliköy Organize Sanayi Bölgesi Mesleki ve Teknik Anadolu Lisesi',
+        'Veliköy OSB Mah. 12. Cad. No: 6',
+        '59930 Çerkezköy/Tekirdağ/Türkey',
+      ],
       view_map: 'View on map',
       social_title: 'Social Media',
       quick_links_title: 'Quick Access',

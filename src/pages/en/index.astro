@@ -8,11 +8,8 @@ import Projects from '../../components/Projects.astro';
 import Gallery from '../../components/Gallery.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import { getCurrentLanguage } from '../../lib/i18n';
-
 // Force English language for this page
-Astro.locals.lang = 'en';
-const currentLang = getCurrentLanguage(Astro);
+// const currentLang = 'en' as const;
 ---
 
 <Layout title="G.O.A.T. 8092 | Tekirdağ's First FRC Team" description="Competing in FRC since 2019, G.O.A.T. 8092 inspires youth with STEM education and projects. Rookie All Star (2020).">

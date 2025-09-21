@@ -78,7 +78,7 @@ const currentPath = Astro.url.pathname;
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+      if (toggle && dropdown && !toggle.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
         closeDropdown();
       }
     });
@@ -91,15 +91,19 @@ const currentPath = Astro.url.pathname;
     });
 
     function openDropdown() {
-      dropdown.classList.remove('opacity-0', 'invisible');
-      dropdown.classList.add('opacity-100', 'visible');
-      toggle.setAttribute('aria-expanded', 'true');
+      if (dropdown && toggle) {
+        dropdown.classList.remove('opacity-0', 'invisible');
+        dropdown.classList.add('opacity-100', 'visible');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
     }
 
     function closeDropdown() {
-      dropdown.classList.add('opacity-0', 'invisible');
-      dropdown.classList.remove('opacity-100', 'visible');
-      toggle.setAttribute('aria-expanded', 'false');
+      if (dropdown && toggle) {
+        dropdown.classList.add('opacity-0', 'invisible');
+        dropdown.classList.remove('opacity-100', 'visible');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     }
   });
 </script>

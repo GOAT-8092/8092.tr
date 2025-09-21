@@ -8,6 +8,13 @@ const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
 const translationsObj = getTranslations(currentLang);
 
+// TypeScript declarations for global variables
+declare global {
+  interface Window {
+    Fancybox: any;
+  }
+}
+
 // Import all gallery images dynamically
 const galleryImages = import.meta.glob<{ default: ImageMetadata }>('/public/img/gallery/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 
@@ -46,7 +53,9 @@ const galleryItemsData = await Promise.all(
 const validGalleryItems = galleryItemsData.filter(item => item !== null);
 ---
 <script>
+  // @ts-ignore
   document.addEventListener('DOMContentLoaded', function() {
+    // @ts-ignore
     Fancybox.bind('[data-fancybox="gallery"]', {});
   });
 </script>
@@ -146,7 +155,8 @@ const validGalleryItems = galleryItemsData.filter(item => item !== null);
       }
 
       filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e: Event) {
+          const button = e.currentTarget as HTMLElement;
           try {
             // Remove active class from all buttons
             filterButtons.forEach(btn => {
@@ -155,25 +165,26 @@ const validGalleryItems = galleryItemsData.filter(item => item !== null);
             });
 
             // Add active class to clicked button
-            this.classList.add('active', 'bg-primary', 'text-white');
-            this.classList.remove('bg-gray-200', 'text-gray-700');
+            button.classList.add('active', 'bg-primary', 'text-white');
+            button.classList.remove('bg-gray-200', 'text-gray-700');
 
             // Get filter value
-            const filterValue = this.getAttribute('data-filter');
+            const filterValue = button.getAttribute('data-filter');
 
             // Show/hide gallery items
-            galleryItems.forEach(item => {
+            galleryItems.forEach((item: Element) => {
+              const htmlItem = item as HTMLElement;
               if (filterValue === '*' || (filterValue && item.classList.contains(filterValue.substring(1)))) {
-                item.style.display = 'block';
+                htmlItem.style.display = 'block';
                 setTimeout(() => {
-                  item.style.opacity = '1';
-                  item.style.transform = 'scale(1)';
+                  htmlItem.style.opacity = '1';
+                  htmlItem.style.transform = 'scale(1)';
                 }, 10);
               } else {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
+                htmlItem.style.opacity = '0';
+                htmlItem.style.transform = 'scale(0.8)';
                 setTimeout(() => {
-                  item.style.display = 'none';
+                  htmlItem.style.display = 'none';
                 }, 300);
               }
             });
@@ -184,8 +195,8 @@ const validGalleryItems = galleryItemsData.filter(item => item !== null);
       });
 
       // Initialize gallery items with transition
-      galleryItems.forEach(item => {
-        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      galleryItems.forEach((item: Element) => {
+        (item as HTMLElement).style.transition = 'opacity 0.3s ease, transform 0.3s ease';
       });
     } catch (error) {
       console.error('Error initializing gallery:', error);

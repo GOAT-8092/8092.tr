@@ -7,9 +7,7 @@ import '../styles/global.css';
 import PerformanceMonitor from '../components/PerformanceMonitor.astro';
 import PWAInstall from '../components/PWAInstall.astro';
 import AccessibilityToolbar from '../components/AccessibilityToolbar.astro';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { getCurrentLanguage, getTranslation, getTranslations, type Language, removeLangFromPath } from '../lib/i18n';
-import { translations } from '../lib/translations';
+import { getCurrentLanguage, removeLangFromPath } from '../lib/i18n';
 
 export interface Props {
   title: string;
@@ -18,7 +16,6 @@ export interface Props {
 
 const { title, description = 'FRC Team 8092 - Greatest of All Times' } = Astro.props;
 const currentLang = getCurrentLanguage(Astro);
-const t = (key: string) => getTranslation(translations, currentLang, key);
 
 // SEO metadata configuration
 const seoMetadata = {
@@ -73,7 +70,7 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
     <meta name="twitter:image" content="https://8092.tr/og-cover.jpg" />
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
       "@type": ["Organization", "SportsTeam", "EducationalOrganization"],
@@ -166,8 +163,8 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
     <!-- Accessibility Toolbar -->
     <AccessibilityToolbar />
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer is:inline></script>
 
     <script is:inline>
       // Initialize Fancybox
@@ -267,10 +264,10 @@ const currentLocale = currentLang === 'en' ? 'en-US' : 'tr-TR';
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
+            .then(() => {
               // Debug log removed
             })
-            .catch(error => {
+            .catch(() => {
               // Debug log removed
             });
         });

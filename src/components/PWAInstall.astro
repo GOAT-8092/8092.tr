@@ -377,7 +377,8 @@
   // Add iOS-specific install instructions
   if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
     setTimeout(() => {
-      const isInstalled = window.navigator.standalone;
+      // @ts-ignore - iOS Safari specific property
+      const isInstalled = (window.navigator as any).standalone;
       if (!isInstalled) {
         console.log('iOS device detected - PWA can be installed via Safari share menu');
       }
