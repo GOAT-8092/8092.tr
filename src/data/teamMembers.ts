@@ -191,7 +191,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Kağan Bahadır Durgut',
     roles: ['Mentor'],
     year: '2024-',
-    image: 'kagan.JPG',
+    image: 'team-kagan-member-1.png',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false,
