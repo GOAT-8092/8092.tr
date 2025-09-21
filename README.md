@@ -7,6 +7,7 @@ Welcome to the official website of FRC Team 8092 "Greatest of All Times" from Te
 Team 8092 "Greatest of All Times" (G.O.A.T.) is Tekirdağ's first and only FRC team, founded in 2019. We are based at Veliköy OSB Mesleki ve Teknik Anadolu Lisesi in Çerkezköy, Tekirdağ, Turkey.
 
 ### FIRST Core Values
+
 - **Discovery**: We explore new skills and ideas
 - **Innovation**: We use creativity and persistence to solve problems
 - **Impact**: We apply what we learn to improve our world
@@ -21,6 +22,10 @@ This website is built with Astro v5.13.7 and features a modern, component-based 
 ```text
 /
 ├── public/                     # Static assets (images, icons, etc.)
+│   └── img/
+│       ├── team/             # Team member photos (renamed with convention)
+│       ├── gallery/          # Gallery images (general-2024-XX.jpg)
+│       └── logos/            # Sponsor and organization logos
 ├── src/
 │   ├── components/            # Astro components
 │   │   ├── Navigation.astro   # Fixed navigation with smooth scroll
@@ -32,15 +37,23 @@ This website is built with Astro v5.13.7 and features a modern, component-based 
 │   │   ├── Contact.astro      # Contact info and social links
 │   │   └── Footer.astro       # Footer with accessibility info
 │   ├── data/
-│   │   └── teamMembers.ts     # TypeScript team data and interfaces
-│   ├── images/
-│   │   └── team/              # Team member photos (200+ images)
+│   │   ├── teamMembers.ts     # TypeScript team data and interfaces
+│   │   └── gallery-data.json   # Gallery metadata and image info
+│   ├── content/               # Markdown content for projects/team
+│   │   ├── projects/          # Project documentation
+│   │   └── team/              # Team member profiles
 │   ├── layouts/
 │   │   └── Layout.astro       # Base HTML structure
 │   ├── pages/
-│   │   └── index.astro        # Main page
+│   │   ├── index.astro        # Main page
+│   │   ├── admin/             # Admin pages
+│   │   ├── api/               # API endpoints
+│   │   └── en/                # English pages
 │   └── styles/
 │       └── global.css         # Tailwind CSS and custom styles
+├── scripts/                   # Utility scripts
+│   ├── rename-images.js       # Image renaming automation
+│   └── update-references.js   # Code reference updates
 └── package.json
 ```
 
@@ -48,12 +61,14 @@ This website is built with Astro v5.13.7 and features a modern, component-based 
 
 - **Framework**: Astro v5.13.7 with TypeScript
 - **Styling**: Tailwind CSS v4 with custom color scheme
-- **Image Optimization**: Astro's built-in image optimization
+- **Image Optimization**: Astro's built-in image optimization + Vercel automatic optimization
 - **Icons**: Font Awesome 5.15.4
 - **Gallery**: Fancybox 5.0 for lightbox functionality
 - **Typography**: Atkinson Hyperlegible font for accessibility (aligns with FIRST Inclusion values)
+- **Deployment**: Vercel with automatic deployments and preview environments
 
 ### Custom Color Scheme
+
 - Primary: `#512f75` (purple)
 - Secondary: `#673a8e` (lighter purple)
 - Accent: `#7e46a8` (accent purple)
@@ -70,7 +85,7 @@ All commands are run from the root of the project:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npx astro check`         | Run TypeScript and Astro diagnostics            |
+| `npx astro check`         | Run TypeScript and Astro diagnostics             |
 
 ## 🌟 Key Features
 
@@ -85,17 +100,28 @@ All commands are run from the root of the project:
 ## 📸 Content Management
 
 ### Team Members
+
 Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
+
 - Current team members (2024-2025 season)
 - Historical mentors (2019-2024)
 - Captain designations and roles
 - Helper functions for filtering and display
+- Automatic image reference management
 
 ### Images
-- Team member photos are stored in `src/images/team/`
-- All images are automatically optimized by Astro
-- Gallery images are in `public/img/` directory
-- Supports JPG, PNG formats
+
+- **Team Photos**: Stored in `public/img/team/` with naming convention `team-[name]-[role].jpg`
+- **Gallery Images**: Located in `public/img/gallery/` with naming `general-2024-XX.jpg`
+- **Logos**: Stored in `public/img/` with naming `logo-[name].png`
+- **Automatic Optimization**: Vercel handles image optimization automatically
+- **Naming Convention**: All images follow consistent kebab-case with Turkish character normalization
+
+### Image Management Scripts
+
+- `scripts/rename-images.js`: Automated image renaming with Turkish character normalization
+- `scripts/update-references.js`: Updates code references after image renaming
+- **Workflow**: Rename images → Update references → Test build → Deploy
 
 ## 🏆 Team History
 
@@ -118,11 +144,12 @@ Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
 
 ## 📞 Contact
 
-- **Email**: goat8092@gmail.com
+- **Email**: iletisim@8092.tr
 - **Location**: Veliköy OSB Mesleki ve Teknik Anadolu Lisesi, Çerkezköy, Tekirdağ, Turkey
 - **Website**: [8092.tr](https://8092.tr)
 
 ### Social Media
+
 - [Instagram](https://www.instagram.com/goat8092/)
 - [Twitter](https://x.com/goat8092)
 - [LinkedIn](https://www.linkedin.com/company/greatest-of-all-times-8092/)
@@ -131,14 +158,26 @@ Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
 ## 🔧 Development Notes
 
 ### Important Considerations
-1. **Images**: 200+ team member and event photos require optimization
-2. **Turkish Content**: All content is in Turkish - maintain proper encoding
+
+1. **Images**: 177+ team member and event photos with consistent naming convention
+2. **Turkish Content**: All content is in Turkish - maintain proper encoding and localization
 3. **Gallery Dependencies**: Fancybox requires jQuery and specific data attributes
 4. **Mobile Menu**: JavaScript toggle functionality for mobile navigation
 5. **Smooth Scroll**: Custom scroll functions preserve original UX
+6. **Image Management**: Use provided scripts for批量 renaming and reference updates
+7. **Vercel Optimization**: No manual image optimization needed - handled automatically
+
+### Image Naming Convention
+
+- **Team Members**: `team-[firstname]-[role].jpg` (e.g., `team-halil-captain.jpg`)
+- **Gallery Images**: `general-2024-[number].jpg` (e.g., `general-2024-04.jpg`)
+- **Logos**: `logo-[organization].png` (e.g., `logo-frc.png`)
+- **Turkish Characters**: Automatically normalized (ı→i, ğ→g, ü→u, ş→s, ö→o, ç→c)
 
 ### Contributing
+
 This project follows FIRST values of **Gracious Professionalism** and **Coopertition**. When contributing:
+
 - Maintain code quality and accessibility standards
 - Follow the existing TypeScript patterns
 - Ensure mobile responsiveness
@@ -151,4 +190,4 @@ This project follows FIRST values of **Gracious Professionalism** and **Cooperti
 
 ---
 
-*Powered by [Astro](https://astro.build) - Built with 🤖 and ❤️ by Team 8092*
+_Powered by [Astro](https://astro.build) - Built with 🤖 and ❤️ by Team 8092_

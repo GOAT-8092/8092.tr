@@ -59,14 +59,16 @@ We use several tools to maintain code quality:
 #### Available Scripts
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix ESLint issues
-npm run format       # Format code with Prettier
-npm run type-check   # Run TypeScript checks
-npm run optimize-images  # Optimize images
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run preview          # Preview production build
+npm run lint             # Run ESLint
+npm run lint:fix         # Fix ESLint issues
+npm run format           # Format code with Prettier
+npm run type-check       # Run TypeScript checks
+npm run clean            # Clean build artifacts
+npm run analyze          # Analyze bundle size
+npm run perf-audit       # Performance audit with Lighthouse
 ```
 
 ### Pre-commit Hooks
@@ -141,34 +143,75 @@ docs(readme): update installation instructions
 
 ### Images
 
-- Optimize images before committing
-- Use descriptive alt text
-- Follow naming conventions: `kebab-case.jpg`
-- Store team photos in `src/images/team/`
+- **Automatic Optimization**: Vercel handles image optimization automatically
+- **Naming Convention**: Use kebab-case with Turkish character normalization
+- **Team Photos**: Store in `public/img/team/` with format `team-[name]-[role].jpg`
+- **Gallery Images**: Store in `public/img/gallery/` with format `general-2024-[number].jpg`
+- **Logos**: Store in `public/img/` with format `logo-[name].png`
+- **Alt Text**: Always provide descriptive alt text for accessibility
+- **Turkish Characters**: Use automated scripts for proper normalization
+
+### Image Management Workflow
+
+1. **Adding New Images**:
+
+   ```bash
+   # Place images in appropriate directory
+   # Follow naming convention
+   # Update data files if needed
+   # Test build: npm run build
+   ```
+
+2. **Bulk Renaming (when needed)**:
+
+   ```bash
+   # Preview renaming plan
+   node scripts/rename-images.js preview
+
+   # Execute renaming (when ready)
+   node scripts/rename-images.js rename
+   ```
+
+3. **Update References**:
+   ```bash
+   # Update all code references after renaming
+   node scripts/update-references.js
+   ```
 
 ## 🖼️ Image Guidelines
 
 ### Team Member Photos
 
-- **Format**: JPG or PNG
-- **Size**: Minimum 400x400px
-- **Naming**: `firstname-lastname.jpg` or `FirstnameLastname.jpg`
-- **Location**: `src/images/team/`
+- **Format**: JPG (recommended) or PNG
+- **Size**: Minimum 400x400px, square ratio preferred
+- **Naming**: `team-[firstname]-[role].jpg` (e.g., `team-halil-captain.jpg`)
+- **Location**: `public/img/team/`
+- **Turkish Names**: Use automated script for character normalization
 
 ### Gallery Images
 
-- **Format**: JPG (will be converted to WebP/AVIF)
-- **Size**: Maximum 1920px width
-- **Quality**: High quality originals (optimization is automated)
-- **Location**: `src/images/` or subdirectories
+- **Format**: JPG (recommended)
+- **Size**: Maximum 1920px width, maintain aspect ratio
+- **Quality**: High quality originals
+- **Naming**: `general-2024-[number].jpg` (e.g., `general-2024-04.jpg`)
+- **Location**: `public/img/gallery/`
+- **Metadata**: Update `src/data/gallery-data.json` with titles and descriptions
 
-### Optimization
+### Logos and Sponsor Images
 
-Images are automatically optimized during build:
+- **Format**: PNG with transparency preferred
+- **Naming**: `logo-[organization].png` (e.g., `logo-frc.png`)
+- **Location**: `public/img/`
+- **Optimization**: Vercel handles automatic optimization
 
-- Converted to WebP and AVIF formats
-- Resized to appropriate dimensions
-- Compressed for web delivery
+### Image Optimization
+
+Images are automatically optimized by Vercel:
+
+- Converted to modern formats (WebP/AVIF)
+- Responsive sizing and compression
+- CDN delivery for global performance
+- No manual optimization required
 
 ## 🌐 Internationalization
 
@@ -212,13 +255,24 @@ Target browsers:
 
 ## 🚀 Deployment
 
-- **Platform**: Vercel
+- **Platform**: Vercel with enterprise-grade infrastructure
 - **Process**: Automatic deployment on push to `main`
 - **Preview**: Automatic preview deployments for PRs
+- **Performance**: Global CDN, automatic optimization, and edge caching
+- **Monitoring**: Built-in analytics and performance monitoring
+- **Security**: HTTPS, DDoS protection, and web application firewall
+
+### Deployment Workflow
+
+1. **Development**: Work on feature branches
+2. **Testing**: Use preview deployments for review
+3. **Code Review**: PR review with automated checks
+4. **Merge**: Merge to `main` triggers production deployment
+5. **Monitoring**: Monitor performance and errors post-deployment
 
 ## 📞 Contact & Support
 
-- **Team Email**: goat8092@gmail.com
+- **Team Email**: iletisim@8092.tr
 - **Issues**: Use GitHub Issues
 - **Questions**: Ask in discussions or issues
 

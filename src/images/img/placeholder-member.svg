@@ -1,6 +1,0 @@
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="200" fill="#673a8e"/>
-  <circle cx="100" cy="70" r="25" fill="white" opacity="0.7"/>
-  <path d="M60 160 C60 135, 75 125, 100 125 C125 125, 140 135, 140 160 L60 160 Z" fill="white" opacity="0.7"/>
-  <text x="100" y="185" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" opacity="0.8">FRC Team 8092</text>
-</svg>

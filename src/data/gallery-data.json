@@ -1,0 +1,802 @@
+{
+  "galleryItems": [
+    {
+      "filename": "general-2024-04.jpg",
+      "title": {
+        "tr": "2025 Robotumuz",
+        "en": "Our 2025 Robot"
+      },
+      "subtitle": {
+        "tr": "REEFSCAPE sezonu için tasarlanan şampiyon robotumuz",
+        "en": "Our championship robot designed for the REEFSCAPE season"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-05.jpg",
+      "title": {
+        "tr": "Takım Çalışması",
+        "en": "Team Work"
+      },
+      "subtitle": {
+        "tr": "Birlikte çalışarak robot geliştirme süreci",
+        "en": "Robot development process through teamwork"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "general-2024-06.jpg",
+      "title": {
+        "tr": "2024 Robotu",
+        "en": "2024 Robot"
+      },
+      "subtitle": {
+        "tr": "Crescendo sezonu için tasarlanan robotumuz",
+        "en": "Our robot designed for the Crescendo season"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-07.jpg",
+      "title": {
+        "tr": "Takım Fotoğrafı 2025",
+        "en": "Team Photo 2025"
+      },
+      "subtitle": {
+        "tr": "2025 sezonu takımımız",
+        "en": "Our team for the 2025 season"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "general-2024-08.jpg",
+      "title": {
+        "tr": "STEM Atölyesi",
+        "en": "STEM Workshop"
+      },
+      "subtitle": {
+        "tr": "Öğrencilere STEM eğitimi verdiğimiz atölye çalışması",
+        "en": "Workshop where we provide STEM education to students"
+      },
+      "category": "outreach"
+    },
+    {
+      "filename": "general-2024-09.jpg",
+      "title": {
+        "tr": "Mentorlerimiz",
+        "en": "Our Mentors"
+      },
+      "subtitle": {
+        "tr": "Takımımıza rehberlik değer mentorlerimiz",
+        "en": "Our valuable mentors who guide our team"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "general-2024-10.jpg",
+      "title": {
+        "tr": "Boğaz Yarışması 2025",
+        "en": "Bosphorus Competition 2025"
+      },
+      "subtitle": {
+        "tr": "2025 Boğaz FRC bölgesel yarışmasından anlar",
+        "en": "Moments from the 2025 Bosphorus FRC regional competition"
+      },
+      "category": "competitions"
+    },
+    {
+      "filename": "general-2024-13.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-13.jpg",
+        "en": "Image general-2024-13.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-14.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-14.jpg",
+        "en": "Image general-2024-14.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-15.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-15.jpg",
+        "en": "Image general-2024-15.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-16.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-16.jpg",
+        "en": "Image general-2024-16.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-18.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-18.jpg",
+        "en": "Image general-2024-18.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-19.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-19.jpg",
+        "en": "Image general-2024-19.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-21.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-21.jpg",
+        "en": "Image general-2024-21.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-22.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-22.jpg",
+        "en": "Image general-2024-22.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-23.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-23.jpg",
+        "en": "Image general-2024-23.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-24.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-24.jpg",
+        "en": "Image general-2024-24.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-25.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-25.jpg",
+        "en": "Image general-2024-25.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-26.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-26.jpg",
+        "en": "Image general-2024-26.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-27.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-27.jpg",
+        "en": "Image general-2024-27.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-28.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-28.jpg",
+        "en": "Image general-2024-28.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-29.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-29.jpg",
+        "en": "Image general-2024-29.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-30.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-30.jpg",
+        "en": "Image general-2024-30.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-31.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-31.jpg",
+        "en": "Image general-2024-31.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-32.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-32.jpg",
+        "en": "Image general-2024-32.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-33.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-33.jpg",
+        "en": "Image general-2024-33.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-34.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-34.jpg",
+        "en": "Image general-2024-34.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-35.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-35.jpg",
+        "en": "Image general-2024-35.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-36.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-36.jpg",
+        "en": "Image general-2024-36.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-37.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-37.jpg",
+        "en": "Image general-2024-37.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-38.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-38.jpg",
+        "en": "Image general-2024-38.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-39.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-39.jpg",
+        "en": "Image general-2024-39.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-40.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-40.jpg",
+        "en": "Image general-2024-40.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-41.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-41.jpg",
+        "en": "Image general-2024-41.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-42.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-42.jpg",
+        "en": "Image general-2024-42.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-43.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-43.jpg",
+        "en": "Image general-2024-43.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-44.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-44.jpg",
+        "en": "Image general-2024-44.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-45.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-45.jpg",
+        "en": "Image general-2024-45.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-46.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-46.jpg",
+        "en": "Image general-2024-46.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-47.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-47.jpg",
+        "en": "Image general-2024-47.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-48.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-48.jpg",
+        "en": "Image general-2024-48.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-49.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-49.jpg",
+        "en": "Image general-2024-49.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-50.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-50.jpg",
+        "en": "Image general-2024-50.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-51.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-51.jpg",
+        "en": "Image general-2024-51.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-52.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-52.jpg",
+        "en": "Image general-2024-52.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-53.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-53.jpg",
+        "en": "Image general-2024-53.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-54.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-54.jpg",
+        "en": "Image general-2024-54.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-55.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-55.jpg",
+        "en": "Image general-2024-55.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-56.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-56.jpg",
+        "en": "Image general-2024-56.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-57.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-57.jpg",
+        "en": "Image general-2024-57.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-58.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-58.jpg",
+        "en": "Image general-2024-58.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-59.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-59.jpg",
+        "en": "Image general-2024-59.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-60.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-60.jpg",
+        "en": "Image general-2024-60.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-61.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-61.jpg",
+        "en": "Image general-2024-61.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-62.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-62.jpg",
+        "en": "Image general-2024-62.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-67.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-67.jpg",
+        "en": "Image general-2024-67.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-68.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-68.jpg",
+        "en": "Image general-2024-68.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-69.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-69.jpg",
+        "en": "Image general-2024-69.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-70.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-70.jpg",
+        "en": "Image general-2024-70.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-71.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-71.jpg",
+        "en": "Image general-2024-71.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-72.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-72.jpg",
+        "en": "Image general-2024-72.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-73.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-73.jpg",
+        "en": "Image general-2024-73.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-74.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-74.jpg",
+        "en": "Image general-2024-74.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-75.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-75.jpg",
+        "en": "Image general-2024-75.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "general-2024-76.jpg",
+      "title": {
+        "tr": "Görüntü general-2024-76.jpg",
+        "en": "Image general-2024-76.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    }
+  ],
+  "categories": {
+    "robots": {
+      "tr": "Robotlar",
+      "en": "Robots"
+    },
+    "team": {
+      "tr": "Takım",
+      "en": "Team"
+    },
+    "competitions": {
+      "tr": "Yarışmalar",
+      "en": "Competitions"
+    },
+    "outreach": {
+      "tr": "Toplum Hizmeti",
+      "en": "Outreach"
+    }
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "galleryItems": [
+    {
+      "filename": "resim4.jpg",
+      "title": {
+        "tr": "2025 Robotumuz",
+        "en": "Our 2025 Robot"
+      },
+      "subtitle": {
+        "tr": "REEFSCAPE sezonu için tasarlanan şampiyon robotumuz",
+        "en": "Our championship robot designed for the REEFSCAPE season"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim5.jpg",
+      "title": {
+        "tr": "Takım Çalışması",
+        "en": "Team Work"
+      },
+      "subtitle": {
+        "tr": "Birlikte çalışarak robot geliştirme süreci",
+        "en": "Robot development process through teamwork"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "resim6.jpg",
+      "title": {
+        "tr": "2024 Robotu",
+        "en": "2024 Robot"
+      },
+      "subtitle": {
+        "tr": "Crescendo sezonu için tasarlanan robotumuz",
+        "en": "Our robot designed for the Crescendo season"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim7.jpg",
+      "title": {
+        "tr": "Takım Fotoğrafı 2025",
+        "en": "Team Photo 2025"
+      },
+      "subtitle": {
+        "tr": "2025 sezonu takımımız",
+        "en": "Our team for the 2025 season"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "resim8.jpg",
+      "title": {
+        "tr": "STEM Atölyesi",
+        "en": "STEM Workshop"
+      },
+      "subtitle": {
+        "tr": "Öğrencilere STEM eğitimi verdiğimiz atölye çalışması",
+        "en": "Workshop where we provide STEM education to students"
+      },
+      "category": "outreach"
+    },
+    {
+      "filename": "resim9.jpg",
+      "title": {
+        "tr": "Mentorlerimiz",
+        "en": "Our Mentors"
+      },
+      "subtitle": {
+        "tr": "Takımımıza rehberlik değer mentorlerimiz",
+        "en": "Our valuable mentors who guide our team"
+      },
+      "category": "team"
+    },
+    {
+      "filename": "resim10.jpg",
+      "title": {
+        "tr": "Boğaz Yarışması 2025",
+        "en": "Bosphorus Competition 2025"
+      },
+      "subtitle": {
+        "tr": "2025 Boğaz FRC bölgesel yarışmasından anlar",
+        "en": "Moments from the 2025 Bosphorus FRC regional competition"
+      },
+      "category": "competitions"
+    },
+    {
+      "filename": "resim13.jpg",
+      "title": {
+        "tr": "Görüntü resim13.jpg",
+        "en": "Image resim13.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim14.jpg",
+      "title": {
+        "tr": "Görüntü resim14.jpg",
+        "en": "Image resim14.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim15.jpg",
+      "title": {
+        "tr": "Görüntü resim15.jpg",
+        "en": "Image resim15.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim16.jpg",
+      "title": {
+        "tr": "Görüntü resim16.jpg",
+        "en": "Image resim16.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim18.jpg",
+      "title": {
+        "tr": "Görüntü resim18.jpg",
+        "en": "Image resim18.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim19.jpg",
+      "title": {
+        "tr": "Görüntü resim19.jpg",
+        "en": "Image resim19.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim21.jpg",
+      "title": {
+        "tr": "Görüntü resim21.jpg",
+        "en": "Image resim21.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim22.jpg",
+      "title": {
+        "tr": "Görüntü resim22.jpg",
+        "en": "Image resim22.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim23.jpg",
+      "title": {
+        "tr": "Görüntü resim23.jpg",
+        "en": "Image resim23.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim24.jpg",
+      "title": {
+        "tr": "Görüntü resim24.jpg",
+        "en": "Image resim24.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim25.jpg",
+      "title": {
+        "tr": "Görüntü resim25.jpg",
+        "en": "Image resim25.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim26.jpg",
+      "title": {
+        "tr": "Görüntü resim26.jpg",
+        "en": "Image resim26.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim27.jpg",
+      "title": {
+        "tr": "Görüntü resim27.jpg",
+        "en": "Image resim27.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim28.jpg",
+      "title": {
+        "tr": "Görüntü resim28.jpg",
+        "en": "Image resim28.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim29.jpg",
+      "title": {
+        "tr": "Görüntü resim29.jpg",
+        "en": "Image resim29.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim30.jpg",
+      "title": {
+        "tr": "Görüntü resim30.jpg",
+        "en": "Image resim30.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim31.jpg",
+      "title": {
+        "tr": "Görüntü resim31.jpg",
+        "en": "Image resim31.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim32.jpg",
+      "title": {
+        "tr": "Görüntü resim32.jpg",
+        "en": "Image resim32.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim33.jpg",
+      "title": {
+        "tr": "Görüntü resim33.jpg",
+        "en": "Image resim33.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim34.jpg",
+      "title": {
+        "tr": "Görüntü resim34.jpg",
+        "en": "Image resim34.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim35.jpg",
+      "title": {
+        "tr": "Görüntü resim35.jpg",
+        "en": "Image resim35.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim36.jpg",
+      "title": {
+        "tr": "Görüntü resim36.jpg",
+        "en": "Image resim36.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim37.jpg",
+      "title": {
+        "tr": "Görüntü resim37.jpg",
+        "en": "Image resim37.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim38.jpg",
+      "title": {
+        "tr": "Görüntü resim38.jpg",
+        "en": "Image resim38.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim39.jpg",
+      "title": {
+        "tr": "Görüntü resim39.jpg",
+        "en": "Image resim39.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim40.jpg",
+      "title": {
+        "tr": "Görüntü resim40.jpg",
+        "en": "Image resim40.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim41.jpg",
+      "title": {
+        "tr": "Görüntü resim41.jpg",
+        "en": "Image resim41.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim42.jpg",
+      "title": {
+        "tr": "Görüntü resim42.jpg",
+        "en": "Image resim42.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim43.jpg",
+      "title": {
+        "tr": "Görüntü resim43.jpg",
+        "en": "Image resim43.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim44.jpg",
+      "title": {
+        "tr": "Görüntü resim44.jpg",
+        "en": "Image resim44.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim45.jpg",
+      "title": {
+        "tr": "Görüntü resim45.jpg",
+        "en": "Image resim45.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim46.jpg",
+      "title": {
+        "tr": "Görüntü resim46.jpg",
+        "en": "Image resim46.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim47.jpg",
+      "title": {
+        "tr": "Görüntü resim47.jpg",
+        "en": "Image resim47.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim48.jpg",
+      "title": {
+        "tr": "Görüntü resim48.jpg",
+        "en": "Image resim48.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim49.jpg",
+      "title": {
+        "tr": "Görüntü resim49.jpg",
+        "en": "Image resim49.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim50.jpg",
+      "title": {
+        "tr": "Görüntü resim50.jpg",
+        "en": "Image resim50.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim51.jpg",
+      "title": {
+        "tr": "Görüntü resim51.jpg",
+        "en": "Image resim51.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim52.jpg",
+      "title": {
+        "tr": "Görüntü resim52.jpg",
+        "en": "Image resim52.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim53.jpg",
+      "title": {
+        "tr": "Görüntü resim53.jpg",
+        "en": "Image resim53.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim54.jpg",
+      "title": {
+        "tr": "Görüntü resim54.jpg",
+        "en": "Image resim54.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim55.jpg",
+      "title": {
+        "tr": "Görüntü resim55.jpg",
+        "en": "Image resim55.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim56.jpg",
+      "title": {
+        "tr": "Görüntü resim56.jpg",
+        "en": "Image resim56.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim57.jpg",
+      "title": {
+        "tr": "Görüntü resim57.jpg",
+        "en": "Image resim57.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim58.jpg",
+      "title": {
+        "tr": "Görüntü resim58.jpg",
+        "en": "Image resim58.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim59.jpg",
+      "title": {
+        "tr": "Görüntü resim59.jpg",
+        "en": "Image resim59.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim60.jpg",
+      "title": {
+        "tr": "Görüntü resim60.jpg",
+        "en": "Image resim60.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim61.jpg",
+      "title": {
+        "tr": "Görüntü resim61.jpg",
+        "en": "Image resim61.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim62.jpg",
+      "title": {
+        "tr": "Görüntü resim62.jpg",
+        "en": "Image resim62.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim67.jpg",
+      "title": {
+        "tr": "Görüntü resim67.jpg",
+        "en": "Image resim67.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim68.jpg",
+      "title": {
+        "tr": "Görüntü resim68.jpg",
+        "en": "Image resim68.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim69.jpg",
+      "title": {
+        "tr": "Görüntü resim69.jpg",
+        "en": "Image resim69.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim70.jpg",
+      "title": {
+        "tr": "Görüntü resim70.jpg",
+        "en": "Image resim70.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim71.jpg",
+      "title": {
+        "tr": "Görüntü resim71.jpg",
+        "en": "Image resim71.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim72.jpg",
+      "title": {
+        "tr": "Görüntü resim72.jpg",
+        "en": "Image resim72.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim73.jpg",
+      "title": {
+        "tr": "Görüntü resim73.jpg",
+        "en": "Image resim73.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim74.jpg",
+      "title": {
+        "tr": "Görüntü resim74.jpg",
+        "en": "Image resim74.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim75.jpg",
+      "title": {
+        "tr": "Görüntü resim75.jpg",
+        "en": "Image resim75.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    },
+    {
+      "filename": "resim76.jpg",
+      "title": {
+        "tr": "Görüntü resim76.jpg",
+        "en": "Image resim76.jpg"
+      },
+      "subtitle": {
+        "tr": "Görüntü açıklamasını buraya yazın",
+        "en": "Write image description here"
+      },
+      "category": "robots"
+    }
+  ],
+  "categories": {
+    "robots": {
+      "tr": "Robotlar",
+      "en": "Robots"
+    },
+    "team": {
+      "tr": "Takım",
+      "en": "Team"
+    },
+    "competitions": {
+      "tr": "Yarışmalar",
+      "en": "Competitions"
+    },
+    "outreach": {
+      "tr": "Toplum Hizmeti",
+      "en": "Outreach"
+    }
+  }
+}

@@ -388,10 +388,32 @@ const accessibilityScriptStrings = {
 </style>
 
 <script is:inline>
-  const accessibilityStrings = ${JSON.stringify(accessibilityScriptStrings)};
+  // Define strings directly in the script since Astro frontmatter variables aren't accessible in inline scripts
+  const accessibilityStrings = {
+    announcements: {
+      fontSizeIncreased: "Yazı boyutu büyütüldü",
+      fontSizeDecreased: "Yazı boyutu küçültüldü",
+      fontSizeReset: "Yazı boyutu normal boyuta ayarlandı",
+      highContrastEnabled: "Yüksek kontrast modu etkinleştirildi",
+      highContrastDisabled: "Yüksek kontrast modu devre dışı bırakıldı",
+      readingGuideEnabled: "Okuma kılavuzu etkinleştirildi",
+      readingGuideDisabled: "Okuma kılavuzu devre dışı bırakıldı",
+      focusOutlineEnabled: "Odak vurgusu güçlendirildi",
+      focusOutlineDisabled: "Odak vurgusu normal ayara döndü",
+      motionReduced: "Animasyonlar azaltıldı",
+      motionReset: "Animasyonlar normale döndü",
+      allSettingsReset: "Tüm erişilebilirlik ayarları sıfırlandı"
+    },
+    font_states: {
+      normal: "Normal",
+      large: "Büyük",
+      xl: "Çok Büyük"
+    }
+  };
 
   class AccessibilityManager {
     constructor(strings) {
+      console.log('AccessibilityManager: Constructor called');
       this.panel = null;
       this.toggle = null;
       this.readingGuide = null;
@@ -414,6 +436,11 @@ const accessibilityScriptStrings = {
       this.readingGuide = document.getElementById('reading-guide');
 
       if (!this.panel || !this.toggle) {
+        console.warn('AccessibilityManager: Required DOM elements not found', {
+          panel: !!this.panel,
+          toggle: !!this.toggle,
+          readingGuide: !!this.readingGuide
+        });
         return;
       }
 
@@ -468,9 +495,11 @@ const accessibilityScriptStrings = {
       });
 
       this.announceAccessibility();
+      console.log('AccessibilityManager: Successfully initialized');
     }
 
     togglePanel() {
+      console.log('AccessibilityManager: togglePanel called, isOpen:', this.isOpen);
       if (this.isOpen) {
         this.closePanel();
       } else {
@@ -742,9 +771,24 @@ const accessibilityScriptStrings = {
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    new AccessibilityManager(accessibilityStrings);
-  });
+  // More robust initialization
+  function initializeAccessibility() {
+    try {
+      new AccessibilityManager(accessibilityStrings);
+    } catch (error) {
+      console.error('AccessibilityManager initialization error:', error);
+      // Retry after a short delay
+      setTimeout(initializeAccessibility, 100);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeAccessibility);
+  } else {
+    // DOM already loaded, initialize immediately
+    initializeAccessibility();
+  }
 
   document.addEventListener('keydown', (event) => {
     if (event.altKey && event.key === '1') {

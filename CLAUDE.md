@@ -3,9 +3,11 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
+
 This is the Astro-powered website for FRC Team 8092 "Greatest of All Times" from Tekirdağ, Turkey. Successfully converted from static HTML to modern Astro framework. Team 8092 is the first and only FRC team in Tekirdağ province.
 
 ## Architecture
+
 - **Framework**: Astro v5.13.7 with TypeScript
 - **Styling**: Tailwind CSS v4 with custom color scheme
 - **Components**: Modular Astro components for each section
@@ -13,6 +15,7 @@ This is the Astro-powered website for FRC Team 8092 "Greatest of All Times" from
 - **Data**: TypeScript data files for team members
 
 ## Development Commands
+
 ```bash
 # Start development server
 npm run dev
@@ -28,6 +31,7 @@ npm install
 ```
 
 ## Project Structure
+
 ```
 src/
   components/
@@ -51,6 +55,7 @@ public/
 ```
 
 ## Key Features
+
 1. **Responsive Design**: Mobile-first approach with Tailwind
 2. **Interactive Gallery**: Fancybox lightbox functionality
 3. **Smooth Scrolling**: Custom navigation with offset for fixed header
@@ -58,11 +63,13 @@ public/
 5. **Performance**: Astro's static site generation with islands
 
 ## Custom Color Scheme
+
 - Primary: #512f75 (purple)
 - Secondary: #673a8e (lighter purple)
 - Accent: #7e46a8 (accent purple)
 
 ## Important Considerations
+
 1. **Images**: 200+ team member and event photos require optimization
 2. **Turkish Content**: All content is in Turkish - maintain proper encoding
 3. **Gallery Dependencies**: Fancybox requires jQuery and specific data attributes
@@ -70,13 +77,16 @@ public/
 5. **Smooth Scroll**: Custom scroll functions preserve original UX
 
 ## Team Data Structure
+
 Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
+
 - Current team members (2024-2025)
 - Historical mentors (2019-2024)
 - Captain designation and roles
 - Helper functions for filtering and display
 
 ## FIRST Core Values #memory
+
 We express the FIRST philosophies of Gracious Professionalism and Coopertition through our Core Values:
 
 - **Discovery**: We explore new skills and ideas.
@@ -87,7 +97,9 @@ We express the FIRST philosophies of Gracious Professionalism and Coopertition t
 - **Fun**: We enjoy and celebrate what we do!
 
 ## External Dependencies
+
 - Font Awesome 5.15.4 for icons
 - Fancybox 5.0 for gallery functionality
 - Atkinson Hyperlegible font for accessibility (aligns with FIRST Inclusion values)
 - jQuery for legacy compatibility
+- Update how project is managed in the Markdown files.

@@ -2,62 +2,48 @@
 import { Image } from 'astro:assets';
 import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
 import { translations } from '../lib/translations';
+import galleryData from '../data/gallery-data.json';
 
 const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
 const translationsObj = getTranslations(currentLang);
 
-// Import gallery images
-import resim4 from '../assets/gallery/resim4.jpg';
-import resim4_1 from '../assets/gallery/resim4.1.jpg';
-import resim5_1 from '../assets/gallery/resim5.1.jpg';
-import resim6 from '../assets/gallery/resim6.jpg';
-import resim6_1 from '../assets/gallery/resim6.1.jpg';
-import resim7 from '../assets/gallery/resim7.jpg';
-import resim7_1 from '../assets/gallery/resim7.1.jpg';
-import resim8 from '../assets/gallery/resim8.jpg';
-import resim8_1 from '../assets/gallery/resim8.1.jpg';
-import resim9 from '../assets/gallery/resim9.jpg';
-import resim10 from '../assets/gallery/resim10.jpg';
-import resim10_1 from '../assets/gallery/resim10.1.jpg';
-import resim13 from '../assets/gallery/resim13.jpg';
-import resim13_1 from '../assets/gallery/resim13.1.jpg';
-import resim14 from '../assets/gallery/resim14.jpg';
-import resim14_1 from '../assets/gallery/resim14.1.jpg';
-import resim15 from '../assets/gallery/resim15.jpg';
-import resim15_1 from '../assets/gallery/resim15.1.jpg';
-import resim16 from '../assets/gallery/resim16.jpg';
-import resim16_1 from '../assets/gallery/resim16.1.jpg';
+// Import all gallery images dynamically
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('/public/img/gallery/*.{jpg,jpeg,png,JPG,JPEG,PNG}');
 
-// Gallery items with categories
-const galleryItemsConfig = [
-  { key: 'robot2025', src: resim4, full: resim4_1, category: 'robots' },
-  { key: 'robotDetail', src: resim5_1, full: resim5_1, category: 'robots' },
-  { key: 'robot2024', src: resim6, full: resim6_1, category: 'robots' },
-  { key: 'team2025', src: resim7, full: resim7_1, category: 'team' },
-  { key: 'workshop', src: resim8, full: resim8_1, category: 'team' },
-  { key: 'mentors', src: resim9, full: resim9, category: 'team' },
-  { key: 'bosphorus2025', src: resim10, full: resim10_1, category: 'competitions' },
-  { key: 'competitionAction', src: resim13, full: resim13_1, category: 'competitions' },
-  { key: 'rookieAward', src: resim14, full: resim14_1, category: 'competitions' },
-  { key: 'stemWorkshop', src: resim15, full: resim15_1, category: 'outreach' },
-  { key: 'goatJr', src: resim16, full: resim16_1, category: 'outreach' },
-  { key: 'communityEvent', src: resim4, full: resim4_1, category: 'outreach' },
-  { key: 'teamBuilding', src: resim6, full: resim6_1, category: 'team' },
-  { key: 'cadDesign', src: resim8, full: resim8_1, category: 'robots' },
-  { key: 'pitArea', src: resim10, full: resim10_1, category: 'competitions' }
-];
+// Create a filename to image mapping
+const imageMap = new Map();
+await Promise.all(
+  Object.entries(galleryImages).map(async ([path, imageModule]) => {
+    const image = await imageModule();
+    const filename = path.split('/').pop() || '';
+    imageMap.set(filename, image.default);
+  })
+);
 
-const galleryTranslations = (translationsObj.gallery?.items ?? {}) as Record<string, { title?: string; subtitle?: string }>;
+// Process gallery items with available data
+const galleryItemsData = await Promise.all(
+  galleryData.galleryItems.map(async (item, index) => {
+    const imageSrc = imageMap.get(item.filename);
+    if (!imageSrc) {
+      console.warn(`Image not found: ${item.filename}`);
+      return null;
+    }
 
-const galleryItemsData = galleryItemsConfig.map(item => {
-  const copy = galleryTranslations[item.key] ?? {};
-  return {
-    ...item,
-    title: copy.title ?? '',
-    subtitle: copy.subtitle ?? ''
-  };
-});
+    return {
+      key: `gallery-${index}`,
+      src: imageSrc,
+      full: imageSrc,
+      filename: item.filename,
+      title: item.title[currentLang] || item.title.tr || `Gallery Image ${index + 1}`,
+      subtitle: item.subtitle[currentLang] || item.subtitle.tr || item.category,
+      category: item.category
+    };
+  })
+);
+
+// Filter out null items (images not found)
+const validGalleryItems = galleryItemsData.filter(item => item !== null);
 ---
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -91,9 +77,9 @@ const galleryItemsData = galleryItemsConfig.map(item => {
 
       <!-- Gallery Grid -->
       <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {galleryItemsData.map((item) => (
+        {validGalleryItems.map((item) => (
           <div class={`gallery-item ${item.category}`}>
-            <a href={item.full.src} data-fancybox="gallery" data-caption={`${item.title} - ${item.subtitle}`}> 
+            <a href={`/img/gallery/${item.filename}`} data-fancybox="gallery" data-caption={`${item.title} - ${item.subtitle}`}>
               <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                 <Image
                   src={item.src}

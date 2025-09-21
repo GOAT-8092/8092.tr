@@ -267,7 +267,7 @@ export const translations: Translations = {
         sendingButton: 'Gönderiliyor...',
         successAlert: 'Mesajınız başarıyla gönderildi! En kısa sürede size geri dönüş yapacağız.',
         errorAlert:
-          'Bir hata oluştu. Lütfen daha sonra tekrar deneyin veya doğrudan goat8092@gmail.com adresine e-posta gönderin.',
+          'Bir hata oluştu. Lütfen daha sonra tekrar deneyin veya doğrudan iletisim@8092.tr adresine e-posta gönderin.',
       },
       social: {
         title: 'Sosyal Medya',
@@ -713,7 +713,7 @@ export const translations: Translations = {
         sendingButton: 'Sending...',
         successAlert: 'Your message was sent successfully! We will reply as soon as possible.',
         errorAlert:
-          'Something went wrong. Please try again later or email goat8092@gmail.com directly.',
+          'Something went wrong. Please try again later or email iletisim@8092.tr directly.',
       },
       social: {
         title: 'Social Media',
