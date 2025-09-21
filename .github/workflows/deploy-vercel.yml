@@ -28,8 +28,8 @@ jobs:
       - name: 🔧 Install dependencies
         run: npm ci
 
-      - name: 🎨 Check code formatting
-        run: npm run format:check
+      - name: 🎨 Format code
+        run: npm run format
 
       - name: 🔍 Run TypeScript checks
         run: npm run type-check
