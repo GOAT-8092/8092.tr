@@ -163,7 +163,7 @@ export const teamMentors: TeamMember[] = [
     name: 'Ali Erkan Saruhan',
     roles: ['Mentor'],
     year: '2019-',
-    image: 'team-saruhan-member.jpg',
+    image: 'team-alierkansaruhan-member.jpg',
     isCaptain: false,
     type: 'mentor',
     isLeadMentor: false,
