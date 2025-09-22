@@ -329,7 +329,8 @@ const accessibilityButtons = accessibility.buttons ?? {};
   /* Mobile responsive */
   @media (max-width: 768px) {
     .accessibility-toolbar {
-      top: 16px;
+      top: auto;
+      bottom: 16px;
       right: 16px;
     }
 
@@ -337,7 +338,10 @@ const accessibilityButtons = accessibility.buttons ?? {};
       width: min(90vw, 320px);
       right: 0;
       left: auto;
-      transform: translateY(-10px) scale(0.95);
+      top: auto;
+      bottom: 60px;
+      max-height: min(70vh, 400px);
+      transform: translateY(10px) scale(0.95);
     }
 
     .a11y-panel.show {
