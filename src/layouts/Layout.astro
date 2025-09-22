@@ -160,17 +160,40 @@ const currentLocale = currentLang === 'en' ? 'en_US' : 'tr_TR';
       // Make jQuery globally available
       window.$ = window.jQuery = jquery;
 
-      // Make Fancybox globally available
-      window.Fancybox = Fancybox;
+      // Initialize Fancybox after DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        // Bind Fancybox to gallery items
+        Fancybox.bind('[data-fancybox="gallery"]', {
+          infinite: true,
+          keyboard: {
+            Escape: "close",
+            Delete: "close",
+            Backspace: "close",
+            PageUp: "next",
+            PageDown: "prev",
+            ArrowUp: "prev",
+            ArrowDown: "next",
+            ArrowRight: "next",
+            ArrowLeft: "prev",
+          },
+          Toolbar: {
+            display: {
+              left: ["infobar"],
+              middle: [],
+              right: ["slideshow", "thumbs", "close"],
+            },
+          },
+          Thumbs: {
+            type: "classic",
+          },
+          animated: true,
+          showClass: "fancybox-fadeIn",
+          hideClass: "fancybox-fadeOut",
+        });
+      });
     </script>
 
     <script is:inline>
-      // Initialize Fancybox
-      if (typeof Fancybox !== 'undefined') {
-        Fancybox.bind('[data-fancybox="gallery"]', {
-          // Custom options if needed
-        });
-      }
 
       // Smooth scrolling function
       function scrollWindowTo(id) {
