@@ -479,6 +479,13 @@ export const translations: Translations = {
           'Erişim sebebiniz (proje, toplantı, araştırma vb.)',
         ],
       },
+      canva_org: {
+        title: 'Canva Takım Hesabı',
+        description:
+          'Takım grafik tasarımları, sunumlar ve medya materyalleri için Canva takımımıza katılın.',
+        access_button: "Canva'ya Katıl",
+        join_note: 'Bu davet linkini kullanarak takım Canva takımımıza katılabilirsiniz.',
+      },
       resources: {
         title: 'Kaynak Kategorileri',
         categories: {
@@ -995,6 +1002,13 @@ export const translations: Translations = {
           'Which documents/resources you need access to',
           'Reason for access (project, meeting, research, etc.)',
         ],
+      },
+      canva_org: {
+        title: 'Canva Organization',
+        description:
+          'Join our team Canva organization for graphic designs, presentations, and media materials.',
+        access_button: 'Join Canva',
+        join_note: 'Use this invite link to join our team Canva organization.',
       },
       resources: {
         title: 'Resource Categories',
