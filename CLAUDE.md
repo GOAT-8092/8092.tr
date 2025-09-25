@@ -103,3 +103,4 @@ We express the FIRST philosophies of Gracious Professionalism and Coopertition t
 - Atkinson Hyperlegible font for accessibility (aligns with FIRST Inclusion values)
 - jQuery for legacy compatibility
 - Update how project is managed in the Markdown files.
+- Add to memory that this is a multilingual (EN/TR) website.

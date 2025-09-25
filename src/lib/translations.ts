@@ -329,6 +329,7 @@ export const translations: Translations = {
         'FIRST\'ın "Inclusion" (Kapsayıcılık) değeri doğrultusunda, web sitemizde görme zorluğu yaşayan bireyler için özel olarak tasarlanmış Atkinson Hyperlegible fontunu kullanıyoruz. Bu font, disleksi ve düşük görme keskinliği olan kişiler için geliştirilmiş olup, tüm takım üyelerimizin ve ziyaretçilerimizin içeriğimize eşit erişim sağlamasını desteklemektedir.',
       location_text: 'Tekirdağ, Türkiye',
       powered_by: 'Powered by',
+      source: 'Kaynak',
       copyright_notice: '© 2025 Greatest of All Times #8092. Tüm hakları saklıdır.',
     },
 
@@ -779,9 +780,10 @@ export const translations: Translations = {
       },
       accessibility_title: 'Accessibility & Inclusion',
       accessibility_description:
-        "Inspired by FIRST's value of Inclusion, we use the Atkinson Hyperlegible typeface to support visitors with low vision or dyslexia and to make sure every teammate can access our content.",
+        'In line with FIRST\'s "Inclusion" value, we use the Atkinson Hyperlegible typeface specially designed for individuals with visual impairments on our website. This font has been developed for people with dyslexia and low visual acuity, supporting equal access to our content for all our team members and visitors.',
       location_text: 'Tekirdağ, Turkey',
       powered_by: 'Powered by',
+      source: 'Source',
       copyright_notice: '© 2025 Greatest of All Times #8092. All rights reserved.',
     },
 
