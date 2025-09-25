@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import PortalAuth from '../components/PortalAuth.astro';
+import InternalResources from '../components/InternalResources.astro';
+import Footer from '../components/Footer.astro';
+
+// Get password from environment variables
+const PORTAL_PASSWORD = import.meta.env.PORTAL_PASS || 'defaultpassword';
+---
+
+<Layout
+  title="Takım Portalı | G.O.A.T. 8092"
+  description="G.O.A.T. 8092 takım üyeleri için dahili kaynaklar, belgeler ve Google Drive erişimi."
+>
+  <!-- Authentication Wall -->
+  <PortalAuth password={PORTAL_PASSWORD} />
+
+  <!-- Portal Content (hidden by default, shown after auth) -->
+  <div id="portal-content" style="display: none;">
+    <Navigation />
+    <main>
+      <InternalResources />
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<script>
+  // Check authentication status on page load
+  if (typeof window !== 'undefined' && localStorage.getItem('portal_auth') === 'authenticated') {
+    // Hide auth and show content immediately
+    const authSection = document.getElementById('portal-auth');
+    const contentSection = document.getElementById('portal-content');
+
+    if (authSection) authSection.style.display = 'none';
+    if (contentSection) contentSection.style.display = 'block';
+  }
+</script>

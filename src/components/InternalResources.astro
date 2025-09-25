@@ -1,0 +1,241 @@
+---
+// InternalResources.astro - Internal resources page for team members
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+
+const driveUrl = "https://drive.google.com/drive/folders/0AD-mXIaLTsU-Uk9PVA";
+---
+
+<section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50 min-h-screen" id="ic-kaynaklar">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-6">
+          <i class="fas fa-lock mr-2"></i>
+          {t('internal.access_notice')}
+        </div>
+
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+          {t('internal.title')}
+        </h1>
+
+        <p class="text-xl text-gray-600 mb-4">
+          {t('internal.subtitle')}
+        </p>
+
+        <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+          {t('internal.description')}
+        </p>
+      </div>
+
+      <!-- Access Notice Card -->
+      <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 mb-12 text-white shadow-2xl">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0">
+            <i class="fas fa-shield-alt text-3xl text-blue-200"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">{t('internal.access_notice')}</h3>
+            <p class="text-blue-100 text-lg leading-relaxed">
+              {t('internal.access_description')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Drive Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          <div class="flex items-center mb-6">
+            <div class="bg-gradient-to-r from-green-400 to-blue-500 p-3 rounded-xl mr-4">
+              <i class="fab fa-google-drive text-2xl text-white"></i>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-gray-800">{t('internal.team_drive.title')}</h2>
+            </div>
+          </div>
+
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            {t('internal.team_drive.description')}
+          </p>
+
+          <div class="space-y-4">
+            <a
+              href={driveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-xl hover:from-green-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              <i class="fab fa-google-drive mr-2"></i>
+              {t('internal.team_drive.access_button')}
+              <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Access Instructions -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          <div class="flex items-center mb-6">
+            <div class="bg-gradient-to-r from-amber-400 to-orange-500 p-3 rounded-xl mr-4">
+              <i class="fas fa-hand-paper text-2xl text-white"></i>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-gray-800">{t('internal.team_drive.request_access')}</h2>
+            </div>
+          </div>
+
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {t('internal.team_drive.access_instructions')}
+          </p>
+
+          <div class="bg-gray-50 rounded-xl p-6">
+            <h4 class="font-semibold text-gray-800 mb-3">{t('internal.team_drive.request_format')}</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                <span class="text-gray-600">{t('internal.team_drive.request_points.0')}</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                <span class="text-gray-600">{t('internal.team_drive.request_points.1')}</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-3 flex-shrink-0"></i>
+                <span class="text-gray-600">{t('internal.team_drive.request_points.2')}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resource Categories -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">
+          {t('internal.resources.title')}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Documents -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-xl mb-4 text-center">
+              <i class="fas fa-file-alt text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{t('internal.resources.categories.documents.title')}</h3>
+            <p class="text-gray-600 leading-relaxed">{t('internal.resources.categories.documents.description')}</p>
+          </div>
+
+          <!-- Technical -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-gradient-to-r from-green-400 to-green-600 p-4 rounded-xl mb-4 text-center">
+              <i class="fas fa-cogs text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{t('internal.resources.categories.technical.title')}</h3>
+            <p class="text-gray-600 leading-relaxed">{t('internal.resources.categories.technical.description')}</p>
+          </div>
+
+          <!-- Training -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-xl mb-4 text-center">
+              <i class="fas fa-graduation-cap text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{t('internal.resources.categories.training.title')}</h3>
+            <p class="text-gray-600 leading-relaxed">{t('internal.resources.categories.training.description')}</p>
+          </div>
+
+          <!-- Competition -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-4 rounded-xl mb-4 text-center">
+              <i class="fas fa-trophy text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{t('internal.resources.categories.competition.title')}</h3>
+            <p class="text-gray-600 leading-relaxed">{t('internal.resources.categories.competition.description')}</p>
+          </div>
+
+          <!-- Media -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="bg-gradient-to-r from-pink-400 to-red-500 p-4 rounded-xl mb-4 text-center">
+              <i class="fas fa-images text-3xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{t('internal.resources.categories.media.title')}</h3>
+            <p class="text-gray-600 leading-relaxed">{t('internal.resources.categories.media.description')}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <i class="fas fa-bolt text-yellow-500 mr-3"></i>
+            {t('internal.quick_links.title')}
+          </h3>
+
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+              <span class="font-medium text-gray-700">{t('internal.quick_links.meeting_notes')}</span>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+              <span class="font-medium text-gray-700">{t('internal.quick_links.current_project')}</span>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+              <span class="font-medium text-gray-700">{t('internal.quick_links.competition_prep')}</span>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+              <span class="font-medium text-gray-700">{t('internal.quick_links.media_kit')}</span>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <i class="fas fa-headset text-blue-500 mr-3"></i>
+            {t('internal.contact_info.title')}
+          </h3>
+
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {t('internal.contact_info.description')}
+          </p>
+
+          <div class="space-y-4">
+            <a
+              href={`mailto:${t('internal.contact_info.email')}`}
+              class="flex items-center p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors"
+            >
+              <i class="fas fa-envelope text-blue-500 mr-3"></i>
+              <span class="font-medium text-gray-700">{t('internal.contact_info.email')}</span>
+            </a>
+
+            <div class="flex items-center p-4 bg-purple-50 rounded-xl">
+              <i class="fab fa-discord text-purple-500 mr-3"></i>
+              <span class="font-medium text-gray-700">{t('internal.contact_info.discord')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Notice -->
+      <div class="text-center">
+        <div class="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-600 rounded-full">
+          <i class="fas fa-info-circle mr-2"></i>
+          <span class="text-sm">
+            {currentLang === 'tr'
+              ? 'Bu sayfa sürekli güncellenmektedir. Son güncellemeler için düzenli olarak kontrol edin.'
+              : 'This page is continuously updated. Check regularly for the latest updates.'
+            }
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

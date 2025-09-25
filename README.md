@@ -87,6 +87,37 @@ All commands are run from the root of the project:
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 | `npx astro check`         | Run TypeScript and Astro diagnostics             |
 
+## 🔐 Environment Variables
+
+The project uses environment variables for configuration:
+
+### Local Development
+
+1. Copy the example environment file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Set your local values in `.env`:
+   ```env
+   PORTAL_PASS=your_portal_password_here
+   ```
+
+### Production Deployment
+
+The following environment variables must be configured in your deployment environment:
+
+- `PORTAL_PASS`: Password for team portal access
+
+**GitHub Repository Secrets:**
+
+- Set `PORTAL_PASS` as a repository secret in GitHub Settings → Secrets and variables → Actions → Repository secrets
+
+**Vercel Deployment:**
+
+- Environment variables are automatically injected during CI/CD deployment
+
 ## 🌟 Key Features
 
 1. **Responsive Design**: Mobile-first approach with Tailwind CSS

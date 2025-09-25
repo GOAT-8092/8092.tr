@@ -1,0 +1,191 @@
+---
+// PortalAuth.astro - Simple authentication for portal access
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+interface Props {
+  password: string;
+}
+
+const { password } = Astro.props;
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+---
+
+<section class="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50 flex items-center justify-center py-12 px-4" id="portal-auth">
+  <div class="max-w-md w-full">
+
+    <!-- Logo and Title -->
+    <div class="text-center mb-8">
+      <div class="flex justify-center mb-6">
+        <img src="/logo-black.svg" alt="GOAT Logo" class="h-16 w-16">
+      </div>
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">
+        {t('nav.internal')}
+      </h1>
+      <p class="text-gray-600">
+        {t('internal.access_notice')}
+      </p>
+    </div>
+
+    <!-- Authentication Form -->
+    <div class="bg-white rounded-2xl p-8 shadow-2xl border border-gray-100">
+      <div class="mb-6">
+        <div class="flex items-center justify-center p-4 bg-amber-50 rounded-xl mb-4">
+          <i class="fas fa-shield-alt text-2xl text-amber-600 mr-3"></i>
+          <span class="text-amber-800 font-medium">
+            {currentLang === 'tr' ? 'Güvenli Erişim' : 'Secure Access'}
+          </span>
+        </div>
+
+        <p class="text-gray-600 text-center leading-relaxed">
+          {currentLang === 'tr'
+            ? 'Takım portalına erişim için lütfen şifrenizi girin.'
+            : 'Please enter your password to access the team portal.'
+          }
+        </p>
+      </div>
+
+      <form id="portal-auth-form" class="space-y-6">
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+            {currentLang === 'tr' ? 'Şifre' : 'Password'}
+          </label>
+          <div class="relative">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+              placeholder={currentLang === 'tr' ? 'Şifrenizi girin...' : 'Enter your password...'}
+              required
+            />
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+              <i class="fas fa-lock text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+          <div class="flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
+            <span id="error-text">
+              {currentLang === 'tr'
+                ? 'Yanlış şifre. Lütfen tekrar deneyin.'
+                : 'Incorrect password. Please try again.'
+              }
+            </span>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-6 rounded-xl font-medium hover:from-secondary hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          <i class="fas fa-sign-in-alt mr-2"></i>
+          {currentLang === 'tr' ? 'Giriş Yap' : 'Sign In'}
+        </button>
+      </form>
+
+      <!-- Help Text -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <div class="bg-blue-50 rounded-xl p-4">
+          <div class="flex items-start">
+            <i class="fas fa-info-circle text-blue-500 mt-0.5 mr-3 flex-shrink-0"></i>
+            <div class="text-sm text-blue-700">
+              <p class="font-medium mb-1">
+                {currentLang === 'tr' ? 'Erişim Sorunu mu?' : 'Access Issues?'}
+              </p>
+              <p>
+                {currentLang === 'tr'
+                  ? 'Şifrenizi unuttuysanız takım kaptanınız veya mentorunuzla iletişime geçin.'
+                  : 'If you forgot your password, contact your team captain or mentor.'
+                }
+              </p>
+              <p class="mt-2">
+                <a href={`mailto:iletisim@8092.tr`} class="text-blue-600 hover:text-blue-800 underline">
+                  iletisim@8092.tr
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Main Site -->
+    <div class="text-center mt-8">
+      <a
+        href={currentLang === 'en' ? '/en' : '/'}
+        class="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors"
+      >
+        <i class="fas fa-arrow-left mr-2"></i>
+        {currentLang === 'tr' ? 'Ana sayfaya dön' : 'Back to main site'}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script define:vars={{ password }} is:inline>
+  // Client-side authentication logic
+  const CORRECT_PASSWORD = password;
+  const STORAGE_KEY = 'portal_auth';
+
+  // Check if already authenticated
+  if (typeof window !== 'undefined' && localStorage.getItem(STORAGE_KEY) === 'authenticated') {
+    showPortalContent();
+  }
+
+  document.getElementById('portal-auth-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const passwordInput = document.getElementById('password');
+    const errorMessage = document.getElementById('error-message');
+
+    if (passwordInput.value === CORRECT_PASSWORD) {
+      // Store authentication in localStorage
+      localStorage.setItem(STORAGE_KEY, 'authenticated');
+      showPortalContent();
+    } else {
+      // Show error message
+      errorMessage?.classList.remove('hidden');
+      passwordInput.value = '';
+      passwordInput.focus();
+
+      // Shake animation
+      passwordInput.classList.add('animate-pulse');
+      setTimeout(() => {
+        passwordInput.classList.remove('animate-pulse');
+      }, 1000);
+    }
+  });
+
+  function showPortalContent() {
+    // Hide auth form and show portal content
+    const authSection = document.getElementById('portal-auth');
+    const contentSection = document.getElementById('portal-content');
+
+    if (authSection) authSection.style.display = 'none';
+    if (contentSection) contentSection.style.display = 'block';
+  }
+
+  // Clear authentication on page unload (session-based)
+  window.addEventListener('beforeunload', function() {
+    // Uncomment this line if you want authentication to expire when the browser is closed
+    // localStorage.removeItem(STORAGE_KEY);
+  });
+</script>
+
+<style>
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .animate-pulse {
+    animation: shake 0.5s ease-in-out;
+  }
+</style>

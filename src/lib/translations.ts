@@ -10,6 +10,7 @@ export const translations: Translations = {
       projects: 'Projelerimiz',
       gallery: 'Galeri',
       contact: 'İletişim',
+      internal: 'Takım Portalı',
     },
 
     // Hero Section
@@ -454,6 +455,69 @@ export const translations: Translations = {
         xl: 'çok büyük',
       },
     },
+
+    // Internal Resources Section
+    internal: {
+      title: 'Dahili Kaynaklar',
+      subtitle: 'Takım Üyeleri için Kaynaklar',
+      description: 'Bu sayfa sadece G.O.A.T. 8092 takım üyeleri için tasarlanmıştır.',
+      access_notice: 'Takım Üyesi Girişi Gerekli',
+      access_description:
+        'Bu bölümdeki kaynaklara erişim için aktif takım üyesi olmanız gerekmektedir.',
+      team_drive: {
+        title: "Takım Drive'ı",
+        description:
+          "Tüm takım belgelerimiz, toplantı notları, teknik dökümanlar ve medya dosyalarımız Google Drive'da saklanmaktadır.",
+        access_button: "Drive'a Erişim",
+        request_access: 'Erişim Talep Et',
+        access_instructions:
+          'Erişiminiz yoksa, takım kaptanınız veya mentorunuzla iletişime geçerek erişim talebinde bulunun.',
+        request_format: 'Erişim talebinizde şunları belirtmelisiniz:',
+        request_points: [
+          'Tam adınız ve takımdaki rolünüz',
+          'Hangi döküman/kaynaklara erişim ihtiyacı duyduğunuz',
+          'Erişim sebebiniz (proje, toplantı, araştırma vb.)',
+        ],
+      },
+      resources: {
+        title: 'Kaynak Kategorileri',
+        categories: {
+          documents: {
+            title: 'Takım Belgeleri',
+            description: 'Takım dokümanları ve resmi belgeler',
+          },
+          technical: {
+            title: 'Teknik Kaynaklar',
+            description: 'CAD dosyaları, kod repoları ve teknik dökümanlar',
+          },
+          training: {
+            title: 'Eğitim Materyalleri',
+            description: 'Sunumlar, eğitim videoları ve öğrenme kaynakları',
+          },
+          competition: {
+            title: 'Yarışma Kaynakları',
+            description: 'Robot tasarım dökümanları, strateji belgeleri ve yarışma analizleri',
+          },
+          media: {
+            title: 'Medya Arşivi',
+            description: 'Yüksek çözünürlüklü fotoğraflar, videolar ve grafik tasarım dosyaları',
+          },
+        },
+      },
+      quick_links: {
+        title: 'Hızlı Erişim',
+        meeting_notes: 'Son Toplantı Notları',
+        current_project: 'Güncel Proje Dosyaları',
+        competition_prep: 'Yarışma Hazırlık',
+        media_kit: 'Medya Kiti',
+      },
+      contact_info: {
+        title: 'İletişim',
+        description: 'Teknik sorunlar veya erişim problemleri için:',
+        email: 'iletisim@8092.tr',
+        discord: 'Takım Discord Sunucusu',
+      },
+    },
   },
 
   en: {
@@ -465,6 +529,7 @@ export const translations: Translations = {
       projects: 'Projects',
       gallery: 'Gallery',
       contact: 'Contact',
+      internal: 'Internal',
     },
 
     // Hero Section
@@ -906,6 +971,68 @@ export const translations: Translations = {
         normal: 'normal',
         large: 'large',
         xl: 'extra large',
+      },
+    },
+
+    // Internal Resources Section
+    internal: {
+      title: 'Internal Resources',
+      subtitle: 'Resources for Team Members',
+      description: 'This page is designed exclusively for G.O.A.T. 8092 team members.',
+      access_notice: 'Team Member Access Required',
+      access_description: 'You must be an active team member to access resources in this section.',
+      team_drive: {
+        title: 'Team Drive',
+        description:
+          'All our team documents, meeting notes, technical documentation, and media files are stored on Google Drive.',
+        access_button: 'Access Drive',
+        request_access: 'Request Access',
+        access_instructions:
+          "If you don't have access, contact your team captain or mentor to request access.",
+        request_format: 'Your access request should include:',
+        request_points: [
+          'Your full name and role in the team',
+          'Which documents/resources you need access to',
+          'Reason for access (project, meeting, research, etc.)',
+        ],
+      },
+      resources: {
+        title: 'Resource Categories',
+        categories: {
+          documents: {
+            title: 'Team Documents',
+            description: 'Meeting notes, decision logs, and official documents',
+          },
+          technical: {
+            title: 'Technical Resources',
+            description: 'CAD files, code repositories, and technical documentation',
+          },
+          training: {
+            title: 'Training Materials',
+            description: 'Workshop presentations, training videos, and learning resources',
+          },
+          competition: {
+            title: 'Competition Resources',
+            description: 'Robot design documents, strategy papers, and competition analyses',
+          },
+          media: {
+            title: 'Media Archive',
+            description: 'High-resolution photos, videos, and graphic design files',
+          },
+        },
+      },
+      quick_links: {
+        title: 'Quick Access',
+        meeting_notes: 'Latest Meeting Notes',
+        current_project: 'Current Project Files',
+        competition_prep: 'Competition Preparation',
+        media_kit: 'Media Kit',
+      },
+      contact_info: {
+        title: 'Contact',
+        description: 'For technical issues or access problems:',
+        email: 'iletisim@8092.tr',
+        discord: 'Team Discord Server',
       },
     },
   },

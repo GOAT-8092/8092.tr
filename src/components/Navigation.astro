@@ -41,6 +41,10 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           onclick="scrollWindowTo('galeri')">{t('nav.gallery')}</a>
         <a href="#iletisim" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a>
+        <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="glass-nav-item flex items-center">
+          <i class="fas fa-lock mr-1 text-amber-600"></i>
+          {t('nav.internal')}
+        </a>
         <div class="border-l border-gray-300 pl-6 ml-2">
           <LanguageSwitcher currentLang={currentLang} />
         </div>
@@ -62,6 +66,10 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a>
         <a href="#iletisim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a>
+        <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md flex items-center">
+          <i class="fas fa-lock mr-2 text-amber-600"></i>
+          {t('nav.internal')}
+        </a>
         <div class="border-t border-gray-200 pt-2 mt-2">
           <div class="px-3 py-2">
             <LanguageSwitcher currentLang={currentLang} />
