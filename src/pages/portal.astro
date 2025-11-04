@@ -6,7 +6,8 @@ import InternalResources from '../components/InternalResources.astro';
 import Footer from '../components/Footer.astro';
 
 // Get password from environment variables
-const PORTAL_PASSWORD = import.meta.env.PORTAL_PASS || 'defaultpassword';
+// Note: PUBLIC_ prefix is required for Astro to expose to client-side
+const PORTAL_PASSWORD = import.meta.env.PUBLIC_PORTAL_PASS || 'defaultpassword';
 ---
 
 <Layout
