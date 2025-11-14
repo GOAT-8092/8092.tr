@@ -486,6 +486,14 @@ export const translations: Translations = {
         access_button: "Canva'ya Katıl",
         join_note: 'Bu davet linkini kullanarak takım Canva takımımıza katılabilirsiniz.',
       },
+      github_org: {
+        title: 'GitHub Organizasyonu',
+        description:
+          'Takımın GitHub organizasyonuna katılarak kod repolarına, projelere ve teknik dökümanlarımıza erişim sağlayın.',
+        access_button: "GitHub'a Katıl",
+        join_note:
+          'GitHub hesabınızla katılabilirsiniz. GitHub e-posta adresinizi takım kaptanına göndererek erişim talep edin.',
+      },
       resources: {
         title: 'Kaynak Kategorileri',
         categories: {
@@ -1009,6 +1017,14 @@ export const translations: Translations = {
           'Join our team Canva organization for graphic designs, presentations, and media materials.',
         access_button: 'Join Canva',
         join_note: 'Use this invite link to join our team Canva organization.',
+      },
+      github_org: {
+        title: 'GitHub Organization',
+        description:
+          'Join the team GitHub organization to access code repositories, projects, and technical documentation.',
+        access_button: 'Join GitHub',
+        join_note:
+          'You can join with a GitHub account. Send your GitHub email to the team captain to request access.',
       },
       resources: {
         title: 'Resource Categories',

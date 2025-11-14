@@ -8,6 +8,7 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
 
 const driveUrl = "https://drive.google.com/drive/folders/0AD-mXIaLTsU-Uk9PVA";
 const canvaUrl = "https://www.canva.com/brand/join?token=P2h3PShXedvXFJGVZOel4Q&brandingVariant=edu&referrer=team-invite";
+const githubOrgUrl = "https://github.com/goat-8092";
 ---
 
 <section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50 min-h-screen" id="ic-kaynaklar">
@@ -50,7 +51,7 @@ const canvaUrl = "https://www.canva.com/brand/join?token=P2h3PShXedvXFJGVZOel4Q&
       </div>
 
       <!-- Team Resources -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <!-- Team Drive -->
         <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
           <div class="flex items-center mb-4">
@@ -92,6 +93,27 @@ const canvaUrl = "https://www.canva.com/brand/join?token=P2h3PShXedvXFJGVZOel4Q&
             <i class="fas fa-external-link-alt ml-2 text-xs"></i>
           </a>
         </div>
+
+        <!-- GitHub Organization -->
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <div class="bg-gradient-to-r from-gray-700 to-gray-900 p-2 rounded-lg mr-3">
+              <i class="fab fa-github text-lg text-white"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">{t('internal.github_org.title')}</h3>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">{t('internal.github_org.description')}</p>
+          <a
+            href={githubOrgUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all text-sm font-medium"
+          >
+            <i class="fab fa-github mr-2"></i>
+            {t('internal.github_org.access_button')}
+            <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+          </a>
+        </div>
       </div>
 
       <!-- Access Instructions -->
@@ -101,6 +123,7 @@ const canvaUrl = "https://www.canva.com/brand/join?token=P2h3PShXedvXFJGVZOel4Q&
           <div>
             <h4 class="font-semibold text-amber-800 text-sm mb-2">{t('internal.team_drive.request_access')}</h4>
             <p class="text-amber-700 text-xs mb-2">{t('internal.team_drive.access_instructions')}</p>
+            <p class="text-amber-700 text-xs mb-2">{t('internal.github_org.join_note')}</p>
             <p class="text-amber-600 text-xs">
               <strong>{t('internal.team_drive.request_format')}</strong>
               {t('internal.team_drive.request_points.0')} • {t('internal.team_drive.request_points.1')} • {t('internal.team_drive.request_points.2')}
