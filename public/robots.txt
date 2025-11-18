@@ -1,15 +1,6 @@
 User-agent: *
 Allow: /
 
-# Important pages
-Allow: /
-Allow: /#anasayfa
-Allow: /#hakkimizda
-Allow: /#takim
-Allow: /#projelerimiz
-Allow: /#galeri
-Allow: /#iletisim
-
 # Sitemaps
 Sitemap: https://8092.tr/sitemap-index.xml
 Sitemap: https://8092.tr/sitemap-0.xml

@@ -11,9 +11,25 @@ export default defineConfig({
     tailwind(),
     react(),
     sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
+      filter: page => !page.includes('/portal'),
+      serialize(item) {
+        // Differentiate priority based on page type
+        if (item.url.endsWith('/') || item.url.endsWith('/en')) {
+          // Homepage - highest priority
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        } else if (item.url.includes('/en/')) {
+          // English pages - high priority
+          item.priority = 0.9;
+          item.changefreq = 'weekly';
+        } else {
+          // Other pages - standard priority
+          item.priority = 0.8;
+          item.changefreq = 'weekly';
+        }
+        item.lastmod = new Date();
+        return item;
+      },
       entryLimit: 10000,
     }),
   ],

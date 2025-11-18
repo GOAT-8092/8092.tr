@@ -39,6 +39,8 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a>
         <a href="#galeri" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('galeri')">{t('nav.gallery')}</a>
+        <a href="#sss" class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('sss')">{t('nav.faq')}</a>
         <a href="#iletisim" class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a>
         <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="glass-nav-item flex items-center">
@@ -64,6 +66,8 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a>
         <a href="#galeri" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a>
+        <a href="#sss" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('sss'); closeMobileMenu()">{t('nav.faq')}</a>
         <a href="#iletisim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a>
         <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md flex items-center">

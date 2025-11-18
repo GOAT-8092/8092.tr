@@ -1,0 +1,191 @@
+---
+// FAQ.astro - Frequently Asked Questions section with Featured Snippet optimization
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+
+// FAQ data structure optimized for featured snippets
+const faqData = currentLang === 'tr' ? [
+  {
+    question: 'FRC Team 8092 Nedir?',
+    answer: '<strong>G.O.A.T. 8092 (Greatest of All Times)</strong>, Tekirdağ\'ın ilk ve tek FIRST Robotics Competition takımıdır. 2019 yılında kurulan takım, BSH Türkiye ve Kodluyoruz Derneği desteğiyle robotik yarışmalarda Türkiye\'yi temsil eder. 2020 sezonunda Rookie All Star ödülünü kazanan G.O.A.T. 8092, STEM eğitimi ve gençlik gelişimi alanında aktif çalışmalar yürütmektedir.',
+    category: 'about'
+  },
+  {
+    question: 'Tekirdağ\'da Robotik Takımı Var mı?',
+    answer: '<strong>Evet, Tekirdağ\'da G.O.A.T. 8092 "Greatest of All Times" bulunmaktadır.</strong> 2019\'dan beri aktif olan bu takım, Tekirdağ ilinin ilk ve tek FIRST Robotics Competition takımıdır. Halit Narin Mesleki ve Teknik Anadolu Lisesi ve Veliköy OSB Mesleki ve Teknik Anadolu Lisesi öğrencilerinden oluşur.',
+    category: 'about'
+  },
+  {
+    question: 'FRC Team 8092 Hangi Başarıları Kazandı?',
+    answer: 'G.O.A.T. 8092, 2020 sezonunda <strong>Rookie All Star Award</strong> kazanarak en iyi çaylak takım seçilmiştir. Takım, 2020-2025 arası 5 resmi sezonda yarışarak 17-19 galibiyet-mağlubiyet rekoru elde etmiştir. 2022 sezonunda çeyrek finallere yükselme başarısı göstermiştir.',
+    category: 'achievements'
+  },
+  {
+    question: 'FIRST Robotics Competition (FRC) Nasıl Çalışır?',
+    answer: 'FRC, lise öğrencilerinin robot tasarlayıp yarıştığı uluslararası bir robotik yarışmasıdır. Her yıl Ocak ayında yeni oyun kuralları açıklanır, takımlar 6 haftalık sürede robot tasarlayıp inşa eder, ardından Mart-Nisan aylarında bölgesel turnuvalara katılır. Maçlar 3 takımlık ittifaklar halinde oynanır ve hem teknik performans hem de takım ruhu değerlendirilir.',
+    category: 'frc'
+  },
+  {
+    question: 'FRC Team 8092\'ye Nasıl Katılabilirim?',
+    answer: 'Takıma katılmak için Halit Narin MTAL veya Veliköy OSB MTAL öğrencisi olmanız gerekmektedir. İlgi duyan öğrenciler <a href="mailto:iletisim@8092.tr" class="text-primary hover:text-secondary">iletisim@8092.tr</a> adresinden veya sosyal medya hesaplarından (<a href="https://instagram.com/goatfrc8092" target="_blank" rel="noopener" class="text-primary hover:text-secondary">@goatfrc8092</a>) ulaşabilir. Takım, her yıl Eylül-Ekim aylarında yeni üye alımı yapar.',
+    category: 'join'
+  },
+  {
+    question: 'FIRST Core Values (Temel Değerleri) Nelerdir?',
+    answer: '<strong>FIRST Core Values</strong>, takımların benimsemesi gereken 6 temel değerdir: <strong>Discovery</strong> (Keşif) - Yeni beceriler keşfetmek, <strong>Innovation</strong> (Yenilikçilik) - Yaratıcı problem çözme, <strong>Impact</strong> (Etki) - Dünyamızı iyileştirmek, <strong>Inclusion</strong> (Kapsayıcılık) - Farklılıkları kucaklamak, <strong>Teamwork</strong> (Takım Çalışması) - Birlikte güçlü olmak, ve <strong>Fun</strong> (Eğlence) - Keyif alarak çalışmak.',
+    category: 'frc'
+  }
+] : [
+  {
+    question: 'What is FRC Team 8092?',
+    answer: '<strong>G.O.A.T. 8092 (Greatest of All Times)</strong> is the first and only FIRST Robotics Competition team from Tekirdağ, Turkey. Founded in 2019 with support from BSH Turkey and Kodluyoruz Foundation, the team represents Turkey in international robotics competitions. G.O.A.T. 8092 won the Rookie All Star Award in 2020 and actively works in STEM education and youth development.',
+    category: 'about'
+  },
+  {
+    question: 'Is There a Robotics Team in Tekirdağ?',
+    answer: '<strong>Yes, G.O.A.T. 8092 "Greatest of All Times" operates in Tekirdağ, Turkey.</strong> Active since 2019, this is the first and only FIRST Robotics Competition team in Tekirdağ province. The team consists of students from Halit Narin Vocational and Technical Anatolian High School and Veliköy OSB Vocational and Technical Anatolian High School.',
+    category: 'about'
+  },
+  {
+    question: 'What Awards Has FRC Team 8092 Won?',
+    answer: 'G.O.A.T. 8092 won the <strong>Rookie All Star Award</strong> in the 2020 season, recognized as the best rookie team. The team has competed in 5 official seasons (2020-2025) with an overall 17-19 win-loss record. In 2022, the team successfully advanced to the quarterfinals.',
+    category: 'achievements'
+  },
+  {
+    question: 'How Does FIRST Robotics Competition (FRC) Work?',
+    answer: 'FRC is an international robotics competition where high school students design, build, and compete with robots. Each January, new game rules are revealed (Kickoff), teams have a 6-week build season to design and construct their robot, then compete in regional events during March-April. Matches are played in 3-team alliances, with evaluation based on both technical performance and team spirit.',
+    category: 'frc'
+  },
+  {
+    question: 'How Can I Join FRC Team 8092?',
+    answer: 'To join the team, you must be a student at Halit Narin MTAL or Veliköy OSB MTAL. Interested students can contact via <a href="mailto:iletisim@8092.tr" class="text-primary hover:text-secondary">iletisim@8092.tr</a> or social media (<a href="https://instagram.com/goatfrc8092" target="_blank" rel="noopener" class="text-primary hover:text-secondary">@goatfrc8092</a>). The team recruits new members every September-October.',
+    category: 'join'
+  },
+  {
+    question: 'What are FIRST Core Values?',
+    answer: '<strong>FIRST Core Values</strong> are six fundamental principles that FRC teams embrace: <strong>Discovery</strong> - Explore new skills and ideas, <strong>Innovation</strong> - Use creativity to solve problems, <strong>Impact</strong> - Apply learning to improve our world, <strong>Inclusion</strong> - Respect and embrace differences, <strong>Teamwork</strong> - Stronger together, and <strong>Fun</strong> - Enjoy and celebrate what we do.',
+    category: 'frc'
+  }
+];
+
+// Generate FAQ schema markup for featured snippets
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer.replace(/<[^>]*>/g, '') // Strip HTML for schema
+    }
+  }))
+};
+---
+
+<section id="sss" class="pt-32 pb-20 bg-white scroll-mt-24">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">
+          {currentLang === 'tr' ? 'Sık Sorulan Sorular' : 'Frequently Asked Questions'}
+        </h2>
+        <p class="text-lg text-gray-600">
+          {currentLang === 'tr'
+            ? 'G.O.A.T. 8092 hakkında merak ettiğiniz her şey'
+            : 'Everything you need to know about G.O.A.T. 8092'}
+        </p>
+      </div>
+
+      <!-- FAQ Items - Optimized for Featured Snippets -->
+      <div class="space-y-6" itemscope itemtype="https://schema.org/FAQPage">
+        {faqData.map((faq, index) => (
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            itemscope
+            itemprop="mainEntity"
+            itemtype="https://schema.org/Question"
+          >
+            <details class="group">
+              <summary
+                class="flex justify-between items-center cursor-pointer p-6 hover:bg-gray-100 transition-colors duration-200"
+                itemprop="name"
+              >
+                <h3 class="text-xl font-semibold text-gray-800 pr-8">
+                  {faq.question}
+                </h3>
+                <span class="flex-shrink-0 text-primary transform transition-transform duration-200 group-open:rotate-180">
+                  <i class="fas fa-chevron-down text-xl"></i>
+                </span>
+              </summary>
+
+              <div
+                class="px-6 pb-6 pt-2"
+                itemscope
+                itemprop="acceptedAnswer"
+                itemtype="https://schema.org/Answer"
+              >
+                <div
+                  class="text-gray-700 leading-relaxed prose prose-lg max-w-none"
+                  itemprop="text"
+                  set:html={faq.answer}
+                />
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+
+      <!-- Additional Resources CTA -->
+      <div class="mt-16 text-center bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8">
+        <h3 class="text-2xl font-bold mb-4">
+          {currentLang === 'tr' ? 'Başka Sorularınız mı Var?' : 'Have More Questions?'}
+        </h3>
+        <p class="text-lg mb-6 opacity-90">
+          {currentLang === 'tr'
+            ? 'Ekibimiz size yardımcı olmaktan mutluluk duyar. Bizimle iletişime geçin!'
+            : 'Our team is happy to help. Get in touch with us!'}
+        </p>
+        <button
+          class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+          onclick="scrollWindowTo('iletisim')"
+        >
+          {currentLang === 'tr' ? 'İletişime Geç' : 'Contact Us'}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD Schema for Featured Snippets -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  /* Smooth animation for details/summary */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* Prose styling for FAQ answers */
+  .prose a {
+    color: #512f75;
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    color: #673a8e;
+  }
+
+  .prose strong {
+    color: #512f75;
+    font-weight: 600;
+  }
+</style>
