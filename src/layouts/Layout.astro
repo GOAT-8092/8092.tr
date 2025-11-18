@@ -21,8 +21,8 @@ const currentLang = getCurrentLanguage(Astro);
 
 // SEO metadata configuration
 const seoMetadata = {
-  description: description || 'FRC Team 8092 - Greatest of All Times: Tekirdağ\'ın ilk ve tek FRC takımı. 2019\'dan beri FIRST değerleriyle geleceği inşa ediyoruz.',
-  keywords: 'FRC, FIRST Robotics Competition, STEM, Robotics, Turkey, Tekirdağ, GOAT 8092, Robotik, Takım',
+  description: description || 'G.O.A.T. 8092 - Tekirdağ\'ın ilk ve tek FIRST Robotics Competition takımı. Çerkezköy\'den dünyaya robotik yarışmalarında Türkiye\'yi temsil ediyoruz. STEM eğitimi, robotik kodlama, mühendislik.',
+  keywords: 'FRC, FIRST Robotics Competition, STEM, Robotics, Turkey, Tekirdağ, Çerkezköy, GOAT 8092, Robotik takımı, Robotik kodlama, STEM eğitimi, Lise robotik, Mühendislik, Coding, Programming, Halit Narin, Veliköy OSB',
   ogLocale: currentLang === 'en' ? 'en_US' : 'tr_TR'
 };
 
@@ -164,6 +164,44 @@ const currentLocale = currentLang === 'en' ? 'en_US' : 'tr_TR';
         "url": "https://www.8092.tr"
       },
       "image": "https://www.8092.tr/og-image.png"
+    }
+    </script>
+
+    <!-- LocalBusiness Schema for Local Search -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "G.O.A.T. 8092 - Greatest of All Times",
+      "image": "https://www.8092.tr/og-image.png",
+      "telephone": "+90-282-726-5252",
+      "email": "iletisim@8092.tr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Veliköy OSB Mah. 12. Cad. No: 6",
+        "addressLocality": "Çerkezköy",
+        "addressRegion": "Tekirdağ",
+        "postalCode": "59930",
+        "addressCountry": "TR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.9782",
+        "longitude": "27.5152"
+      },
+      "url": "https://www.8092.tr",
+      "sameAs": [
+        "https://www.instagram.com/goat8092/",
+        "https://x.com/goat8092",
+        "https://www.linkedin.com/company/greatest-of-all-times-8092/",
+        "https://www.youtube.com/@greatestofalltimes8092"
+      ],
+      "priceRange": "Free",
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "areaServed": {
+        "@type": "City",
+        "name": "Tekirdağ"
+      }
     }
     </script>
 
