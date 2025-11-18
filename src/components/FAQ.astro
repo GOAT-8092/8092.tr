@@ -102,18 +102,14 @@ const faqSchema = {
       </div>
 
       <!-- FAQ Items - Optimized for Featured Snippets -->
-      <div class="space-y-6" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="space-y-6">
         {faqData.map((faq, index) => (
           <div
             class="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            itemscope
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
           >
             <details class="group">
               <summary
                 class="flex justify-between items-center cursor-pointer p-6 hover:bg-gray-100 transition-colors duration-200"
-                itemprop="name"
               >
                 <h3 class="text-xl font-semibold text-gray-800 pr-8">
                   {faq.question}
@@ -125,13 +121,9 @@ const faqSchema = {
 
               <div
                 class="px-6 pb-6 pt-2"
-                itemscope
-                itemprop="acceptedAnswer"
-                itemtype="https://schema.org/Answer"
               >
                 <div
                   class="text-gray-700 leading-relaxed prose prose-lg max-w-none"
-                  itemprop="text"
                   set:html={faq.answer}
                 />
               </div>
