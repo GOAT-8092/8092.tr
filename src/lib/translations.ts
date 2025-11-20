@@ -495,6 +495,16 @@ export const translations: Translations = {
         join_note:
           'GitHub hesabınızla katılabilirsiniz. GitHub e-posta adresinizi takım kaptanına göndererek erişim talep edin.',
       },
+      kanban_board: {
+        title: 'Takım Kanban Panosu',
+        description:
+          'Proje yönetimi ve görev takibi için özel olarak hazırlanmış Planka tabanlı kanban panomuza erişim sağlayın.',
+        access_button: 'Panoya Erişim',
+        login_note:
+          'Google hesabınızla giriş yapın. Onaylandıktan sonra takım panosuna erişebileceksiniz.',
+        public_board_text: 'Takım panosunu salt okunur modda görüntüleyin:',
+        public_board_button: 'Herkese Açık Pano',
+      },
       resources: {
         title: 'Kaynak Kategorileri',
         categories: {
@@ -1027,6 +1037,16 @@ export const translations: Translations = {
         access_button: 'Join GitHub',
         join_note:
           'You can join with a GitHub account. Send your GitHub email to the team captain to request access.',
+      },
+      kanban_board: {
+        title: 'Team Kanban Board',
+        description:
+          'Access our custom Planka-based kanban board for project management and task tracking.',
+        access_button: 'Access Board',
+        login_note:
+          'Log in with your Google account. After approval, you can access the team board.',
+        public_board_text: 'View the team board in read-only mode:',
+        public_board_button: 'Public Board',
       },
       resources: {
         title: 'Resource Categories',
