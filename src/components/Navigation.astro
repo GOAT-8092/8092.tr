@@ -36,7 +36,7 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
         <i class="fas fa-bars text-gray-700" id="mobile-menu-icon" aria-hidden="true"></i>
       </button>
 
-      <div class="hidden lg:flex items-center space-x-6" id="navbarSupportedContent">
+      <div class="hidden lg:flex items-center space-x-4" id="navbarSupportedContent">
         <a
           href="#anasayfa"
           class="glass-nav-item cursor-pointer"
@@ -76,7 +76,7 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           <i class="fas fa-lock mr-1 text-amber-600"></i>
           {t('nav.internal')}
         </a>
-        <div class="border-l border-gray-300 pl-6 ml-2">
+        <div class="border-l border-gray-300 pl-4 ml-2">
           <LanguageSwitcher currentLang={currentLang} />
         </div>
       </div>

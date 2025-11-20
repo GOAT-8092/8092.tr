@@ -8,6 +8,7 @@ export const translations: Translations = {
       about: 'Hakkımızda',
       team: 'Takım',
       projects: 'Projelerimiz',
+      documents: 'Belgeler',
       gallery: 'Galeri',
       faq: 'SSS',
       contact: 'İletişim',
@@ -200,6 +201,34 @@ export const translations: Translations = {
       cta_description:
         'G.O.A.T. 8092 olarak sürekli yeni projeler geliştiriyor ve topluma değer katmaya çalışıyoruz. Siz de bu yolculuğumuzda yer almak istiyorsanız bizimle iletişime geçin.',
       cta_button: 'İletişime Geç',
+    },
+
+    // Documents Section
+    documents: {
+      title: 'Belgeler',
+      description: 'Takımımızın iş planı ve cinsiyet eşitliği planı dahil önemli belgeleri',
+      download: 'İndir',
+      info_title: 'Temel Belgelerimiz',
+      info_description:
+        'G.O.A.T. 8092 olarak toplumsal cinsiyet eşitliği ve sürdürülebilir iş planımıza önem veriyoruz. Bu belgeler, takımımızın yönetim yapısını ve sosyal sorumluluk anlayışını yansıtmaktadır.',
+      business_plan_direct: 'İş Planını İndir',
+      gender_equality_direct: 'Cinsiyet Eşitliği Planını İndir',
+      cards: {
+        businessPlan: {
+          title: 'İş Planı',
+          description:
+            'Takımımızın sürdürülebilirliği için hazırladığımız kapsamlı iş planı. Sponsorluk, bütçe yönetimi ve stratejik hedeflerimizi içerir.',
+          tags: ['Yönetim', 'Strateji', 'Bütçe'],
+          meta: '2025-2026 Sezonu',
+        },
+        genderEquality: {
+          title: 'Cinsiyet Eşitliği Planı',
+          description:
+            "FIRST'ın kapsayıcılık değerleri doğrultusunda hazırladığımız cinsiyet eşitliği planı. Takım içi eşitlik ve fırsat adaletini hedefler.",
+          tags: ['Kapsayıcılık', 'Eşitlik', 'FIRST Değerleri'],
+          meta: 'Sürekli Güncellenen',
+        },
+      },
     },
 
     // Gallery Section
@@ -560,6 +589,7 @@ export const translations: Translations = {
       about: 'About',
       team: 'Team',
       projects: 'Projects',
+      documents: 'Documents',
       gallery: 'Gallery',
       faq: 'FAQ',
       contact: 'Contact',
@@ -752,6 +782,34 @@ export const translations: Translations = {
       cta_description:
         'At G.O.A.T. 8092 we continuously launch new initiatives to create value for our community. If you would like to be part of this journey, get in touch with us.',
       cta_button: 'Contact Us',
+    },
+
+    // Documents Section
+    documents: {
+      title: 'Documents',
+      description: 'Our important documents including business plan and gender equality plan',
+      download: 'Download',
+      info_title: 'Our Key Documents',
+      info_description:
+        "At G.O.A.T. 8092, we prioritize gender equality and sustainable business planning. These documents reflect our team's management structure and social responsibility approach.",
+      business_plan_direct: 'Download Business Plan',
+      gender_equality_direct: 'Download Gender Equality Plan',
+      cards: {
+        businessPlan: {
+          title: 'Business Plan',
+          description:
+            'Our comprehensive business plan for team sustainability. Includes sponsorship, budget management, and strategic goals.',
+          tags: ['Management', 'Strategy', 'Budget'],
+          meta: '2025-2026 Season',
+        },
+        genderEquality: {
+          title: 'Gender Equality Plan',
+          description:
+            "Our gender equality plan aligned with FIRST's inclusion values. Aims for team equality and opportunity justice.",
+          tags: ['Inclusion', 'Equality', 'FIRST Values'],
+          meta: 'Continuously Updated',
+        },
+      },
     },
 
     // Gallery Section
