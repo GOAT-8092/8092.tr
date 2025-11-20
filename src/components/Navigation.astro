@@ -11,39 +11,65 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center py-2">
       <div class="flex items-center space-x-3">
-        <img src="/logo-black.svg" alt="GOAT Logo" width="48" height="48" loading="lazy" decoding="async" class="h-12 w-12 cursor-pointer transition-transform hover:scale-110"
-          onclick="scrollWindowTo('anasayfa')">
-        <div class="text-lg font-bold text-gray-800" id="logo-text">
-          G.O.A.T. #8092
-        </div>
+        <img
+          src="/logo-black.svg"
+          alt="GOAT Logo"
+          width="48"
+          height="48"
+          loading="lazy"
+          decoding="async"
+          class="h-12 w-12 cursor-pointer transition-transform hover:scale-110"
+          onclick="scrollWindowTo('anasayfa')"
+        />
+        <div class="text-lg font-bold text-gray-800" id="logo-text">G.O.A.T. #8092</div>
       </div>
 
-      <button id="mobile-menu-button"
+      <button
+        id="mobile-menu-button"
         class="lg:hidden glass-nav-item p-2"
         type="button"
         aria-label="Menüyü aç/kapat"
         aria-controls="mobile-menu"
         aria-expanded="false"
-        onclick="toggleMobileMenu()">
+        onclick="toggleMobileMenu()"
+      >
         <i class="fas fa-bars text-gray-700" id="mobile-menu-icon" aria-hidden="true"></i>
       </button>
 
       <div class="hidden lg:flex items-center space-x-6" id="navbarSupportedContent">
-        <a href="#anasayfa" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('anasayfa')">{t('nav.home')}</a>
-        <a href="#hakkimizda" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('hakkimizda')">{t('nav.about')}</a>
-        <a href="#takim" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('takim')">{t('nav.team')}</a>
-        <a href="#projelerimiz" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a>
-        <a href="#galeri" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('galeri')">{t('nav.gallery')}</a>
-        <a href="#sss" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('sss')">{t('nav.faq')}</a>
-        <a href="#iletisim" class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a>
-        <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="glass-nav-item flex items-center">
+        <a
+          href="#anasayfa"
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('anasayfa')">{t('nav.home')}</a
+        >
+        <a
+          href="#hakkimizda"
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('hakkimizda')">{t('nav.about')}</a
+        >
+        <a href="#takim" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('takim')"
+          >{t('nav.team')}</a
+        >
+        <a
+          href="#projelerimiz"
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a
+        >
+        <a href="#galeri" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('galeri')"
+          >{t('nav.gallery')}</a
+        >
+        <a href="#sss" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('sss')"
+          >{t('nav.faq')}</a
+        >
+        <a
+          href="#iletisim"
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a
+        >
+        <a
+          href={currentLang === 'en' ? '/en/portal' : '/portal'}
+          class="glass-nav-item flex items-center"
+        >
           <i class="fas fa-lock mr-1 text-amber-600"></i>
           {t('nav.internal')}
         </a>
@@ -56,21 +82,45 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
     <!-- Mobile menu dropdown -->
     <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#anasayfa" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">{t('nav.home')}</a>
-        <a href="#hakkimizda" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">{t('nav.about')}</a>
-        <a href="#takim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('takim'); closeMobileMenu()">{t('nav.team')}</a>
-        <a href="#projelerimiz" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a>
-        <a href="#galeri" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a>
-        <a href="#sss" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('sss'); closeMobileMenu()">{t('nav.faq')}</a>
-        <a href="#iletisim" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a>
-        <a href={currentLang === 'en' ? '/en/portal' : '/portal'} class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md flex items-center">
+        <a
+          href="#anasayfa"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">{t('nav.home')}</a
+        >
+        <a
+          href="#hakkimizda"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">{t('nav.about')}</a
+        >
+        <a
+          href="#takim"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('takim'); closeMobileMenu()">{t('nav.team')}</a
+        >
+        <a
+          href="#projelerimiz"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a
+        >
+        <a
+          href="#galeri"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a
+        >
+        <a
+          href="#sss"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('sss'); closeMobileMenu()">{t('nav.faq')}</a
+        >
+        <a
+          href="#iletisim"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a
+        >
+        <a
+          href={currentLang === 'en' ? '/en/portal' : '/portal'}
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md flex items-center"
+        >
           <i class="fas fa-lock mr-2 text-amber-600"></i>
           {t('nav.internal')}
         </a>
@@ -83,4 +133,3 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
     </div>
   </div>
 </nav>
-

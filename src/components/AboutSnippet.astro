@@ -1,0 +1,275 @@
+---
+// AboutSnippet.astro - Featured Snippet optimized version of About section
+// This is a snippet-optimized intro to place BEFORE the detailed history
+import { getCurrentLanguage, getTranslation } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+
+// SportsTeam schema data
+const teamSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsTeam',
+  name: 'FRC Team 8092 - Greatest of All Times',
+  alternateName: 'G.O.A.T. 8092',
+  description: currentLang === 'tr'
+    ? "Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı"
+    : 'The first and only FIRST Robotics Competition team from Tekirdağ, Turkey',
+  foundingDate: '2019-06',
+  location: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Tekirdağ',
+      addressRegion: 'Tekirdağ',
+      addressCountry: 'TR'
+    }
+  },
+  award: 'Rookie All Star Award 2020',
+  sponsor: [
+    { '@type': 'Organization', name: 'BSH Türkiye' },
+    { '@type': 'Organization', name: 'Kodluyoruz Derneği' },
+    { '@type': 'Organization', name: 'Çetin Group' },
+    { '@type': 'Organization', name: 'Saray Alüminyum' }
+  ],
+  url: 'https://8092.tr',
+  sameAs: [
+    'https://instagram.com/goatfrc8092',
+    'https://github.com/goat8092',
+    'https://www.thebluealliance.com/team/8092'
+  ]
+};
+---
+
+<!-- Snippet-Optimized About Introduction -->
+<div class="mb-16" itemscope itemtype="https://schema.org/SportsTeam">
+  <!-- Question-Based Heading for Paragraph Snippet -->
+  <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+    {currentLang === 'tr' ? 'FRC Team 8092 Nedir?' : 'What is FRC Team 8092?'}
+  </h2>
+
+  <!-- 40-60 Word Paragraph Snippet -->
+  <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 mb-12">
+    <p class="text-lg text-gray-700 leading-relaxed" itemprop="description">
+      {currentLang === 'tr' ? (
+        <>
+          <strong>FRC Team 8092 "Greatest of All Times" (G.O.A.T.)</strong>, Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımıdır. 2019 yılında kurulan takım, BSH Türkiye ve Kodluyoruz Derneği desteğiyle robotik yarışmalarda Türkiye'yi temsil eder. 2020 sezonunda Rookie All Star ödülünü kazanan G.O.A.T. 8092, STEM eğitimi ve gençlik gelişimi alanında aktif çalışmalar yürütmektedir.
+        </>
+      ) : (
+        <>
+          <strong>FRC Team 8092 "Greatest of All Times" (G.O.A.T.)</strong> is the first and only FIRST Robotics Competition team from Tekirdağ, Turkey. Founded in 2019 with support from BSH Turkey and Kodluyoruz Foundation, the team represents Turkey in international robotics competitions. G.O.A.T. 8092 won the Rookie All Star Award in 2020 and actively works in STEM education and youth development.
+        </>
+      )}
+    </p>
+
+    <!-- Key Facts List -->
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="text-center p-4 bg-gray-50 rounded-lg">
+        <div class="text-3xl font-bold text-primary">2019</div>
+        <div class="text-sm text-gray-600 mt-1">
+          {currentLang === 'tr' ? 'Kuruluş Yılı' : 'Founded'}
+        </div>
+      </div>
+      <div class="text-center p-4 bg-gray-50 rounded-lg">
+        <div class="text-3xl font-bold text-primary">🏆</div>
+        <div class="text-sm text-gray-600 mt-1">
+          {currentLang === 'tr' ? 'Rookie All Star 2020' : 'Rookie All Star 2020'}
+        </div>
+      </div>
+      <div class="text-center p-4 bg-gray-50 rounded-lg">
+        <div class="text-3xl font-bold text-primary">17-19</div>
+        <div class="text-sm text-gray-600 mt-1">
+          {currentLang === 'tr' ? 'Toplam Skor' : 'Overall Record'}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIRST Core Values Definition Snippet -->
+  <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8 mb-12">
+    <h3 class="text-2xl font-bold mb-6 text-center">
+      {currentLang === 'tr'
+        ? 'FIRST Core Values (Temel Değerler) Nedir?'
+        : 'What are FIRST Core Values?'}
+    </h3>
+    <p class="text-lg mb-6 opacity-90">
+      {currentLang === 'tr' ? (
+        <>
+          <strong>FIRST Core Values</strong>, FIRST Robotics Competition'da takımların benimsemesi gereken 6 temel değerdir. "Gracious Professionalism" ve "Coopertition" felsefeleriyle birlikte FRC kültürünün temelini oluşturur.
+        </>
+      ) : (
+        <>
+          <strong>FIRST Core Values</strong> are six fundamental principles that FRC teams embrace. Together with "Gracious Professionalism" and "Coopertition," these values form the foundation of FRC culture.
+        </>
+      )}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-search mr-2"></i>Discovery
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Yeni beceriler keşfetmek' : 'Explore new skills'}
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-lightbulb mr-2"></i>Innovation
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Yaratıcı problem çözme' : 'Creative problem solving'}
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-globe mr-2"></i>Impact
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Dünyamızı iyileştirmek' : 'Improve our world'}
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-users mr-2"></i>Inclusion
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Farklılıkları kucaklamak' : 'Embrace differences'}
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-handshake mr-2"></i>Teamwork
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Birlikte güçlü olmak' : 'Stronger together'}
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div class="font-bold text-yellow-300 mb-2">
+          <i class="fas fa-smile mr-2"></i>Fun
+        </div>
+        <div class="text-sm opacity-90">
+          {currentLang === 'tr' ? 'Keyif alarak çalışmak' : 'Enjoy what we do'}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Competition Statistics Table Snippet -->
+  <div class="max-w-5xl mx-auto">
+    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+      {currentLang === 'tr'
+        ? 'FRC Team 8092 Yarışma İstatistikleri (2020-2025)'
+        : 'FRC Team 8092 Competition Statistics (2020-2025)'}
+    </h3>
+
+    <div class="overflow-x-auto bg-white rounded-lg shadow-lg">
+      <table class="w-full" itemscope itemtype="https://schema.org/Table">
+        <thead class="bg-gradient-to-r from-primary to-secondary text-white">
+          <tr>
+            <th class="px-6 py-4 text-left">
+              {currentLang === 'tr' ? 'Sezon' : 'Season'}
+            </th>
+            <th class="px-6 py-4 text-left">
+              {currentLang === 'tr' ? 'Oyun' : 'Game'}
+            </th>
+            <th class="px-6 py-4 text-center">
+              {currentLang === 'tr' ? 'Sıralama' : 'Ranking'}
+            </th>
+            <th class="px-6 py-4 text-center">
+              {currentLang === 'tr' ? 'Skor' : 'Record'}
+            </th>
+            <th class="px-6 py-4 text-center">Playoff</th>
+            <th class="px-6 py-4 text-left">
+              {currentLang === 'tr' ? 'Ödül' : 'Award'}
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2020</td>
+            <td class="px-6 py-4">Infinite Recharge</td>
+            <td class="px-6 py-4 text-center">27/54</td>
+            <td class="px-6 py-4 text-center font-mono">4-4</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4">🏆 Rookie All Star</td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2021</td>
+            <td class="px-6 py-4">Infinite Recharge at Home</td>
+            <td class="px-6 py-4 text-center">
+              {currentLang === 'tr' ? '11. Grup' : '11th Group'}
+            </td>
+            <td class="px-6 py-4 text-center">Online</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4">-</td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2022</td>
+            <td class="px-6 py-4">Rapid React</td>
+            <td class="px-6 py-4 text-center">8/40</td>
+            <td class="px-6 py-4 text-center font-mono">5-5</td>
+            <td class="px-6 py-4 text-center">
+              <span class="text-green-600 font-semibold">✓</span>
+            </td>
+            <td class="px-6 py-4">
+              {currentLang === 'tr' ? 'Çeyrek Final' : 'Quarterfinals'}
+            </td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2023</td>
+            <td class="px-6 py-4">Charged Up</td>
+            <td class="px-6 py-4 text-center">24/48</td>
+            <td class="px-6 py-4 text-center font-mono">5-4</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4">-</td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2024</td>
+            <td class="px-6 py-4">Crescendo</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4 text-gray-400">
+              {currentLang === 'tr' ? 'Katılım Yok' : 'Did Not Compete'}
+            </td>
+          </tr>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="px-6 py-4 font-semibold">2025</td>
+            <td class="px-6 py-4">REEFSCAPE</td>
+            <td class="px-6 py-4 text-center">36/45</td>
+            <td class="px-6 py-4 text-center font-mono">3-6</td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4">-</td>
+          </tr>
+          <tr class="bg-gray-100 font-bold">
+            <td class="px-6 py-4">{currentLang === 'tr' ? 'TOPLAM' : 'TOTAL'}</td>
+            <td class="px-6 py-4">
+              {currentLang === 'tr' ? '5 Sezon' : '5 Seasons'}
+            </td>
+            <td class="px-6 py-4 text-center">-</td>
+            <td class="px-6 py-4 text-center font-mono text-primary">17-19</td>
+            <td class="px-6 py-4 text-center">1</td>
+            <td class="px-6 py-4 text-primary">1 {currentLang === 'tr' ? 'Ödül' : 'Award'}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-gray-600 text-center mt-4">
+      {currentLang === 'tr'
+        ? '* 2024 sezonunda takım kaynak güçlendirmeye odaklanmış, resmi yarışmaya katılmamıştır.'
+        : '* In 2024 season, the team focused on strengthening resources and did not compete officially.'}
+    </p>
+  </div>
+</div>
+
+<!-- JSON-LD Schema for SportsTeam -->
+<script type="application/ld+json" set:html={JSON.stringify(teamSchema)} />

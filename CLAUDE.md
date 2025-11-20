@@ -37,7 +37,7 @@ src/
   components/
     - Navigation.astro     # Fixed navigation with smooth scroll
     - Hero.astro          # Landing section with animated elements
-    - About.astro         # Complete club history 2019-2025
+    - About.astro         # Complete club history 2019-2026
     - Team.astro          # Current members + mentors with TypeScript data
     - Projects.astro      # Team projects and initiatives
     - Gallery.astro       # Image gallery with Fancybox integration
@@ -80,7 +80,7 @@ public/
 
 Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
 
-- Current team members (2024-2025)
+- Current team members (2025-2026 - FRC REBUILT season)
 - Historical mentors (2019-2024)
 - Captain designation and roles
 - Helper functions for filtering and display
@@ -96,9 +96,64 @@ We express the FIRST philosophies of Gracious Professionalism and Coopertition t
 - **Teamwork**: We are stronger when we work together.
 - **Fun**: We enjoy and celebrate what we do!
 
+## FRC 2026 REBUILT Season #memory
+
+Team 8092 is competing in the **FRC 2026 REBUILT** season, presented by Qualcomm. Key details:
+
+- **Season Name**: REBUILT (2026)
+- **Kickoff Date**: 10 January 2026 at YTÜ Davutpaşa Campus
+- **Team Competition**: ✅ **REGISTERED** for Avrasya Regional (31 March - 2 April 2026)
+- **Regional Competitions**: 8 regional events across Turkey including Istanbul, Bosphorus, Yeditepe, Haliç, Marmara, Avrasya, Ankara, and Başkent Regionals
+- **Official Resources**: Game manual, technical documentation, and judging criteria available at [FRC Türkiye](https://www.frcturkiye.org/2026-sezon-materyalleri/)
+- **Support**: Turkish and English documentation, Q&A system with Turkish translations
+
+## 2026 Robot Development Status #memory
+
+**Robot Code Repository**: `/Users/bugracanata/Developer/GOAT-robot-2026/`
+
+**Current Status (Pre-Kickoff)**:
+
+- ✅ Chassis: Mecanum drive fully operational (4x CIM motors, Victor SPX controllers)
+- ⚠️ Upper Mechanism: REMOVED (2025 lift system disassembled, waiting for kickoff game reveal)
+- ✅ Vision: Limelight 3 configured and operational (AprilTag detection)
+- ✅ Control: roboRIO 1.0 with navX gyro, field-oriented drive
+- 🎯 Focus: Code optimization, chassis improvements, driver training until kickoff
+
+**Technical Decision - Swerve Drive Upgrade**: ❌ **CANCELLED**
+
+- Originally planned to upgrade from mecanum to swerve drive
+- Decision: Continue with mecanum drive for 2026 season
+- Reason: Budget constraints ($8,310 total shortfall)
+- Advantage: Proven mecanum system, team expertise, focus on new mechanism post-kickoff
+
+**Development Timeline**:
+
+- Pre-Kickoff (Now - 10 Jan): Chassis tuning, code optimization, driver training
+- Post-Kickoff (10 Jan - March): New upper mechanism design and integration
+- Competition: Avrasya Regional (31 March - 2 April 2026)
+
+## 2026 Budget Status #memory
+
+**Entry Fee**: $6,300 total
+
+- ✅ Received: $5,000 (Boeing $3,000 + FYF $2,000)
+- 🔴 Shortfall: **$1,300** (URGENT)
+
+**SIEMENS Sponsorship**: 135,000 TRY
+
+- Status: Raised but NOT YET PAID
+- Expected: January/February 2026
+
+**Materials Budget**:
+
+- Total shortfall: **$7,035**
+- Impact: Swerve drive upgrade cancelled, continue with mecanum
+
+**Key Budget Constraint**: Simplified budget approach - minimal food/logistics items as handled through sponsors
+
 ## External Dependencies
 
-- Font Awesome 5.15.4 for icons
+- Font Awesome 6.7.2 for icons
 - Fancybox 5.0 for gallery functionality
 - Atkinson Hyperlegible font for accessibility (aligns with FIRST Inclusion values)
 - jQuery for legacy compatibility

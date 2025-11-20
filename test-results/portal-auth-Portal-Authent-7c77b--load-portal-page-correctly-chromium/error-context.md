@@ -1,0 +1,45 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+    - generic [ref=e3]:
+        - generic [ref=e4]:
+            - img "GOAT Logo" [ref=e6]
+            - heading "Takım Portalı" [level=1] [ref=e7]
+            - paragraph [ref=e8]: Takım Üyesi Girişi Gerekli
+        - generic [ref=e9]:
+            - generic [ref=e10]:
+                - generic [ref=e13]: Güvenli Erişim
+                - paragraph [ref=e14]: Takım portalına erişim için lütfen şifrenizi girin.
+            - generic [ref=e15]:
+                - generic [ref=e16]:
+                    - generic [ref=e17]: Şifre
+                    - textbox "Şifre" [ref=e19]:
+                        - /placeholder: Şifrenizi girin...
+                - button "Giriş Yap" [ref=e22] [cursor=pointer]: Giriş Yap
+            - generic [ref=e28]:
+                - paragraph [ref=e29]: Erişim Sorunu mu?
+                - paragraph [ref=e30]: Şifrenizi unuttuysanız takım kaptanınız veya mentorunuzla iletişime geçin.
+                - paragraph [ref=e31]:
+                    - link "iletisim@8092.tr" [ref=e32] [cursor=pointer]:
+                        - /url: mailto:iletisim@8092.tr
+        - link "Ana sayfaya dön" [ref=e34] [cursor=pointer]:
+            - /url: /
+            - text: Ana sayfaya dön
+    - toolbar "Erişilebilirlik Araçları" [ref=e36]:
+        - button "Erişilebilirlik Araçları" [ref=e37] [cursor=pointer]:
+            - generic [ref=e39]: Erişilebilirlik Araçları
+    - generic [ref=e42]:
+        - button "Menu" [ref=e43]:
+            - img [ref=e45]
+            - generic: Menu
+        - button "Inspect" [ref=e49]:
+            - img [ref=e51]
+            - generic: Inspect
+        - button "Audit" [ref=e53]:
+            - img [ref=e55]
+            - generic: Audit
+        - button "Settings" [ref=e58]:
+            - img [ref=e60]
+            - generic: Settings
+```

@@ -14,39 +14,50 @@
   .bg-primary {
     background-color: #512f75;
   }
+
   .bg-secondary {
     background-color: #673a8e;
   }
+
   .bg-accent {
     background-color: #7e46a8;
   }
+
   .text-primary {
     color: #512f75;
   }
+
   .text-secondary {
     color: #673a8e;
   }
+
   .text-accent {
     color: #7e46a8;
   }
+
   .from-primary {
     --tw-gradient-from: #512f75 var(--tw-gradient-from-position);
     --tw-gradient-to: rgb(81 47 117 / 0) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   }
+
   .to-secondary {
     --tw-gradient-to: #673a8e var(--tw-gradient-to-position);
   }
+
   .hover\:text-primary:hover {
     color: #512f75;
   }
+
   /* Force generate padding-top classes */
   .pt-24 {
     padding-top: 6rem;
   }
+
   .pt-28 {
     padding-top: 7rem;
   }
+
   .pb-16 {
     padding-bottom: 4rem;
   }
@@ -209,7 +220,8 @@ body.menu-open {
 .team-member-image {
   position: relative;
   overflow: hidden;
-  background-color: #f9fafb; /* Light gray background for empty space */
+  background-color: #f9fafb;
+  /* Light gray background for empty space */
 }
 
 .team-member-image img {
@@ -262,6 +274,7 @@ body.menu-open {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -294,6 +307,7 @@ body.menu-open {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

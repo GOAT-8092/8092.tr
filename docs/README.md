@@ -134,7 +134,7 @@ The following environment variables must be configured in your deployment enviro
 
 Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
 
-- Current team members (2024-2025 season)
+- Current team members (2025-2026 season - FRC REBUILT)
 - Historical mentors (2019-2024)
 - Captain designations and roles
 - Helper functions for filtering and display
@@ -163,6 +163,7 @@ Team members are managed via TypeScript interfaces in `src/data/teamMembers.ts`:
 - **2023**: Consistent performance improvements
 - **2024**: Strengthened sponsor relationships
 - **2025**: Return to FRC competition (REEFSCAPE season)
+- **2026**: Competing in FRC 2026 REBUILT season (presented by Qualcomm) - 8 regional competitions across Turkey
 
 ## 🤝 Sponsors & Partners
 

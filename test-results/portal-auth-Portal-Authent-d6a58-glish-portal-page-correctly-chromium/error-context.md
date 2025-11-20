@@ -1,0 +1,45 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+    - generic [ref=e3]:
+        - generic [ref=e4]:
+            - img "GOAT Logo" [ref=e6]
+            - heading "Internal" [level=1] [ref=e7]
+            - paragraph [ref=e8]: Team Member Access Required
+        - generic [ref=e9]:
+            - generic [ref=e10]:
+                - generic [ref=e13]: Secure Access
+                - paragraph [ref=e14]: Please enter your password to access the team portal.
+            - generic [ref=e15]:
+                - generic [ref=e16]:
+                    - generic [ref=e17]: Password
+                    - textbox "Password" [ref=e19]:
+                        - /placeholder: Enter your password...
+                - button "Sign In" [ref=e22] [cursor=pointer]: Sign In
+            - generic [ref=e28]:
+                - paragraph [ref=e29]: Access Issues?
+                - paragraph [ref=e30]: If you forgot your password, contact your team captain or mentor.
+                - paragraph [ref=e31]:
+                    - link "iletisim@8092.tr" [ref=e32] [cursor=pointer]:
+                        - /url: mailto:iletisim@8092.tr
+        - link "Back to main site" [ref=e34] [cursor=pointer]:
+            - /url: /en
+            - text: Back to main site
+    - toolbar "Accessibility Tools" [ref=e36]:
+        - button "Accessibility Tools" [ref=e37] [cursor=pointer]:
+            - generic [ref=e39]: Accessibility Tools
+    - generic [ref=e42]:
+        - button "Menu" [ref=e43]:
+            - img [ref=e45]
+            - generic: Menu
+        - button "Inspect" [ref=e49]:
+            - img [ref=e51]
+            - generic: Inspect
+        - button "Audit" [ref=e53]:
+            - img [ref=e55]
+            - generic: Audit
+        - button "Settings" [ref=e58]:
+            - img [ref=e60]
+            - generic: Settings
+```

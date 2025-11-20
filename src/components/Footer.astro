@@ -14,14 +14,12 @@ const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamw
 <footer class="bg-gradient-to-r from-primary to-secondary text-white py-12">
   <div class="container mx-auto px-4">
     <div class="max-w-6xl mx-auto">
-
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-
         <!-- Team Info -->
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="/logo-white.svg" alt="GOAT Logo" class="h-12 w-12">
+            <img src="/logo-white.svg" alt="GOAT Logo" class="h-12 w-12" />
             <div>
               <h3 class="text-xl font-bold">G.O.A.T.</h3>
               <p class="text-sm opacity-90">#8092</p>
@@ -36,27 +34,67 @@ const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamw
         <div>
           <h4 class="text-lg font-semibold mb-4">{t('footer.quick_links')}</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#anasayfa" onclick="scrollWindowTo('anasayfa')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('footer.home')}</a></li>
-            <li><a href="#hakkimizda" onclick="scrollWindowTo('hakkimizda')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.about')}</a></li>
-            <li><a href="#takim" onclick="scrollWindowTo('takim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.team')}</a></li>
-            <li><a href="#projelerimiz" onclick="scrollWindowTo('projelerimiz')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.projects')}</a></li>
-            <li><a href="#galeri" onclick="scrollWindowTo('galeri')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.gallery')}</a></li>
-            <li><a href="#iletisim" onclick="scrollWindowTo('iletisim')" class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer">{t('nav.contact')}</a></li>
+            <li>
+              <a
+                href="#anasayfa"
+                onclick="scrollWindowTo('anasayfa')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('footer.home')}</a>
+            </li>
+            <li>
+              <a
+                href="#hakkimizda"
+                onclick="scrollWindowTo('hakkimizda')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('nav.about')}</a>
+            </li>
+            <li>
+              <a
+                href="#takim"
+                onclick="scrollWindowTo('takim')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('nav.team')}</a>
+            </li>
+            <li>
+              <a
+                href="#projelerimiz"
+                onclick="scrollWindowTo('projelerimiz')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('nav.projects')}</a>
+            </li>
+            <li>
+              <a
+                href="#galeri"
+                onclick="scrollWindowTo('galeri')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('nav.gallery')}</a>
+            </li>
+            <li>
+              <a
+                href="#iletisim"
+                onclick="scrollWindowTo('iletisim')"
+                class="opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+                >{t('nav.contact')}</a>
+            </li>
           </ul>
         </div>
 
         <!-- FIRST Values -->
         <div>
-          <h4 class="text-lg font-semibold mb-4">{footerTranslations.first_values_title ?? t('footer.first_values_title')}</h4>
+          <h4 class="text-lg font-semibold mb-4">
+            {footerTranslations.first_values_title ?? t('footer.first_values_title')}
+          </h4>
           <ul class="space-y-1 text-sm opacity-90">
-            {firstValueKeys
-              .map((key) => firstValues[key])
-              .filter(Boolean)
-              .map((value: any) => (
-                <li>
-                  <strong>{value?.term}:</strong> {value?.description}
-                </li>
-              ))}
+            {
+              firstValueKeys
+                .map(key => firstValues[key])
+                .filter(Boolean)
+                .map((value: any) => (
+                  <li>
+                    <strong>{value?.term}:</strong> {value?.description}
+                  </li>
+                ))
+            }
           </ul>
         </div>
 
@@ -66,26 +104,43 @@ const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamw
           <div class="space-y-2 text-sm opacity-90">
             <p>
               <i class="fas fa-envelope mr-2"></i>
-              <a href="mailto:iletisim@8092.tr" class="hover:opacity-100 transition-opacity">iletisim@8092.tr</a>
+              <a href="mailto:iletisim@8092.tr" class="hover:opacity-100 transition-opacity"
+                >iletisim@8092.tr</a
+              >
             </p>
             <p>
               <i class="fas fa-map-marker-alt mr-2"></i>
               {footerTranslations.location_text ?? 'Tekirdağ, Türkiye'}
             </p>
             <div class="flex space-x-4 mt-4">
-              <a href="https://www.instagram.com/goat8092/" class="text-white hover:text-gray-300 transition-colors">
+              <a
+                href="https://www.instagram.com/goat8092/"
+                class="text-white hover:text-gray-300 transition-colors"
+              >
                 <i class="fab fa-instagram text-xl"></i>
               </a>
-              <a href="https://x.com/goat8092" class="text-white hover:text-gray-300 transition-colors">
+              <a
+                href="https://x.com/goat8092"
+                class="text-white hover:text-gray-300 transition-colors"
+              >
                 <i class="fab fa-twitter text-xl"></i>
               </a>
-              <a href="https://www.youtube.com/@greatestofalltimes8092" class="text-white hover:text-gray-300 transition-colors">
+              <a
+                href="https://www.youtube.com/@greatestofalltimes8092"
+                class="text-white hover:text-gray-300 transition-colors"
+              >
                 <i class="fab fa-youtube text-xl"></i>
               </a>
-              <a href="https://github.com/goat-8092" class="text-white hover:text-gray-300 transition-colors">
+              <a
+                href="https://github.com/goat-8092"
+                class="text-white hover:text-gray-300 transition-colors"
+              >
                 <i class="fab fa-github text-xl"></i>
               </a>
-              <a href="https://www.linkedin.com/company/greatest-of-all-times-8092/" class="text-white hover:text-gray-300 transition-colors">
+              <a
+                href="https://www.linkedin.com/company/greatest-of-all-times-8092/"
+                class="text-white hover:text-gray-300 transition-colors"
+              >
                 <i class="fab fa-linkedin text-xl"></i>
               </a>
             </div>
@@ -100,7 +155,10 @@ const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamw
             <i class="fas fa-universal-access mr-2"></i>
             {footerTranslations.accessibility_title ?? ''}
           </h4>
-          <p class="text-sm opacity-90 leading-relaxed" set:html={footerTranslations.accessibility_description ?? ''}></p>
+          <p
+            class="text-sm opacity-90 leading-relaxed"
+            set:html={footerTranslations.accessibility_description ?? ''}
+          />
         </div>
       </div>
 
@@ -111,24 +169,47 @@ const firstValueKeys = ['discovery', 'innovation', 'impact', 'inclusion', 'teamw
             <p>{footerTranslations.copyright_notice ?? '© 2025 Greatest of All Times #8092.'}</p>
           </div>
           <div class="flex items-center space-x-4 text-sm opacity-90">
-            <a href="https://www.fikretyukselfoundation.org/" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
-              <img src="/F_D_Renk_Simge_Beyaz_Metin.png" alt="Fikret Yüksel Foundation" class="h-10">
+            <a
+              href="https://www.fikretyukselfoundation.org/"
+              target="_blank"
+              rel="noopener"
+              class="hover:opacity-100 transition-opacity"
+            >
+              <img
+                src="/F_D_Renk_Simge_Beyaz_Metin.png"
+                alt="Fikret Yüksel Foundation"
+                class="h-10"
+              />
             </a>
-            <a href="https://www.firstinspires.org" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
-              <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-10">
+            <a
+              href="https://www.firstinspires.org"
+              target="_blank"
+              rel="noopener"
+              class="hover:opacity-100 transition-opacity"
+            >
+              <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-10" />
             </a>
             <span>{footerTranslations.powered_by ?? 'Powered by'}</span>
-            <a href="https://astro.build" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
+            <a
+              href="https://astro.build"
+              target="_blank"
+              rel="noopener"
+              class="hover:opacity-100 transition-opacity"
+            >
               <i class="fas fa-rocket mr-1"></i>Astro
             </a>
             <span>•</span>
-            <a href="https://github.com/GOAT-8092/website" target="_blank" rel="noopener" class="hover:opacity-100 transition-opacity">
+            <a
+              href="https://github.com/GOAT-8092/website"
+              target="_blank"
+              rel="noopener"
+              class="hover:opacity-100 transition-opacity"
+            >
               <i class="fab fa-github mr-1"></i>{t('footer.source')}
             </a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </footer>
