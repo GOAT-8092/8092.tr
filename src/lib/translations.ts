@@ -188,6 +188,13 @@ export const translations: Translations = {
           tags: 'PR, İş Geliştirme',
           meta: 'Sürekli',
         },
+        knowledgebase: {
+          title: 'G.O.A.T. Rehber Bilgi Tabanı',
+          description:
+            'Notion üzerine kurulmuş bilgi tabanımız. FRC takımları için teknik rehberler, en iyi uygulamalar ve kaynaklar sunar.',
+          tags: 'Bilgi Paylaşımı, Eğitim, FIRST',
+          meta: 'Herkese Açık',
+        },
       },
       cta_title: 'Projelerimize Katılmak İster misiniz?',
       cta_description:
@@ -732,6 +739,13 @@ export const translations: Translations = {
             'We nurture sustainability through sponsorship agreements and community awareness projects.',
           tags: 'PR, Business Development',
           meta: 'Ongoing',
+        },
+        knowledgebase: {
+          title: 'G.O.A.T. Guide Knowledge Base',
+          description:
+            'Our Notion-based knowledgebase offering technical guides, best practices, and resources for FRC teams.',
+          tags: 'Knowledge Sharing, Education, FIRST',
+          meta: 'Public Access',
         },
       },
       cta_title: 'Would You Like to Join Our Projects?',

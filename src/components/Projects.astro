@@ -43,6 +43,12 @@ const projectCardsConfig = [
     icon: 'fas fa-handshake',
     gradient: 'from-accent to-primary',
     tagClasses: ['bg-primary', 'bg-secondary']
+  },
+  {
+    key: 'knowledgebase',
+    icon: 'fas fa-book',
+    gradient: 'from-primary to-accent',
+    tagClasses: ['bg-primary', 'bg-secondary', 'bg-accent']
   }
 ] as const;
 
@@ -79,9 +85,21 @@ const projectCardData = projectCardsConfig.map(card => {
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-sm text-gray-500">{card.content.meta}</span>
-                <button class="text-primary hover:text-secondary transition-colors" aria-label={card.content.title}>
-                  <i class="fas fa-external-link-alt"></i>
-                </button>
+                {card.key === 'knowledgebase' ? (
+                  <a
+                    href="https://rehber.8092.tr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:text-secondary transition-colors"
+                    aria-label={card.content.title}
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                ) : (
+                  <button class="text-primary hover:text-secondary transition-colors" aria-label={card.content.title}>
+                    <i class="fas fa-external-link-alt"></i>
+                  </button>
+                )}
               </div>
             </div>
           </div>
