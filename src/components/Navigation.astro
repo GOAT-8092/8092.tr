@@ -55,6 +55,9 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a
         >
+        <a href="#belgeler" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('belgeler')"
+          >{t('nav.documents')}</a
+        >
         <a href="#galeri" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('galeri')"
           >{t('nav.gallery')}</a
         >
@@ -101,6 +104,11 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           href="#projelerimiz"
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a
+        >
+        <a
+          href="#belgeler"
+          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
+          onclick="scrollWindowTo('belgeler'); closeMobileMenu()">{t('nav.documents')}</a
         >
         <a
           href="#galeri"

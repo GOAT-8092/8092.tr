@@ -1,0 +1,106 @@
+---
+// Documents.astro - Business Plan and Gender Equality Plan section component
+import { getCurrentLanguage, getTranslation, getTranslations } from '../lib/i18n';
+import { translations } from '../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+
+const documentCardsConfig = [
+  {
+    key: 'businessPlan',
+    icon: 'fas fa-file-alt',
+    gradient: 'from-primary to-secondary',
+    tagClasses: ['bg-primary', 'bg-secondary'],
+    fileName: 'is-plani.pdf'
+  },
+  {
+    key: 'genderEquality',
+    icon: 'fas fa-balance-scale',
+    gradient: 'from-secondary to-accent',
+    tagClasses: ['bg-accent', 'bg-primary'],
+    fileName: 'cinsiyet-esitligi-plani.pdf'
+  }
+] as const;
+
+const cardsTranslations = (translationsObj.documents?.cards ?? {}) as Record<string, any>;
+
+const documentCardData = documentCardsConfig.map(card => {
+  const content = cardsTranslations[card.key] ?? {};
+  const tags = Array.isArray(content.tags) ? content.tags : [];
+  return { ...card, content, tags };
+});
+---
+
+<section id="belgeler" class="pt-32 pb-20 bg-white scroll-mt-24">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">{t('documents.title')}</h2>
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Documents Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {documentCardData.map((card) => (
+          <div class="glass-card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class={`relative h-48 bg-gradient-to-br ${card.gradient}`}>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class={`${card.icon} text-6xl text-white`}></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">{card.content.title}</h3>
+              <p class="text-gray-600 mb-4">{card.content.description}</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {card.tags.map((tag: string, index: number) => (
+                  <span class={`${card.tagClasses[index] ?? 'bg-primary'} text-white px-3 py-1 rounded-full text-sm`}>{tag}</span>
+                ))}
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-500">{card.content.meta}</span>
+                <a
+                  href={`/documents/${card.fileName}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-lg hover:from-secondary hover:to-accent transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                  aria-label={`${card.content.title} (PDF)`}
+                >
+                  <i class="fas fa-download"></i>
+                  <span>{t('documents.download')}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Additional Information -->
+      <div class="bg-gray-50 rounded-xl p-8 text-center">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">{t('documents.info_title')}</h3>
+        <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+          {t('documents.info_description')}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/documents/is-plani.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition-colors flex items-center justify-center gap-2"
+          >
+            <i class="fas fa-file-business"></i>
+            <span>{t('documents.business_plan_direct')}</span>
+          </a>
+          <a
+            href="/documents/cinsiyet-esitligi-plani.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition-colors flex items-center justify-center gap-2"
+          >
+            <i class="fas fa-equals"></i>
+            <span>{t('documents.gender_equality_direct')}</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
