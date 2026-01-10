@@ -275,6 +275,11 @@ export const translations: Translations = {
         description:
           "Bu yapay zeka araçları, FIRST'ın resmi dokümanları ve oyun kılavuzları ile eğitilmiştir. Sorularınızı Türkçe veya İngilizce olarak sorabilir, hızlı ve doğru cevaplar alabilirsiniz.",
       },
+      ai_warning: {
+        title: '⚠️ Yapay Zeka Uyarısı',
+        description:
+          "Yapay zeka araçları bazen hatalı veya uydurma bilgiler verebilir (halüsinasyon). Her zaman FIRST'ın resmi dokümanlarından doğrulama yapın.",
+      },
     },
 
     // Gallery Section
@@ -899,6 +904,11 @@ export const translations: Translations = {
         title: 'How to Use',
         description:
           'These AI tools are trained on official FIRST documents and game manuals. Ask your questions in Turkish or English for quick and accurate answers.',
+      },
+      ai_warning: {
+        title: '⚠️ AI Warning',
+        description:
+          'AI agents may hallucinate and provide fabricated or incorrect answers. Always verify facts from official FIRST documents.',
       },
     },
 

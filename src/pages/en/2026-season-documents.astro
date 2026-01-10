@@ -28,9 +28,7 @@ const translationsObj = getTranslations(currentLang);
         <section class="mb-12">
           <div class="glass-card p-8">
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <i class="fas fa-robot text-3xl text-white"></i>
-              </div>
+              <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-16">
               <div>
                 <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.first.title')}</h2>
                 <p class="text-gray-600">{t('season_docs.first.subtitle')}</p>
@@ -41,7 +39,7 @@ const translationsObj = getTranslations(currentLang);
               href="https://www.firstinspires.org/resources/library/frc/season-materials"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg hover:from-secondary hover:to-accent transition-all duration-300 transform hover:scale-105"
+              class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg hover:from-secondary hover:to-accent transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <i class="fas fa-external-link-alt"></i>
               <span>{t('season_docs.visit_link')}</span>
@@ -53,9 +51,7 @@ const translationsObj = getTranslations(currentLang);
         <section class="mb-12">
           <div class="glass-card p-8">
             <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
-                <i class="fas fa-flag text-3xl text-white"></i>
-              </div>
+              <img src="/F_D_Renk_Simge_Beyaz_Metin.png" alt="Fikret Yüksel Foundation" class="h-16">
               <div>
                 <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.fyf.title')}</h2>
                 <p class="text-gray-600">{t('season_docs.fyf.subtitle')}</p>
@@ -66,7 +62,7 @@ const translationsObj = getTranslations(currentLang);
               href="https://www.frcturkiye.org/2026-sezon-materyalleri/"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-gradient-to-r from-secondary to-accent text-white px-6 py-3 rounded-lg hover:from-accent hover:to-primary transition-all duration-300 transform hover:scale-105"
+              class="inline-flex items-center gap-2 bg-gradient-to-r from-secondary to-accent text-white px-6 py-3 rounded-lg hover:from-accent hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <i class="fas fa-external-link-alt"></i>
               <span>{t('season_docs.visit_link')}</span>
@@ -132,6 +128,19 @@ const translationsObj = getTranslations(currentLang);
                 <i class="fas fa-external-link-alt"></i>
                 <span>{t('season_docs.open_tool')}</span>
               </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Warning -->
+        <section class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-12">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <i class="fas fa-exclamation-triangle text-2xl text-amber-600"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-amber-800 mb-2">{t('season_docs.ai_warning.title')}</h3>
+              <p class="text-amber-900">{t('season_docs.ai_warning.description')}</p>
             </div>
           </div>
         </section>
