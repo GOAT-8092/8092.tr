@@ -38,34 +38,41 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
 
       <div class="hidden lg:flex items-center space-x-4" id="navbarSupportedContent">
         <a
-          href="#anasayfa"
+          href={currentLang === 'en' ? '/en/#anasayfa' : '/#anasayfa'}
           class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('anasayfa')">{t('nav.home')}</a
         >
         <a
-          href="#hakkimizda"
+          href={currentLang === 'en' ? '/en/#hakkimizda' : '/#hakkimizda'}
           class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('hakkimizda')">{t('nav.about')}</a
         >
-        <a href="#takim" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('takim')"
+        <a
+          href={currentLang === 'en' ? '/en/#takim' : '/#takim'}
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('takim')"
           >{t('nav.team')}</a
         >
         <a
-          href="#projelerimiz"
+          href={currentLang === 'en' ? '/en/#belgeler' : '/#belgeler'}
           class="glass-nav-item cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz')">{t('nav.projects')}</a
-        >
-        <a href="#belgeler" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('belgeler')"
+          onclick="scrollWindowTo('belgeler')"
           >{t('nav.documents')}</a
         >
-        <a href="#galeri" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('galeri')"
+        <a
+          href={currentLang === 'en' ? '/en/#galeri' : '/#galeri'}
+          class="glass-nav-item cursor-pointer"
+          onclick="scrollWindowTo('galeri')"
           >{t('nav.gallery')}</a
         >
-        <a href="#sss" class="glass-nav-item cursor-pointer" onclick="scrollWindowTo('sss')"
-          >{t('nav.faq')}</a
-        >
         <a
-          href="#iletisim"
+          href={currentLang === 'en' ? '/en/frc/2026-rebuilt' : '/frc/2026-rebuilt'}
+          class="glass-nav-item font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:to-accent"
+        >
+          2026 REBUILT
+        </a>
+        <a
+          href={currentLang === 'en' ? '/en/#iletisim' : '/#iletisim'}
           class="glass-nav-item cursor-pointer"
           onclick="scrollWindowTo('iletisim')">{t('nav.contact')}</a
         >
@@ -86,42 +93,38 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
     <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a
-          href="#anasayfa"
+          href={currentLang === 'en' ? '/en/#anasayfa' : '/#anasayfa'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('anasayfa'); closeMobileMenu()">{t('nav.home')}</a
         >
         <a
-          href="#hakkimizda"
+          href={currentLang === 'en' ? '/en/#hakkimizda' : '/#hakkimizda'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('hakkimizda'); closeMobileMenu()">{t('nav.about')}</a
         >
         <a
-          href="#takim"
+          href={currentLang === 'en' ? '/en/#takim' : '/#takim'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('takim'); closeMobileMenu()">{t('nav.team')}</a
         >
         <a
-          href="#projelerimiz"
-          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('projelerimiz'); closeMobileMenu()">{t('nav.projects')}</a
-        >
-        <a
-          href="#belgeler"
+          href={currentLang === 'en' ? '/en/#belgeler' : '/#belgeler'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('belgeler'); closeMobileMenu()">{t('nav.documents')}</a
         >
         <a
-          href="#galeri"
+          href={currentLang === 'en' ? '/en/#galeri' : '/#galeri'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('galeri'); closeMobileMenu()">{t('nav.gallery')}</a
         >
         <a
-          href="#sss"
-          class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
-          onclick="scrollWindowTo('sss'); closeMobileMenu()">{t('nav.faq')}</a
+          href={currentLang === 'en' ? '/en/frc/2026-rebuilt' : '/frc/2026-rebuilt'}
+          class="block px-3 py-2 font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
         >
+          2026 REBUILT
+        </a>
         <a
-          href="#iletisim"
+          href={currentLang === 'en' ? '/en/#iletisim' : '/#iletisim'}
           class="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md cursor-pointer"
           onclick="scrollWindowTo('iletisim'); closeMobileMenu()">{t('nav.contact')}</a
         >

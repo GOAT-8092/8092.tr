@@ -30,10 +30,35 @@ export const translations: Translations = {
       achievement: 'Rookie All Star Award 2020',
       discover_button: 'Hikayemizi Keşfedin',
       meet_team_button: 'Takımımızı Tanıyın',
+      resources_button: 'Kaynaklar',
       scroll_down: 'Aşağı Kaydır',
       heading_line1: 'Greatest of',
       heading_line2: 'All Times',
       heading_tagline: '#8092',
+    },
+
+    // Chat Section
+    chat: {
+      title: 'FRC 2026 REBUILT Asistanı',
+      placeholder: 'Bir soru sorun...',
+      send: 'Gönder',
+      thinking: 'Düşünüyorum...',
+      error: 'Bir hata oluştu',
+      error_retry: 'Lütfen daha sonra tekrar deneyin.',
+      references: 'Kaynaklar',
+      language: 'Dil',
+      clear: 'Sohbeti Temizle',
+      close: 'Kapat',
+      open: 'Sohbeti Aç',
+      minimize: 'Küçült',
+      expand: 'Genişlet',
+      welcome_tr:
+        'Merhaba! 👋 Ben FRC 2026 REBUILT sezonu için eğitilmiş bir yapay zeka asistanıyım. Oyun kılavuzu, FIRST kuralları ve teknik detaylar hakkında sorularınızı yanıtlamak için buradayım.',
+      welcome_en:
+        'Hello! 👋 I am an AI assistant trained for the FRC 2026 REBUILT season. I am here to answer your questions about the game manual, FIRST rules, and technical details.',
+      powered_by: 'AI destekli',
+      switch_to_en: 'Switch to English',
+      switch_to_tr: "Türkçe'ye geç",
     },
 
     // About Section
@@ -662,10 +687,35 @@ export const translations: Translations = {
       achievement: 'Rookie All Star Award 2020',
       discover_button: 'Discover Our Story',
       meet_team_button: 'Meet Our Team',
+      resources_button: 'Resources',
       scroll_down: 'Scroll Down',
       heading_line1: 'Greatest of',
       heading_line2: 'All Times',
       heading_tagline: '#8092',
+    },
+
+    // Chat Section
+    chat: {
+      title: 'FRC 2026 REBUILT Assistant',
+      placeholder: 'Ask a question...',
+      send: 'Send',
+      thinking: 'Thinking...',
+      error: 'An error occurred',
+      error_retry: 'Please try again later.',
+      references: 'Sources',
+      language: 'Language',
+      clear: 'Clear Chat',
+      close: 'Close',
+      open: 'Open Chat',
+      minimize: 'Minimize',
+      expand: 'Expand',
+      welcome_tr:
+        'Merhaba! 👋 Ben FRC 2026 REBUILT sezonu için eğitilmiş bir yapay zeka asistanıyım. Oyun kılavuzu, FIRST kuralları ve teknik detaylar hakkında sorularınızı yanıtlamak için buradayım.',
+      welcome_en:
+        'Hello! 👋 I am an AI assistant trained for the FRC 2026 REBUILT season. I am here to answer your questions about the game manual, FIRST rules, and technical details.',
+      powered_by: 'AI Powered',
+      switch_to_en: 'Switch to English',
+      switch_to_tr: "Türkçe'ye geç",
     },
 
     // About Section

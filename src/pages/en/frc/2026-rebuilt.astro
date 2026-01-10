@@ -1,9 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
-import Footer from '../../components/Footer.astro';
-import { getCurrentLanguage, getTranslation, getTranslations } from '../../lib/i18n';
-import { translations } from '../../lib/translations';
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+import ChatWidget from '../../../components/ChatWidget.astro';
+import { getCurrentLanguage, getTranslation, getTranslations } from '../../../lib/i18n';
+import { translations } from '../../../lib/translations';
 
 const currentLang = getCurrentLanguage(Astro);
 const t = (key: string) => getTranslation(translations, currentLang, key);
@@ -28,7 +29,9 @@ const translationsObj = getTranslations(currentLang);
         <section class="mb-12">
           <div class="glass-card p-8">
             <div class="flex items-center gap-4 mb-6">
-              <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-16">
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center overflow-hidden" style="background: linear-gradient(to bottom right, #512f75, #673a8e);">
+                <img src="/FIRST_Vertical_RGB_reverse.png" alt="FIRST" class="h-full w-full object-contain">
+              </div>
               <div>
                 <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.first.title')}</h2>
                 <p class="text-gray-600">{t('season_docs.first.subtitle')}</p>
@@ -52,7 +55,9 @@ const translationsObj = getTranslations(currentLang);
         <section class="mb-12">
           <div class="glass-card p-8">
             <div class="flex items-center gap-4 mb-6">
-              <img src="/F_D_Renk_Simge_Beyaz_Metin.png" alt="Fikret Yüksel Foundation" class="h-16">
+              <div class="w-20 h-16 rounded-xl flex items-center justify-center overflow-hidden" style="background: linear-gradient(to bottom right, #673a8e, #7e46a8);">
+                <img src="/F_D_Renk_Simge_Beyaz_Metin.png" alt="Fikret Yüksel Foundation" class="h-full w-full object-contain">
+              </div>
               <div>
                 <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.fyf.title')}</h2>
                 <p class="text-gray-600">{t('season_docs.fyf.subtitle')}</p>
@@ -158,6 +163,10 @@ const translationsObj = getTranslations(currentLang);
       </div>
     </div>
   </main>
+
+  <!-- Chat Widget -->
+  <ChatWidget initialLanguage={currentLang} />
+
   <Footer />
 </Layout>
 

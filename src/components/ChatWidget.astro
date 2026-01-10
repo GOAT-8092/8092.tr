@@ -1,0 +1,20 @@
+---
+/**
+ * Astro wrapper for ChatWidget component
+ * Hydrates the React component on the client
+ */
+
+import ChatWidget from './ChatWidget';
+
+interface Props {
+  initialLanguage?: 'tr' | 'en';
+  assistantId?: string;
+}
+
+const {
+  initialLanguage = 'tr',
+  assistantId = 'asst_v1gZYfAo9yWmfOVetaZkMf1n',
+} = Astro.props;
+---
+
+<ChatWidget initialLanguage={initialLanguage} assistantId={assistantId} client:load />
