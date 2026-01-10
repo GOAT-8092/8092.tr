@@ -7,11 +7,12 @@ import { test, expect } from '@playwright/test';
  * Testing both Turkish and English versions
  */
 
-const CORRECT_PASSWORD = process.env.PUBLIC_PORTAL_PASS || 'seksendoksaniki';
+const CORRECT_PASSWORD = process.env.PUBLIC_PORTAL_PASS;
 const WRONG_PASSWORD = 'wrongpassword123';
 
 test.describe('Portal Authentication - Turkish', () => {
   test.beforeEach(async ({ page }) => {
+    test.skip(!CORRECT_PASSWORD, 'PUBLIC_PORTAL_PASS is not set');
     // Clear localStorage before each test
     await page.goto('/portal');
     await page.evaluate(() => localStorage.clear());
@@ -128,6 +129,7 @@ test.describe('Portal Authentication - Turkish', () => {
 
 test.describe('Portal Authentication - English', () => {
   test.beforeEach(async ({ page }) => {
+    test.skip(!CORRECT_PASSWORD, 'PUBLIC_PORTAL_PASS is not set');
     await page.goto('/en/portal');
     await page.evaluate(() => localStorage.clear());
   });
@@ -154,6 +156,7 @@ test.describe('Portal Authentication - English', () => {
 
 test.describe('Portal Authentication - Production', () => {
   test('should test production deployment', async ({ page }) => {
+    test.skip(!CORRECT_PASSWORD, 'PUBLIC_PORTAL_PASS is not set');
     // This test will be skipped if PRODUCTION_URL is not set
     const productionUrl = process.env.PRODUCTION_URL;
 

@@ -44,7 +44,7 @@ vercel env add PUBLIC_PORTAL_PASS
 
 When prompted:
 
-1. **Value:** Enter your password: `seksendoksaniki`
+1. **Value:** Enter your password (do not commit the value)
 2. **Environments:** Select all three (Production, Preview, Development)
    - Use spacebar to select
    - Press Enter to confirm
@@ -52,7 +52,7 @@ When prompted:
 Or use this one-liner:
 
 ```bash
-echo "seksendoksaniki" | vercel env add PUBLIC_PORTAL_PASS production preview development
+echo "<your-password>" | vercel env add PUBLIC_PORTAL_PASS production preview development
 ```
 
 ### Step 4: Verify Environment Variables
@@ -122,7 +122,7 @@ PRODUCTION_URL=https://www.8092.tr npm run test:production
 Or manually:
 
 1. Visit https://www.8092.tr/portal
-2. Enter password: `seksendoksaniki`
+2. Enter password: (use your configured portal password)
 3. You should be successfully logged in and see the internal resources page
 
 ---
@@ -146,7 +146,7 @@ Or manually:
    curl https://www.8092.tr/portal | grep "const password"
    ```
 
-   You should see: `const password = "seksendoksaniki";`
+   You should see: `const password = "<your-password>";`
 
    If you see `const password = "defaultpassword";` or `const password = "";`, the environment variable isn't being read.
 
@@ -161,7 +161,7 @@ Or manually:
    - Go to https://vercel.com/dashboard
    - Select your project (8092.tr)
    - Go to Settings > Environment Variables
-   - Verify `PUBLIC_PORTAL_PASS` is set to `seksendoksaniki` for all environments
+   - Verify `PUBLIC_PORTAL_PASS` is set for all environments
 
 ### Clear local cache
 
