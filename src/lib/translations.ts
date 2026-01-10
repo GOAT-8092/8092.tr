@@ -231,6 +231,52 @@ export const translations: Translations = {
       },
     },
 
+    // Season Documents Section
+    season_docs: {
+      title: '2026 Sezon Belgeleri',
+      description:
+        'FRC 2026 REBUILT sezonu için resmi FIRST materyalleri, FYF kaynakları ve yapay zeka destekli öğrenme araçları',
+      visit_link: 'Siteyi Ziyaret Et',
+      open_tool: 'Aracı Aç',
+      first: {
+        title: 'FIRST Resmi Kaynakları',
+        subtitle: 'firstinspires.org',
+        description:
+          "FIRST'ın resmi sezon materyalleri sayfası. Oyun kılavuzu, teknik dokümanlar ve yarışma kurallarına buradan ulaşabilirsiniz.",
+      },
+      fyf: {
+        title: 'Fikret Yüksel Vakfı (FYF) Kaynakları',
+        subtitle: 'frcturkiye.org',
+        description:
+          "Türkçe oyun kılavuzları, yarışma materyalleri ve teknik dokümantasyon için FRC Türkiye'nin resmi kaynak sayfası.",
+      },
+      ai_tools: {
+        title: 'Yapay Zeka Destekli Öğrenme Araçlarımız',
+        description:
+          '2026 sezonu için özel olarak hazırlamış olduğumuz AI destekli öğrenme araçları ile oyun kılavuzunu ve FIRST kurallarını daha hızlı anlayın.',
+        notebooklm: {
+          title: 'Google NotebookLM',
+          description:
+            'FRC kılavuzlarını ve FIRST dokümanlarını analiz eden yapay zeka destekli not defterimiz.',
+        },
+        chatgpt: {
+          title: 'FRC Manual Mentor GPT',
+          description:
+            '2026 REBUILT sezonu için özel olarak eğitilmiş, Türkçe ve İngilizce destekli ChatGPT asistanımız.',
+        },
+        gemini: {
+          title: 'FRC Rehber Gemini',
+          description:
+            'Google Gemini üzerinde oluşturduğumuz, FIRST kurallarını ve oyun detaylarını içeren yapay zeka asistanı.',
+        },
+      },
+      info_note: {
+        title: 'Nasıl Kullanılır?',
+        description:
+          "Bu yapay zeka araçları, FIRST'ın resmi dokümanları ve oyun kılavuzları ile eğitilmiştir. Sorularınızı Türkçe veya İngilizce olarak sorabilir, hızlı ve doğru cevaplar alabilirsiniz.",
+      },
+    },
+
     // Gallery Section
     gallery: {
       title: 'Galeri',
@@ -809,6 +855,50 @@ export const translations: Translations = {
           tags: ['Inclusion', 'Equality', 'FIRST Values'],
           meta: 'Continuously Updated',
         },
+      },
+    },
+
+    // Season Documents Section
+    season_docs: {
+      title: '2026 Season Documents',
+      description:
+        'Official FIRST materials, FYF resources, and AI-powered learning tools for the FRC 2026 REBUILT season',
+      visit_link: 'Visit Site',
+      open_tool: 'Open Tool',
+      first: {
+        title: 'FIRST Official Resources',
+        subtitle: 'firstinspires.org',
+        description:
+          'Official FIRST season materials page. Access the game manual, technical documentation, and competition rules.',
+      },
+      fyf: {
+        title: 'Fikret Yüksel Foundation (FYF) Resources',
+        subtitle: 'frcturkiye.org',
+        description:
+          "FRC Türkiye's official resource page for Turkish game manuals, competition materials, and technical documentation.",
+      },
+      ai_tools: {
+        title: 'Our AI-Powered Learning Tools',
+        description:
+          'Understand the game manual and FIRST rules faster with our custom AI-powered learning tools for the 2026 season.',
+        notebooklm: {
+          title: 'Google NotebookLM',
+          description: 'Our AI-powered notebook that analyzes FRC manuals and FIRST documentation.',
+        },
+        chatgpt: {
+          title: 'FRC Manual Mentor GPT',
+          description:
+            'Custom-trained ChatGPT assistant for 2026 REBUILT season with Turkish and English support.',
+        },
+        gemini: {
+          title: 'FRC Guide Gemini',
+          description: 'Our AI assistant on Google Gemini containing FIRST rules and game details.',
+        },
+      },
+      info_note: {
+        title: 'How to Use',
+        description:
+          'These AI tools are trained on official FIRST documents and game manuals. Ask your questions in Turkish or English for quick and accurate answers.',
       },
     },
 

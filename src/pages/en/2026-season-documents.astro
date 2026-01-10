@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import { getCurrentLanguage, getTranslation, getTranslations } from '../../lib/i18n';
+import { translations } from '../../lib/translations';
+
+const currentLang = getCurrentLanguage(Astro);
+const t = (key: string) => getTranslation(translations, currentLang, key);
+const translationsObj = getTranslations(currentLang);
+---
+
+<Layout
+  title={t('season_docs.title') + ' | G.O.A.T. 8092'}
+  description={t('season_docs.description')}
+>
+  <Navigation />
+  <main class="pt-32 pb-20 min-h-screen bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h1 class="text-5xl font-bold text-gray-800 mb-4">{t('season_docs.title')}</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{t('season_docs.description')}</p>
+        </div>
+
+        <!-- FIRST Official Resources -->
+        <section class="mb-12">
+          <div class="glass-card p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                <i class="fas fa-robot text-3xl text-white"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.first.title')}</h2>
+                <p class="text-gray-600">{t('season_docs.first.subtitle')}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-6">{t('season_docs.first.description')}</p>
+            <a
+              href="https://www.firstinspires.org/resources/library/frc/season-materials"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg hover:from-secondary hover:to-accent transition-all duration-300 transform hover:scale-105"
+            >
+              <i class="fas fa-external-link-alt"></i>
+              <span>{t('season_docs.visit_link')}</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- FYF Resources -->
+        <section class="mb-12">
+          <div class="glass-card p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
+                <i class="fas fa-flag text-3xl text-white"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800">{t('season_docs.fyf.title')}</h2>
+                <p class="text-gray-600">{t('season_docs.fyf.subtitle')}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-6">{t('season_docs.fyf.description')}</p>
+            <a
+              href="https://www.frcturkiye.org/2026-sezon-materyalleri/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-gradient-to-r from-secondary to-accent text-white px-6 py-3 rounded-lg hover:from-accent hover:to-primary transition-all duration-300 transform hover:scale-105"
+            >
+              <i class="fas fa-external-link-alt"></i>
+              <span>{t('season_docs.visit_link')}</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">{t('season_docs.ai_tools.title')}</h2>
+          <p class="text-lg text-gray-600 text-center mb-8 max-w-3xl mx-auto">{t('season_docs.ai_tools.description')}</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- NotebookLM -->
+            <div class="glass-card p-6 hover:shadow-xl transition-shadow duration-300">
+              <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-4">
+                <i class="fas fa-book text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">{t('season_docs.ai_tools.notebooklm.title')}</h3>
+              <p class="text-gray-600 mb-4">{t('season_docs.ai_tools.notebooklm.description')}</p>
+              <a
+                href="https://notebooklm.google.com/notebook/2e7dc54b-66ad-41ef-801b-63333e1d8f34"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold transition-colors"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                <span>{t('season_docs.open_tool')}</span>
+              </a>
+            </div>
+
+            <!-- ChatGPT -->
+            <div class="glass-card p-6 hover:shadow-xl transition-shadow duration-300">
+              <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center mb-4">
+                <i class="fas fa-comments text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">{t('season_docs.ai_tools.chatgpt.title')}</h3>
+              <p class="text-gray-600 mb-4">{t('season_docs.ai_tools.chatgpt.description')}</p>
+              <a
+                href="https://chatgpt.com/g/g-6962c3f26300819185ca47a25c27ffeb-frc-manual-mentor-tr-en-2026-rebuilt"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold transition-colors"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                <span>{t('season_docs.open_tool')}</span>
+              </a>
+            </div>
+
+            <!-- Gemini -->
+            <div class="glass-card p-6 hover:shadow-xl transition-shadow duration-300">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mb-4">
+                <i class="fas fa-gem text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">{t('season_docs.ai_tools.gemini.title')}</h3>
+              <p class="text-gray-600 mb-4">{t('season_docs.ai_tools.gemini.description')}</p>
+              <a
+                href="https://gemini.google.com/gem/1Lwk4Tbk8PKVzFHrWlqXK8wHDiH1pyZ5I?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-primary hover:text-secondary font-semibold transition-colors"
+              >
+                <i class="fas fa-external-link-alt"></i>
+                <span>{t('season_docs.open_tool')}</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Info Note -->
+        <section class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-8 text-center">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <i class="fas fa-info-circle text-2xl text-primary"></i>
+            <h3 class="text-xl font-bold text-gray-800">{t('season_docs.info_note.title')}</h3>
+          </div>
+          <p class="text-gray-700 max-w-3xl mx-auto">{t('season_docs.info_note.description')}</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>
