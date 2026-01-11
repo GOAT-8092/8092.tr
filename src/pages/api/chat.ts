@@ -7,12 +7,28 @@
 import type { APIRoute } from 'astro';
 import { AssistantManager } from '../../api/chat/assistants';
 import type { ChatRequest } from '@/lib/chat/types';
+import { buildCorsHeaders, isAllowedOrigin, isSameSiteRequest } from '@/api/chat/security';
+import { isChatSessionValid } from '@/api/chat/session';
 
 // Disable prerendering for API routes
 export const prerender = false;
 
 // Rate limiting store (in-memory for simplicity)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+const parseCookies = (cookieHeader: string | null): Record<string, string> => {
+  if (!cookieHeader) {
+    return {};
+  }
+  return cookieHeader.split(';').reduce<Record<string, string>>((acc, part) => {
+    const [rawKey, ...rawValue] = part.trim().split('=');
+    if (!rawKey) {
+      return acc;
+    }
+    acc[rawKey] = decodeURIComponent(rawValue.join('='));
+    return acc;
+  }, {});
+};
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -36,6 +52,35 @@ function checkRateLimit(ip: string): boolean {
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    if (!isSameSiteRequest(request) || !isAllowedOrigin(request)) {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403,
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
+      });
+    }
+
+    const cookies = parseCookies(request.headers.get('cookie'));
+    const sessionToken = request.headers.get('x-chat-session');
+    const cookieToken = cookies.chat_session;
+
+    if (
+      !sessionToken ||
+      !cookieToken ||
+      sessionToken !== cookieToken ||
+      !isChatSessionValid(sessionToken)
+    ) {
+      return new Response(JSON.stringify({ error: 'Chat session expired' }), {
+        status: 401,
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
+      });
+    }
+
     // Check rate limit
     const ip = request.headers.get('x-forwarded-for') || 'unknown';
     if (!checkRateLimit(ip)) {
@@ -44,6 +89,7 @@ export const POST: APIRoute = async ({ request }) => {
         headers: {
           'Content-Type': 'application/json',
           'Retry-After': '60',
+          ...buildCorsHeaders(request),
         },
       });
     }
@@ -56,14 +102,20 @@ export const POST: APIRoute = async ({ request }) => {
     if (!message || typeof message !== 'string') {
       return new Response(JSON.stringify({ error: 'Invalid message' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
       });
     }
 
     if (!language || (language !== 'tr' && language !== 'en')) {
       return new Response(JSON.stringify({ error: 'Invalid language' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
       });
     }
 
@@ -72,7 +124,10 @@ export const POST: APIRoute = async ({ request }) => {
     if (!apiKey) {
       return new Response(JSON.stringify({ error: 'OpenAI API key not configured' }), {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
       });
     }
 
@@ -234,6 +289,7 @@ export const POST: APIRoute = async ({ request }) => {
         'Cache-Control': 'no-cache, no-transform',
         Connection: 'keep-alive',
         'X-Accel-Buffering': 'no', // Disable nginx buffering
+        ...buildCorsHeaders(request),
       },
     });
   } catch (error) {
@@ -244,20 +300,26 @@ export const POST: APIRoute = async ({ request }) => {
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...buildCorsHeaders(request),
+        },
       }
     );
   }
 };
 
 // Handle CORS preflight
-export const OPTIONS: APIRoute = async () => {
+export const OPTIONS: APIRoute = async ({ request }) => {
+  if (!isAllowedOrigin(request)) {
+    return new Response(null, { status: 403 });
+  }
   return new Response(null, {
     status: 204,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      ...buildCorsHeaders(request),
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, X-Chat-Session',
     },
   });
 };

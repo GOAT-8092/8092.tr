@@ -33,10 +33,12 @@ export default function ChatWidget({
   const [currentCitations, setCurrentCitations] = useState<Citation[]>([]);
   const [isOpen, setIsOpen] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [sessionToken, setSessionToken] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const sessionRequestRef = useRef<Promise<string> | null>(null);
 
   // Auto-scroll to latest message
   const scrollToBottom = useCallback(() => {
@@ -60,6 +62,46 @@ export default function ChatWidget({
     };
     setMessages([welcomeMessage]);
   }, [language]);
+
+  const fetchChatSession = useCallback(async () => {
+    if (sessionRequestRef.current) {
+      return sessionRequestRef.current;
+    }
+
+    sessionRequestRef.current = (async () => {
+      const response = await fetch('/api/chat-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+      });
+
+      if (!response.ok) {
+        throw new Error('Session request failed');
+      }
+
+      const data = await response.json();
+      if (!data?.token) {
+        throw new Error('Session token missing');
+      }
+
+      setSessionToken(data.token);
+      return data.token;
+    })();
+
+    try {
+      return await sessionRequestRef.current;
+    } finally {
+      sessionRequestRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchChatSession().catch((error) => {
+      console.error('Failed to initialize chat session:', error);
+    });
+  }, [fetchChatSession]);
 
   // Filter out reasoning sections from assistant responses
   const filterResponseContent = (content: string): string => {
@@ -97,18 +139,37 @@ export default function ChatWidget({
     abortControllerRef.current = new AbortController();
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage.content,
-          threadId,
-          language,
-        }),
-        signal: abortControllerRef.current.signal,
-      });
+      const ensureSessionToken = async () => {
+        if (sessionToken) {
+          return sessionToken;
+        }
+        return fetchChatSession();
+      };
+
+      const sendChatRequest = async (token: string) => {
+        return fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Chat-Session': token,
+          },
+          body: JSON.stringify({
+            message: userMessage.content,
+            threadId,
+            language,
+          }),
+          signal: abortControllerRef.current.signal,
+          credentials: 'same-origin',
+        });
+      };
+
+      let token = await ensureSessionToken();
+      let response = await sendChatRequest(token);
+
+      if (response.status === 401) {
+        token = await fetchChatSession();
+        response = await sendChatRequest(token);
+      }
 
       if (!response.ok) {
         throw new Error(response.statusText);
