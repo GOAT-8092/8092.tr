@@ -415,7 +415,7 @@ export default function ChatWidget({
                       className="mt-1 text-xs opacity-70"
                       dangerouslySetInnerHTML={{ __html: getMessageIcon(msg.role) }}
                     />
-                    <div className="flex-1 prose prose-sm max-w-none">
+                    <div className={`flex-1 prose prose-sm max-w-none ${msg.role === 'user' ? 'prose-invert' : ''}`}>
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         components={{
