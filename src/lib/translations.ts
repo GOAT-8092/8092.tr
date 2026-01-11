@@ -268,6 +268,8 @@ export const translations: Translations = {
         subtitle: 'firstinspires.org',
         description:
           "FIRST'ın resmi sezon materyalleri sayfası. Oyun kılavuzu, teknik dokümanlar ve yarışma kurallarına buradan ulaşabilirsiniz.",
+        translated_manuals:
+          'FIRST Websitesinde, "Translated Manuals" Sayfasında, Türkçe Oyun Kılavuzu mevcuttur, eğer kendi dilinizde okumak isterseniz, buradan bulabilirsiniz.',
       },
       fyf: {
         title: 'Fikret Yüksel Vakfı (FYF) Kaynakları',
@@ -925,6 +927,8 @@ export const translations: Translations = {
         subtitle: 'firstinspires.org',
         description:
           'Official FIRST season materials page. Access the game manual, technical documentation, and competition rules.',
+        translated_manuals:
+          'On the FIRST website, in the "Translated Manuals" section, the Turkish Game Manual is available. If you want to read it in your own language, you can find it here.',
       },
       fyf: {
         title: 'Fikret Yüksel Foundation (FYF) Resources',
