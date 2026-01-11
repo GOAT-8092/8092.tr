@@ -279,6 +279,15 @@ export const translations: Translations = {
         description:
           "Türkçe oyun kılavuzları, yarışma materyalleri ve teknik dokümantasyon için FRC Türkiye'nin resmi kaynak sayfası.",
       },
+      frcdesign: {
+        title: 'FRC Design Guide (Türkçe)',
+        subtitle: 'frcdesign.8092.tr',
+        description:
+          'Onshape kullanarak FRC tasarımı için kapsamlı bir öğrenme rehberi ve teknik referans. AI desteği ile Türkçeleştirilmiştir.',
+        original_source: 'Orijinal Site',
+        our_translation: 'Türkçe Çeviri',
+        contribute: 'Katkıda Bulun',
+      },
       ai_tools: {
         title: 'Yapay Zeka Destekli Öğrenme Araçlarımız',
         description:
@@ -939,6 +948,15 @@ export const translations: Translations = {
         subtitle: 'frcturkiye.org',
         description:
           "FRC Türkiye's official resource page for Turkish game manuals, competition materials, and technical documentation.",
+      },
+      frcdesign: {
+        title: 'FRC Design Guide (Turkish)',
+        subtitle: 'frcdesign.8092.tr',
+        description:
+          'A comprehensive learning guide and technical reference for FRC design using Onshape. Translated into Turkish by AI support',
+        original_source: 'Original Source',
+        our_translation: 'Our Translation',
+        contribute: 'Contribute',
       },
       ai_tools: {
         title: 'Our AI-Powered Learning Tools',
