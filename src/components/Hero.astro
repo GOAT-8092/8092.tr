@@ -48,12 +48,17 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
             {t('hero.subtitle_long')}
           </p>
 
-          <!-- Achievement Badge -->
-          <div class="mt-4 flex items-center justify-center">
+          <!-- Achievement Badges -->
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
             <div
-              class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white ring-1 ring-inset ring-white/30"
+              class="inline-flex items-center rounded-full bg-yellow-400/20 px-3 py-1 text-sm font-medium text-yellow-200 ring-1 ring-inset ring-yellow-400/40"
             >
-              🏆 {t('hero.achievement')}
+              🏆 Rookie All Star 2020
+            </div>
+            <div
+              class="inline-flex items-center rounded-full bg-yellow-400/30 px-3 py-1 text-sm font-bold text-yellow-100 ring-1 ring-inset ring-yellow-300/50"
+            >
+              🏆 Judges' Award 2026
             </div>
           </div>
 

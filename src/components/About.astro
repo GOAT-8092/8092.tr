@@ -94,21 +94,33 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
           </p>
         </div>
 
+        <!-- 2026 Sezonu -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h4 class="text-2xl font-bold text-secondary mb-4">{t('about.season_2026_title')}</h4>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            {t('about.season_2026_description')}
+          </p>
+          <div class="text-white p-4 rounded-lg" style="background: linear-gradient(90deg, #512f75 0%, #673a8e 100%);">
+            <p class="font-bold text-lg">{t('about.season_2026_award_title')}</p>
+            <p>{t('about.season_2026_award_description')}</p>
+          </div>
+        </div>
+
         <!-- Yarışma İstatistikleri -->
         <div class="text-white rounded-lg p-8" style="background: linear-gradient(90deg, #512f75 0%, #673a8e 100%);">
           <h3 class="text-2xl font-bold mb-6">{t('about.stats_title')}</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="text-center">
-              <p class="text-4xl font-bold">5</p>
+              <p class="text-4xl font-bold">6</p>
               <p>{t('about.stats_seasons_label')}</p>
             </div>
             <div class="text-center">
-              <p class="text-4xl font-bold">1</p>
+              <p class="text-4xl font-bold">2</p>
               <p>{t('about.stats_awards_label')}</p>
               <p class="text-sm">{t('about.stats_awards_note')}</p>
             </div>
             <div class="text-center">
-              <p class="text-4xl font-bold">17-19</p>
+              <p class="text-4xl font-bold">20-25</p>
               <p>{t('about.stats_record_label')}</p>
             </div>
           </div>
@@ -117,46 +129,116 @@ const t = (key: string) => getTranslation(translations, currentLang, key);
         <!-- Sponsorlarımız ve Destekçilerimiz -->
         <div>
           <h3 class="text-2xl font-bold text-gray-800 mb-4">{t('about.supporters_title')}</h3>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-              <!-- Primary Sponsors with Logos -->
+
+          <!-- Ana Sponsor: SIEMENS -->
+          <div class="bg-white rounded-lg shadow-md p-8 mb-4">
+            <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">{t('about.main_sponsor_label')}</p>
+            <div class="flex items-center justify-center">
               <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <img src="/sponsors/logo/BSH.png" alt="B/S/H/ Türkiye Logo" class="h-10 object-contain">
+                <div class="w-72 h-24 mx-auto rounded-lg flex items-center justify-center bg-gray-50 px-8">
+                  <img src="/sponsors/logo/Siemens.svg" alt="Siemens Logo" class="h-14 object-contain">
                 </div>
-                <p class="text-sm font-semibold text-gray-700">B/S/H/ Türkiye</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diğer Sponsorlar -->
+          <div class="bg-white rounded-lg shadow-md p-8 mb-4">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">{t('about.sponsors_label')}</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+              <div class="text-center">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/Boeing.svg" alt="Boeing Logo" class="h-14 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Boeing</p>
               </div>
               <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <img src="/sponsors/logo/Kodluyoruz.png" alt="Kodluyoruz Logo" class="h-10 object-contain">
-                </div>
-                <p class="text-sm font-semibold text-gray-700">Kodluyoruz Derneği</p>
-              </div>
-              <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <img src="/sponsors/logo/CetinGroup.png" alt="Çetin Group Logo" class="h-10 object-contain">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/CetinGroup.png" alt="Çetin Group Logo" class="h-16 object-contain">
                 </div>
                 <p class="text-sm font-semibold text-gray-700">Çetin Group</p>
               </div>
               <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <img src="/sponsors/logo/SarayAluminyum.png" alt="Saray Alüminyum Logo" class="h-10 object-contain">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/SarayAluminyum.svg" alt="Saray Alüminyum Logo" class="h-14 object-contain">
                 </div>
                 <p class="text-sm font-semibold text-gray-700">Saray Alüminyum</p>
               </div>
-
-              <!-- Additional Supporters -->
               <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <Image src="/img/logo-yilmaz-kalip.png" alt="Yılmaz Kalıp Logo" width={80} height={40} class="h-10 object-contain" />
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/Cemobsan.jpg" alt="ÇEMOBSAN Logo" class="h-16 object-contain">
                 </div>
-                <p class="text-sm font-semibold text-gray-700">Yılmaz Kalıp</p>
+                <p class="text-sm font-semibold text-gray-700">ÇEMOBSAN</p>
               </div>
               <div class="text-center">
-                <div class="w-20 h-16 mx-auto rounded-lg flex items-center justify-center mb-2 bg-gray-50">
-                  <Image src="/img/logo-cemobsan.png" alt="Çemobsan Logo" width={80} height={40} class="h-10 object-contain" />
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/Politem.png" alt="Politem Logo" class="h-16 object-contain">
                 </div>
-                <p class="text-sm font-semibold text-gray-700">Çemobsan</p>
+                <p class="text-sm font-semibold text-gray-700">Politem</p>
+              </div>
+              <div class="text-center">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/AsosProcess.jpg" alt="Asos Process Engineering Logo" class="h-16 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Asos Proses</p>
+              </div>
+              <div class="text-center">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-gray-50 px-4">
+                  <img src="/sponsors/logo/ButanMakina.png" alt="Butan Makina Logo" class="h-16 object-contain">
+                </div>
+                <p class="text-sm font-semibold text-gray-700">Butan Makina</p>
+              </div>
+              <div class="text-center">
+                <div class="h-28 mx-auto rounded-lg flex items-center justify-center mb-3 bg-white px-4">
+                  <img
+                    src={currentLang === 'en' ? '/sponsors/logo/FYF-en.svg' : '/sponsors/logo/FYF-tr.svg'}
+                    alt={currentLang === 'en' ? 'Fikret Yüksel Foundation Logo' : 'Fikret Yüksel Eğitim Vakfı Logosu'}
+                    class="h-16 object-contain"
+                  >
+                </div>
+                <p class="text-sm font-semibold text-gray-700">{currentLang === 'en' ? 'Fikret Yüksel Foundation' : 'Fikret Yüksel Eğitim Vakfı'}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kurumsal Destekçiler -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">{t('about.institutional_label')}</p>
+
+            <!-- SSB & ELMAS highlight -->
+            <div class="rounded-lg border-2 border-primary/20 bg-primary/5 p-6 mb-6">
+              <p class="text-xs font-bold uppercase tracking-widest text-primary mb-4">{t('about.elmas_label')}</p>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+                <div class="text-center">
+                  <div class="h-24 flex items-center justify-center mb-2 px-4">
+                    <img src="/sponsors/logo/SSB.png" alt="Savunma Sanayii Başkanlığı Logo" class="h-20 object-contain">
+                  </div>
+                  <p class="text-sm font-semibold text-gray-700">Savunma Sanayii Başkanlığı</p>
+                </div>
+                <div class="hidden sm:block w-px h-20 bg-primary/20"></div>
+                <div class="text-center">
+                  <div class="h-24 flex items-center justify-center mb-2 px-4">
+                    <img src="/sponsors/logo/Elmas.png" alt="ELMAS Programı Logo" class="h-20 object-contain">
+                  </div>
+                  <p class="text-sm font-semibold text-gray-700">ELMAS Programı</p>
+                  <p class="text-xs text-primary font-medium mt-1">{t('about.elmas_note')}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other institutional — ordered by institution size -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                <i class="fas fa-building-columns text-primary text-lg" aria-hidden="true"></i>
+                <p class="text-sm font-semibold text-gray-700">Çerkezköy Kaymakamlığı</p>
+              </div>
+              <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                <i class="fas fa-landmark text-primary text-lg" aria-hidden="true"></i>
+                <p class="text-sm font-semibold text-gray-700">Çerkezköy İlçe Milli Eğitim Müdürlüğü</p>
+              </div>
+              <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+                <img src="/sponsors/logo/VelikoyOSB.svg" alt="Veliköy OSB MTAL Logo" class="h-8 w-8 object-contain flex-shrink-0">
+                <p class="text-sm font-semibold text-gray-700">Veliköy OSB Mesleki ve Teknik Anadolu Lisesi</p>
               </div>
             </div>
           </div>

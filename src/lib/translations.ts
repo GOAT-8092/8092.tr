@@ -20,14 +20,14 @@ export const translations: Translations = {
       title: 'FRC Team 8092',
       subtitle: 'Greatest of All Times',
       description:
-        "Tekirdağ'ın ilk ve tek FRC takımı olarak FIRST robotik yarışmalarında Türkiye'yi temsil ediyoruz.",
+        "Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı olarak uluslararası robotik yarışmalarında Türkiye'yi temsil ediyoruz.",
       joinButton: 'Takıma Katıl',
       sponsorButton: 'Sponsor Ol',
       learnMore: 'Daha Fazla Bilgi',
       frc_badge: 'FIRST ROBOTICS COMPETITION',
       subtitle_long:
-        "Tekirdağ'ın ilk ve tek FRC takımı olarak 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. Innovation, teamwork ve gracious professionalism ile robotik dünyasında iz bırakıyoruz.",
-      achievement: 'Rookie All Star Award 2020',
+        "Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı olarak 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. Rookie All-Star ve Judges' Award kazanan takım olarak robotik dünyasında iz bırakıyoruz.",
+      achievement: "Rookie All-Star 2020 · Judges' Award 2026",
       discover_button: 'Hikayemizi Keşfedin',
       meet_team_button: 'Takımımızı Tanıyın',
       resources_button: 'Kaynaklar',
@@ -78,42 +78,53 @@ export const translations: Translations = {
         "Takım G.O.A.T. (Greatest of All Times) #8092, Haziran 2019'da Tekirdağ'ın Çerkezköy ilçesindeki Halit Narin Mesleki ve Teknik Anadolu Lisesi'nde BSH Türkiye ve Kodluyoruz Derneği'nin desteğiyle kuruldu. Bu kuruluş ile G.O.A.T. 8092, Tekirdağ ilinde kurulan ilk ve tek FIRST Robotics Competition takımı olmuştur.",
       season_2019_title: '2019 Sezonu - Kuruluş Yılı',
       season_2019_description:
-        '2019 FRC sezonu (Destination: Deep Space) sırasında henüz yeni kurulduğu için resmi bir yarışmaya katılmadı (takımın "Rookie Year"i 2020 olarak kayıtlıdır). Bu dönemde ekip, ilk resmi sezonlarına hazırlık amacıyla iç eğitim ve tanıtım faaliyetleri yürütmüştür.',
+        '2019 FIRST Robotics Competition sezonu (Destination: Deep Space) sırasında henüz yeni kurulduğu için resmi bir yarışmaya katılmadı (takımın "Rookie Year"i 2020 olarak kayıtlıdır). Bu dönemde ekip, ilk resmi sezonlarına hazırlık amacıyla iç eğitim ve tanıtım faaliyetleri yürütmüştür.',
       season_2020_title: '2020 Sezonu – Infinite Recharge',
       season_2020_description:
-        "G.O.A.T. 8092, ilk resmi yarışmasına 2020 sezonunda çıktı. 9-11 Mart 2020'de İstanbul'da düzenlenen Bosphorus Regional turnuvasına katılan takım, eleme turlarında 27. sırada yer aldı ve 4–4 maç derecesi elde etti. Bu başarı, yeni kurulan bir ekip için dikkat çekici olarak değerlendirildi.",
-      season_2020_award_title: '🏆 Rookie All Star Ödülü',
+        "G.O.A.T. 8092, ilk resmi yarışmasına 2020 sezonunda çıktı. 9–11 Mart 2020'de İstanbul'da düzenlenen 2020 FIRST Robotics Competition Bosphorus Regional turnuvasına katılan takım, eleme turlarında 27. sırada yer aldı ve 4–4 maç derecesi elde etti. Bu başarı, yeni kurulan bir ekip için dikkat çekici olarak değerlendirildi.",
+      season_2020_award_title: '🏆 Rookie All-Star Ödülü',
       season_2020_award_description:
-        "Turnuva sonunda G.O.A.T. 8092, en iyi çaylak takım seçildi. Bu ödül normalde takıma FIRST Dünya Şampiyonası'na katılım hakkı tanıyordu; ancak COVID-19 salgını nedeniyle dünya şampiyonası iptal edildi.",
+        "FIRST'in resmi tanımıyla: genç ama güçlü bir ortaklık çabasını örnek gösteren ve FIRST'in öğrencileri bilim ve teknolojiyle buluşturma misyonunu hayata geçiren çaylak takımı kutlar. G.O.A.T. 8092, bu ödüle layık görülerek FIRST sahnesinde güçlü bir giriş yaptı; ancak COVID-19 nedeniyle Dünya Şampiyonası iptal edildiğinden katılım hakkı kullanılamadı.",
       season_2021_title: '2021 Sezonu – Infinite Recharge at Home',
       season_2021_description:
-        '2021 sezonunda pandemi koşulları nedeniyle FRC etkinlikleri sahada yapılmadı; bunun yerine uzaktan katılımlı çevrimiçi meydan okumalar düzenlendi. G.O.A.T. 8092 bu sezonda Infinite Recharge at Home beceri mücadelesine ve Game Design Challenge yarışmasına katılım gösterdi. "Infinite Recharge At Home" kapsamında Germanium Group adlı grupta yer alan takım, bu grupta 11. sırada tamamladı.',
+        '2021 sezonunda pandemi koşulları nedeniyle FIRST Robotics Competition etkinlikleri sahada yapılmadı; bunun yerine uzaktan katılımlı çevrimiçi meydan okumalar düzenlendi. G.O.A.T. 8092 bu sezonda Infinite Recharge at Home beceri mücadelesine ve Game Design Challenge yarışmasına katılım gösterdi. "Infinite Recharge At Home" kapsamında Germanium Group adlı grupta yer alan takım, bu grupta 11. sırada tamamladı.',
       season_2021_note_title: 'Önemli Gelişme (2021):',
       season_2021_note_text:
-        "Eylül 2021'de Tekirdağ Veliköy OSB Mesleki ve Teknik Anadolu Lisesi'nden öğrenciler de G.O.A.T. ekibine dahil olmuş ve takım iki okulun ortak FRC takımı olarak yoluna devam etmiştir.",
+        "Eylül 2021'de Tekirdağ Veliköy OSB Mesleki ve Teknik Anadolu Lisesi'nden öğrenciler de G.O.A.T. ekibine dahil olmuş ve takım iki okulun ortak FIRST Robotics Competition takımı olarak yoluna devam etmiştir.",
       season_2022_title: '2022 Sezonu – Rapid React',
       season_2022_description:
-        "Pandemi kısıtlamalarının hafiflemesiyle 2022 sezonunda FRC turnuvaları sahalara döndü. G.O.A.T. 8092, 18-20 Mart 2022'de düzenlenen Bosphorus Regional 2022 turnuvasına katıldı. Takım eleme yarışmaları sonunda 8. sırada yer aldı ve turnuva boyunca 5–5 maç derecesi elde etti. Bu performansıyla G.O.A.T. 8092, çeyrek finallere yükselmeye hak kazandı; ittifak seçimlerinde 5. sıradaki ittifakın ilk tercihi olarak bir üst tura çıktı ve çeyrek final aşamasında elendi. 2022 sezonunda takım herhangi bir jüri ödülü kazanamadı, ancak playoff tecrübesi yaşayarak önemli bir gelişim gösterdi.",
+        "Pandemi kısıtlamalarının hafiflemesiyle 2022 sezonunda FIRST Robotics Competition turnuvaları sahalara döndü. G.O.A.T. 8092, 18–20 Mart 2022'de Sanyer/İstanbul'da düzenlenen 2022 FIRST Robotics Competition Bosphorus Regional turnuvasına katıldı. Takım eleme yarışmaları sonunda 43 takım arasında 8. sırada yer aldı ve 5–3 galibiyet-mağlubiyet derecesi elde etti. Bu performansıyla 5. sıradaki ittifakın ilk tercihi olarak playoff turlarına yükseldi; çeyrek finalde 0–2 mağlup olarak elendi. Toplam maç derecesi 5–5 oldu.",
       season_2023_title: '2023 Sezonu – Charged Up',
       season_2023_description:
-        '27-29 Mart 2023\'te gerçekleştirilen Bosphorus Regional 2023 etkinliği, G.O.A.T. 8092\'nin bu sezondaki tek resmi yarışı oldu. Takım, "Charged Up" sezonunun bu İstanbul bölgesel turnuvasında 5 galibiyet ve 4 mağlubiyet ile 24. sırada yer aldı. Sıralama olarak üst ittifak seçimlerine girebilmesine rağmen, 2023 sezonunda G.O.A.T. 8092 herhangi bir playoff turuna yükselemedi. Yine de sezon boyunca edindiği tecrübeler ve sağladığı istikrar ile gelecekteki yıllara hazırlık yaptı.',
+        "27–29 Mart 2023'te Sanyer/İstanbul'da gerçekleştirilen 2023 FIRST Robotics Competition Bosphorus Regional etkinliği, G.O.A.T. 8092'nin bu sezondaki tek resmi yarışı oldu. Takım, \"Charged Up\" sezonunun bu bölgesel turnuvasında 5 galibiyet ve 4 mağlubiyet ile 45 takım arasında 24. sırada yer aldı. G.O.A.T. 8092 bu sezonda playoff turlarına yükselemedi; ancak edindiği tecrübeler ve istikrar gelecekteki yıllara güçlü bir hazırlık sağladı.",
       season_2024_title: '2024 Sezonu – Crescendo',
       season_2024_description:
-        '2024 FRC sezonunda G.O.A.T. 8092 takımı resmi bir yarışmaya katılım göstermedi. Takım, bu dönemde kaynaklarını ve sponsor desteğini güçlendirmeye odaklandı. Nitekim 2024 yılı itibarıyla Çetin Group, Saray Alüminyum ve Yılmaz Kalıp gibi yeni sponsorlar ekibe destek verenler arasına katıldı. Resmi yarışmalara ara verilen bu sezonda, ekip içi eğitimler, robotik çalışmalar ve topluluk etkileşimleri sürdürüldü.',
+        '2024 FIRST Robotics Competition sezonunda G.O.A.T. 8092 takımı resmi bir yarışmaya katılım göstermedi. Takım, bu dönemde kaynaklarını ve sponsor desteğini güçlendirmeye odaklandı. Nitekim 2024 yılı itibarıyla Çetin Group, Saray Alüminyum ve Yılmaz Kalıp gibi yeni sponsorlar ekibe destek verenler arasına katıldı. Resmi yarışmalara ara verilen bu sezonda, ekip içi eğitimler, robotik çalışmalar ve topluluk etkileşimleri sürdürüldü.',
       season_2024_note_title: 'Önemli Gelişme (2024):',
       season_2024_note_text:
         'Ayrıca lise takımı üyeleri, "G.O.A.T. Jr." adında bir alt takım oluşturarak ortaokul düzeyindeki öğrencilere mentorluk yapmaya başlamıştır.',
       season_2025_title: '2025 Sezonu – REEFSCAPE',
       season_2025_description:
-        'G.O.A.T. 8092, 2025 sezonuyla birlikte FRC sahnesine geri döndü. 4-6 Mart 2025 tarihlerinde düzenlenen Bosphorus Regional 2025 turnuvasında "REEFSCAPE" temalı görevlerle yarışan takım, eleme yarışmaları sonucunda 36. sırada yer aldı ve 3 galibiyet, 6 mağlubiyetlik bir performans sergiledi. Bu derece ile 2025 sezonunda playoff turlarına yükselemediler.',
+        'G.O.A.T. 8092, 2025 sezonuyla birlikte FIRST Robotics Competition sahnesine geri döndü. 4–6 Mart 2025 tarihlerinde İstanbul Fuar Merkezi\'nde (Bakırköy) düzenlenen 2025 FIRST Robotics Competition Bosphorus Regional turnuvasında "REEFSCAPE" temalı görevlerle yarışan takım, eleme yarışmaları sonucunda 48 takım arasında 36. sırada yer aldı ve 3 galibiyet, 6 mağlubiyetlik bir performans sergiledi. Bu derece ile 2025 sezonunda playoff turlarına yükselemediler.',
       season_2025_description_2:
         'Yarışma dışında da dikkat çekici faaliyetlerine devam eden G.O.A.T. 8092, mühendislik atölyeleri, sosyal sorumluluk projeleri ve kodlama eğitimleri gibi etkinliklerle sadece yarışmalarda değil, toplumun STEM eğitiminde de rol oynadı. Özellikle yerel basında çıkan haberlerde, takımın bölgedeki gençlere ilham veren çalışmaları ve mesleki eğitime yaptığı katkılar vurgulandı.',
-      stats_title: 'Yarışma İstatistikleri (2020-2025)',
+      season_2026_title: '2026 Sezonu – REBUILT 🏆',
+      season_2026_description:
+        "G.O.A.T. 8092, FIRST Robotics Competition 2026 REBUILT sezonunda 31 Mart–2 Nisan 2026 tarihleri arasında Bakırköy/İstanbul'da düzenlenen 2026 FIRST Robotics Competition Avrasya Regional'ına katıldı. Takım, 40 takım arasında 34. sırada yer alarak 3 galibiyet, 6 mağlubiyet derecesi elde etti. Yarışma boyunca güçlü takım kültürü, topluluk katkısı ve FIRST değerlerine bağlılığıyla öne çıktı.",
+      season_2026_award_title: "🏆 Judges' Award – Avrasya Bölgesel Yarışması",
+      season_2026_award_description:
+        "FIRST'in resmi tanımıyla: yarışma süresince jüri paneli, bir takımın benzersiz çabalarının, performansının veya dinamiklerinin tanınmayı hak ettiğine karar verebilir. G.O.A.T. 8092, 2026 Avrasya Bölgesel'inde sergilediği özgün takım kimliği ve dinamikleriyle bu takdir ödülüne layık görüldü.",
+      stats_title: 'Yarışma İstatistikleri (2020-2026)',
       stats_seasons_label: 'Resmi FRC Sezonu',
       stats_awards_label: 'Resmi Ödül',
-      stats_awards_note: '(Rookie All Star 2020)',
+      stats_awards_note: "(Rookie All-Star 2020 + Judges' Award 2026)",
       stats_record_label: 'Toplam Galibiyet-Mağlubiyet',
       supporters_title: 'Sponsorlarımız ve Destekçilerimiz',
+      main_sponsor_label: 'Ana Sponsor',
+      sponsors_label: 'Sponsorlar',
+      institutional_label: 'Kurumsal Destekçiler',
+      elmas_label: 'ELMAS Programı Pilot Okulu',
+      elmas_note: 'Türkiye çapında 13 okul',
     },
 
     // Team Section
@@ -435,7 +446,7 @@ export const translations: Translations = {
       team_name: 'Team 8092',
       motto: 'Greatest of All Times',
       team_description:
-        "Greatest of All Times - Tekirdağ'ın ilk ve tek FRC takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
+        "Greatest of All Times - Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı. 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz.",
       quick_links: 'Hızlı Erişim',
       home: 'Anasayfa',
       team: 'Takım',
@@ -690,14 +701,14 @@ export const translations: Translations = {
       title: 'FRC Team 8092',
       subtitle: 'Greatest of All Times',
       description:
-        "As Tekirdağ's first and only FRC team, we represent Turkey in FIRST robotics competitions.",
+        "As Tekirdağ's first and only FIRST Robotics Competition team, we represent Turkey in international robotics competitions.",
       joinButton: 'Join Team',
       sponsorButton: 'Become a Sponsor',
       learnMore: 'Learn More',
       frc_badge: 'FIRST ROBOTICS COMPETITION',
       subtitle_long:
-        "As Tekirdağ's first and only FRC team, we have been building the future with FIRST values since 2019. Making our mark in the robotics world with innovation, teamwork, and gracious professionalism.",
-      achievement: 'Rookie All Star Award 2020',
+        "As Tekirdağ's first and only FIRST Robotics Competition team, we have been building the future with FIRST values since 2019. Two-time award winners — Rookie All-Star and Judges' Award — making our mark on the global robotics stage.",
+      achievement: "Rookie All-Star 2020 · Judges' Award 2026",
       discover_button: 'Discover Our Story',
       meet_team_button: 'Meet Our Team',
       resources_button: 'Resources',
@@ -748,42 +759,53 @@ export const translations: Translations = {
         'Team G.O.A.T. (Greatest of All Times) #8092 was founded in June 2019 at Halit Narin Vocational and Technical Anatolian High School in Çerkezköy, Tekirdağ with support from BSH Turkey and the Kodluyoruz Foundation. From day one G.O.A.T. 8092 became the first and only FIRST Robotics Competition team established in the Tekirdağ province.',
       season_2019_title: '2019 Season – Founding Year',
       season_2019_description:
-        'During the 2019 FRC season (Destination: Deep Space) the team was still newly formed and did not enter an official competition—the registered “rookie year” is 2020. Throughout this period the crew focused on internal training and outreach to prepare for their first official season.',
+        'During the 2019 FIRST Robotics Competition season (Destination: Deep Space) the team was still newly formed and did not enter an official competition—the registered “rookie year” is 2020. Throughout this period the crew focused on internal training and outreach to prepare for their first official season.',
       season_2020_title: '2020 Season – Infinite Recharge',
       season_2020_description:
-        'G.O.A.T. 8092 made its official debut in the 2020 season. The team attended the Bosphorus Regional in Istanbul on 9–11 March 2020, finishing 27th in the qualification rankings with a 4–4 record—a remarkable result for a brand-new team.',
-      season_2020_award_title: '🏆 Rookie All Star Award',
+        'G.O.A.T. 8092 made its official debut in the 2020 season. The team attended the 2020 FIRST Robotics Competition Bosphorus Regional in Istanbul (9–11 March 2020), finishing 27th in the qualification rankings with a 4–4 record—a remarkable result for a brand-new team.',
+      season_2020_award_title: '🏆 Rookie All-Star Award',
       season_2020_award_description:
-        'At the end of the event G.O.A.T. 8092 was recognised as the top rookie team. The award would normally grant a ticket to the FIRST Championship, but the world championship was cancelled because of the COVID-19 pandemic.',
+        'Per the official FIRST definition: celebrates the rookie team exemplifying a young but strong partnership effort, as well as implementing the mission of FIRST to inspire students to learn more about science and technology. G.O.A.T. 8092 earned this award in their first competitive season — though the FIRST Championship ticket it normally carries could not be used due to the COVID-19 cancellation.',
       season_2021_title: '2021 Season – Infinite Recharge at Home',
       season_2021_description:
-        'Because of the pandemic, in-person FRC events were suspended in 2021 and replaced with virtual challenges. G.O.A.T. 8092 joined the Infinite Recharge at Home skills competition and the Game Design Challenge, finishing 11th in the Germanium Group of the remote challenge.',
+        'Because of the pandemic, in-person FIRST Robotics Competition events were suspended in 2021 and replaced with virtual challenges. G.O.A.T. 8092 joined the Infinite Recharge at Home skills competition and the Game Design Challenge, finishing 11th in the Germanium Group of the remote challenge.',
       season_2021_note_title: 'Key Milestone:',
       season_2021_note_text:
-        'In September 2021 students from Veliköy OSB Vocational and Technical Anatolian High School joined G.O.A.T., turning the team into a joint FRC programme run by two schools.',
+        'In September 2021 students from Veliköy OSB Vocational and Technical Anatolian High School joined G.O.A.T., turning the team into a joint FIRST Robotics Competition programme run by two schools.',
       season_2022_title: '2022 Season – Rapid React',
       season_2022_description:
-        'With public-health restrictions easing, FRC returned to the field in 2022. G.O.A.T. 8092 competed at the Bosphorus Regional on 18–20 March, finishing qualifications in 8th place with a 5–5 record. The team advanced to the quarterfinals as the first pick of the 5th alliance, gaining valuable playoff experience despite not earning a judged award that year.',
+        'With pandemic restrictions easing, FIRST Robotics Competition returned to the field in 2022. G.O.A.T. 8092 competed at the 2022 FIRST Robotics Competition Bosphorus Regional (18–20 March, Sanyer/Istanbul), finishing qualifications 8th out of 43 teams with a 5–3 record. As the first pick of the 5th alliance the team reached the quarterfinals, where they fell 0–2. Overall match record for the season: 5–5.',
       season_2023_title: '2023 Season – Charged Up',
       season_2023_description:
-        'The Bosphorus Regional 2023, held on 27–29 March, was the team’s only official event that season. G.O.A.T. 8092 ended with a 5–4 record and ranked 24th. Although the performance could have led to an alliance selection, the team missed the playoff rounds yet carried the lessons forward for future seasons.',
+        'The 2023 FIRST Robotics Competition Bosphorus Regional (27–29 March, Sanyer/Istanbul) was the team’s only official event that season. G.O.A.T. 8092 finished with a 5–4 record, ranking 24th out of 45 teams. The team did not advance to the playoffs but continued building experience for future seasons.',
       season_2024_title: '2024 Season – CRESCENDO',
       season_2024_description:
-        'In the 2024 FRC season G.O.A.T. 8092 did not attend an official event, focusing instead on strengthening resources and sponsorship. New supporters such as Çetin Group, Saray Aluminium, and Yılmaz Kalıp joined while the team continued internal training, robotics work, and community outreach.',
+        'In the 2024 FIRST Robotics Competition season G.O.A.T. 8092 did not attend an official event, focusing instead on strengthening resources and sponsorship. New supporters such as Çetin Group, Saray Aluminium, and Yılmaz Kalıp joined while the team continued internal training, robotics work, and community outreach.',
       season_2024_note_title: 'Key Milestone:',
       season_2024_note_text:
         'High-school members also launched a junior squad called “G.O.A.T. Jr.” to mentor middle-school students in robotics.',
       season_2025_title: '2025 Season – REEFSCAPE',
       season_2025_description:
-        'G.O.A.T. 8092 returned to the FRC field in 2025. At the Bosphorus Regional on 4–6 March the team competed in the REEFSCAPE game, placing 36th after qualifications with a 3–6 match record and missing the playoffs.',
+        'G.O.A.T. 8092 returned to the FIRST Robotics Competition field in 2025. At the 2025 FIRST Robotics Competition Bosphorus Regional (4–6 March, İstanbul Fuar Merkezi, Bakırköy) the team competed in the REEFSCAPE game, finishing 36th out of 48 teams with a 3–6 match record and missing the playoffs.',
       season_2025_description_2:
         'Beyond competition the team kept up impactful work through engineering workshops, social-responsibility projects, and coding trainings, earning local media coverage for inspiring young people and supporting vocational education in the region.',
-      stats_title: 'Competition Stats (2020–2025)',
+      season_2026_title: '2026 Season – REBUILT 🏆',
+      season_2026_description:
+        'G.O.A.T. 8092 competed at the 2026 FIRST Robotics Competition Avrasya Regional (Bakırköy, Istanbul, 31 March–2 April 2026) in the FIRST Robotics Competition 2026 REBUILT season. The team placed 34th out of 40 teams with a 3–6 match record and stood out throughout the event for its strong team culture, community contribution, and commitment to FIRST values.',
+      season_2026_award_title: "🏆 Judges' Award – Avrasya Regional",
+      season_2026_award_description:
+        "Per the official FIRST definition: during the course of the competition, the judging panel may decide a team's unique efforts, performance, or dynamics merit recognition. G.O.A.T. 8092's distinctive team identity and dynamics at the 2026 Avrasya Regional earned this recognition — the team's second official FIRST award.",
+      stats_title: 'Competition Stats (2020–2026)',
       stats_seasons_label: 'Official FRC Seasons',
       stats_awards_label: 'Official Awards',
-      stats_awards_note: '(Rookie All Star 2020)',
+      stats_awards_note: "(Rookie All-Star 2020 + Judges' Award 2026)",
       stats_record_label: 'Overall Win–Loss Record',
       supporters_title: 'Our Sponsors and Supporters',
+      main_sponsor_label: 'Main Sponsor',
+      sponsors_label: 'Sponsors',
+      institutional_label: 'Institutional Supporters',
+      elmas_label: 'ELMAS Program Pilot School',
+      elmas_note: '13 schools across Turkey',
     },
 
     // Team Section
@@ -1102,7 +1124,7 @@ export const translations: Translations = {
       team_name: 'Team 8092',
       motto: 'Greatest of All Times',
       team_description:
-        'Greatest of All Times - The first and only FRC team in Tekirdağ. Building the future with FIRST values since 2019.',
+        'Greatest of All Times - The first and only FIRST Robotics Competition team in Tekirdağ. Building the future with FIRST values since 2019.',
       quick_links: 'Quick Access',
       home: 'Home',
       team: 'Team',
