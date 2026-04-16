@@ -26,8 +26,8 @@ export const translations: Translations = {
       learnMore: 'Daha Fazla Bilgi',
       frc_badge: 'FIRST ROBOTICS COMPETITION',
       subtitle_long:
-        "Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı olarak 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. Rookie All-Star ve Judges' Award kazanan takım olarak robotik dünyasında iz bırakıyoruz.",
-      achievement: "Rookie All-Star 2020 · Judges' Award 2026",
+        "Tekirdağ'ın ilk ve tek FIRST Robotics Competition takımı olarak 2019'dan beri FIRST değerleriyle geleceği inşa ediyoruz. Çaylak Yıldızı Ödülü ve Jüri Özel Ödülü kazanan takım olarak robotik dünyasında iz bırakıyoruz.",
+      achievement: 'Çaylak Yıldızı Ödülü 2020 · Jüri Özel Ödülü 2026',
       discover_button: 'Hikayemizi Keşfedin',
       meet_team_button: 'Takımımızı Tanıyın',
       resources_button: 'Kaynaklar',
@@ -82,7 +82,7 @@ export const translations: Translations = {
       season_2020_title: '2020 Sezonu – Infinite Recharge',
       season_2020_description:
         "G.O.A.T. 8092, ilk resmi yarışmasına 2020 sezonunda çıktı. 9–11 Mart 2020'de İstanbul'da düzenlenen 2020 FIRST Robotics Competition Bosphorus Regional turnuvasına katılan takım, eleme turlarında 27. sırada yer aldı ve 4–4 maç derecesi elde etti. Bu başarı, yeni kurulan bir ekip için dikkat çekici olarak değerlendirildi.",
-      season_2020_award_title: '🏆 Rookie All-Star Ödülü',
+      season_2020_award_title: '🏆 Çaylak Yıldızı Ödülü (Rookie All-Star Award)',
       season_2020_award_description:
         "FIRST'in resmi tanımıyla: genç ama güçlü bir ortaklık çabasını örnek gösteren ve FIRST'in öğrencileri bilim ve teknolojiyle buluşturma misyonunu hayata geçiren çaylak takımı kutlar. G.O.A.T. 8092, bu ödüle layık görülerek FIRST sahnesinde güçlü bir giriş yaptı; ancak COVID-19 nedeniyle Dünya Şampiyonası iptal edildiğinden katılım hakkı kullanılamadı.",
       season_2021_title: '2021 Sezonu – Infinite Recharge at Home',
@@ -111,13 +111,14 @@ export const translations: Translations = {
       season_2026_title: '2026 Sezonu – REBUILT 🏆',
       season_2026_description:
         "G.O.A.T. 8092, FIRST Robotics Competition 2026 REBUILT sezonunda 31 Mart–2 Nisan 2026 tarihleri arasında Bakırköy/İstanbul'da düzenlenen 2026 FIRST Robotics Competition Avrasya Regional'ına katıldı. Takım, 40 takım arasında 34. sırada yer alarak 3 galibiyet, 6 mağlubiyet derecesi elde etti. Yarışma boyunca güçlü takım kültürü, topluluk katkısı ve FIRST değerlerine bağlılığıyla öne çıktı.",
-      season_2026_award_title: "🏆 Judges' Award – Avrasya Bölgesel Yarışması",
+      season_2026_award_title:
+        "🏆 Jüri Özel Ödülü (Judges' Award) – 2026 FIRST Robotics Competition Avrasya Regional",
       season_2026_award_description:
         "FIRST'in resmi tanımıyla: yarışma süresince jüri paneli, bir takımın benzersiz çabalarının, performansının veya dinamiklerinin tanınmayı hak ettiğine karar verebilir. G.O.A.T. 8092, 2026 Avrasya Bölgesel'inde sergilediği özgün takım kimliği ve dinamikleriyle bu takdir ödülüne layık görüldü.",
       stats_title: 'Yarışma İstatistikleri (2020-2026)',
       stats_seasons_label: 'Resmi FRC Sezonu',
       stats_awards_label: 'Resmi Ödül',
-      stats_awards_note: "(Rookie All-Star 2020 + Judges' Award 2026)",
+      stats_awards_note: '(Çaylak Yıldızı Ödülü 2020 + Jüri Özel Ödülü 2026)',
       stats_record_label: 'Toplam Galibiyet-Mağlubiyet',
       supporters_title: 'Sponsorlarımız ve Destekçilerimiz',
       main_sponsor_label: 'Ana Sponsor',
